@@ -3,6 +3,7 @@ import {
     FETCH_POPULAR_SUCCESS,
     FETCH_STORY_SUCCESS,
     CHANGE_HEADER,
+    CLEAN_STATE,
 } from '../actions/news';
 
 const initialState = {
@@ -15,9 +16,14 @@ const initialState = {
 
 const newsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CLEAN_STATE:
+            return {
+                ...initialState,
+            };
         case FETCH_POPULAR_SUCCESS:
             return {
                 ...state,
+                loading: false,
                 popular: action.payload.results,
             };
         case FETCH_STORY_SUCCESS:
@@ -34,7 +40,6 @@ const newsReducer = (state = initialState, action) => {
         case CHANGE_HEADER:
             return {
                 ...state,
-                story: [],
                 header: action.payload,
             };
         default:

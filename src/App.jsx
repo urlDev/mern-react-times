@@ -1,12 +1,16 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchTopStories } from './redux/actions/news';
+import {
+  fetchTopStories,
+  fetchMostPopular,
+  changeHeader,
+  cleanState,
+} from './redux/actions/news';
 
 import Home from './components/home/Home';
-import Nav from './components/nav/Nav';
-import StoryTopicHeaders from './components/story-topic-headers/StoryTopicHeaders';
+import Login from './components/login/Login';
 
 import './App.css';
 
@@ -14,16 +18,23 @@ const App = () => {
   const { header } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
+  const path = window.location.pathname;
+
   React.useEffect(() => {
+    // If client jumps to some route without clicking to menu bar
+    // then the app will show the client the relevant results
+    if (path.slice(1) !== 'home') {
+      dispatch(changeHeader(path.slice(1)));
+    }
     dispatch(fetchTopStories(header));
-  }, [dispatch, header]);
+    dispatch(fetchMostPopular());
+  }, [dispatch, header, path]);
 
   return (
     <div className="App">
-      <Nav />
-      <StoryTopicHeaders />
       <Switch>
-        <Route path={`/${header.toLowerCase()}`} component={Home} />
+        <Route path="/" component={Home} />
+        <Route path="/login" component={Login} />
       </Switch>
     </div>
   );

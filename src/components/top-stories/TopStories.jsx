@@ -19,9 +19,7 @@ import { Date } from '../story-topic-headers/StoryTopicHeaders.styles';
 const TopStories = () => {
   const { loading, story } = useSelector((news) => news.news);
 
-  const random = Math.floor(Math.random() * story.length);
-
-  console.log(story);
+  // const random = Math.floor(Math.random() * story.length);
 
   return (
     <div>
@@ -30,7 +28,7 @@ const TopStories = () => {
         {loading ? (
           <h1>Loading...</h1>
         ) : (
-          story.slice(random - 3, random).map((data) => {
+          story.slice(0, 3).map((data) => {
             return (
               <StoryContainer>
                 <img src={data.multimedia[3].url} alt="story" />

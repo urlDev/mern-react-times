@@ -2,12 +2,42 @@ import styled from 'styled-components';
 
 export const MostPopularContainer = styled.div `
   margin-top: 85px;
-  padding: 0 40px;
+  padding: 0 0 0 40px;
+`;
 
-  h1 {
-    font-family: var(--font-header);
-    font-size: var(--size-category-selected);
-    font-weight: 900;
-    margin-top: 0;
+export const PopularTitle = styled.h1 `
+  font-family: var(--font-header);
+  font-size: var(--size-category-selected);
+  font-weight: 900;
+  margin-top: 0;
+`;
+
+export const PopularStoriesContainer = styled.div `
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 25px;
+  grid-column-gap: 10px;
+`;
+
+export const StoryContainer = styled.div `
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 10px;
+  :nth-child(1) {
+    grid-column: span 2;
   }
+`;
+
+export const StoryTitle = styled.h1 `
+  font-family: var(--font-header);
+  font-size: 1.2rem;
+  color: ${(props) => (props.color ? 'var(--gray)' : 'black')};
+  margin: 0;
+  width: 100%;
+`;
+
+export const ImageContainer = styled.div `
+  background: url(${(props) => props.background}) no-repeat;
+  background-size: cover;
+  background-position: center left;
 `;

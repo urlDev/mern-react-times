@@ -4,6 +4,11 @@ export const FETCH_POPULAR_SUCCESS = 'FETCH_POPULAR_SUCCESS';
 export const FETCH_STORY_SUCCESS = 'FETCH_STORY_SUCCESS';
 export const FETCH_NEWS_ERROR = 'FETCH_NEWS_ERROR';
 export const CHANGE_HEADER = 'CHANGE_HEADER';
+export const CLEAN_STATE = 'CLEAN_STATE';
+
+export const cleanState = () => ({
+    type: CLEAN_STATE,
+});
 
 export const fetchPopularSuccess = (news) => ({
     type: FETCH_POPULAR_SUCCESS,

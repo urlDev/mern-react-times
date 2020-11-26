@@ -6,6 +6,7 @@ export const TopStoriesContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 70vw;
+  height: 20vh;
   border-right: 1.3px solid lightgray;
   margin-top: 30px;
 `;

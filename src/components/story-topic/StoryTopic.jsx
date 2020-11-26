@@ -1,7 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { fetchTopStories } from '../../redux/actions/news';
+import { useSelector } from 'react-redux';
 
 import { StoryTopicContainer } from './StoryTopic.styles';
 

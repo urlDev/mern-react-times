@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { changeHeader } from '../../redux/actions/news';
 
@@ -19,11 +20,13 @@ const Nav = () => {
           style={{ height: '25px' }}
           src={LogoSrc}
           alt="react times logo"
-          onClick={() => dispatch(changeHeader('Home'))}
+          onClick={() => dispatch(changeHeader('home'))}
         />
       </Logo>
 
-      <button>Sign in</button>
+      <Logo to="/login">
+        <button>Sign in</button>
+      </Logo>
     </NavContainer>
   );
 };

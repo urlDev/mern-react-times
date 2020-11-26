@@ -5,8 +5,9 @@ import { StyledLink } from '../story-topic-headers/StoryTopicHeaders.styles';
 export const TopStoriesContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 50vw;
-  grid-column-gap: 50px;
+  width: 70vw;
+  border-right: 1.3px solid lightgray;
+  margin-top: 30px;
 `;
 
 export const SubTitle = styled.h3 `
@@ -19,7 +20,7 @@ export const SubTitle = styled.h3 `
 export const TagContainer = styled.div `
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  padding-top: 20px;
 `;
 
 export const Title = styled.h1 `
@@ -28,20 +29,18 @@ export const Title = styled.h1 `
 `;
 
 export const StoryContainer = styled.div `
-  margin-top: 30px;
-
   :not(:first-child) {
+    padding: 0 40px;
     img {
       display: none;
     }
 
     ${SubTitle} {
-      border: 1px solid red;
       display: none;
     }
 
     ${TagContainer} {
-      margin-top: auto;
+      padding-top: 0;
     }
 
     ${Title} {
@@ -51,24 +50,23 @@ export const StoryContainer = styled.div `
 
   :first-child {
     grid-row: span 2;
-    position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      transform: rotate(90deg);
-      background: lightgray;
-      height: 1.2px;
-      width: 120%;
-      left: 45%;
-      top: 50%;
-    }
+    padding-right: 40px;
+    border-right: 1.3px solid lightgray;
   }
 
   :last-child {
-    ${TagContainer} {
-      margin-top: 20px;
-    }
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 7px;
+    margin-top: 15%;
+  }
+
+  :nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 7px;
   }
 `;
 
@@ -78,6 +76,7 @@ export const Tag = styled.span `
   padding: 7px 15px;
   text-transform: uppercase;
   font-family: var(--font-links);
+  font-size: var(--size-text);
   font-weight: 400;
 `;
 
@@ -88,7 +87,7 @@ export const StoryLink = styled(StyledLink)
     position: absolute;
     bottom: -7px;
     left: 0;
-    width: 100%;
+    width: 110px;
     background: var(--gray);
     height: 1.3px;
   }

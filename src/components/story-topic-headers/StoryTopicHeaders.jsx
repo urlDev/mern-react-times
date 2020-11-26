@@ -14,6 +14,7 @@ const StoryTopics = () => {
   const dispatch = useDispatch();
 
   const topics = [
+    'Home',
     'Arts',
     'Business',
     'Health',
@@ -35,7 +36,9 @@ const StoryTopics = () => {
         {topics.map((topic) => {
           return (
             <StyledLink to={`/${topic.toLowerCase()}`}>
-              <span onClick={() => dispatch(changeHeader(topic))}>{topic}</span>
+              <span onClick={() => dispatch(changeHeader(topic.toLowerCase()))}>
+                {topic}
+              </span>
             </StyledLink>
           );
         })}

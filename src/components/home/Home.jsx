@@ -1,15 +1,13 @@
-import StoryTopicHeaders from '../story-topic-headers/StoryTopicHeaders';
-import StoryTopic from '../story-topic/StoryTopic';
 import TopStories from '../top-stories/TopStories';
+import MostPopular from '../most-popular/MostPopular';
 
 import { HomeContainer } from './Home.styles';
 
 const Home = () => {
   return (
     <HomeContainer>
-      <StoryTopicHeaders />
-      <StoryTopic />
       <TopStories />
+      <MostPopular />
     </HomeContainer>
   );
 };

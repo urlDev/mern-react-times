@@ -17,8 +17,8 @@ export const fetchStorySuccess = (news) => ({
 
 export const changeHeader = (header) => ({
     type: CHANGE_HEADER,
-    payload: header
-})
+    payload: header,
+});
 
 export const fetchNewsError = (error) => ({
     type: FETCH_NEWS_ERROR,

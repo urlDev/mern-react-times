@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const NavContainer = styled.nav `
   /* width: 100%; */
@@ -19,10 +19,10 @@ export const NavContainer = styled.nav `
     padding: 7px 15px;
     cursor: pointer;
     transition: all 0.3s ease-in;
-    
+
     &:hover {
-        background: black;
-        color: white;  
+      background: black;
+      color: white;
     }
   }
 `;

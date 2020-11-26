@@ -2,7 +2,7 @@ import {
     FETCH_NEWS_ERROR,
     FETCH_POPULAR_SUCCESS,
     FETCH_STORY_SUCCESS,
-    CHANGE_HEADER
+    CHANGE_HEADER,
 } from '../actions/news';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
     popular: [],
     story: [],
     error: null,
-    header: 'Arts'
+    header: 'home',
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -29,14 +29,14 @@ const newsReducer = (state = initialState, action) => {
         case FETCH_NEWS_ERROR:
             return {
                 ...state,
-                news: [],
                 error: action.payload,
             };
         case CHANGE_HEADER:
             return {
                 ...state,
-                header: action.payload
-            }
+                story: [],
+                header: action.payload,
+            };
         default:
             return state;
     }

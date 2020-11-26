@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StoryTopicHeadersContainer = styled.div `
-  margin-top: 20px;
-  width: 100%;
+  margin: 20px 30px;
   display: flex;
   justify-content: space-between;
 `;

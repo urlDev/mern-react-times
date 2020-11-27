@@ -10,6 +10,7 @@ export const PopularTitle = styled.h1 `
   font-size: var(--size-category-selected);
   font-weight: 900;
   margin-top: 0;
+  margin-bottom: 30px;
 `;
 
 export const PopularStoriesContainer = styled.div `
@@ -29,7 +30,8 @@ export const StoryContainer = styled.div `
 `;
 
 export const StoryTitle = styled.h1 `
-  font-family: var(--font-header);
+  font-family: ${(props) =>
+    props.font ? 'var(--font-header)' : 'var(--font-text)'};
   font-size: 1.2rem;
   color: ${(props) => (props.color ? 'var(--gray)' : 'black')};
   margin: 0;

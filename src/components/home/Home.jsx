@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
+import LogoDarkSrc from '../../assets/logo.svg';
 
 import Nav from '../nav/Nav';
 import StoryTopicHeaders from '../story-topic-headers/StoryTopicHeaders';
@@ -10,13 +12,10 @@ const Home = () => {
 
   return (
     <div>
-      <Nav />
+      <Nav logo={LogoDarkSrc} border icon={true} color={false} />
       <StoryTopicHeaders />
-      <Route exact path="/">
-        <Redirect to="/home" />
-      </Route>
       <Route path={`/${header.toLowerCase()}`} component={StoryComponents} />
-    </div> //
+    </div>
   );
 };
 

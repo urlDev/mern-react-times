@@ -10,7 +10,7 @@ import {
 } from './redux/actions/news';
 
 import Home from './components/home/Home';
-import Login from './components/login/Login';
+import LoginRegister from './components/login-register/LoginRegister';
 
 import './App.css';
 
@@ -23,8 +23,10 @@ const App = () => {
   React.useEffect(() => {
     // If client jumps to some route without clicking to menu bar
     // then the app will show the client the relevant results
-    if (path.slice(1) !== 'home') {
+    if (path !== '/') {
       dispatch(changeHeader(path.slice(1)));
+    } else {
+      dispatch(changeHeader('home'));
     }
     dispatch(fetchTopStories(header));
     dispatch(fetchMostPopular());
@@ -33,8 +35,11 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+        <Route path="/login" component={LoginRegister} />{' '}
         <Route path="/" component={Home} />
-        <Route path="/login" component={Login} />
       </Switch>
     </div>
   );

@@ -9,6 +9,8 @@ import {
   ImageContainer,
 } from './MostPopular.styles';
 
+import { StoryLink } from '../top-stories/TopStories.styles';
+
 const MostPopular = () => {
   const { popular } = useSelector((news) => news.news);
 
@@ -19,12 +21,11 @@ const MostPopular = () => {
   return (
     <MostPopularContainer>
       <PopularTitle>Most Popular</PopularTitle>
-
       {popular.slice(0, 3).map((story) => {
         return (
           <PopularStoriesContainer>
             <StoryContainer>
-              <StoryTitle>{story.title}</StoryTitle>
+              <StoryTitle font>{story.title}</StoryTitle>
               <StoryTitle color>
                 {story.abstract.split(' ').slice(0, 10).join(' ')}...
               </StoryTitle>
@@ -34,7 +35,8 @@ const MostPopular = () => {
             />
           </PopularStoriesContainer>
         );
-      })}
+      })}{' '}
+      <StoryLink popular>See All</StoryLink>
     </MostPopularContainer>
   );
 };

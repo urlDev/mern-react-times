@@ -88,8 +88,8 @@ export const StoryLink = styled(StyledLink)
     position: absolute;
     bottom: -7px;
     left: 0;
-    width: 110px;
+    width: ${(props) => (props.popular ? '43px' : '110px')};
     background: var(--gray);
-    height: 1.3px;
+    height: 2px;
   }
 `;

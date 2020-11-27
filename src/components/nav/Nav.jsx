@@ -9,8 +9,8 @@ const Nav = ({ logo, icon, color }) => {
     <NavContainer color={color}>
       <SearchIcon src={SearchSrc} alt="search icon" icon={icon} />
       <LogoComponent logo={logo} />
-      <Logo to="/login">
-        <button>Sign in</button>
+      <Logo to="/profile/login">
+        <button>Login</button>
       </Logo>
     </NavContainer>
   );

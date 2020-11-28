@@ -4,9 +4,9 @@ import LogoComponent from '../logo-component/LogoComponent';
 import { NavContainer, SearchIcon } from './Nav.styles';
 import { Logo } from '../logo-component/LogoComponent.styles';
 
-const Nav = ({ logo, icon, color }) => {
+const Nav = ({ logo, icon, color, border }) => {
   return (
-    <NavContainer color={color}>
+    <NavContainer color={color} border={border}>
       <SearchIcon src={SearchSrc} alt="search icon" icon={icon} />
       <LogoComponent logo={logo} />
       <Logo to="/profile/login">

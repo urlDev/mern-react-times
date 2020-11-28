@@ -4,6 +4,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: var(--background);
+    overflow-x: hidden;
 }
 
 html,
@@ -19,6 +20,8 @@ code {
     /* colors */
     --background: #f5f5f5;
     --gray: #707070;
+    --red: #cb4a5c;
+    --green: #5c8f5d;
     /* fonts */
     --font-header: 'Playfair Display', serif;
     --font-text: 'Raleway', sans-serif;

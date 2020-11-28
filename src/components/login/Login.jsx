@@ -4,15 +4,26 @@ import { Link } from 'react-router-dom';
 import { LoginContainer } from './Login.styles';
 
 const Login = ({ register }) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [name, setName] = React.useState('');
+  const initialState = {
+    name: '',
+    email: '',
+    password: '',
+  };
+  // destructuring properties off of input
+  const [{ name, email, password }, setInput] = React.useState(initialState);
+
+  const handleChange = (e) => {
+    // spread prevState and add new values with name, dynamically
+    setInput((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setEmail('');
-    setPassword('');
-    setName('');
+    // set state back to initial
+    setInput({ ...initialState });
   };
 
   return (
@@ -24,7 +35,7 @@ const Login = ({ register }) => {
             name="name"
             aria-label="name"
             placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleChange}
             value={name}
           />
         )}
@@ -33,7 +44,7 @@ const Login = ({ register }) => {
           name="email"
           aria-label="email"
           placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
           value={email}
         />
         <input
@@ -41,7 +52,7 @@ const Login = ({ register }) => {
           name="password"
           aria-label="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChange}
           value={password}
         />
         <button aria-label="login" type="submit">

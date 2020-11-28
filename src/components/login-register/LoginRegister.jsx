@@ -10,7 +10,7 @@ import { LoginRegisterContainer, Background } from './LoginRegister.styles';
 
 const LoginRegister = () => {
   return (
-    <>
+    <div>
       <Background src={BgSrc} alt="" />
       <Nav logo={LogoWhiteSrc} icon={false} color={true} />
       <LoginRegisterContainer>
@@ -20,7 +20,7 @@ const LoginRegister = () => {
           <Route path="/profile/register" component={Register} />
         </Switch>
       </LoginRegisterContainer>
-    </>
+    </div>
   );
 };
 

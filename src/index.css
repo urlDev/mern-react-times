@@ -34,6 +34,15 @@ code {
     --size-text: 1rem;
 }
 
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200px);
+    }
+}
+
 
 /* 
 font-family: 'Montserrat', sans-serif;

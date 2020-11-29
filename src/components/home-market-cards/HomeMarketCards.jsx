@@ -2,7 +2,11 @@ import React from 'react';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchForex } from '../../redux/actions/chart';
+import {
+  fetchForex,
+  setMarketDetail,
+  fetchChartData,
+} from '../../redux/actions/chart';
 
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
 
@@ -18,7 +22,14 @@ const HomeMarketCards = () => {
     <MarketCardsContainer array={forex}>
       {forex.map((data) => {
         return (
-          <MarketCards percentage={data.changesPercentage}>
+          <MarketCards
+            to={`/${data.symbol.toLowerCase()}`}
+            percentage={data.changesPercentage}
+            onClick={() => {
+              dispatch(setMarketDetail({ data }));
+              dispatch(fetchChartData(data.symbol));
+            }}
+          >
             <h1>{data.symbol}</h1>
             <h2>
               {data.price} - {data.changesPercentage}

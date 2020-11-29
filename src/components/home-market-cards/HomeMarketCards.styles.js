@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 // Styled all the cards depending on array length
@@ -6,17 +7,21 @@ import styled, { css } from 'styled-components';
 // For mobile, I might have to make them a grid, which would
 // be easier to scale.
 
-export const MarketCards = styled.div `
+export const MarketCards = styled(Link)
+`
   color: white;
   background: ${(props) =>
     props.percentage > 0 ? 'var(--green)' : 'var(--red)'};
   padding: 5px 10px;
   width: calc((100vw - 60px - 75px) / 6);
   margin-right: 15px;
+  text-decoration: none;
 `;
 
 const biggerThanSix = css `
   width: calc((((100vw - 60px - 75px) / 6) * 7) + 83px);
+  animation: slide 20s infinite alternate ease-in-out;
+  animation-delay: 2s;
 `;
 
 const equalsToSix = css `

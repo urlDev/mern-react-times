@@ -2,6 +2,8 @@ import {
     FETCH_FOREX_SUCCESS,
     FETCH_CHART_ERROR,
     CHANGE_MARKET_TYPE,
+    SET_MARKET_DETAIL,
+    SET_CHART_DATA,
 } from '../actions/chart';
 
 const initialState = {
@@ -10,6 +12,8 @@ const initialState = {
     error: null,
     // Indexes are first to load.
     marketType: '%5EGSPC,%5ERUA,%5EDJI,DX-Y.NYB,%5ENDX,%5EN225,%5EFTSE',
+    marketDetail: {},
+    chartData: [],
 };
 
 const chartReducer = (state = initialState, action) => {
@@ -29,6 +33,16 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 marketType: action.payload,
+            };
+        case SET_MARKET_DETAIL:
+            return {
+                ...state,
+                marketDetail: action.payload.data,
+            };
+        case SET_CHART_DATA:
+            return {
+                ...state,
+                chartData: action.payload,
             };
         default:
             return state;

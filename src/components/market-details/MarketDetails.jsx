@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { setChartTimeFrame, fetchChartData } from '../../redux/actions/chart';
 
+import DetailsTable from '../details-table/DetailsTable';
 import Chart from '../chart/Chart';
 import {
   StoryTopicContainer,
@@ -15,7 +16,6 @@ const MarketDetails = () => {
   const timeFrames = ['5min', '15min', '30min', '1hour'];
 
   React.useEffect(() => {
-    console.log(chartTimeFrame);
     dispatch(fetchChartData(marketDetail.symbol, chartTimeFrame));
   }, [dispatch, chartTimeFrame, marketDetail.symbol]);
 
@@ -26,7 +26,7 @@ const MarketDetails = () => {
         {timeFrames.map((time, i) => (
           <TimeFrame
             key={time}
-            // active={chartTimeFrame === time}
+            active={chartTimeFrame === time}
             onClick={() => {
               dispatch(setChartTimeFrame(time));
             }}
@@ -35,7 +35,10 @@ const MarketDetails = () => {
           </TimeFrame>
         ))}
       </StoryTopicContainer>
-      <Chart />
+      <div style={{ display: 'flex' }}>
+        <Chart />
+        <DetailsTable />
+      </div>
     </div>
   );
 };

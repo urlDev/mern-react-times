@@ -2,6 +2,8 @@ import React from 'react';
 import * as d3 from 'd3';
 import { useSelector } from 'react-redux';
 
+import { ChartContainer } from './Chart.styles';
+
 const Chart = () => {
   const { chartData, chartTimeFrame } = useSelector((chart) => chart.chart);
   const d3Ref = React.useRef();
@@ -35,7 +37,8 @@ const Chart = () => {
     //   create x Axes
     const xAxes = d3
       .axisBottom(xAxisScale)
-      .tickFormat((date) => d3.timeFormat('%b %d')(date));
+      .ticks(5)
+      .tickFormat((date) => d3.timeFormat('%b %d, %I:%M')(date));
 
     // draw x axes
     svg
@@ -70,7 +73,11 @@ const Chart = () => {
     };
   }, [chartData, chartTimeFrame]);
 
-  return <svg ref={d3Ref}></svg>;
+  return (
+    <ChartContainer>
+      <svg ref={d3Ref}></svg>
+    </ChartContainer>
+  );
 };
 
 export default Chart;

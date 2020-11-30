@@ -5,6 +5,12 @@ export const FETCH_CHART_ERROR = 'FETCH_CHART_ERROR';
 export const CHANGE_MARKET_TYPE = 'CHANGE_MARKET_TYPE';
 export const SET_MARKET_DETAIL = 'SET_MARKET_DETAIL';
 export const SET_CHART_DATA = 'SET_CHART_DATA';
+export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
+
+export const setChartTimeFrame = (time) => ({
+    type: SET_CHART_TIME_FRAME,
+    payload: time,
+});
 
 export const setChartData = (data) => ({
     type: SET_CHART_DATA,
@@ -43,10 +49,10 @@ export const fetchForex = (market) => async(dispatch) => {
     }
 };
 
-export const fetchChartData = (symbol) => async(dispatch) => {
+export const fetchChartData = (symbol, timeFrame) => async(dispatch) => {
     try {
         const response = await axios.get(
-            `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
+            `https://financialmodelingprep.com/api/v3/historical-chart/${timeFrame}/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
         );
         const data = await response.data;
         return dispatch(setChartData(data));

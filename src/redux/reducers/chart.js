@@ -4,6 +4,7 @@ import {
     CHANGE_MARKET_TYPE,
     SET_MARKET_DETAIL,
     SET_CHART_DATA,
+    SET_CHART_TIME_FRAME,
 } from '../actions/chart';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
     marketType: '%5EGSPC,%5ERUA,%5EDJI,DX-Y.NYB,%5ENDX,%5EN225,%5EFTSE',
     marketDetail: {},
     chartData: [],
+    chartTimeFrame: '1hour',
 };
 
 const chartReducer = (state = initialState, action) => {
@@ -21,7 +23,7 @@ const chartReducer = (state = initialState, action) => {
         case FETCH_FOREX_SUCCESS:
             return {
                 ...state,
-                forex: action.payload.slice(0, 30),
+                forex: action.payload,
                 loading: false,
             };
         case FETCH_CHART_ERROR:
@@ -43,6 +45,11 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chartData: action.payload,
+            };
+        case SET_CHART_TIME_FRAME:
+            return {
+                ...state,
+                chartTimeFrame: action.payload,
             };
         default:
             return state;

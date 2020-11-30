@@ -1,12 +1,9 @@
 import React from 'react';
 import * as d3 from 'd3';
-import moment from 'moment';
 import { useSelector } from 'react-redux';
 
-import { ChartContainer } from './Chart.styles';
-
 const Chart = () => {
-  const { chartData, marketDetail } = useSelector((chart) => chart.chart);
+  const { chartData, chartTimeFrame } = useSelector((chart) => chart.chart);
   const d3Ref = React.useRef();
 
   React.useEffect(() => {
@@ -18,11 +15,7 @@ const Chart = () => {
 
     svg.attr('width', width).attr('height', height);
 
-    const dates = chartData.map(
-      (value) =>
-        //   moment(value.date).format('DD MMM | HH:mm'),
-        new Date(value.date),
-    );
+    const dates = chartData.map((value) => new Date(value.date));
 
     // xScale
     const xAxisScale = d3
@@ -40,7 +33,9 @@ const Chart = () => {
       .range([height - padding, padding]);
 
     //   create x Axes
-    const xAxes = d3.axisBottom(xAxisScale);
+    const xAxes = d3
+      .axisBottom(xAxisScale)
+      .tickFormat((date) => d3.timeFormat('%b %d')(date));
 
     // draw x axes
     svg
@@ -73,9 +68,9 @@ const Chart = () => {
       // clean the canvas for the next chart
       svg.selectAll('*').remove();
     };
-  }, [chartData]);
+  }, [chartData, chartTimeFrame]);
 
-  return <svg style={{ width: '600px', height: '400px' }} ref={d3Ref}></svg>;
+  return <svg ref={d3Ref}></svg>;
 };
 
 export default Chart;

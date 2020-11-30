@@ -11,7 +11,9 @@ import {
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
 
 const HomeMarketCards = () => {
-  const { marketType, forex } = useSelector((chart) => chart.chart);
+  const { marketType, forex, chartTimeFrame } = useSelector(
+    (chart) => chart.chart,
+  );
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -27,7 +29,7 @@ const HomeMarketCards = () => {
             percentage={data.changesPercentage}
             onClick={() => {
               dispatch(setMarketDetail({ data }));
-              dispatch(fetchChartData(data.symbol));
+              dispatch(fetchChartData(data.symbol, chartTimeFrame));
             }}
           >
             <h1>{data.symbol}</h1>

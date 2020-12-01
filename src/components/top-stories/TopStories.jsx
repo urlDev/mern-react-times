@@ -42,7 +42,9 @@ const TopStories = () => {
                 </TagContainer>
 
                 <Title>{data.title}</Title>
-                <SubTitle>{data.abstract}</SubTitle>
+                <SubTitle>
+                  {data.abstract.split(' ').slice(0, 20).join(' ')}...
+                </SubTitle>
                 <StoryLink top>Continue Reading</StoryLink>
               </StoryContainer>
             );

@@ -7,21 +7,20 @@ export const TopStoriesContainer = styled.div `
   grid-template-columns: repeat(2, 1fr);
   width: 70vw;
   height: 20vh;
-  border-right: 1.3px solid lightgray;
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 
 export const SubTitle = styled.h3 `
   font-family: var(--font-text);
   font-size: var(--size-sub-menu);
   color: var(--gray);
-  margin: 20px 0;
+  margin: 10px 0;
 `;
 
 export const TagContainer = styled.div `
   display: flex;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 10px;
 `;
 
 export const Title = styled.h1 `
@@ -30,6 +29,7 @@ export const Title = styled.h1 `
 `;
 
 export const StoryContainer = styled.div `
+  border-right: 1.3px solid lightgray;
   :not(:first-child) {
     padding: 0 40px;
     img {
@@ -52,7 +52,6 @@ export const StoryContainer = styled.div `
   :first-child {
     grid-row: span 2;
     padding-right: 40px;
-    border-right: 1.3px solid lightgray;
   }
 
   :last-child {

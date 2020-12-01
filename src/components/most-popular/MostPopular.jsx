@@ -25,7 +25,9 @@ const MostPopular = () => {
         return (
           <PopularStoriesContainer>
             <StoryContainer>
-              <StoryTitle font>{story.title}</StoryTitle>
+              <StoryTitle font>
+                {story.title.split(' ').slice(0, 6).join(' ')}...
+              </StoryTitle>
               <StoryTitle color>
                 {story.abstract.split(' ').slice(0, 10).join(' ')}...
               </StoryTitle>

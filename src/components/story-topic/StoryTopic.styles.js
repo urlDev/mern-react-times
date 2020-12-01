@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const StoryTopicContainer = styled.div `
-  margin-top: 40px;
+  margin-top: 15px;
 
   h1 {
     font-family: var(--font-header);

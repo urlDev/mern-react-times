@@ -10,7 +10,7 @@ const LogoComponent = ({ logo }) => {
   return (
     <Logo to="/home">
       <img
-        style={{ height: '30px' }}
+        style={{ height: '25px' }}
         src={logo}
         alt="react times logo"
         onClick={() => dispatch(changeHeader('home'))}

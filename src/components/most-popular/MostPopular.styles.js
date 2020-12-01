@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MostPopularContainer = styled.div `
-  margin-top: 85px;
+  margin-top: 55px;
   padding: 0 0 0 40px;
 `;
 
@@ -10,19 +10,19 @@ export const PopularTitle = styled.h1 `
   font-size: var(--size-category-selected);
   font-weight: 900;
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 export const PopularStoriesContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   grid-column-gap: 10px;
 `;
 
 export const StoryContainer = styled.div `
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 30px);
   grid-row-gap: 10px;
   :nth-child(1) {
     grid-column: span 2;

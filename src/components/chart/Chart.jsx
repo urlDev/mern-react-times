@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from 'd3';
 import { useSelector } from 'react-redux';
 
-import { ChartContainer, Tooltip } from './Chart.styles';
+import { ChartContainer } from './Chart.styles';
 
 const Chart = () => {
   const { chartData, chartTimeFrame } = useSelector((chart) => chart.chart);
@@ -11,9 +11,9 @@ const Chart = () => {
   React.useEffect(() => {
     const svg = d3.select(d3Ref.current);
 
-    const width = 600;
-    const height = 400;
-    const padding = 40;
+    const width = 550;
+    const height = 330;
+    const padding = 50;
 
     svg.attr('width', width).attr('height', height);
 
@@ -47,7 +47,7 @@ const Chart = () => {
       .attr('transform', `translate(0,${height - padding})`);
 
     // create y axes
-    const yAxes = d3.axisLeft(yAxisScale);
+    const yAxes = d3.axisLeft(yAxisScale).tickFormat((d) => `$ ${d}`);
 
     // draw y axes
     svg.append('g').call(yAxes).attr('transform', `translate(${padding},0)`);
@@ -59,15 +59,34 @@ const Chart = () => {
       .y((d) => yAxisScale(d.close));
 
     // draw historical price path
-    svg
+    const path = svg
       .append('path')
       .data([chartData])
       .style('fill', ' none')
       .attr('stroke', 'black')
       .attr('stroke-width', '1.5')
-      .attr('d', line);
+      .attr('d', line)
+      .on('mouseover', (a, d, i, n) => {
+        console.log(a, d, i, n);
+      });
 
-    d3.select(line).transition().duration(1000);
+    // get the length of the path for line transition
+    const pathLength = path.node().getTotalLength();
+
+    // transition for the line
+    const transitionPath = d3
+      .transition()
+      .delay(700)
+      .ease(d3.easeSin)
+      .duration(2000);
+
+    // setting pathsLength for strokes attrs and using transition
+    // I made it minus pathLength because it was drawing it backwards
+    path
+      .attr('stroke-dashoffset', -pathLength)
+      .attr('stroke-dasharray', pathLength)
+      .transition(transitionPath)
+      .attr('stroke-dashoffset', 0);
 
     return () => {
       // clean the canvas for the next chart

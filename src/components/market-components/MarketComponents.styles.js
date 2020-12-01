@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MarketComponentsContainer = styled.div `
-  margin: 30px;
+  margin: 15px 30px;
   /* border: 30px solid var(--gray); */
   padding-top: 10px;
   border-top: 1px solid lightgray;

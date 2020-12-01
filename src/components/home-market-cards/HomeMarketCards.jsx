@@ -34,7 +34,7 @@ const HomeMarketCards = () => {
               dispatch(fetchRating(data.symbol));
             }}
           >
-            <h1>{data.symbol}</h1>
+            <h1>{data.symbol.split('^').join('')}</h1>
             <h2>
               {data.price} - {data.changesPercentage}
             </h2>

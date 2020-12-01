@@ -13,12 +13,3 @@ export const ChartContainer = styled.div `
     background: lightgray;
   }
 `;
-
-export const Tooltip = styled.svg `
-  border: 1px solid red;
-  position: absolute;
-  padding: 7px 11px;
-  background: var(--gray);
-  color: white;
-  z-index: 1;
-`;

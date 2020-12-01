@@ -6,6 +6,7 @@ import {
   fetchForex,
   setMarketDetail,
   fetchChartData,
+  fetchRating,
 } from '../../redux/actions/chart';
 
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
@@ -30,6 +31,7 @@ const HomeMarketCards = () => {
             onClick={() => {
               dispatch(setMarketDetail({ data }));
               dispatch(fetchChartData(data.symbol, chartTimeFrame));
+              dispatch(fetchRating(data.symbol));
             }}
           >
             <h1>{data.symbol}</h1>

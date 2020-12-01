@@ -5,6 +5,7 @@ import {
     SET_MARKET_DETAIL,
     SET_CHART_DATA,
     SET_CHART_TIME_FRAME,
+    SET_RATING,
 } from '../actions/chart';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
     marketDetail: {},
     chartData: [],
     chartTimeFrame: '1hour',
+    rating: [],
 };
 
 const chartReducer = (state = initialState, action) => {
@@ -50,6 +52,11 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chartTimeFrame: action.payload,
+            };
+        case SET_RATING:
+            return {
+                ...state,
+                rating: action.payload,
             };
         default:
             return state;

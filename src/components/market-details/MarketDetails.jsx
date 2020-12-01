@@ -1,7 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setChartTimeFrame, fetchChartData } from '../../redux/actions/chart';
+import {
+  setChartTimeFrame,
+  fetchChartData,
+  fetchRating,
+} from '../../redux/actions/chart';
 
 import DetailsTable from '../details-table/DetailsTable';
 import Chart from '../chart/Chart';
@@ -11,7 +15,9 @@ import {
 } from '../story-topic/StoryTopic.styles';
 
 const MarketDetails = () => {
-  const { marketDetail, chartTimeFrame } = useSelector((chart) => chart.chart);
+  const { marketDetail, chartTimeFrame, rating } = useSelector(
+    (chart) => chart.chart,
+  );
   const dispatch = useDispatch();
   const timeFrames = ['5min', '15min', '30min', '1hour'];
 

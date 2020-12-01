@@ -6,6 +6,12 @@ export const CHANGE_MARKET_TYPE = 'CHANGE_MARKET_TYPE';
 export const SET_MARKET_DETAIL = 'SET_MARKET_DETAIL';
 export const SET_CHART_DATA = 'SET_CHART_DATA';
 export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
+export const SET_RATING = 'SET_RATING';
+
+export const setRating = (rating) => ({
+    type: SET_RATING,
+    payload: rating,
+});
 
 export const setChartTimeFrame = (time) => ({
     type: SET_CHART_TIME_FRAME,
@@ -56,6 +62,18 @@ export const fetchChartData = (symbol, timeFrame) => async(dispatch) => {
         );
         const data = await response.data;
         return dispatch(setChartData(data));
+    } catch (error) {
+        return dispatch(fetchChartError(error));
+    }
+};
+
+export const fetchRating = (symbol) => async(dispatch) => {
+    try {
+        const response = await axios.get(
+            `https://financialmodelingprep.com/api/v3/rating/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
+        );
+        const data = await response.data;
+        return dispatch(setRating(data));
     } catch (error) {
         return dispatch(fetchChartError(error));
     }

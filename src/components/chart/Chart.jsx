@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from 'd3';
 import { useSelector } from 'react-redux';
 
-import { ChartContainer } from './Chart.styles';
+import { ChartContainer, Tooltip } from './Chart.styles';
 
 const Chart = () => {
   const { chartData, chartTimeFrame } = useSelector((chart) => chart.chart);
@@ -47,7 +47,7 @@ const Chart = () => {
       .attr('transform', `translate(0,${height - padding})`);
 
     // create y axes
-    const yAxes = d3.axisLeft(yAxisScale).tickFormat(d3.format('d'));
+    const yAxes = d3.axisLeft(yAxisScale);
 
     // draw y axes
     svg.append('g').call(yAxes).attr('transform', `translate(${padding},0)`);
@@ -66,6 +66,8 @@ const Chart = () => {
       .attr('stroke', 'black')
       .attr('stroke-width', '1.5')
       .attr('d', line);
+
+    d3.select(line).transition().duration(1000);
 
     return () => {
       // clean the canvas for the next chart

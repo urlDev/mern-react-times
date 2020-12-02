@@ -7,9 +7,16 @@ import {
   setMarketDetail,
   fetchChartData,
   fetchRating,
+  fetchHomeChart,
 } from '../../redux/actions/chart';
 
-import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
+import MarketCardsChart from '../market-cards-chart/MarketCardsChart';
+import {
+  MarketCardsContainer,
+  MarketCards,
+  Left,
+  Right,
+} from './HomeMarketCards.styles';
 
 const HomeMarketCards = () => {
   const { marketType, forex, chartTimeFrame } = useSelector(
@@ -19,11 +26,12 @@ const HomeMarketCards = () => {
 
   React.useEffect(() => {
     dispatch(fetchForex(marketType));
+    dispatch(fetchHomeChart(marketType));
   }, [dispatch, marketType]);
 
   return (
     <MarketCardsContainer array={forex}>
-      {forex.map((data) => {
+      {forex.map((data, index) => {
         return (
           <MarketCards
             to={`/${data.symbol.toLowerCase()}`}
@@ -34,11 +42,16 @@ const HomeMarketCards = () => {
               dispatch(fetchRating(data.symbol));
             }}
           >
-            <h1>{data.symbol.split('^').join('')}</h1>
-            <h2>
-              {data.price} - {data.changesPercentage}
-            </h2>
-            <h2>{moment(data.timestamp).format('h:mm A')}</h2>
+            <Left>
+              <h1>{data.symbol.split('^').join('')}</h1>
+              <h2>
+                {data.price} - {data.changesPercentage}
+              </h2>
+              <h2>{moment(data.timestamp).format('h:mm A')}</h2>
+            </Left>
+            <Right>
+              <MarketCardsChart index={index} />
+            </Right>
           </MarketCards>
         );
       })}

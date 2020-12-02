@@ -28,6 +28,7 @@ code {
     --font-links: 'Montserrat', sans-serif;
     /* font-size */
     --size-header: 2.5rem;
+    --size-header-long: 2rem;
     --size-category-selected: 1.8rem;
     --size-section-header: 1.4rem;
     --size-sub-menu: 1.2rem;

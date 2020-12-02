@@ -65,10 +65,7 @@ const Chart = () => {
       .style('fill', ' none')
       .attr('stroke', 'black')
       .attr('stroke-width', '1.5')
-      .attr('d', line)
-      .on('mouseover', (a, d, i, n) => {
-        console.log(a, d, i, n);
-      });
+      .attr('d', line);
 
     // get the length of the path for line transition
     const pathLength = path.node().getTotalLength();

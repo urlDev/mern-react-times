@@ -41,7 +41,7 @@ const TopStories = () => {
                   </Date>
                 </TagContainer>
 
-                <Title>{data.title}</Title>
+                <Title header={data.title.split(' ')}>{data.title}</Title>
                 <SubTitle>
                   {data.abstract.split(' ').slice(0, 20).join(' ')}...
                 </SubTitle>

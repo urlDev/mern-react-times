@@ -6,18 +6,22 @@ import {
     SET_CHART_DATA,
     SET_CHART_TIME_FRAME,
     SET_RATING,
+    SET_HOME_CHART_DATA,
 } from '../actions/chart';
+
+import chartSort from '../utils/chartSort';
 
 const initialState = {
     loading: true,
     forex: [],
     error: null,
     // Indexes are first to load.
-    marketType: '%5EGSPC,%5ERUA,%5EDJI,DX-Y.NYB,%5ENDX,%5EN225,%5EFTSE',
+    marketType: '%5EGSPC,%5ERUA,%5EDJI,DX-Y.NYB,%5EN225,%5EFTSE',
     marketDetail: {},
     chartData: [],
     chartTimeFrame: '1hour',
     rating: [],
+    homeChartData: [],
 };
 
 const chartReducer = (state = initialState, action) => {
@@ -57,6 +61,11 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 rating: action.payload,
+            };
+        case SET_HOME_CHART_DATA:
+            return {
+                ...state,
+                homeChartData: chartSort(state.homeChartData, action.payload),
             };
         default:
             return state;

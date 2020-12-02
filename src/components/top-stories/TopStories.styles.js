@@ -25,7 +25,14 @@ export const TagContainer = styled.div `
 
 export const Title = styled.h1 `
   font-family: var(--font-header);
-  font-size: var(--size-header);
+  /* 
+  if header has more than 10 words, then I change the size of header.
+  Due to the layout I want to keep.
+  */
+  font-size: ${(props) =>
+    props.header.length > 10
+      ? 'var(--size-header-long)'
+      : 'var(--size-header)'};
 `;
 
 export const StoryContainer = styled.div `

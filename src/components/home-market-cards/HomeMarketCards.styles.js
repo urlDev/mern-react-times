@@ -12,10 +12,14 @@ export const MarketCards = styled(Link)
   color: white;
   background: ${(props) =>
     props.percentage > 0 ? 'var(--green)' : 'var(--red)'};
-  padding: 5px 10px;
+  padding: 10px 10px;
   width: calc((100vw - 60px - 75px) / 6);
   margin-right: 15px;
   text-decoration: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  // height: 70px;
 `;
 
 const biggerThanSix = css `
@@ -40,4 +44,19 @@ export const MarketCardsContainer = styled.div `
   ${(props) => (props.array.length <= 6 ? equalsToSix : biggerThanSix)}
   display: flex;
   margin-top: 10px;
+`;
+
+export const Left = styled.div `
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h1,
+  h2 {
+    margin: 2px;
+  }
+`;
+
+export const Right = styled.div `
+  grid-column: 3/ 6;
 `;

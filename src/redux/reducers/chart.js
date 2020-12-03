@@ -7,9 +7,8 @@ import {
     SET_CHART_TIME_FRAME,
     SET_RATING,
     SET_HOME_CHART_DATA,
+    CLEAN_STATE,
 } from '../actions/chart';
-
-import chartSort from '../utils/chartSort';
 
 const initialState = {
     loading: true,
@@ -30,7 +29,6 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 forex: action.payload,
-                loading: false,
             };
         case FETCH_CHART_ERROR:
             return {
@@ -51,7 +49,6 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chartData: action.payload,
-                loading: false,
             };
         case SET_CHART_TIME_FRAME:
             return {
@@ -68,6 +65,11 @@ const chartReducer = (state = initialState, action) => {
                 ...state,
                 homeChartData: [...state.homeChartData, action.payload],
                 loading: false,
+            };
+        case CLEAN_STATE:
+            return {
+                ...state,
+                homeChartData: [],
             };
         default:
             return state;

@@ -11,7 +11,6 @@ import MarketDetails from '../market-details/MarketDetails';
 
 const Home = () => {
   const { header } = useSelector((news) => news.news);
-  const { loading } = useSelector((chart) => chart.chart);
   return (
     <div>
       <Nav logo={LogoDarkSrc} border={true} icon={true} color={false} />

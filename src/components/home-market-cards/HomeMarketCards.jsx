@@ -74,7 +74,9 @@ import MarketCardsChart from '../market-cards-chart/MarketCardsChart';
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
 
 const HomeMarketCards = () => {
-  const { marketType, forex, loading } = useSelector((chart) => chart.chart);
+  const { marketType, forex, homeChartData } = useSelector(
+    (chart) => chart.chart,
+  );
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -95,7 +97,7 @@ const HomeMarketCards = () => {
               dispatch(fetchRating(data.symbol));
             }}
           >
-            <div>
+            <div style={{ marginRight: '7px' }}>
               <h1>{data.symbol.split('^').join('')}</h1>
               <h2>
                 {data.price} - {data.changesPercentage}
@@ -103,7 +105,7 @@ const HomeMarketCards = () => {
               <h2>{moment(data.timestamp).format('h:mm A')}</h2>
             </div>
 
-            {loading ? <h1>Loading...</h1> : <MarketCardsChart index={index} />}
+            {homeChartData.length > 5 && <MarketCardsChart index={index} />}
           </MarketCards>
         );
       })}

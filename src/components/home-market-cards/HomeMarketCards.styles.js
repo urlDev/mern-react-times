@@ -17,6 +17,7 @@ export const MarketCards = styled(Link)
   margin-right: 15px;
   text-decoration: none;
   display: flex;
+  height: 73px;
 `;
 
 const biggerThanSix = css `

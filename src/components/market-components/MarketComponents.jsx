@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { changeMarketType } from '../../redux/actions/chart';
 
@@ -15,6 +15,7 @@ import {
 const MarketComponents = () => {
   // First, I made market types array, the ones that I want to show in home page
   const marketTypes = ['Indexes', 'Crypto', 'Forex', 'Stocks', 'Commodities'];
+  const { homeChartData } = useSelector((chart) => chart.chart);
   const dispatch = useDispatch();
 
   const fetchMarketTypes = (market) => {

@@ -8,6 +8,11 @@ export const SET_CHART_DATA = 'SET_CHART_DATA';
 export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
 export const SET_RATING = 'SET_RATING';
 export const SET_HOME_CHART_DATA = 'SET_HOME_CHART_DATA';
+export const CLEAN_STATE = 'CLEAN_STATE';
+
+export const cleanState = () => ({
+    type: CLEAN_STATE,
+});
 
 export const setHomeChartData = (chart) => ({
     type: SET_HOME_CHART_DATA,
@@ -96,6 +101,7 @@ Yet another homerun for me! 😁😎
 export const fetchHomeChart = (symbols) => async(dispatch) => {
     const symbolsArray = symbols.split(',').sort();
     try {
+        dispatch(cleanState());
         for (let symbol of symbolsArray) {
             const response = await axios.get(
                 `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,

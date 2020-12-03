@@ -39,7 +39,6 @@ const StoryTopics = () => {
               <span
                 onClick={() => {
                   dispatch(changeHeader(topic.toLowerCase()));
-                  // dispatch(fetchTopStories(topic.toLowerCase()));
                 }}
               >
                 {topic}

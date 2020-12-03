@@ -14,7 +14,7 @@ import LoginRegister from './components/login-register/LoginRegister';
 import './App.css';
 
 const App = () => {
-  const { header } = useSelector((news) => news.news);
+  const { header, popular } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
   const path = window.location.pathname;
@@ -28,8 +28,11 @@ const App = () => {
       dispatch(changeHeader('home'));
     }
     dispatch(fetchTopStories(header));
-    dispatch(fetchMostPopular());
-  }, [dispatch, header, path]);
+
+    if (popular.length === 0) {
+      dispatch(fetchMostPopular());
+    }
+  }, [dispatch, header, path, popular]);
 
   return (
     <div className="App">

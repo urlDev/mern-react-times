@@ -16,7 +16,7 @@ const initialState = {
     forex: [],
     error: null,
     // Indexes are first to load.
-    marketType: '%5EGSPC,%5ERUA,%5EDJI,DX-Y.NYB,%5EN225,%5EFTSE',
+    marketType: '%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE',
     marketDetail: {},
     chartData: [],
     chartTimeFrame: '1hour',
@@ -51,6 +51,7 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chartData: action.payload,
+                loading: false,
             };
         case SET_CHART_TIME_FRAME:
             return {
@@ -65,7 +66,8 @@ const chartReducer = (state = initialState, action) => {
         case SET_HOME_CHART_DATA:
             return {
                 ...state,
-                homeChartData: chartSort(state.homeChartData, action.payload),
+                homeChartData: [...state.homeChartData, action.payload],
+                loading: false,
             };
         default:
             return state;

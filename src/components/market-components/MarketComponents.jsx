@@ -27,7 +27,7 @@ const MarketComponents = () => {
     //  So with all this, I can use one fetch function for all market kinds,
     //  Therefore, less fetch calls, less code.
     //  More comments as it seems😁
-    const Indexes = '%5EGSPC,%5ERUA,%5EDJI,DX-Y.NYB,%5EN225,%5EFTSE';
+    const Indexes = '%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE';
     const Crypto = 'BTCUSD,LTCUSD,XLMUSD,BCNUSD,ETHUSD,ETCUSD';
     const Forex = 'EURUSD,USDJPY,GBPUSD,EURGBP,EURJPY,GBPJPY';
     const Stocks = 'AAPL,FB,GOOG,TSLA,NFLX,AMZN';

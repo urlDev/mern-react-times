@@ -6,7 +6,6 @@ import {
   fetchTopStories,
   fetchMostPopular,
   changeHeader,
-  cleanState,
 } from './redux/actions/news';
 
 import Home from './components/home/Home';

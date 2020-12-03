@@ -9,9 +9,9 @@ export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
 export const SET_RATING = 'SET_RATING';
 export const SET_HOME_CHART_DATA = 'SET_HOME_CHART_DATA';
 
-export const setHomeChartData = (chart, index) => ({
+export const setHomeChartData = (chart) => ({
     type: SET_HOME_CHART_DATA,
-    payload: [chart, index],
+    payload: [chart],
 });
 
 export const setRating = (rating) => ({
@@ -85,16 +85,24 @@ export const fetchRating = (symbol) => async(dispatch) => {
     }
 };
 
+/*
+This deserves to be mentioned.
+Few months ago, when I was making the first version of this app, I used array.map to fetch charts.
+Because of the async nation and using array map method, response was coming irregular and I had to sort them.
+Now, with using for of loop, I dont need to write any extra code because loop waits for one to finish to move on.
+Plus, its so clean!
+Yet another homerun for me! 😁😎
+*/
 export const fetchHomeChart = (symbols) => async(dispatch) => {
     const symbolsArray = symbols.split(',').sort();
     try {
-        symbolsArray.map(async(symbol, index) => {
+        for (let symbol of symbolsArray) {
             const response = await axios.get(
                 `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
             );
-            const data = await response.data;
-            return dispatch(setHomeChartData(data, index));
-        });
+            const data = response.data;
+            dispatch(setHomeChartData(data));
+        }
     } catch (error) {
         return dispatch(fetchChartError(error));
     }

@@ -10,7 +10,9 @@ import MarketCardsChart from '../market-cards-chart/MarketCardsChart';
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
 
 const HomeMarketCards = () => {
-  const { forex, homeChartData } = useSelector((chart) => chart.chart);
+  const { forex, homeChartData, chartTimeFrame } = useSelector(
+    (chart) => chart.chart,
+  );
   const dispatch = useDispatch();
 
   return (
@@ -22,7 +24,7 @@ const HomeMarketCards = () => {
             percentage={data.changesPercentage}
             onClick={() => {
               dispatch(setMarketDetail({ data }));
-              dispatch(fetchChartData(data.symbol));
+              dispatch(fetchChartData(data.symbol, chartTimeFrame));
               dispatch(fetchRating(data.symbol));
             }}
             key={data.symbol}

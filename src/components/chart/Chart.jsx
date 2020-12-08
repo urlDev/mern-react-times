@@ -12,7 +12,7 @@ const Chart = () => {
     const svg = d3.select(d3Ref.current);
 
     const width = 550;
-    const height = 330;
+    const height = 345;
     const padding = 50;
 
     svg.attr('width', width).attr('height', height);

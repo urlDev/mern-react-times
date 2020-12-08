@@ -16,12 +16,12 @@ const Home = () => {
   const { error } = useSelector((chart) => chart.chart);
 
   return (
-    <div>
-      <Nav logo={LogoDarkSrc} border={true} icon={true} />
+    <>
+      <Nav logo={LogoDarkSrc} borderBottom="1px solid lightgray" icon="1" />
       <StoryTopicHeaders />
       <Switch>
         {loadingNews ? (
-          <Loading height />
+          <Loading height="420px" />
         ) : (
           <Route
             path={`/${header.toLowerCase()}`}
@@ -31,7 +31,7 @@ const Home = () => {
         <Route path="/:symbol" component={MarketDetails} />
       </Switch>
       {error ? <ErrorFallback /> : <MarketComponents />}
-    </div>
+    </>
   );
 };
 

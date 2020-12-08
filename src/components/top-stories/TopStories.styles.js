@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { StyledLink } from '../story-topic-headers/StoryTopicHeaders.styles';
-
 export const TopStoriesContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -85,17 +83,4 @@ export const Tag = styled.span `
   font-family: var(--font-links);
   font-size: var(--size-text);
   font-weight: 400;
-`;
-
-export const StoryLink = styled(StyledLink)
-`
-  :after {
-    content: '';
-    position: absolute;
-    bottom: -7px;
-    left: 0;
-    width: ${(props) => (props.popular ? '43px' : '110px')};
-    background: var(--gray);
-    height: 2px;
-  }
 `;

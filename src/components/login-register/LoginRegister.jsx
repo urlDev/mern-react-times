@@ -12,7 +12,13 @@ const LoginRegister = () => {
   return (
     <div>
       <Background src={BgSrc} alt="" />
-      <Nav logo={LogoWhiteSrc} icon={false} color={true} />
+      <Nav
+        logo={LogoWhiteSrc}
+        color="white"
+        border="1px solid white"
+        background="white"
+        hoverColor="black"
+      />
       <LoginRegisterContainer>
         <Switch>
           <Route exact path="/profile" component={Login} />

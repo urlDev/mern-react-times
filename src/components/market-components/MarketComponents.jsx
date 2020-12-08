@@ -75,7 +75,7 @@ const MarketComponents = () => {
           </MarketMenu>
         ))}
       </MarketHeaderContainer>
-      {loadingChart ? <Loading height={false} /> : <HomeMarketCards />}
+      {loadingChart ? <Loading /> : <HomeMarketCards />}
     </MarketComponentsContainer>
   );
 };

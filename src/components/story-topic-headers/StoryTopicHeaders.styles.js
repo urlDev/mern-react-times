@@ -15,8 +15,8 @@ export const TopicContainer = styled.div `
 
 export const Date = styled.p `
   margin: 0;
-  margin-left: ${(props) => (props.top ? '10px' : 0)};
-  width: ${(props) => (props.top ? '30%' : '20%')};
+  margin-left: ${(props) => props.margin || 0};
+  width: ${(props) => props.width || '20%'};
   font-family: var(--font-text);
   font-size: var(--size-sub-menu);
   /* font-weight: bold; */

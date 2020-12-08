@@ -7,9 +7,8 @@ import {
   StoryContainer,
   StoryTitle,
   ImageContainer,
+  SeeAll,
 } from './MostPopular.styles';
-
-import { StoryLink } from '../top-stories/TopStories.styles';
 
 const MostPopular = () => {
   const { popular } = useSelector((news) => news.news);
@@ -23,12 +22,16 @@ const MostPopular = () => {
       <PopularTitle>Most Popular</PopularTitle>
       {popular.slice(0, 3).map((story) => {
         return (
-          <PopularStoriesContainer key={story.id}>
+          <PopularStoriesContainer
+            key={story.id}
+            href={story.url}
+            target="_blank"
+          >
             <StoryContainer>
-              <StoryTitle font>
+              <StoryTitle font="var(--font-header)">
                 {story.title.split(' ').slice(0, 6).join(' ')}...
               </StoryTitle>
-              <StoryTitle color>
+              <StoryTitle color="var(--gray)">
                 {story.abstract.split(' ').slice(0, 10).join(' ')}...
               </StoryTitle>
             </StoryContainer>
@@ -37,8 +40,14 @@ const MostPopular = () => {
             />
           </PopularStoriesContainer>
         );
-      })}{' '}
-      <StoryLink popular={true}>See All</StoryLink>
+      })}
+      <SeeAll
+        popular="43px"
+        href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
+        target="_blank"
+      >
+        See All
+      </SeeAll>
     </MostPopularContainer>
   );
 };

@@ -10,11 +10,11 @@ import {
   Tag,
   Title,
   SubTitle,
-  StoryLink,
   TagContainer,
 } from './TopStories.styles';
 
 import { Date } from '../story-topic-headers/StoryTopicHeaders.styles';
+import { SeeAll } from '../most-popular/MostPopular.styles';
 
 const TopStories = () => {
   const { loading, story } = useSelector((news) => news.news);
@@ -36,7 +36,7 @@ const TopStories = () => {
                   <h1>
                     <Tag>{data.section}</Tag>
                   </h1>
-                  <Date top>
+                  <Date margin="10px" width="30%">
                     {moment(data.created_date).format('MMM DD, YYYY')}
                   </Date>
                 </TagContainer>
@@ -45,7 +45,9 @@ const TopStories = () => {
                 <SubTitle>
                   {data.abstract.split(' ').slice(0, 20).join(' ')}...
                 </SubTitle>
-                <StoryLink top>Continue Reading</StoryLink>
+                <SeeAll href={data.url} target="_blank">
+                  Continue Reading
+                </SeeAll>
               </StoryContainer>
             );
           })

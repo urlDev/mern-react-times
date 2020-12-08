@@ -41,7 +41,7 @@ const MarketCardsChart = ({ index }) => {
       .data([homeChartData[index][0]])
       .style('fill', 'none')
       .attr('stroke', 'white')
-      .attr('stroke-width', '1.5')
+      .attr('stroke-width', '1.2')
       .attr('d', line);
     // get the length of the path for line transition
     const pathLength = path.node().getTotalLength();

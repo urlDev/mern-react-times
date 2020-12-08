@@ -5,6 +5,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background: var(--background);
     overflow-x: hidden;
+    /* overflow-y: scroll; */
 }
 
 html,
@@ -41,6 +42,20 @@ code {
     }
     100% {
         transform: translateX(-200px);
+    }
+}
+
+@keyframes loading {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.5;
     }
 }
 

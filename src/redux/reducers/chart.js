@@ -8,10 +8,11 @@ import {
     SET_RATING,
     SET_HOME_CHART_DATA,
     CLEAN_STATE,
+    SET_LOADING,
 } from '../actions/chart';
 
 const initialState = {
-    loading: true,
+    loadingChart: true,
     forex: [],
     error: null,
     // Indexes are first to load.
@@ -64,12 +65,16 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 homeChartData: [...state.homeChartData, action.payload],
-                loading: false,
             };
         case CLEAN_STATE:
             return {
                 ...state,
                 homeChartData: [],
+            };
+        case SET_LOADING:
+            return {
+                ...state,
+                loadingChart: false,
             };
         default:
             return state;

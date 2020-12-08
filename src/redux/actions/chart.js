@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_FOREX_SUCCESS = 'FETCH_CHART_SUCCESS';
 export const FETCH_CHART_ERROR = 'FETCH_CHART_ERROR';
+export const SET_LOADING = 'SET_LOADING';
 export const CHANGE_MARKET_TYPE = 'CHANGE_MARKET_TYPE';
 export const SET_MARKET_DETAIL = 'SET_MARKET_DETAIL';
 export const SET_CHART_DATA = 'SET_CHART_DATA';
@@ -9,6 +10,10 @@ export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
 export const SET_RATING = 'SET_RATING';
 export const SET_HOME_CHART_DATA = 'SET_HOME_CHART_DATA';
 export const CLEAN_STATE = 'CLEAN_STATE';
+
+export const setLoading = () => ({
+    type: SET_LOADING,
+});
 
 export const cleanState = () => ({
     type: CLEAN_STATE,
@@ -109,6 +114,7 @@ export const fetchHomeChart = (symbols) => async(dispatch) => {
             const data = response.data;
             dispatch(setHomeChartData(data));
         }
+        dispatch(setLoading());
     } catch (error) {
         return dispatch(fetchChartError(error));
     }

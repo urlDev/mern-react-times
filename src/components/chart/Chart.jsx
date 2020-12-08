@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { ChartContainer } from './Chart.styles';
 
 const Chart = () => {
-  const { chartData, chartTimeFrame } = useSelector((chart) => chart.chart);
+  const { chartData } = useSelector((chart) => chart.chart);
   const d3Ref = React.useRef();
 
   React.useEffect(() => {
@@ -73,7 +73,7 @@ const Chart = () => {
     // transition for the line
     const transitionPath = d3
       .transition()
-      .delay(700)
+      // .delay(500)
       .ease(d3.easeSin)
       .duration(2000);
 
@@ -89,7 +89,7 @@ const Chart = () => {
       // clean the canvas for the next chart
       svg.selectAll('*').remove();
     };
-  }, [chartData, chartTimeFrame]);
+  }, [chartData]);
 
   return (
     <ChartContainer>

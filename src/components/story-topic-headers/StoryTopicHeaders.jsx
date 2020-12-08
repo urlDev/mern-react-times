@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { changeHeader, fetchTopStories } from '../../redux/actions/news';
+import { changeHeader } from '../../redux/actions/news';
 
 import {
   StoryTopicHeadersContainer,

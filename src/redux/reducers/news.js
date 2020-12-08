@@ -7,7 +7,7 @@ import {
 } from '../actions/news';
 
 const initialState = {
-    loading: true,
+    loadingNews: true,
     popular: [],
     story: [],
     error: null,
@@ -23,13 +23,13 @@ const newsReducer = (state = initialState, action) => {
         case FETCH_POPULAR_SUCCESS:
             return {
                 ...state,
-                loading: false,
+                loadingNews: false,
                 popular: action.payload.results,
             };
         case FETCH_STORY_SUCCESS:
             return {
                 ...state,
-                loading: false,
+                loadingNews: false,
                 story: action.payload.results,
             };
         case FETCH_NEWS_ERROR:

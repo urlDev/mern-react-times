@@ -17,7 +17,7 @@ const DetailsTable = () => {
     priceAvg200,
   } = marketDetail;
 
-  const test = (labelValue) => {
+  const convertNumber = (labelValue) => {
     // Nine Zeroes for Billions
     return Math.abs(Number(labelValue)) >= 1.0e9
       ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + 'B'
@@ -32,46 +32,48 @@ const DetailsTable = () => {
 
   return (
     <DetailsTableContainer>
-      <table>
-        <tbody>
-          <tr>
-            <td>Symbol</td>
-            <td>{symbol}</td>
-          </tr>
-          <tr>
-            <td>Price</td>
-            <td>$ {price}</td>
-          </tr>
-          <tr>
-            <td>Percentage Change</td>
-            <td>%{changesPercentage}</td>
-          </tr>
-          <tr>
-            <td>Price Average 50</td>
-            <td>$ {priceAvg50.toFixed(3)}</td>
-          </tr>
-          <tr>
-            <td>Price Average 200</td>
-            <td>$ {priceAvg200.toFixed(3)}</td>
-          </tr>
-          <tr>
-            <td>Market Cap</td>
-            <td>{test(marketCap)}</td>
-          </tr>
-          <tr>
-            <td>Year High</td>
-            <td>{yearHigh}</td>
-          </tr>
-          <tr>
-            <td>Year Low</td>
-            <td>{yearLow}</td>
-          </tr>
-          <tr>
-            <td>Volume</td>
-            <td>{test(volume)}</td>
-          </tr>
-        </tbody>
-      </table>
+      {marketDetail && (
+        <table>
+          <tbody>
+            <tr>
+              <td>Symbol</td>
+              <td>{symbol.split('^').join('')}</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td>$ {price}</td>
+            </tr>
+            <tr>
+              <td>Percentage Change</td>
+              <td>%{changesPercentage}</td>
+            </tr>
+            <tr>
+              <td>Price Average 50</td>
+              <td>$ {priceAvg50.toFixed(3)}</td>
+            </tr>
+            <tr>
+              <td>Price Average 200</td>
+              <td>$ {priceAvg200.toFixed(3)}</td>
+            </tr>
+            <tr>
+              <td>Market Cap</td>
+              <td>$ {convertNumber(marketCap)}</td>
+            </tr>
+            <tr>
+              <td>Year High</td>
+              <td>$ {yearHigh}</td>
+            </tr>
+            <tr>
+              <td>Year Low</td>
+              <td>$ {yearLow}</td>
+            </tr>
+            <tr>
+              <td>Volume</td>
+              <td>{convertNumber(volume)}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
       {rating.length > 0 && (
         <table>
           <tbody>

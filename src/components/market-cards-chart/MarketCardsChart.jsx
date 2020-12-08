@@ -46,11 +46,7 @@ const MarketCardsChart = ({ index }) => {
     // get the length of the path for line transition
     const pathLength = path.node().getTotalLength();
     // transition for the line
-    const transitionPath = d3
-      .transition()
-      .delay(700)
-      .ease(d3.easeSin)
-      .duration(2000);
+    const transitionPath = d3.transition().ease(d3.easeSin).duration(2000);
     // setting pathsLength for strokes attrs and using transition
     // I made it minus pathLength because it was drawing it backwards
     path

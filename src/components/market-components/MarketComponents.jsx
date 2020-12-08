@@ -1,8 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeMarketType } from '../../redux/actions/chart';
+import {
+  changeMarketType,
+  fetchHomeChart,
+  fetchForex,
+} from '../../redux/actions/chart';
 
+import Loading from '../loading/Loading';
 import HomeMarketCards from '../home-market-cards/HomeMarketCards';
 
 import {
@@ -15,7 +20,7 @@ import {
 const MarketComponents = () => {
   // First, I made market types array, the ones that I want to show in home page
   const marketTypes = ['Indexes', 'Crypto', 'Forex', 'Stocks', 'Commodities'];
-  const { homeChartData } = useSelector((chart) => chart.chart);
+  const { loadingChart, marketType } = useSelector((chart) => chart.chart);
   const dispatch = useDispatch();
 
   const fetchMarketTypes = (market) => {
@@ -50,6 +55,11 @@ const MarketComponents = () => {
     }
   };
 
+  React.useEffect(() => {
+    dispatch(fetchForex(marketType));
+    dispatch(fetchHomeChart(marketType));
+  }, [dispatch, marketType]);
+
   return (
     <MarketComponentsContainer>
       <MarketHeaderContainer>
@@ -64,7 +74,7 @@ const MarketComponents = () => {
           </MarketMenu>
         ))}
       </MarketHeaderContainer>
-      <HomeMarketCards />
+      {loadingChart ? <Loading height={false} /> : <HomeMarketCards />}
     </MarketComponentsContainer>
   );
 };

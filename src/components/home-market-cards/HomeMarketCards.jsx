@@ -1,5 +1,3 @@
-import React from 'react';
-import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -16,7 +14,7 @@ const HomeMarketCards = () => {
   const dispatch = useDispatch();
 
   return (
-    <MarketCardsContainer array={forex}>
+    <MarketCardsContainer>
       {forex.map((data, index) => {
         return (
           <MarketCards
@@ -27,13 +25,19 @@ const HomeMarketCards = () => {
               dispatch(fetchChartData(data.symbol));
               dispatch(fetchRating(data.symbol));
             }}
+            key={data.symbol}
           >
-            <div style={{ marginRight: '8px' }}>
+            <div>
               <h1>{data.symbol.split('^').join('')}</h1>
-              <h2>
-                {data.price} - {data.changesPercentage}
-              </h2>
-              <h2>{moment(data.timestamp).format('h:mm A')}</h2>
+              <h1
+                style={{
+                  fontWeight: 'normal',
+                  fontSize: 'var(--size-sub-menu)',
+                }}
+              >
+                $ {data.price.toFixed(2)}
+              </h1>
+              <h2> {data.changesPercentage}%</h2>
             </div>
 
             {homeChartData.length > 5 && <MarketCardsChart index={index} />}

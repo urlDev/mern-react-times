@@ -30,7 +30,7 @@ const TopStories = () => {
         ) : (
           story.slice(0, 3).map((data) => {
             return (
-              <StoryContainer>
+              <StoryContainer key={data.title}>
                 <img src={data.multimedia[3].url} alt="story" />
                 <TagContainer>
                   <h1>

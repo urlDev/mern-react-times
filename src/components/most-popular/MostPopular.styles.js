@@ -16,7 +16,7 @@ export const PopularTitle = styled.h1 `
 export const PopularStoriesContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   grid-column-gap: 10px;
 `;
 

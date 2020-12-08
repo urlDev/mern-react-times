@@ -35,7 +35,7 @@ const StoryTopics = () => {
       <TopicContainer>
         {topics.map((topic) => {
           return (
-            <StyledLink to={`/${topic.toLowerCase()}`}>
+            <StyledLink key={topic} to={`/${topic.toLowerCase()}`}>
               <span
                 onClick={() => {
                   dispatch(changeHeader(topic.toLowerCase()));

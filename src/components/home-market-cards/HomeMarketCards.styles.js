@@ -1,11 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-
-// Styled all the cards depending on array length
-// so that I can manage to put keyframes
-// and they would also have same margin with the container
-// For mobile, I might have to make them a grid, which would
-// be easier to scale.
+import styled from 'styled-components';
 
 export const MarketCards = styled(Link)
 `
@@ -17,31 +11,14 @@ export const MarketCards = styled(Link)
   text-decoration: none;
   display: flex;
   width: 100%;
+  font-family: var(--font-links);
 `;
-
-// const biggerThanSix = css `
-//   width: calc((((100vw - 60px - 75px) / 6) * 7) + 83px);
-//   animation: slide 20s infinite alternate ease-in-out;
-//   animation-delay: 2s;
-// `;
-
-// const equalsToSix = css `
-//   justify-content: space-between;
-//   width: 100%;
-//   ${MarketCards} {
-//     width: calc((100% - 60px - 75px) / 6);
-//     :last-child {
-//       margin-right: 0;
-//     }
-//   }
-// `;
 
 export const MarketCardsContainer = styled.div `
   display: flex;
   width: 100%;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   ${MarketCards} {
-    width: calc((100% - 60px - 75px) / 6);
     :last-child {
       margin-right: 0;
     }

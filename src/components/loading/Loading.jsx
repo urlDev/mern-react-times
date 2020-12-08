@@ -4,7 +4,7 @@ import LoadingLogoSrc from '../../assets/loadingLogo.svg';
 
 const Loading = ({ height }) => {
   return (
-    <LoadingContainer>
+    <LoadingContainer height={height}>
       <img src={LoadingLogoSrc} alt="dark version of logo for loading" />
     </LoadingContainer>
   );

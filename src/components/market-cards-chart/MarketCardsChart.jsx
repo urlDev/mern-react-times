@@ -61,7 +61,7 @@ const MarketCardsChart = ({ index }) => {
 
   return (
     <>
-      <svg ref={d3HomeRef}></svg>
+      <svg style={{ marginLeft: 'auto' }} ref={d3HomeRef}></svg>
     </> //
   );
 };

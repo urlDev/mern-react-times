@@ -23,7 +23,7 @@ const MostPopular = () => {
       <PopularTitle>Most Popular</PopularTitle>
       {popular.slice(0, 3).map((story) => {
         return (
-          <PopularStoriesContainer>
+          <PopularStoriesContainer key={story.id}>
             <StoryContainer>
               <StoryTitle font>
                 {story.title.split(' ').slice(0, 6).join(' ')}...
@@ -38,7 +38,7 @@ const MostPopular = () => {
           </PopularStoriesContainer>
         );
       })}{' '}
-      <StoryLink popular>See All</StoryLink>
+      <StoryLink popular={true}>See All</StoryLink>
     </MostPopularContainer>
   );
 };

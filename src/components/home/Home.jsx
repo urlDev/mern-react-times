@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import { ErrorBoundary } from 'react-error-boundary';
 
 import LogoDarkSrc from '../../assets/logo.svg';
 
@@ -14,15 +13,15 @@ import MarketDetails from '../market-details/MarketDetails';
 
 const Home = () => {
   const { header, loadingNews } = useSelector((news) => news.news);
-  const { loadingChart } = useSelector((chart) => chart.chart);
+  const { error } = useSelector((chart) => chart.chart);
 
   return (
     <div>
-      <Nav logo={LogoDarkSrc} border={true} icon={true} color={false} />
+      <Nav logo={LogoDarkSrc} border={true} icon={true} />
       <StoryTopicHeaders />
       <Switch>
         {loadingNews ? (
-          <Loading height={true} />
+          <Loading height />
         ) : (
           <Route
             path={`/${header.toLowerCase()}`}
@@ -31,9 +30,7 @@ const Home = () => {
         )}
         <Route path="/:symbol" component={MarketDetails} />
       </Switch>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <MarketComponents />
-      </ErrorBoundary>
+      {error ? <ErrorFallback /> : <MarketComponents />}
     </div>
   );
 };

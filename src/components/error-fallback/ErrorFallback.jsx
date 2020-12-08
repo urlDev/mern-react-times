@@ -1,13 +1,18 @@
 import { useSelector } from 'react-redux';
 
+import { ErrorContainer } from './ErrorFallback.styles';
+
 const ErrorFallback = () => {
   const { error } = useSelector((chart) => chart.chart);
   return (
-    <div>
-      <h3>Something went wrong.</h3>
-      <p>{error}</p>
-      <p>Please refresh your page and try again.</p>
-    </div>
+    <ErrorContainer>
+      <h1>Something went wrong.</h1>
+      <p>{error['Error Message']}</p>
+      <p>
+        If it's limit reach, do come back some other time. Otherwise, please
+        refresh!
+      </p>
+    </ErrorContainer>
   );
 };
 

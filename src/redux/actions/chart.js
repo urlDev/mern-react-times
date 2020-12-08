@@ -65,7 +65,12 @@ export const fetchForex = (market) => async(dispatch) => {
             `https://financialmodelingprep.com/api/v3/quote/${market}?apikey=${process.env.REACT_APP_CHART_KEY}`,
         );
         const data = await response.data;
-        return dispatch(fetchForexSuccess(data));
+        // FinancialModel API doesn't send error if it's about limit reach.
+        // In that sense, they send an error message with 200 status. Weird.
+        // Thats why I am catching that error here and dispatching it.
+        return data.length ?
+            dispatch(fetchForexSuccess(data)) :
+            dispatch(fetchChartError(data));
     } catch (error) {
         return dispatch(fetchChartError(error));
     }

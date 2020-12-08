@@ -66,6 +66,7 @@ const MarketComponents = () => {
         <MarketTitle>Market Snapshot</MarketTitle>
         {marketTypes.map((market) => (
           <MarketMenu
+            key={market}
             onClick={() => {
               fetchMarketTypes(market);
             }}

@@ -1,14 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchSearch } from '../../redux/actions/chart';
+import { fetchSearch, openSearchModal } from '../../redux/actions/chart';
 
 import SearchModal from '../search-modal/SearchModal';
 import SearchSrc from '../../assets/searchIcon.svg';
 import { NavSearchContainer, SearchIcon } from './Search.styles';
 
 const Search = ({ icon }) => {
-  const [open, setOpen] = React.useState(false);
+  const { open } = useSelector((chart) => chart.chart);
   const [input, setInput] = React.useState('');
   const dispatch = useDispatch();
 
@@ -30,7 +30,11 @@ const Search = ({ icon }) => {
           }}
           open={open}
         />
-        <SearchIcon icon={icon} open={open} onClick={() => setOpen(!open)}>
+        <SearchIcon
+          icon={icon}
+          open={open}
+          onClick={() => dispatch(openSearchModal())}
+        >
           <img src={SearchSrc} alt="search icon" />
         </SearchIcon>
       </form>

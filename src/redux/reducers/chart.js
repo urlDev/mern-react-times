@@ -10,6 +10,9 @@ import {
     CLEAN_STATE,
     SET_LOADING,
     GET_SEARCH_RESULTS,
+    SET_SEARCH_MARKET_DETAIL,
+    CLEAR_SEARCH_RESULTS,
+    OPEN_SEARCH_MODAL,
 } from '../actions/chart';
 
 const initialState = {
@@ -24,6 +27,7 @@ const initialState = {
     rating: [],
     homeChartData: [],
     searchResults: [],
+    open: false,
 };
 
 const chartReducer = (state = initialState, action) => {
@@ -82,6 +86,21 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchResults: action.payload,
+            };
+        case SET_SEARCH_MARKET_DETAIL:
+            return {
+                ...state,
+                marketDetail: action.payload.data[0],
+            };
+        case CLEAR_SEARCH_RESULTS:
+            return {
+                ...state,
+                searchResults: [],
+            };
+        case OPEN_SEARCH_MODAL:
+            return {
+                ...state,
+                open: !state.open,
             };
         default:
             return state;

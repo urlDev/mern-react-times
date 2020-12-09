@@ -11,6 +11,22 @@ export const SET_RATING = 'SET_RATING';
 export const SET_HOME_CHART_DATA = 'SET_HOME_CHART_DATA';
 export const CLEAN_STATE = 'CLEAN_STATE';
 export const GET_SEARCH_RESULTS = 'GET_SEARCH_RESULTS';
+export const SET_SEARCH_MARKET_DETAIL = 'SET_SEARCH_MARKET_DETAIL';
+export const CLEAR_SEARCH_RESULTS = 'CLEAR_SEARCH_RESULTS';
+export const OPEN_SEARCH_MODAL = 'OPEN_SEARCH_MODAL';
+
+export const openSearchModal = () => ({
+    type: OPEN_SEARCH_MODAL,
+});
+
+export const clearSearchResults = () => ({
+    type: CLEAR_SEARCH_RESULTS,
+});
+
+export const setSearchMarketDetail = (details) => ({
+    type: SET_SEARCH_MARKET_DETAIL,
+    payload: details,
+});
 
 export const getSearchResults = (result) => ({
     type: GET_SEARCH_RESULTS,
@@ -74,14 +90,16 @@ export const fetchForex = (market) => async(dispatch) => {
         // FinancialModel API doesn't send error if it's about limit reach.
         // In that sense, they send an error message with 200 status. Weird.
         // Thats why I am catching that error here and dispatching it.
-        return data.length ?
-            data.length === 1 ?
-            [
-                dispatch(setMarketDetail({ data })),
-                dispatch(fetchForexSuccess(data)),
-            ] :
-            dispatch(fetchForexSuccess(data)) :
-            dispatch(fetchChartError(data));
+        if (data.length) {
+            return data.length === 1 ?
+                [
+                    dispatch(setSearchMarketDetail({ data })),
+                    // dispatch(fetchForexSuccess(data)),
+                ] :
+                dispatch(fetchForexSuccess(data));
+        } else {
+            return dispatch(fetchChartError(data));
+        }
     } catch (error) {
         return dispatch(fetchChartError(error));
     }
@@ -89,6 +107,7 @@ export const fetchForex = (market) => async(dispatch) => {
 
 export const fetchChartData = (symbol, timeFrame) => async(dispatch) => {
     try {
+        console.log(symbol, timeFrame);
         const response = await axios.get(
             `https://financialmodelingprep.com/api/v3/historical-chart/${timeFrame}/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
         );
@@ -141,7 +160,7 @@ export const fetchHomeChart = (symbols) => async(dispatch) => {
 export const fetchSearch = (input) => async(dispatch) => {
     try {
         const response = await axios.get(
-            `https://financialmodelingprep.com/api/v3/search-ticker?query=${input}&limit=10&apikey=${process.env.REACT_APP_CHART_KEY}`,
+            `https://financialmodelingprep.com/api/v3/search?query=${input}&limit=10&apikey=${process.env.REACT_APP_CHART_KEY}`,
         );
         const data = response.data;
         return dispatch(getSearchResults(data));

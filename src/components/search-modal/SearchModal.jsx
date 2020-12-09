@@ -5,7 +5,8 @@ import {
   fetchChartData,
   fetchRating,
   fetchForex,
-  setMarketDetail,
+  clearSearchResults,
+  openSearchModal,
 } from '../../redux/actions/chart';
 
 import { SearchModalContainer, ResultsContainer } from './SearchModal.styles';
@@ -16,20 +17,36 @@ const SearchModal = () => {
 
   return (
     <SearchModalContainer>
-      {searchResults.map((stock) => (
-        <ResultsContainer
-          to={`/${stock.symbol.toLowerCase()}`}
-          onClick={() => {
-            dispatch(fetchForex(stock.symbol));
-            dispatch(fetchChartData(stock.symbol, chartTimeFrame));
-            dispatch(fetchRating(stock.symbol));
+      {searchResults.length ? (
+        searchResults.map((stock) => (
+          <ResultsContainer
+            to={`/${stock.symbol.toLowerCase()}`}
+            onClick={() => {
+              dispatch(fetchForex(stock.symbol));
+              dispatch(fetchChartData(stock.symbol, chartTimeFrame));
+              dispatch(fetchRating(stock.symbol));
+              dispatch(clearSearchResults());
+              dispatch(openSearchModal());
+            }}
+            key={stock.symbol}
+          >
+            <h1>{stock.symbol}</h1>
+            <h1>{stock.exchangeShortName}</h1>
+          </ResultsContainer>
+        ))
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+            color: 'white',
           }}
-          key={stock.symbol}
         >
-          <h1>{stock.symbol}</h1>
-          <h1>{stock.exchangeShortName}</h1>
-        </ResultsContainer>
-      ))}
+          <h1 style={{ margin: '0' }}>No results found</h1>
+        </div>
+      )}
     </SearchModalContainer>
   );
 };

@@ -9,6 +9,7 @@ import {
     SET_HOME_CHART_DATA,
     CLEAN_STATE,
     SET_LOADING,
+    GET_SEARCH_RESULTS,
 } from '../actions/chart';
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
     chartTimeFrame: '1hour',
     rating: [],
     homeChartData: [],
+    searchResults: [],
 };
 
 const chartReducer = (state = initialState, action) => {
@@ -75,6 +77,11 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loadingChart: false,
+            };
+        case GET_SEARCH_RESULTS:
+            return {
+                ...state,
+                searchResults: action.payload,
             };
         default:
             return state;

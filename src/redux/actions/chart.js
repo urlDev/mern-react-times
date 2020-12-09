@@ -10,6 +10,12 @@ export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
 export const SET_RATING = 'SET_RATING';
 export const SET_HOME_CHART_DATA = 'SET_HOME_CHART_DATA';
 export const CLEAN_STATE = 'CLEAN_STATE';
+export const GET_SEARCH_RESULTS = 'GET_SEARCH_RESULTS';
+
+export const getSearchResults = (result) => ({
+    type: GET_SEARCH_RESULTS,
+    payload: result,
+});
 
 export const setLoading = () => ({
     type: SET_LOADING,
@@ -69,6 +75,11 @@ export const fetchForex = (market) => async(dispatch) => {
         // In that sense, they send an error message with 200 status. Weird.
         // Thats why I am catching that error here and dispatching it.
         return data.length ?
+            data.length === 1 ?
+            [
+                dispatch(setMarketDetail({ data })),
+                dispatch(fetchForexSuccess(data)),
+            ] :
             dispatch(fetchForexSuccess(data)) :
             dispatch(fetchChartError(data));
     } catch (error) {
@@ -122,6 +133,18 @@ export const fetchHomeChart = (symbols) => async(dispatch) => {
                 dispatch(fetchChartError(data));
         }
         dispatch(setLoading());
+    } catch (error) {
+        return dispatch(fetchChartError(error));
+    }
+};
+
+export const fetchSearch = (input) => async(dispatch) => {
+    try {
+        const response = await axios.get(
+            `https://financialmodelingprep.com/api/v3/search-ticker?query=${input}&limit=10&apikey=${process.env.REACT_APP_CHART_KEY}`,
+        );
+        const data = response.data;
+        return dispatch(getSearchResults(data));
     } catch (error) {
         return dispatch(fetchChartError(error));
     }

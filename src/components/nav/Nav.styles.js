@@ -8,6 +8,7 @@ export const NavContainer = styled.nav `
   align-items: center;
   border-bottom: ${(props) => props.borderBottom || 'none'};
   margin: 0 30px;
+  position: relative;
   button {
     font-family: var(--font-links);
     font-size: var(--size-text);
@@ -25,9 +26,4 @@ export const NavContainer = styled.nav `
       color: ${(props) => props.hoverColor || 'white'};
     }
   }
-`;
-
-export const SearchIcon = styled.img `
-  opacity: ${(props) => props.icon || 0};
-  height: 15px;
 `;

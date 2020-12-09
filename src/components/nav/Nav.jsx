@@ -1,8 +1,10 @@
-import SearchSrc from '../../assets/searchIcon.svg';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import Search from '../search/Search';
 import LogoComponent from '../logo-component/LogoComponent';
 
-import { NavContainer, SearchIcon } from './Nav.styles';
-import { Logo } from '../logo-component/LogoComponent.styles';
+import { NavContainer } from './Nav.styles';
 
 const Nav = ({
   logo,
@@ -21,11 +23,11 @@ const Nav = ({
       hoverColor={hoverColor}
       background={background}
     >
-      <SearchIcon src={SearchSrc} alt="search icon" icon={icon} />
+      <Search icon={icon} />
       <LogoComponent logo={logo} />
-      <Logo to="/profile/login">
+      <Link style={{ textDecoration: 'none' }} to="/profile/login">
         <button>Login</button>
-      </Logo>
+      </Link>
     </NavContainer>
   );
 };

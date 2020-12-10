@@ -13,6 +13,7 @@ import {
     SET_SEARCH_MARKET_DETAIL,
     CLEAR_SEARCH_RESULTS,
     OPEN_SEARCH_MODAL,
+    SET_LOADING_TRUE,
 } from '../actions/chart';
 
 const initialState = {
@@ -35,7 +36,6 @@ const chartReducer = (state = initialState, action) => {
         case FETCH_FOREX_SUCCESS:
             return {
                 ...state,
-
                 forex: action.payload,
             };
         case FETCH_CHART_ERROR:
@@ -82,6 +82,11 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loadingChart: false,
+            };
+        case SET_LOADING_TRUE:
+            return {
+                ...state,
+                loadingChart: true,
             };
         case GET_SEARCH_RESULTS:
             return {

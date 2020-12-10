@@ -6,7 +6,7 @@ import { ChartContainer } from './Chart.styles';
 
 const Chart = () => {
   const { chartData } = useSelector((chart) => chart.chart);
-  const d3Ref = React.useRef();
+  const d3Ref = React.useRef(null);
 
   React.useEffect(() => {
     const svg = d3.select(d3Ref.current);

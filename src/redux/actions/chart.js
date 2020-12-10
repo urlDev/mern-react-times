@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_FOREX_SUCCESS = 'FETCH_FOREX_SUCCESS';
 export const FETCH_CHART_ERROR = 'FETCH_CHART_ERROR';
 export const SET_LOADING = 'SET_LOADING';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
 export const CHANGE_MARKET_TYPE = 'CHANGE_MARKET_TYPE';
 export const SET_MARKET_DETAIL = 'SET_MARKET_DETAIL';
 export const SET_CHART_DATA = 'SET_CHART_DATA';
@@ -35,6 +36,10 @@ export const getSearchResults = (result) => ({
 
 export const setLoading = () => ({
     type: SET_LOADING,
+});
+
+export const setLoadingTrue = () => ({
+    type: SET_LOADING_TRUE,
 });
 
 export const cleanState = () => ({
@@ -138,15 +143,15 @@ Plus, its so clean!
 Yet another homerun for me! 😁😎
 */
 export const fetchHomeChart = (symbols) => async(dispatch) => {
-    const symbolsArray = symbols.split(',').sort();
     try {
+        dispatch(setLoadingTrue());
         dispatch(cleanState());
-        for (let symbol of symbolsArray) {
+        for (let symbol of symbols) {
             const response = await axios.get(
                 `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
             );
             const data = response.data;
-            data.length ?
+            return data.length ?
                 dispatch(setHomeChartData(data)) :
                 dispatch(fetchChartError(data));
         }

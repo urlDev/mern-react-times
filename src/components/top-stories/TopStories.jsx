@@ -16,7 +16,7 @@ import {
 import { Date } from '../story-topic-headers/StoryTopicHeaders.styles';
 import { SeeAll } from '../most-popular/MostPopular.styles';
 
-const TopStories = () => {
+const TopStories = React.memo(() => {
   const { loading, story } = useSelector((news) => news.news);
 
   // const random = Math.floor(Math.random() * story.length);
@@ -55,6 +55,6 @@ const TopStories = () => {
       </TopStoriesContainer>
     </div>
   );
-};
+});
 
 export default TopStories;

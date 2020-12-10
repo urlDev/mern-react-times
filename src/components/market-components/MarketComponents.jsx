@@ -21,7 +21,6 @@ const MarketComponents = () => {
   // First, I made market types array, the ones that I want to show in home page
   const marketTypes = ['Indexes', 'Crypto', 'Forex', 'Stocks', 'Commodities'];
   const { loadingChart, marketType } = useSelector((chart) => chart.chart);
-  const { header } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
   const fetchMarketTypes = (market) => {
@@ -57,17 +56,17 @@ const MarketComponents = () => {
   };
 
   React.useEffect(() => {
-    dispatch(fetchForex(marketType));
     dispatch(fetchHomeChart(marketType));
+    dispatch(fetchForex(marketType));
   }, [dispatch, marketType]);
 
   return (
     <MarketComponentsContainer>
       <MarketHeaderContainer>
         <MarketTitle>Market Snapshot</MarketTitle>
-        {marketTypes.map((market) => (
+        {marketTypes.map((market, index) => (
           <MarketMenu
-            key={market}
+            key={index}
             onClick={() => {
               fetchMarketTypes(market);
             }}

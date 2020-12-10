@@ -20,7 +20,7 @@ const SearchModal = () => {
       {searchResults.length ? (
         searchResults.map((stock) => (
           <ResultsContainer
-            to={`/${stock.symbol.toLowerCase()}`}
+            to={`/details/${stock.symbol.toLowerCase()}`}
             onClick={() => {
               dispatch(fetchForex(stock.symbol));
               dispatch(fetchChartData(stock.symbol, chartTimeFrame));

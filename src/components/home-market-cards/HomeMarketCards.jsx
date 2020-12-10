@@ -5,15 +5,13 @@ import {
   setMarketDetail,
   fetchChartData,
   fetchRating,
-  fetchHomeChart,
-  fetchForex,
 } from '../../redux/actions/chart';
 
 import MarketCardsChart from '../market-cards-chart/MarketCardsChart';
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
 
 const HomeMarketCards = () => {
-  const { forex, homeChartData, chartTimeFrame, marketType } = useSelector(
+  const { forex, homeChartData, chartTimeFrame } = useSelector(
     (chart) => chart.chart,
   );
   const dispatch = useDispatch();
@@ -23,14 +21,14 @@ const HomeMarketCards = () => {
       {forex.map((data, index) => {
         return (
           <MarketCards
-            to={`/${data.symbol.toLowerCase()}`}
+            to={`/details/${data.symbol.toLowerCase()}`}
             percentage={data.changesPercentage}
             onClick={() => {
               dispatch(setMarketDetail({ data }));
               dispatch(fetchChartData(data.symbol, chartTimeFrame));
               dispatch(fetchRating(data.symbol));
             }}
-            key={data.symbol}
+            key={index}
           >
             <div>
               <h1>{data.symbol.split('^').join('')}</h1>
@@ -45,7 +43,9 @@ const HomeMarketCards = () => {
               <h2> {data.changesPercentage}%</h2>
             </div>
 
-            {homeChartData.length > 5 && <MarketCardsChart index={index} />}
+            {homeChartData.length > 5 && (
+              <MarketCardsChart chart={homeChartData[index]} />
+            )}
           </MarketCards>
         );
       })}

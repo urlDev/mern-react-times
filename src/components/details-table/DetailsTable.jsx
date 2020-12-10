@@ -32,7 +32,7 @@ const DetailsTable = () => {
 
   return (
     <DetailsTableContainer>
-      {marketDetail ? (
+      {marketDetail.symbol ? (
         <table>
           <tbody>
             <tr>

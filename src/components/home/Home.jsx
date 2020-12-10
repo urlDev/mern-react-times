@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
@@ -28,7 +29,7 @@ const Home = () => {
             render={() => <StoryComponents />}
           />
         )}
-        <Route path="/:symbol" render={() => <MarketDetails />} />
+        <Route path="/details/:symbol" render={() => <MarketDetails />} />
       </Switch>
       {errorChart ? <ErrorFallback /> : <MarketComponents />}
     </>

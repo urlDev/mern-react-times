@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const FETCH_FOREX_SUCCESS = 'FETCH_CHART_SUCCESS';
+export const FETCH_FOREX_SUCCESS = 'FETCH_FOREX_SUCCESS';
 export const FETCH_CHART_ERROR = 'FETCH_CHART_ERROR';
 export const SET_LOADING = 'SET_LOADING';
 export const CHANGE_MARKET_TYPE = 'CHANGE_MARKET_TYPE';
@@ -107,7 +107,6 @@ export const fetchForex = (market) => async(dispatch) => {
 
 export const fetchChartData = (symbol, timeFrame) => async(dispatch) => {
     try {
-        console.log(symbol, timeFrame);
         const response = await axios.get(
             `https://financialmodelingprep.com/api/v3/historical-chart/${timeFrame}/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`,
         );

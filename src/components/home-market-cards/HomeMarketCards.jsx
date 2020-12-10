@@ -1,16 +1,19 @@
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
   setMarketDetail,
   fetchChartData,
   fetchRating,
+  fetchHomeChart,
+  fetchForex,
 } from '../../redux/actions/chart';
 
 import MarketCardsChart from '../market-cards-chart/MarketCardsChart';
 import { MarketCardsContainer, MarketCards } from './HomeMarketCards.styles';
 
 const HomeMarketCards = () => {
-  const { forex, homeChartData, chartTimeFrame } = useSelector(
+  const { forex, homeChartData, chartTimeFrame, marketType } = useSelector(
     (chart) => chart.chart,
   );
   const dispatch = useDispatch();

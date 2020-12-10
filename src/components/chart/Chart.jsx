@@ -71,11 +71,7 @@ const Chart = () => {
     const pathLength = path.node().getTotalLength();
 
     // transition for the line
-    const transitionPath = d3
-      .transition()
-      // .delay(500)
-      .ease(d3.easeSin)
-      .duration(2000);
+    const transitionPath = d3.transition().ease(d3.easeSin).duration(2000);
 
     // setting pathsLength for strokes attrs and using transition
     // I made it minus pathLength because it was drawing it backwards
@@ -84,6 +80,8 @@ const Chart = () => {
       .attr('stroke-dasharray', pathLength)
       .transition(transitionPath)
       .attr('stroke-dashoffset', 0);
+
+    path.interrupt('stroke-dashoffset');
 
     return () => {
       // clean the canvas for the next chart

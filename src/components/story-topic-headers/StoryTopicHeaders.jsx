@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { changeHeader } from '../../redux/actions/news';
+import { changeHeader, clearError } from '../../redux/actions/news';
 
 import {
   StoryTopicHeadersContainer,
@@ -10,21 +10,21 @@ import {
   StyledLink,
 } from './StoryTopicHeaders.styles';
 
+export const topics = [
+  'Home',
+  'Arts',
+  'Business',
+  'Health',
+  'Opinion',
+  'Politics',
+  'Science',
+  'Sports',
+  'Technology',
+  'Travel',
+];
+
 const StoryTopics = () => {
   const dispatch = useDispatch();
-
-  const topics = [
-    'Home',
-    'Arts',
-    'Business',
-    'Health',
-    'Opinion',
-    'Politics',
-    'Science',
-    'Sports',
-    'Technology',
-    'Travel',
-  ];
 
   return (
     <StoryTopicHeadersContainer>
@@ -39,6 +39,7 @@ const StoryTopics = () => {
               <span
                 onClick={() => {
                   dispatch(changeHeader(topic.toLowerCase()));
+                  dispatch(clearError());
                 }}
               >
                 {topic}

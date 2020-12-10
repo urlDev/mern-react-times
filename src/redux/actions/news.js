@@ -5,6 +5,7 @@ export const FETCH_STORY_SUCCESS = 'FETCH_STORY_SUCCESS';
 export const FETCH_NEWS_ERROR = 'FETCH_NEWS_ERROR';
 export const CHANGE_HEADER = 'CHANGE_HEADER';
 export const CLEAN_STATE = 'CLEAN_STATE';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 export const cleanState = () => ({
     type: CLEAN_STATE,
@@ -28,6 +29,10 @@ export const changeHeader = (header) => ({
 export const fetchNewsError = (error) => ({
     type: FETCH_NEWS_ERROR,
     payload: error,
+});
+
+export const clearError = () => ({
+    type: CLEAR_ERROR,
 });
 
 export const fetchTopStories = (topStories) => async(dispatch) => {

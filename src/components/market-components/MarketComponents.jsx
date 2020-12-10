@@ -21,6 +21,7 @@ const MarketComponents = () => {
   // First, I made market types array, the ones that I want to show in home page
   const marketTypes = ['Indexes', 'Crypto', 'Forex', 'Stocks', 'Commodities'];
   const { loadingChart, marketType } = useSelector((chart) => chart.chart);
+  const { header } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
   const fetchMarketTypes = (market) => {
@@ -51,7 +52,7 @@ const MarketComponents = () => {
       case 'Commodities':
         return dispatch(changeMarketType(Commodities));
       default:
-        return market;
+        return Indexes;
     }
   };
 

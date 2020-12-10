@@ -13,7 +13,7 @@ import MarketDetails from '../market-details/MarketDetails';
 
 const Home = () => {
   const { header, loadingNews } = useSelector((news) => news.news);
-  const { error } = useSelector((chart) => chart.chart);
+  const { errorChart } = useSelector((chart) => chart.chart);
 
   return (
     <>
@@ -21,16 +21,16 @@ const Home = () => {
       <StoryTopicHeaders />
       <Switch>
         {loadingNews ? (
-          <Loading height="420px" />
+          <Loading height="400px" />
         ) : (
           <Route
             path={`/${header.toLowerCase()}`}
-            component={StoryComponents}
+            render={() => <StoryComponents />}
           />
         )}
-        <Route path="/:symbol" component={MarketDetails} />
+        <Route path="/:symbol" render={() => <MarketDetails />} />
       </Switch>
-      {error ? <ErrorFallback /> : <MarketComponents />}
+      {errorChart ? <ErrorFallback /> : <MarketComponents />}
     </>
   );
 };

@@ -18,7 +18,7 @@ import {
 const initialState = {
     loadingChart: true,
     forex: [],
-    error: null,
+    errorChart: null,
     // Indexes are first to load.
     marketType: '%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE',
     marketDetail: {},
@@ -35,12 +35,13 @@ const chartReducer = (state = initialState, action) => {
         case FETCH_FOREX_SUCCESS:
             return {
                 ...state,
+
                 forex: action.payload,
             };
         case FETCH_CHART_ERROR:
             return {
                 ...state,
-                error: action.payload,
+                errorChart: action.payload,
             };
         case CHANGE_MARKET_TYPE:
             return {

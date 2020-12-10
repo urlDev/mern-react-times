@@ -32,7 +32,7 @@ const DetailsTable = () => {
 
   return (
     <DetailsTableContainer>
-      {marketDetail && (
+      {marketDetail ? (
         <table>
           <tbody>
             <tr>
@@ -73,7 +73,7 @@ const DetailsTable = () => {
             </tr>
           </tbody>
         </table>
-      )}
+      ) : null}
       {rating.length > 0 && (
         <table>
           <tbody>

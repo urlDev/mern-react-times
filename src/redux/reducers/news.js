@@ -4,13 +4,14 @@ import {
     FETCH_STORY_SUCCESS,
     CHANGE_HEADER,
     CLEAN_STATE,
+    CLEAR_ERROR,
 } from '../actions/news';
 
 const initialState = {
     loadingNews: true,
     popular: [],
     story: [],
-    error: null,
+    errorNews: null,
     header: 'home',
 };
 
@@ -19,6 +20,11 @@ const newsReducer = (state = initialState, action) => {
         case CLEAN_STATE:
             return {
                 ...initialState,
+            };
+        case CLEAR_ERROR:
+            return {
+                ...state,
+                errorNews: null,
             };
         case FETCH_POPULAR_SUCCESS:
             return {
@@ -35,7 +41,7 @@ const newsReducer = (state = initialState, action) => {
         case FETCH_NEWS_ERROR:
             return {
                 ...state,
-                error: action.payload,
+                errorNews: action.payload,
             };
         case CHANGE_HEADER:
             return {

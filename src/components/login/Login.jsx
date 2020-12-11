@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { fetchRegisterUser } from '../../redux/actions/user';
+import { fetchLoginUser } from '../../redux/actions/user';
 
 import { LoginContainer } from './Login.styles';
 
@@ -13,7 +13,7 @@ const Login = ({ register }) => {
     password: '',
   };
   // destructuring properties off of input
-  const [{ name, email, password }, setInput] = React.useState(initialState);
+  const [{ email, password }, setInput] = React.useState(initialState);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -28,7 +28,7 @@ const Login = ({ register }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // set state back to initial
-    dispatch(fetchRegisterUser({ name, email, password }));
+    dispatch(fetchLoginUser({ email, password }));
     history.push('/');
     setInput({ ...initialState });
   };

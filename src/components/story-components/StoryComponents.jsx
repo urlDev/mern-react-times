@@ -10,8 +10,6 @@ import { StoryComponentsContainer } from './StoryComponents.styles';
 const Home = () => {
   const { errorNews } = useSelector((news) => news.news);
 
-  console.log(errorNews);
-
   return (
     <>
       <StoryComponentsContainer>

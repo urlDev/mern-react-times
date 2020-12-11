@@ -60,13 +60,13 @@ const MarketCardsChart = ({ chart }) => {
       .attr('stroke-dashoffset', 0);
 
     path.interrupt('stroke-dashoffset');
-
-    return () => {
-      svg.selectAll('*').remove();
-    };
   }, [chart]);
 
-  return <svg style={{ marginLeft: 'auto' }} ref={d3HomeRef}></svg>;
+  return (
+    <div style={{ marginLeft: 'auto' }}>
+      <svg ref={d3HomeRef}></svg>
+    </div>
+  );
 };
 
 export default MarketCardsChart;

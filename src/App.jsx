@@ -44,7 +44,7 @@ const App = () => {
     if (popular.length === 0) {
       dispatch(fetchMostPopular());
     }
-  }, [dispatch, header, path, popular]);
+  }, [dispatch, path, popular, header]);
 
   return (
     <div className="App">

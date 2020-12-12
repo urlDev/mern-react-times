@@ -25,12 +25,12 @@ const Login = ({ register }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // set state back to initial
-    dispatch(fetchLoginUser({ email, password }));
-    history.push('/');
+    await dispatch(fetchLoginUser({ email, password }));
     setInput({ ...initialState });
+    history.push('/');
   };
 
   return (

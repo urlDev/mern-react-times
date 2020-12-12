@@ -25,5 +25,9 @@ export const NavContainer = styled.nav `
       background: ${(props) => props.background || 'black'};
       color: ${(props) => props.hoverColor || 'white'};
     }
+
+    :focus {
+      outline: none;
+    }
   }
 `;

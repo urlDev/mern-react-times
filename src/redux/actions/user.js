@@ -86,7 +86,7 @@ export const fetchLoginUser = (user) => async(dispatch) => {
         const response = await axios.post(`${url}/profile/login`, user);
         const data = await response.data;
         return [
-            dispatch(registerUser(data.user)),
+            dispatch(loginUser(data.user)),
             dispatch(userLoadingEnd()),
             dispatch(setToken(data.token)),
             localStorage.setItem('token', JSON.stringify(data.token)),
@@ -97,6 +97,11 @@ export const fetchLoginUser = (user) => async(dispatch) => {
     }
 };
 
+// To get the user,
+// but because I added an or statement in user and token initial states,
+// app will check if there is user and token in localStorage
+// so there will be no need for this.
+// Adding just in case.
 export const fetchUser = () => async(dispatch) => {
     const token = JSON.parse(localStorage.getItem('token'));
 

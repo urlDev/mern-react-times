@@ -25,13 +25,13 @@ const Register = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(fetchRegisterUser({ name, email, password }));
-    history.push('/');
+    await dispatch(fetchRegisterUser({ name, email, password }));
     // set state back to initial
     setInput({ ...initialState });
+    history.push('/');
   };
 
   return (

@@ -1,6 +1,7 @@
 import {
     REGISTER_USER,
     LOGOUT_USER,
+    LOGIN_USER,
     SET_TOKEN,
     USER_FETCH_ERROR,
     USER_LOADING,
@@ -11,12 +12,17 @@ const initialState = {
     loadingUser: false,
     errorUser: null,
     user: JSON.parse(localStorage.getItem('user')) || {},
-    token: JSON.parse(localStorage.getItem('token')) || '',
+    token: JSON.parse(localStorage.getItem('token')) || {},
 };
 
 const userReducer = (state = initialState, action) => {
-    switch (action.payload) {
+    switch (action.type) {
         case REGISTER_USER:
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case LOGIN_USER:
             return {
                 ...state,
                 user: action.payload,
@@ -25,7 +31,7 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: {},
-                token: '',
+                token: {},
             };
         case SET_TOKEN:
             return {
@@ -47,6 +53,7 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
             };
+
         default:
             return state;
     }

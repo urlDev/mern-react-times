@@ -1,9 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
-import { useSelector } from 'react-redux';
 
 const MarketCardsChart = ({ chart }) => {
-  const { homeChartData } = useSelector((chart) => chart.chart);
   const d3HomeRef = React.useRef(null);
 
   React.useEffect(() => {

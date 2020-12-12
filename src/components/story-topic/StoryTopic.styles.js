@@ -7,6 +7,7 @@ export const StoryTopicContainer = styled.div `
     font-family: var(--font-header);
     font-size: var(--size-category-selected);
     font-weight: 900;
+    margin: 0;
   }
 `;
 

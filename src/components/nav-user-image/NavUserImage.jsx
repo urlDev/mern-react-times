@@ -1,11 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchLogoutUser } from '../../redux/actions/user';
 
-import { UserImage, UserImageContainer } from './NavUserImage.styles.js';
+import UserImage from '../user-image/UserImage';
+import { UserImageContainer } from './NavUserImage.styles.js';
 
 const NavUserImage = () => {
-  const { user } = useSelector((user) => user.user);
   const dispatch = useDispatch();
   return (
     // I am using srcSet and picture here because once user uploads new avatar,
@@ -14,26 +15,9 @@ const NavUserImage = () => {
 
     <UserImageContainer>
       <button onClick={() => dispatch(fetchLogoutUser())}>Logout</button>
-      <UserImage>
-        {user.avatar.webp && (
-          <source
-            srcSet={`data:image/webp;base64,${user.avatar.webp}`}
-            type="image/webp"
-          />
-        )}
-        {user.avatar.png && (
-          <>
-            <source
-              srcSet={`data:image/png;base64,${user.avatar.png}`}
-              type="image/png"
-            />
-            <img
-              src={`data:image/png;base64,${user.avatar.png}`}
-              alt="avatar"
-            />
-          </> //
-        )}
-      </UserImage>
+      <Link to="/profile">
+        <UserImage border="29px" margin="10px" />
+      </Link>
     </UserImageContainer>
   );
 };

@@ -25,7 +25,8 @@ const HomeMarketCards = () => {
             percentage={data.changesPercentage}
             onClick={() => {
               dispatch(setMarketDetail({ data }));
-              dispatch(fetchChartData(data.symbol, chartTimeFrame));
+              // dispatch(fetchChartData(data.symbol, chartTimeFrame));
+              console.log(chartTimeFrame);
               dispatch(fetchRating(data.symbol));
             }}
             key={index}

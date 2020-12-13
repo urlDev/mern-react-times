@@ -6,6 +6,8 @@ import {
     USER_FETCH_ERROR,
     USER_LOADING,
     USER_LOADING_END,
+    USER_MODAL_OPEN,
+    USER_MODAL_CLOSE,
 } from '../actions/user';
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
     errorUser: null,
     user: JSON.parse(localStorage.getItem('user')) || {},
     token: JSON.parse(localStorage.getItem('token')) || {},
+    userModal: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -53,7 +56,16 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
             };
-
+        case USER_MODAL_OPEN:
+            return {
+                ...state,
+                userModal: true,
+            };
+        case USER_MODAL_CLOSE:
+            return {
+                ...state,
+                userModal: false,
+            };
         default:
             return state;
     }

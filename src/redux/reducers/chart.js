@@ -14,6 +14,7 @@ import {
     CLEAR_SEARCH_RESULTS,
     OPEN_SEARCH_MODAL,
     SET_LOADING_TRUE,
+    CLOSE_SEARCH_MODAL,
 } from '../actions/chart';
 
 const initialState = {
@@ -107,6 +108,11 @@ const chartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 open: !state.open,
+            };
+        case CLOSE_SEARCH_MODAL:
+            return {
+                ...state,
+                open: false,
             };
         default:
             return state;

@@ -22,3 +22,15 @@ export const ResultsContainer = styled(Link)
   text-decoration: none;
   color: white;
 `;
+
+export const SearchModalAllPage = styled.div `
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 95vw;
+  height: 95vh;
+  background: transparent;
+  z-index: 1000;
+`;

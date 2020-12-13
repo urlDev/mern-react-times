@@ -31,13 +31,14 @@ const App = () => {
       path === '/'
     ) {
       dispatch(changeHeader(path.slice(1)));
-    } else if (path.split('/').includes('details')) {
-      dispatch(fetchForex(path.slice(9).toUpperCase()));
-      dispatch(fetchChartData(path.slice(9).toUpperCase(), '1hour'));
-      dispatch(fetchRating(path.slice(9).toUpperCase()));
-    } else {
-      dispatch(fetchNewsError({ Error: 'Unable to find the page' }));
     }
+    // } else if (path.split('/').includes('details')) {
+    //   dispatch(fetchForex(path.slice(9).toUpperCase()));
+    //   dispatch(fetchChartData(path.slice(9).toUpperCase(), '1hour'));
+    //   dispatch(fetchRating(path.slice(9).toUpperCase()));
+    // } else {
+    //   dispatch(fetchNewsError({ Error: 'Unable to find the page' }));
+    // }
 
     dispatch(fetchTopStories(header));
 

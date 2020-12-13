@@ -10,6 +10,8 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const USER_FETCH_ERROR = 'USER_FETCH_ERROR';
 export const USER_LOADING = 'USER_LOADING';
 export const USER_LOADING_END = 'USER_LOADING_END';
+export const USER_MODAL_OPEN = 'USER_MODAL_OPEN';
+export const USER_MODAL_CLOSE = 'USER_MODAL_CLOSE';
 
 export const registerUser = (user) => ({
     type: REGISTER_USER,
@@ -46,6 +48,14 @@ export const userLoading = () => ({
 
 export const userLoadingEnd = () => ({
     type: USER_LOADING_END,
+});
+
+export const userModalOpen = () => ({
+    type: USER_MODAL_OPEN,
+});
+
+export const userModalClose = () => ({
+    type: USER_MODAL_CLOSE,
 });
 
 export const fetchRegisterUser = (user) => async(dispatch) => {

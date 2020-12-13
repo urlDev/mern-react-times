@@ -82,6 +82,7 @@ const Chart = () => {
       .attr('stroke-dashoffset', 0);
 
     path.interrupt('stroke-dashoffset');
+    path.interrupt('stroke-dasharray');
 
     return () => {
       // clean the canvas for the next chart

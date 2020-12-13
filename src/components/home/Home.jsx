@@ -17,7 +17,7 @@ const Home = () => {
   const { errorChart } = useSelector((chart) => chart.chart);
 
   return (
-    <>
+    <div>
       <Nav logo={LogoDarkSrc} borderBottom="1px solid lightgray" icon="1" />
       <StoryTopicHeaders />
       <Switch>
@@ -32,7 +32,7 @@ const Home = () => {
         <Route path="/details/:symbol" render={() => <MarketDetails />} />
       </Switch>
       {errorChart ? <ErrorFallback /> : <MarketComponents />}
-    </>
+    </div>
   );
 };
 

@@ -15,6 +15,11 @@ export const GET_SEARCH_RESULTS = 'GET_SEARCH_RESULTS';
 export const SET_SEARCH_MARKET_DETAIL = 'SET_SEARCH_MARKET_DETAIL';
 export const CLEAR_SEARCH_RESULTS = 'CLEAR_SEARCH_RESULTS';
 export const OPEN_SEARCH_MODAL = 'OPEN_SEARCH_MODAL';
+export const CLOSE_SEARCH_MODAL = 'CLOSE_SEARCH_NODAL';
+
+export const closeSearchModal = () => ({
+    type: CLOSE_SEARCH_MODAL,
+});
 
 export const openSearchModal = () => ({
     type: OPEN_SEARCH_MODAL,

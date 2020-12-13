@@ -3,9 +3,11 @@ import styled from 'styled-components';
 export const TopStoriesContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  /* width will be changed to smaller number for smaller screens */
   width: 70vw;
-  height: 53vh;
+  min-height: 53vh;
   margin-top: 20px;
+  /* margin-bottom: 20px; */
 `;
 
 export const SubTitle = styled.h3 `

@@ -17,7 +17,8 @@ const MarketDetails = () => {
 
   React.useEffect(() => {
     dispatch(fetchChartData(marketDetail.symbol, chartTimeFrame));
-  }, [chartTimeFrame]);
+    console.log(chartTimeFrame);
+  }, [dispatch, marketDetail.symbol, chartTimeFrame]);
 
   return (
     <>

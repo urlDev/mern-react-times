@@ -1,6 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { userModalToggle } from '../../redux/actions/user';
 
 import Search from '../search/Search';
 import LogoComponent from '../logo-component/LogoComponent';
@@ -18,6 +20,7 @@ const Nav = ({
   background,
 }) => {
   const { user } = useSelector((user) => user.user);
+  const dispatch = useDispatch();
 
   return (
     <NavContainer

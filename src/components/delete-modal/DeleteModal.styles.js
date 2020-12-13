@@ -1,0 +1,59 @@
+import styled from 'styled-components';
+
+export const ModalContainerAllPage = styled.div `
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 120;
+`;
+
+export const DeleteModalContainer = styled.div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: #0000008e;
+  height: 100%;
+
+  div {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+
+    h1 {
+      font-family: var(--font-header);
+      font-size: var(--size-header);
+      margin-top: 0;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    button {
+      margin-bottom: 10px;
+      border: none;
+      background: white;
+      color: black;
+      font-family: var(--font-text);
+      font-size: var(--size-section-header);
+      font-weight: bold;
+      padding: 11px 40px;
+      cursor: pointer;
+      text-transform: uppercase;
+
+      &:focus {
+        outline: none;
+      }
+
+      :nth-of-type(2n) {
+        margin-bottom: 0;
+        background: var(--red);
+        color: white;
+      }
+    }
+  }
+`;

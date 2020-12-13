@@ -5,7 +5,7 @@ export const UserDetailContainer = styled.div `
   height: 53vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 40px;
+  grid-gap: 70px;
 `;
 
 export const ImageAndButton = styled.div `
@@ -76,7 +76,6 @@ export const UserDetailsForm = styled.div `
 
   button {
     margin-top: 20px;
-    margin-right: auto;
     border: none;
     background: black;
     color: white;
@@ -84,7 +83,39 @@ export const UserDetailsForm = styled.div `
     font-size: var(--size-section-header);
     font-weight: bold;
     padding: 11px 0;
+    width: calc((100% - 70px) / 2);
+    margin-left: auto;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+`;
+
+export const DeleteAccount = styled.div `
+  grid-column: 4 / 6;
+
+  div {
+    display: flex;
     width: 100%;
+  }
+
+  h1 {
+    align-self: center;
+    font-family: var(--font-header);
+    font-size: var(--size-section-header);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  button {
+    border: none;
+    background: var(--red);
+    color: white;
+    font-family: var(--font-text);
+    font-size: var(--size-section-header);
+    font-weight: bold;
+    padding: 11px 0;
+    width: calc((100% - 70px) / 2);
+    margin-left: auto;
     cursor: pointer;
     text-transform: uppercase;
   }

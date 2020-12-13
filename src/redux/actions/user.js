@@ -5,6 +5,8 @@ const url = 'https://urldev-mern-react-times-api.herokuapp.com';
 export const REGISTER_USER = 'REGISTER_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const LOGIN_USER = 'LOGIN_USER';
+export const DELETE_USER = 'DELETE_USER';
+export const UPDATE_USER = 'UPDATE_USER';
 export const GET_USER = 'GET_USER';
 export const SET_TOKEN = 'SET_TOKEN';
 export const USER_FETCH_ERROR = 'USER_FETCH_ERROR';
@@ -12,6 +14,8 @@ export const USER_LOADING = 'USER_LOADING';
 export const USER_LOADING_END = 'USER_LOADING_END';
 export const USER_MODAL_OPEN = 'USER_MODAL_OPEN';
 export const USER_MODAL_CLOSE = 'USER_MODAL_CLOSE';
+export const DELETE_MODAL_OPEN = 'DELETE_MODAL_OPEN';
+export const DELETE_MODAL_CLOSE = 'DELETE_MODAL_CLOSE';
 
 export const registerUser = (user) => ({
     type: REGISTER_USER,
@@ -24,6 +28,15 @@ export const logOutUser = () => ({
 
 export const loginUser = (user) => ({
     type: LOGIN_USER,
+    payload: user,
+});
+
+export const deleteUser = () => ({
+    type: DELETE_USER,
+});
+
+export const updateUser = (user) => ({
+    type: UPDATE_USER,
     payload: user,
 });
 
@@ -56,6 +69,14 @@ export const userModalOpen = () => ({
 
 export const userModalClose = () => ({
     type: USER_MODAL_CLOSE,
+});
+
+export const deleteModalOpen = () => ({
+    type: DELETE_MODAL_OPEN,
+});
+
+export const deleteModalClose = () => ({
+    type: DELETE_MODAL_CLOSE,
 });
 
 export const fetchRegisterUser = (user) => async(dispatch) => {
@@ -129,6 +150,30 @@ export const fetchUser = () => async(dispatch) => {
             localStorage.setItem('token', JSON.stringify(data.token)),
             localStorage.setItem('user', JSON.stringify(data.user)),
         ];
+    } catch (error) {
+        return dispatch(userFetchError(error));
+    }
+};
+
+export const fetchUpdateUser = (user) => async(dispatch) => {
+    const token = JSON.parse(localStorage.getItem('token'));
+
+    const config = {
+        headers: { Authorization: `Bearer ${token}` },
+    };
+
+    console.log(user, config);
+    try {
+        const response = await axios.patch(`${url}/profile`, user, config);
+        // const data = await response;
+        // return [
+        //     dispatch(updateUser(data.user)),
+        //     dispatch(userLoadingEnd()),
+        //     dispatch(setToken(data.token)),
+        //     localStorage.setItem('token', JSON.stringify(data.token)),
+        //     localStorage.setItem('user', JSON.stringify(data.user)),
+        // ];
+        console.log(response);
     } catch (error) {
         return dispatch(userFetchError(error));
     }

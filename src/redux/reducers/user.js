@@ -2,12 +2,16 @@ import {
     REGISTER_USER,
     LOGOUT_USER,
     LOGIN_USER,
+    UPDATE_USER,
+    DELETE_USER,
     SET_TOKEN,
     USER_FETCH_ERROR,
     USER_LOADING,
     USER_LOADING_END,
     USER_MODAL_OPEN,
     USER_MODAL_CLOSE,
+    DELETE_MODAL_OPEN,
+    DELETE_MODAL_CLOSE,
 } from '../actions/user';
 
 const initialState = {
@@ -16,6 +20,7 @@ const initialState = {
     user: JSON.parse(localStorage.getItem('user')) || {},
     token: JSON.parse(localStorage.getItem('token')) || {},
     userModal: false,
+    deleteModal: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -36,6 +41,18 @@ const userReducer = (state = initialState, action) => {
                 user: {},
                 token: {},
             };
+        case UPDATE_USER:
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case DELETE_USER:
+            return {
+                ...state,
+                user: {},
+                token: {},
+            };
+
         case SET_TOKEN:
             return {
                 ...state,
@@ -65,6 +82,16 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userModal: false,
+            };
+        case DELETE_MODAL_OPEN:
+            return {
+                ...state,
+                deleteModal: true,
+            };
+        case DELETE_MODAL_CLOSE:
+            return {
+                ...state,
+                deleteModal: false,
             };
         default:
             return state;

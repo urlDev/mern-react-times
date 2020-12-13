@@ -10,6 +10,7 @@ export const UserModalContainer = styled.div `
   z-index: 100;
   padding-top: 20px;
   top: 20px;
+  animation: modal 0.5s ease-in-out forwards;
 `;
 
 export const UserModalMenu = styled(Link)

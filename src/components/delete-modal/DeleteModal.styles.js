@@ -20,10 +20,11 @@ export const DeleteModalContainer = styled.div `
   height: 100%;
 
   div {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
+    background: black;
 
     h1 {
       font-family: var(--font-header);
@@ -36,8 +37,8 @@ export const DeleteModalContainer = styled.div `
     button {
       margin-bottom: 10px;
       border: none;
-      background: white;
-      color: black;
+      background: black;
+      color: white;
       font-family: var(--font-text);
       font-size: var(--size-section-header);
       font-weight: bold;

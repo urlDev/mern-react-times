@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import {
   fetchLogoutUser,
@@ -14,14 +14,19 @@ import { UserImageContainer } from './NavUserImage.styles.js';
 const NavUserImage = () => {
   const { userModal } = useSelector((user) => user.user);
   const dispatch = useDispatch();
-  const history = useHistory();
+
+  const handleClick = () => {
+    dispatch(fetchLogoutUser());
+    localStorage.clear();
+  };
+
   return (
     // I am using srcSet and picture here because once user uploads new avatar,
     // it will be both in webp and png so I can show it in browsers that doesn't
     // support webp.
     <div style={{ position: 'relative' }}>
       <UserImageContainer>
-        <button onClick={() => dispatch(fetchLogoutUser())}>Logout</button>
+        <button onClick={() => handleClick()}>Logout</button>
         <Link
           to="/profile"
           onMouseEnter={() => dispatch(userModalOpen())}

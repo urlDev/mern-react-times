@@ -6,13 +6,13 @@ const UserImage = ({ width, border, margin }) => {
   const { user } = useSelector((user) => user.user);
   return (
     <UserPicture width={width} border={border} margin={margin}>
-      {user.avatar.webp && (
+      {user.avatar.webp ? (
         <source
           srcSet={`data:image/webp;base64,${user.avatar.webp}`}
           type="image/webp"
         />
-      )}
-      {user.avatar.png && (
+      ) : null}
+      {user.avatar.png ? (
         <>
           <source
             srcSet={`data:image/png;base64,${user.avatar.png}`}
@@ -20,7 +20,7 @@ const UserImage = ({ width, border, margin }) => {
           />
           <img src={`data:image/png;base64,${user.avatar.png}`} alt="avatar" />
         </> //
-      )}
+      ) : null}
     </UserPicture>
   );
 };

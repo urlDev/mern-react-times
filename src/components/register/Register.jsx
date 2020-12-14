@@ -27,7 +27,6 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await dispatch(fetchRegisterUser({ name, email, password }));
     // set state back to initial
     setInput({ ...initialState });

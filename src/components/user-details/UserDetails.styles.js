@@ -95,7 +95,12 @@ export const DeleteAccount = styled.div `
 
   div {
     display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
     width: 100%;
+    height: 67%;
+    border: 1px solid var(--red);
   }
 
   h1 {
@@ -103,7 +108,7 @@ export const DeleteAccount = styled.div `
     font-family: var(--font-header);
     font-size: var(--size-section-header);
     font-weight: 700;
-    margin: 0;
+    margin-bottom: 30px;
   }
 
   button {
@@ -115,7 +120,7 @@ export const DeleteAccount = styled.div `
     font-weight: bold;
     padding: 11px 0;
     width: calc((100% - 70px) / 2);
-    margin-left: auto;
+    margin: 0 auto;
     cursor: pointer;
     text-transform: uppercase;
   }

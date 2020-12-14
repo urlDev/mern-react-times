@@ -52,7 +52,6 @@ const userReducer = (state = initialState, action) => {
                 user: {},
                 token: {},
             };
-
         case SET_TOKEN:
             return {
                 ...state,

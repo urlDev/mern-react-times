@@ -1,6 +1,7 @@
+import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 
-import { deleteModalClose } from '../../redux/actions/user';
+import { deleteModalClose, fetchDeleteUser } from '../../redux/actions/user';
 import {
   DeleteModalContainer,
   ModalContainerAllPage,
@@ -8,6 +9,15 @@ import {
 
 const DeleteModal = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleClick = () => {
+    dispatch(fetchDeleteUser());
+    localStorage.clear();
+    dispatch(deleteModalClose());
+    history.push('/');
+  };
+
   return (
     <ModalContainerAllPage onClick={() => dispatch(deleteModalClose())}>
       <DeleteModalContainer>
@@ -16,9 +26,7 @@ const DeleteModal = () => {
           <button onClick={() => dispatch(deleteModalClose())}>
             No, I changed my mind!
           </button>
-          <button onClick={() => dispatch(deleteModalClose())}>
-            Yes, Bye bye!
-          </button>
+          <button onClick={() => handleClick()}>Yes, Bye bye!</button>
         </div>
       </DeleteModalContainer>
     </ModalContainerAllPage>

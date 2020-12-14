@@ -27,7 +27,6 @@ const Login = ({ register }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // set state back to initial
     await dispatch(fetchLoginUser({ email, password }));
     setInput({ ...initialState });
     history.push('/');

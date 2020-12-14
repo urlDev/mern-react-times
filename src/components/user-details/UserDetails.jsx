@@ -21,22 +21,22 @@ import {
 } from './UserDetails.styles';
 
 const UserDetails = () => {
-  const [input, setInput] = React.useState({});
+  const [{ name, email, password }, setInput] = React.useState({});
   const { errorChart } = useSelector((chart) => chart.chart);
   const { user, deleteModal } = useSelector((user) => user.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleChange = (e) =>
-    setInput({
-      ...input,
+    setInput((prevState) => ({
+      ...prevState,
       [e.target.name]: e.target.value,
-    });
+    }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(fetchUpdateUser(input));
-    // history.push('/');
+    await dispatch(fetchUpdateUser({ name, email, password }));
+    history.push('/');
   };
 
   return (
@@ -63,7 +63,8 @@ const UserDetails = () => {
                 <input
                   type="text"
                   name="name"
-                  value={input.name || user.name}
+                  defaultValue={user.name}
+                  value={name}
                   onChange={handleChange}
                 />
               </div>
@@ -72,7 +73,8 @@ const UserDetails = () => {
                 <input
                   type="email"
                   name="email"
-                  value={input.email || user.email}
+                  defaultValue={user.email}
+                  value={email}
                   onChange={handleChange}
                 />
               </div>
@@ -94,11 +96,6 @@ const UserDetails = () => {
             </form>
           </UserDetailsForm>
           <DeleteAccount>
-            <h1 style={{ marginBottom: '20px' }}>
-              I hereby announce that I did not enjoy the time I have spent in
-              this website, therefore...
-            </h1>
-
             <div>
               <h1>I want to delete my account!</h1>
               <button onClick={() => dispatch(deleteModalOpen())}>

@@ -1,4 +1,7 @@
 import axios from 'axios';
+import toaster from 'toasted-notes';
+
+import NotificationComponent from '../../components/notification-component/NotificationComponent';
 
 const url = 'https://urldev-mern-react-times-api.herokuapp.com';
 
@@ -18,114 +21,157 @@ export const DELETE_MODAL_OPEN = 'DELETE_MODAL_OPEN';
 export const DELETE_MODAL_CLOSE = 'DELETE_MODAL_CLOSE';
 
 export const registerUser = (user) => ({
-    type: REGISTER_USER,
-    payload: user,
+  type: REGISTER_USER,
+  payload: user,
 });
 
 export const logOutUser = () => ({
-    type: LOGOUT_USER,
+  type: LOGOUT_USER,
 });
 
 export const loginUser = (user) => ({
-    type: LOGIN_USER,
-    payload: user,
+  type: LOGIN_USER,
+  payload: user,
 });
 
 export const deleteUser = () => ({
-    type: DELETE_USER,
+  type: DELETE_USER,
 });
 
 export const updateUser = (user) => ({
-    type: UPDATE_USER,
-    payload: user,
+  type: UPDATE_USER,
+  payload: user,
 });
 
 export const getUser = (user) => ({
-    type: GET_USER,
-    payload: user,
+  type: GET_USER,
+  payload: user,
 });
 
 export const setToken = (token) => ({
-    type: SET_TOKEN,
-    payload: token,
+  type: SET_TOKEN,
+  payload: token,
 });
 
 export const userFetchError = (error) => ({
-    type: USER_FETCH_ERROR,
-    payload: error,
+  type: USER_FETCH_ERROR,
+  payload: error,
 });
 
 export const userLoading = () => ({
-    type: USER_LOADING,
+  type: USER_LOADING,
 });
 
 export const userLoadingEnd = () => ({
-    type: USER_LOADING_END,
+  type: USER_LOADING_END,
 });
 
 export const userModalOpen = () => ({
-    type: USER_MODAL_OPEN,
+  type: USER_MODAL_OPEN,
 });
 
 export const userModalClose = () => ({
-    type: USER_MODAL_CLOSE,
+  type: USER_MODAL_CLOSE,
 });
 
 export const deleteModalOpen = () => ({
-    type: DELETE_MODAL_OPEN,
+  type: DELETE_MODAL_OPEN,
 });
 
 export const deleteModalClose = () => ({
-    type: DELETE_MODAL_CLOSE,
+  type: DELETE_MODAL_CLOSE,
 });
 
-export const fetchRegisterUser = (user) => async(dispatch) => {
-    dispatch(userLoading());
-    try {
-        const response = await axios.post(`${url}/profile/register`, user);
-        const data = await response.data;
-        return [
-            dispatch(registerUser(data.user)),
-            dispatch(userLoadingEnd()),
-            dispatch(setToken(data.token)),
-            localStorage.setItem('token', JSON.stringify(data.token)),
-            localStorage.setItem('user', JSON.stringify(data.user)),
-        ];
-    } catch (error) {
-        return dispatch(userFetchError(error));
-    }
+export const fetchRegisterUser = (user) => async (dispatch) => {
+  dispatch(userLoading());
+  try {
+    const response = await axios.post(`${url}/profile/register`, user);
+    const data = await response.data;
+    return [
+      dispatch(registerUser(data.user)),
+      dispatch(userLoadingEnd()),
+      dispatch(setToken(data.token)),
+      localStorage.setItem('token', JSON.stringify(data.token)),
+      localStorage.setItem('user', JSON.stringify(data.user)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={true}
+            text={`Welcome! Enjoy your time`}
+          />
+        ),
+        { duration: 1500 },
+      ),
+    ];
+  } catch (error) {
+    return [
+      dispatch(userFetchError(error)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Oops! Something went wrong!'}
+            success={false}
+          />
+        ),
+        { duration: 1500 },
+      ),
+    ];
+  }
 };
 
-export const fetchLogoutUser = () => async(dispatch) => {
-    const token = JSON.parse(localStorage.getItem('token'));
+export const fetchLogoutUser = () => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem('token'));
 
-    const config = {
-        headers: { Authorization: `Bearer ${token}` },
-    };
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
 
-    try {
-        await axios.post(`${url}/profile/logout`, null, config);
-        dispatch(logOutUser());
-        localStorage.clear();
-    } catch (error) {
-        return dispatch(userFetchError(error));
-    }
+  try {
+    await axios.post(`${url}/profile/logout`, null, config);
+    dispatch(logOutUser());
+    toaster.notify(
+      () => <NotificationComponent text={'Buh-Bye!'} success={true} />,
+      { duration: 1500 },
+    );
+  } catch (error) {
+    return dispatch(userFetchError(error));
+  }
 };
 
-export const fetchLoginUser = (user) => async(dispatch) => {
-    try {
-        const response = await axios.post(`${url}/profile/login`, user);
-        const data = await response.data;
-        return [
-            dispatch(loginUser(data.user)),
-            dispatch(userLoadingEnd()),
-            dispatch(setToken(data.token)),
-            localStorage.setItem('token', JSON.stringify(data.token)),
-            localStorage.setItem('user', JSON.stringify(data.user)),
-        ];
-    } catch (error) {
-        return dispatch(userFetchError(error));
-    }
+export const fetchLoginUser = (user) => async (dispatch) => {
+  try {
+    const response = await axios.post(`${url}/profile/login`, user);
+    const data = await response.data;
+    return [
+      dispatch(loginUser(data.user)),
+      dispatch(userLoadingEnd()),
+      dispatch(setToken(data.token)),
+      localStorage.setItem('token', JSON.stringify(data.token)),
+      localStorage.setItem('user', JSON.stringify(data.user)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={true}
+            text={`Welcome! Enjoy your time`}
+          />
+        ),
+        { duration: 1500 },
+      ),
+    ];
+  } catch (error) {
+    return [
+      dispatch(userFetchError(error)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Oops! Something went wrong!'}
+            success={false}
+          />
+        ),
+        { duration: 1500 },
+      ),
+    ];
+  }
 };
 
 // To get the user,
@@ -133,48 +179,84 @@ export const fetchLoginUser = (user) => async(dispatch) => {
 // app will check if there is user and token in localStorage
 // so there will be no need for this.
 // Adding just in case.
-export const fetchUser = () => async(dispatch) => {
-    const token = JSON.parse(localStorage.getItem('token'));
+export const fetchUser = () => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem('token'));
 
-    const config = {
-        headers: { Authorization: `Bearer ${token}` },
-    };
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
 
-    try {
-        const response = await axios.get(`${url}/profile`, config);
-        const data = await response.data;
-        return [
-            dispatch(registerUser(data.user)),
-            dispatch(userLoadingEnd()),
-            dispatch(setToken(data.token)),
-            localStorage.setItem('token', JSON.stringify(data.token)),
-            localStorage.setItem('user', JSON.stringify(data.user)),
-        ];
-    } catch (error) {
-        return dispatch(userFetchError(error));
-    }
+  try {
+    const response = await axios.get(`${url}/profile`, config);
+    const data = await response.data;
+    return [
+      dispatch(registerUser(data.user)),
+      dispatch(userLoadingEnd()),
+      dispatch(setToken(data.token)),
+      localStorage.setItem('token', JSON.stringify(data.token)),
+      localStorage.setItem('user', JSON.stringify(data.user)),
+    ];
+  } catch (error) {
+    return dispatch(userFetchError(error));
+  }
 };
 
-export const fetchUpdateUser = (user) => async(dispatch) => {
-    const token = JSON.parse(localStorage.getItem('token'));
+export const fetchUpdateUser = (user) => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem('token'));
 
-    const config = {
-        headers: { Authorization: `Bearer ${token}` },
-    };
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  try {
+    const response = await axios.patch(`${url}/profile`, user, config);
+    const data = await response.data;
+    return [
+      dispatch(updateUser(data)),
+      dispatch(userLoadingEnd()),
+      localStorage.setItem('user', JSON.stringify(data)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={true}
+            text={`Updated successfully!`}
+          />
+        ),
+        { duration: 1500 },
+      ),
+    ];
+  } catch (error) {
+    return [
+      dispatch(userFetchError(error)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={'Oops! Something went wrong!'}
+            success={false}
+          />
+        ),
+        { duration: 1500 },
+      ),
+    ];
+  }
+};
 
-    console.log(user, config);
-    try {
-        const response = await axios.patch(`${url}/profile`, user, config);
-        // const data = await response;
-        // return [
-        //     dispatch(updateUser(data.user)),
-        //     dispatch(userLoadingEnd()),
-        //     dispatch(setToken(data.token)),
-        //     localStorage.setItem('token', JSON.stringify(data.token)),
-        //     localStorage.setItem('user', JSON.stringify(data.user)),
-        // ];
-        console.log(response);
-    } catch (error) {
-        return dispatch(userFetchError(error));
-    }
+export const fetchDeleteUser = () => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem('token'));
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  try {
+    await axios.delete(`${url}/profile`, config);
+    return [
+      dispatch(deleteUser()),
+      toaster.notify(
+        () => <NotificationComponent success={true} text={`Buh-bye!`} />,
+        { duration: 1500 },
+      ),
+    ];
+  } catch (error) {
+    return dispatch(userFetchError(error));
+  }
 };

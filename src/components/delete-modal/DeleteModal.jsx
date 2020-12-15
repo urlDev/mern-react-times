@@ -1,21 +1,17 @@
-import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
-import { deleteModalClose, fetchDeleteUser } from '../../redux/actions/user';
+import { deleteModalClose, fetchDeleteUser } from "../../redux/actions/user";
 import {
   DeleteModalContainer,
   ModalContainerAllPage,
-} from './DeleteModal.styles';
+} from "./DeleteModal.styles";
 
 const DeleteModal = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleClick = () => {
     dispatch(fetchDeleteUser());
-    localStorage.clear();
     dispatch(deleteModalClose());
-    history.push('/');
   };
 
   return (

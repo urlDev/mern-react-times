@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
 
 import { deleteModalOpen, fetchUpdateUser } from '../../redux/actions/user';
 
@@ -25,7 +24,6 @@ const UserDetails = () => {
   const { errorChart } = useSelector((chart) => chart.chart);
   const { user, deleteModal } = useSelector((user) => user.user);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleChange = (e) =>
     setInput((prevState) => ({
@@ -36,7 +34,6 @@ const UserDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(fetchUpdateUser({ name, email, password }));
-    history.push('/');
   };
 
   return (

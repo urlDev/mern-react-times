@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fetchRegisterUser } from '../../redux/actions/user';
@@ -15,7 +15,6 @@ const Register = () => {
   // destructuring properties off of input
   const [{ name, email, password }, setInput] = React.useState(initialState);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleChange = (e) => {
     // spread prevState and add new values with name, dynamically
@@ -28,9 +27,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(fetchRegisterUser({ name, email, password }));
+    // this is a no-op because app will already redirect to home page
     // set state back to initial
     setInput({ ...initialState });
-    history.push('/');
   };
 
   return (

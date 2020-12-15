@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fetchLoginUser } from '../../redux/actions/user';
@@ -15,7 +15,6 @@ const Login = ({ register }) => {
   // destructuring properties off of input
   const [{ email, password }, setInput] = React.useState(initialState);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleChange = (e) => {
     // spread prevState and add new values with name, dynamically
@@ -29,7 +28,6 @@ const Login = ({ register }) => {
     e.preventDefault();
     await dispatch(fetchLoginUser({ email, password }));
     setInput({ ...initialState });
-    history.push('/');
   };
 
   return (

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import toaster from 'toasted-notes';
-
+import { push } from 'connected-react-router'
+ 
 import NotificationComponent from '../../components/notification-component/NotificationComponent';
 
 const url = 'https://urldev-mern-react-times-api.herokuapp.com';
@@ -93,6 +94,7 @@ export const fetchRegisterUser = (user) => async (dispatch) => {
       dispatch(setToken(data.token)),
       localStorage.setItem('token', JSON.stringify(data.token)),
       localStorage.setItem('user', JSON.stringify(data.user)),
+      dispatch(push('/')),
       toaster.notify(
         () => (
           <NotificationComponent
@@ -148,6 +150,7 @@ export const fetchLoginUser = (user) => async (dispatch) => {
       dispatch(setToken(data.token)),
       localStorage.setItem('token', JSON.stringify(data.token)),
       localStorage.setItem('user', JSON.stringify(data.user)),
+      dispatch(push('/home')),
       toaster.notify(
         () => (
           <NotificationComponent
@@ -214,6 +217,7 @@ export const fetchUpdateUser = (user) => async (dispatch) => {
       dispatch(updateUser(data)),
       dispatch(userLoadingEnd()),
       localStorage.setItem('user', JSON.stringify(data)),
+      dispatch(push('/')),
       toaster.notify(
         () => (
           <NotificationComponent
@@ -250,6 +254,8 @@ export const fetchDeleteUser = () => async (dispatch) => {
   try {
     await axios.delete(`${url}/profile`, config);
     return [
+      localStorage.clear(),
+      dispatch(push('/')),
       dispatch(deleteUser()),
       toaster.notify(
         () => <NotificationComponent success={true} text={`Buh-bye!`} />,
@@ -257,6 +263,9 @@ export const fetchDeleteUser = () => async (dispatch) => {
       ),
     ];
   } catch (error) {
-    return dispatch(userFetchError(error));
+    return [dispatch(userFetchError(error)), toaster.notify(
+      () => <NotificationComponent success={false} text={`Something went wrong!`} />,
+      { duration: 1500 },
+    ),];
   }
 };

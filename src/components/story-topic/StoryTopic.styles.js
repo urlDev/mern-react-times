@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const StoryTopicContainer = styled.div `
+export const StoryTopicContainer = styled.div`
   margin-top: 15px;
 
   h1 {
@@ -9,9 +9,27 @@ export const StoryTopicContainer = styled.div `
     font-weight: 900;
     margin: 0;
   }
+
+  img {
+    height: 100%;
+  }
 `;
 
-export const TimeFrame = styled.button `
+export const FavoriteButton = styled.button`
+  padding: 0;
+  border: 0;
+  margin-top: auto;
+  margin-left: 10px;
+  background: transparent;
+  cursor: pointer;
+  height: 20px;
+
+  :focus {
+    outline: none;
+  }
+`;
+
+export const TimeFrame = styled.button`
   background: var(--background);
   color: black;
   padding: 7px 15px;

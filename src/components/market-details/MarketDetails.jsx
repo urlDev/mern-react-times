@@ -37,7 +37,11 @@ const MarketDetails = () => {
             <FavoriteButton
               onClick={() => dispatch(fetchAddFavorites(marketDetail))}
             >
-              {favorites.includes(marketDetail.symbol) ? added : add}
+              {favorites.some(
+                (favorite) => favorite.symbol === marketDetail.symbol
+              )
+                ? added
+                : add}
             </FavoriteButton>
           </div>
           {timeFrames.map((time, i) => (

@@ -18,7 +18,7 @@ const HomeMarketCards = () => {
             to={`/details/${data.symbol.toLowerCase()}`}
             percentage={data.changesPercentage}
             onClick={() => {
-              dispatch(setMarketDetail({ data }));
+              dispatch(setMarketDetail(data));
               dispatch(fetchRating(data.symbol));
             }}
             key={index}

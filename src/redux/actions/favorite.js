@@ -36,7 +36,7 @@ export const fetchGetFavorites = () => async (dispatch) => {
   try {
     const response = await axios.get(`${url}/`, config);
     const data = await response.data;
-    console.log(data);
+    return dispatch(getFavorite(data[0].symbol));
   } catch (error) {
     return dispatch(fetchFavoriteError(error));
   }
@@ -49,8 +49,18 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
 
   try {
     const response = await axios.post(`${url}/`, favoriteStock, config);
-    const data = await response;
-    console.log(data);
+    const data = await response.data;
+    return dispatch(addFavorite(data));
+  } catch (error) {
+    return dispatch(fetchFavoriteError(error));
+  }
+};
+
+export const fetchDeleteFavorite = (symbol) => async (dispatch) => {
+  try {
+    const response = await axios.delete(`${url}/${symbol}`, config);
+    // const data = await response.data;
+    console.log(response);
   } catch (error) {
     return dispatch(fetchFavoriteError(error));
   }

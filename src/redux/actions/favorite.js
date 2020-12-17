@@ -2,12 +2,6 @@ import axios from "axios";
 
 const url = "https://urldev-mern-react-times-api.herokuapp.com";
 
-const token = JSON.parse(localStorage.getItem("token"));
-
-const config = {
-  headers: { Authorization: `Bearer ${token}` },
-};
-
 export const GET_FAVORITE = "GET_FAVORITE";
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const DELETE_FAVORITE = "DELETE_FAVORITE";
@@ -23,8 +17,9 @@ export const addFavorite = (stock) => ({
   payload: stock,
 });
 
-export const deleteFavorite = () => ({
+export const deleteFavorite = (stock) => ({
   type: DELETE_FAVORITE,
+  payload: stock,
 });
 
 export const fetchFavoriteError = (error) => ({
@@ -33,10 +28,15 @@ export const fetchFavoriteError = (error) => ({
 });
 
 export const fetchGetFavorites = () => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
   try {
     const response = await axios.get(`${url}/`, config);
     const data = await response.data;
-    return dispatch(getFavorite(data[0].symbol));
+    return dispatch(getFavorite(data));
   } catch (error) {
     return dispatch(fetchFavoriteError(error));
   }
@@ -47,20 +47,31 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
     symbol: stock,
   };
 
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
   try {
     const response = await axios.post(`${url}/`, favoriteStock, config);
     const data = await response.data;
-    return dispatch(addFavorite(data));
+    return dispatch(addFavorite(data.symbol[0]));
   } catch (error) {
     return dispatch(fetchFavoriteError(error));
   }
 };
 
-export const fetchDeleteFavorite = (symbol) => async (dispatch) => {
+export const fetchDeleteFavorite = (id) => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
   try {
-    const response = await axios.delete(`${url}/${symbol}`, config);
-    // const data = await response.data;
-    console.log(response);
+    const response = await axios.delete(`${url}/${id}`, config);
+    const data = await response.data;
+    return dispatch(deleteFavorite(data));
   } catch (error) {
     return dispatch(fetchFavoriteError(error));
   }

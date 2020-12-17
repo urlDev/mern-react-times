@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 import {
   MostPopularContainer,
@@ -8,7 +8,7 @@ import {
   StoryTitle,
   ImageContainer,
   SeeAll,
-} from './MostPopular.styles';
+} from "./MostPopular.styles";
 
 const MostPopular = () => {
   const { popular } = useSelector((news) => news.news);
@@ -20,27 +20,33 @@ const MostPopular = () => {
   return (
     <MostPopularContainer>
       <PopularTitle>Most Popular</PopularTitle>
-      {popular.slice(0, 3).map((story) => {
-        return (
-          <PopularStoriesContainer
-            key={story.id}
-            href={story.url}
-            target="_blank"
-          >
-            <StoryContainer>
-              <StoryTitle font="var(--font-header)">
-                {story.title.split(' ').slice(0, 6).join(' ')}...
-              </StoryTitle>
-              <StoryTitle color="var(--gray)">
-                {story.abstract.split(' ').slice(0, 10).join(' ')}...
-              </StoryTitle>
-            </StoryContainer>
-            <ImageContainer
-              background={story.media[0]['media-metadata'][2].url}
-            />
-          </PopularStoriesContainer>
-        );
-      })}
+      {popular.length > 0
+        ? popular.slice(0, 3).map((story) => {
+            return (
+              <PopularStoriesContainer
+                key={story.id}
+                href={story.url}
+                target="_blank"
+              >
+                <StoryContainer>
+                  <StoryTitle font="var(--font-header)">
+                    {story.title.split(" ").slice(0, 6).join(" ")}...
+                  </StoryTitle>
+                  <StoryTitle color="var(--gray)">
+                    {story.abstract.split(" ").slice(0, 10).join(" ")}...
+                  </StoryTitle>
+                </StoryContainer>
+                <ImageContainer
+                // background={
+                //   story
+                //     ? story.media[0]["media-metadata"][2].url
+                //     : null
+                // }
+                />
+              </PopularStoriesContainer>
+            );
+          })
+        : null}
       <SeeAll
         popular="43px"
         href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"

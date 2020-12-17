@@ -2,7 +2,10 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setChartTimeFrame, fetchChartData } from "../../redux/actions/chart";
-import { fetchAddFavorites } from "../../redux/actions/favorite";
+import {
+  fetchAddFavorites,
+  fetchGetFavorites,
+} from "../../redux/actions/favorite";
 
 import AddSrc from "../../assets/bookmarkEmpty.svg";
 import AddedSrc from "../../assets/bookmark.svg";
@@ -18,12 +21,20 @@ import {
 const MarketDetails = () => {
   const { marketDetail, chartTimeFrame } = useSelector((chart) => chart.chart);
   const { favorites } = useSelector((favorite) => favorite.favorite);
-  const dispatch = useDispatch();
+  const { user } = useSelector((user) => user.user);
+
   const timeFrames = ["5min", "15min", "30min", "1hour"];
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(fetchChartData(marketDetail.symbol, chartTimeFrame));
   }, [dispatch, marketDetail.symbol, chartTimeFrame]);
+
+  React.useEffect(() => {
+    if (user.name) {
+      dispatch(fetchGetFavorites());
+    }
+  }, [user.name, dispatch]);
 
   const add = <img src={AddSrc} alt="empty bookmark" />;
   const added = <img src={AddedSrc} alt="added favorite, filled bookmark" />;
@@ -35,10 +46,13 @@ const MarketDetails = () => {
           <div style={{ display: "flex" }}>
             <h1 style={{ marginTop: "10px" }}>{marketDetail.name}</h1>
             <FavoriteButton
-              onClick={() => dispatch(fetchAddFavorites(marketDetail))}
+              onClick={async () => {
+                await dispatch(fetchAddFavorites(marketDetail));
+                dispatch(fetchGetFavorites());
+              }}
             >
               {favorites.some(
-                (favorite) => favorite.symbol === marketDetail.symbol
+                (favorite) => favorite.symbol[0].symbol === marketDetail.symbol
               )
                 ? added
                 : add}

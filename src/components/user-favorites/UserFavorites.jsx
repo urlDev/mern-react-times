@@ -43,45 +43,49 @@ const UserFavorites = () => {
           <h1 style={{ marginTop: "25px" }}>Your Favorites</h1>
         </StoryTopicContainer>
         <UserFavoriteContainer>
-          {favorites.length > 0 ? (
-            favorites.map((stock) => (
-              <div
-                style={{
-                  display: "flex",
-                  border: "1px solid black",
-                  padding: "10px 15px",
-                }}
-              >
-                <FavoriteButton
-                  style={{ margin: "auto 10px auto 0" }}
-                  onClick={() => dispatch(fetchDeleteFavorite(stock.symbol))}
-                >
-                  <img src={AddedSrc} alt="favorite added, bookmark svg" />
-                </FavoriteButton>
-                <FavoriteCards
-                  to={`/details/${stock.symbol.toLowerCase()}`}
-                  percentage={stock.changesPercentage}
-                  onClick={() => {
-                    dispatch(setMarketDetail(stock));
-                    dispatch(fetchRating(stock.symbol));
+          {favorites.length ? (
+            favorites.map((stock) => {
+              const { symbol, price, changesPercentage } = stock.symbol[0];
+
+              return (
+                <div
+                  style={{
+                    display: "flex",
+                    border: "1px solid black",
+                    padding: "10px 15px",
                   }}
                 >
-                  <h1>{stock.symbol.split("^").join("")}</h1>
-
-                  <h1
-                    style={{
-                      fontWeight: "normal",
-                      fontSize: "var(--size-sub-menu)",
+                  <FavoriteButton
+                    style={{ margin: "auto 10px auto 0" }}
+                    onClick={() => dispatch(fetchDeleteFavorite(stock._id))}
+                  >
+                    <img src={AddedSrc} alt="favorite added, bookmark svg" />
+                  </FavoriteButton>
+                  <FavoriteCards
+                    to={`/details/${symbol && symbol.toLowerCase()}`}
+                    percentage={stock.changesPercentage}
+                    onClick={() => {
+                      dispatch(setMarketDetail(stock.symbol[0]));
+                      dispatch(fetchRating(symbol));
                     }}
                   >
-                    $ {stock.price.toFixed(2)}
-                  </h1>
-                  <StockPercentage percentage={stock.changesPercentage}>
-                    <h1>{stock.changesPercentage} %</h1>
-                  </StockPercentage>
-                </FavoriteCards>
-              </div>
-            ))
+                    <h1>{symbol.split("^").join("")}</h1>
+
+                    <h1
+                      style={{
+                        fontWeight: "normal",
+                        fontSize: "var(--size-sub-menu)",
+                      }}
+                    >
+                      $ {price.toFixed(2)}
+                    </h1>
+                    <StockPercentage percentage={changesPercentage}>
+                      <h1>{changesPercentage} %</h1>
+                    </StockPercentage>
+                  </FavoriteCards>
+                </div>
+              );
+            })
           ) : (
             <h1>No favorites added.</h1>
           )}

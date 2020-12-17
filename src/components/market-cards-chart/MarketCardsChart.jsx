@@ -1,5 +1,5 @@
-import React from 'react';
-import * as d3 from 'd3';
+import React from "react";
+import * as d3 from "d3";
 
 const MarketCardsChart = ({ chart }) => {
   const d3HomeRef = React.useRef(null);
@@ -10,7 +10,7 @@ const MarketCardsChart = ({ chart }) => {
     const height = 70;
     const padding = 10;
 
-    svg.attr('width', width).attr('height', height);
+    svg.attr("width", width).attr("height", height);
 
     const dates = chart[0].map((value) => new Date(value.date));
 
@@ -36,12 +36,12 @@ const MarketCardsChart = ({ chart }) => {
 
     // draw historical price path
     const path = svg
-      .append('path')
+      .append("path")
       .data([chart[0]])
-      .style('fill', 'none')
-      .attr('stroke', 'white')
-      .attr('stroke-width', '1.2')
-      .attr('d', line);
+      .style("fill", "none")
+      .attr("stroke", "white")
+      .attr("stroke-width", "1.2")
+      .attr("d", line);
 
     // get the length of the path for line transition
     const pathLength = path.node().getTotalLength();
@@ -52,16 +52,16 @@ const MarketCardsChart = ({ chart }) => {
     // setting pathsLength for strokes attrs and using transition
     // I made it minus pathLength because it was drawing it backwards
     path
-      .attr('stroke-dashoffset', -pathLength)
-      .attr('stroke-dasharray', pathLength)
+      .attr("stroke-dashoffset", -pathLength)
+      .attr("stroke-dasharray", pathLength)
       .transition(transitionPath)
-      .attr('stroke-dashoffset', 0);
+      .attr("stroke-dashoffset", 0);
 
-    path.interrupt('stroke-dashoffset');
-  }, [chart]);
+    path.interrupt("stroke-dashoffset");
+  }, []);
 
   return (
-    <div style={{ marginLeft: 'auto' }}>
+    <div style={{ marginLeft: "auto" }}>
       <svg ref={d3HomeRef}></svg>
     </div>
   );

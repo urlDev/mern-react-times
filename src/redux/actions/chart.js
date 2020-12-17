@@ -150,7 +150,7 @@ Yet another homerun for me! 😁😎
 export const fetchHomeChart = (symbols) => async (dispatch) => {
   const symbolsArray = symbols.split(",").sort();
   try {
-    dispatch(setLoadingTrue());
+    // dispatch(setLoadingTrue());
     dispatch(cleanState());
     for (let symbol of symbolsArray) {
       const response = await axios.get(
@@ -161,7 +161,7 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
         ? dispatch(setHomeChartData(data))
         : dispatch(fetchChartError(data));
     }
-    dispatch(setLoading());
+    // dispatch(setLoading());
   } catch (error) {
     return dispatch(fetchChartError(error));
   }

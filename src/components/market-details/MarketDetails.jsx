@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setChartTimeFrame, fetchChartData } from "../../redux/actions/chart";
 import {
   fetchAddFavorites,
+  fetchDeleteFavorite,
   fetchGetFavorites,
 } from "../../redux/actions/favorite";
 
@@ -39,6 +40,21 @@ const MarketDetails = () => {
   const add = <img src={AddSrc} alt="empty bookmark" />;
   const added = <img src={AddedSrc} alt="added favorite, filled bookmark" />;
 
+  // Checking if a stock in db is same with the stock we are clicking on
+  // if its same, I am deleting it
+  // if its not, then I am adding it to the db
+  const handleClick = () => {
+    // at first its good, but when it checks it from db, theres a problem
+    favorites.some((favorite) =>
+      favorite.symbol[0].symbol === marketDetail.symbol
+        ? dispatch(fetchDeleteFavorite(favorite._id))
+        : [
+            dispatch(fetchAddFavorites(marketDetail)),
+            dispatch(fetchGetFavorites()),
+          ]
+    );
+  };
+
   return (
     <>
       <div style={{ margin: "0 30px" }}>
@@ -46,9 +62,8 @@ const MarketDetails = () => {
           <div style={{ display: "flex" }}>
             <h1 style={{ marginTop: "10px" }}>{marketDetail.name}</h1>
             <FavoriteButton
-              onClick={async () => {
-                await dispatch(fetchAddFavorites(marketDetail));
-                dispatch(fetchGetFavorites());
+              onClick={() => {
+                handleClick();
               }}
             >
               {favorites.some(
@@ -76,7 +91,7 @@ const MarketDetails = () => {
           <DetailsTable />
         </div>
       </div>
-    </>
+    </> //
   );
 };
 

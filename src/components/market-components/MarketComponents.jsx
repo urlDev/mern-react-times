@@ -1,25 +1,25 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   changeMarketType,
   fetchHomeChart,
   fetchForex,
-} from '../../redux/actions/chart';
+} from "../../redux/actions/chart";
 
-import Loading from '../loading/Loading';
-import HomeMarketCards from '../home-market-cards/HomeMarketCards';
+import Loading from "../loading/Loading";
+import HomeMarketCards from "../home-market-cards/HomeMarketCards";
 
 import {
   MarketComponentsContainer,
   MarketHeaderContainer,
   MarketTitle,
   MarketMenu,
-} from './MarketComponents.styles';
+} from "./MarketComponents.styles";
 
 const MarketComponents = () => {
   // First, I made market types array, the ones that I want to show in home page
-  const marketTypes = ['Indexes', 'Crypto', 'Forex', 'Stocks', 'Commodities'];
+  const marketTypes = ["Indexes", "Crypto", "Forex", "Stocks", "Commodities"];
   const { loadingChart, marketType } = useSelector((chart) => chart.chart);
   const dispatch = useDispatch();
 
@@ -33,22 +33,22 @@ const MarketComponents = () => {
     //  So with all this, I can use one fetch function for all market kinds,
     //  Therefore, less fetch calls, less code.
     //  More comments as it seems😁
-    const Indexes = '%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE';
-    const Crypto = 'BTCUSD,LTCUSD,XLMUSD,BCNUSD,ETHUSD,ETCUSD';
-    const Forex = 'EURUSD,USDJPY,GBPUSD,EURGBP,EURJPY,GBPJPY';
-    const Stocks = 'AAPL,FB,GOOG,TSLA,NFLX,AMZN';
-    const Commodities = 'ZGUSD,CLUSD,HGUSD,SIUSD,PLUSD,BZUSD';
+    const Indexes = "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE";
+    const Crypto = "BTCUSD,LTCUSD,XLMUSD,BCNUSD,ETHUSD,ETCUSD";
+    const Forex = "EURUSD,USDJPY,GBPUSD,EURGBP,EURJPY,GBPJPY";
+    const Stocks = "AAPL,FB,GOOG,TSLA,NFLX,AMZN";
+    const Commodities = "ZGUSD,CLUSD,HGUSD,SIUSD,PLUSD,BZUSD";
 
     switch (market) {
-      case 'Indexes':
+      case "Indexes":
         return dispatch(changeMarketType(Indexes));
-      case 'Crypto':
+      case "Crypto":
         return dispatch(changeMarketType(Crypto));
-      case 'Forex':
+      case "Forex":
         return dispatch(changeMarketType(Forex));
-      case 'Stocks':
+      case "Stocks":
         return dispatch(changeMarketType(Stocks));
-      case 'Commodities':
+      case "Commodities":
         return dispatch(changeMarketType(Commodities));
       default:
         return Indexes;
@@ -56,9 +56,9 @@ const MarketComponents = () => {
   };
 
   React.useEffect(() => {
-    dispatch(fetchHomeChart(marketType));
+    // dispatch(fetchHomeChart(marketType));
     dispatch(fetchForex(marketType));
-  }, [dispatch, marketType]);
+  }, [marketType]);
 
   return (
     <MarketComponentsContainer>

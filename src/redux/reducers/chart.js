@@ -18,7 +18,7 @@ import {
 } from "../actions/chart";
 
 const initialState = {
-  loadingChart: true,
+  loadingChart: false,
   forex: [],
   errorChart: null,
   // Indexes are first to load.

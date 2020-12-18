@@ -5,8 +5,10 @@ export const FETCH_CHART_ERROR = "FETCH_CHART_ERROR";
 export const SET_LOADING = "SET_LOADING";
 export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
 export const CHANGE_MARKET_TYPE = "CHANGE_MARKET_TYPE";
+export const CHANGE_MARKET_NAME = "CHANGE_MARKET_NAME";
 export const SET_MARKET_DETAIL = "SET_MARKET_DETAIL";
 export const SET_CHART_DATA = "SET_CHART_DATA";
+export const CLEAN_CHART_DATA = "CLEAN_CHART_DATA";
 export const SET_CHART_TIME_FRAME = "SET_CHART_TIME_FRAME";
 export const SET_RATING = "SET_RATING";
 export const SET_HOME_CHART_DATA = "SET_HOME_CHART_DATA";
@@ -71,6 +73,10 @@ export const setChartData = (data) => ({
   payload: data,
 });
 
+export const cleanChartData = () => ({
+  type: CLEAN_CHART_DATA,
+});
+
 export const setMarketDetail = (market) => ({
   type: SET_MARKET_DETAIL,
   payload: market,
@@ -78,6 +84,11 @@ export const setMarketDetail = (market) => ({
 
 export const changeMarketType = (market) => ({
   type: CHANGE_MARKET_TYPE,
+  payload: market,
+});
+
+export const changeMarketName = (market) => ({
+  type: CHANGE_MARKET_NAME,
   payload: market,
 });
 
@@ -104,7 +115,7 @@ export const fetchForex = (market) => async (dispatch) => {
       return data.length === 1
         ? [
             dispatch(setSearchMarketDetail({ data })),
-            // dispatch(fetchForexSuccess(data)),
+            dispatch(fetchForexSuccess(data)),
           ]
         : dispatch(fetchForexSuccess(data));
     } else {
@@ -116,6 +127,7 @@ export const fetchForex = (market) => async (dispatch) => {
 };
 
 export const fetchChartData = (symbol, timeFrame) => async (dispatch) => {
+  dispatch(cleanChartData());
   try {
     const response = await axios.get(
       `https://financialmodelingprep.com/api/v3/historical-chart/${timeFrame}/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`

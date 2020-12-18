@@ -32,27 +32,32 @@ const MarketDetails = () => {
   }, [dispatch, marketDetail.symbol, chartTimeFrame]);
 
   React.useEffect(() => {
-    if (user.name) {
+    if (user.name && favorites.length) {
       dispatch(fetchGetFavorites());
     }
-  }, [user.name, dispatch]);
+  }, [user.name, dispatch, favorites.length]);
 
   const add = <img src={AddSrc} alt="empty bookmark" />;
   const added = <img src={AddedSrc} alt="added favorite, filled bookmark" />;
 
-  // Checking if a stock in db is same with the stock we are clicking on
-  // if its same, I am deleting it
-  // if its not, then I am adding it to the db
   const handleClick = () => {
-    // at first its good, but when it checks it from db, theres a problem
-    favorites.some((favorite) =>
-      favorite.symbol[0].symbol === marketDetail.symbol
-        ? dispatch(fetchDeleteFavorite(favorite._id))
-        : [
-            dispatch(fetchAddFavorites(marketDetail)),
-            dispatch(fetchGetFavorites()),
-          ]
-    );
+    // First, checking the length
+    // if theres no favorites, then add
+    // if there are, then check the index of the instrument clicked
+    // if its not -1 (its inside the favorites array), then delete,
+    // if its -1, then add
+    // and goal! ⚽⚽⚽
+    if (favorites.length > 0) {
+      const stockIndex = favorites.findIndex(
+        (favorite) => favorite.symbol[0].symbol === marketDetail.symbol
+      );
+
+      return stockIndex !== -1
+        ? dispatch(fetchDeleteFavorite(favorites[stockIndex]._id))
+        : dispatch(fetchAddFavorites(marketDetail));
+    } else {
+      return dispatch(fetchAddFavorites(marketDetail));
+    }
   };
 
   return (
@@ -61,11 +66,7 @@ const MarketDetails = () => {
         <StoryTopicContainer>
           <div style={{ display: "flex" }}>
             <h1 style={{ marginTop: "10px" }}>{marketDetail.name}</h1>
-            <FavoriteButton
-              onClick={() => {
-                handleClick();
-              }}
-            >
+            <FavoriteButton onClick={() => handleClick()}>
               {favorites.some(
                 (favorite) => favorite.symbol[0].symbol === marketDetail.symbol
               )

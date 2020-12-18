@@ -2,6 +2,7 @@ import {
   FETCH_FOREX_SUCCESS,
   FETCH_CHART_ERROR,
   CHANGE_MARKET_TYPE,
+  CHANGE_MARKET_NAME,
   SET_MARKET_DETAIL,
   SET_CHART_DATA,
   SET_CHART_TIME_FRAME,
@@ -15,6 +16,7 @@ import {
   OPEN_SEARCH_MODAL,
   SET_LOADING_TRUE,
   CLOSE_SEARCH_MODAL,
+  CLEAN_CHART_DATA,
 } from "../actions/chart";
 
 const initialState = {
@@ -23,6 +25,7 @@ const initialState = {
   errorChart: null,
   // Indexes are first to load.
   marketType: "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE",
+  marketName: "Indexes",
   marketDetail: {},
   chartData: [],
   chartTimeFrame: "1hour",
@@ -49,6 +52,11 @@ const chartReducer = (state = initialState, action) => {
         ...state,
         marketType: action.payload,
       };
+    case CHANGE_MARKET_NAME:
+      return {
+        ...state,
+        marketName: action.payload,
+      };
     case SET_MARKET_DETAIL:
       return {
         ...state,
@@ -58,6 +66,11 @@ const chartReducer = (state = initialState, action) => {
       return {
         ...state,
         chartData: action.payload,
+      };
+    case CLEAN_CHART_DATA:
+      return {
+        ...state,
+        chartData: [],
       };
     case SET_CHART_TIME_FRAME:
       return {

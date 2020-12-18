@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import { fetchLoginUser } from '../../redux/actions/user';
+import { fetchLoginUser } from "../../redux/actions/user";
 
-import { LoginContainer } from './Login.styles';
+import { LoginContainer } from "./Login.styles";
 
 const Login = ({ register }) => {
   const initialState = {
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   };
   // destructuring properties off of input
   const [{ email, password }, setInput] = React.useState(initialState);
@@ -50,13 +50,13 @@ const Login = ({ register }) => {
           value={password}
         />
         <button aria-label="login" type="submit">
-          {register ? 'Register' : 'Login'}
+          {register ? "Register" : "Login"}
         </button>
       </form>
 
-      <h1 style={{ textAlign: 'center', color: 'white', marginBottom: '40px' }}>
-        Don't have an account?{' '}
-        <Link to="/profile/register" style={{ color: 'lightgray' }}>
+      <h1 style={{ textAlign: "center", color: "white", marginBottom: "40px" }}>
+        Don't have an account?{" "}
+        <Link to="/profile/register" style={{ color: "lightgray" }}>
           Register
         </Link>
       </h1>

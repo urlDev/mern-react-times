@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   changeMarketType,
+  changeMarketName,
   fetchHomeChart,
   fetchForex,
 } from "../../redux/actions/chart";
@@ -20,7 +21,9 @@ import {
 const MarketComponents = () => {
   // First, I made market types array, the ones that I want to show in home page
   const marketTypes = ["Indexes", "Crypto", "Forex", "Stocks", "Commodities"];
-  const { loadingChart, marketType } = useSelector((chart) => chart.chart);
+  const { loadingChart, marketType, marketName } = useSelector(
+    (chart) => chart.chart
+  );
   const dispatch = useDispatch();
 
   const fetchMarketTypes = (market) => {
@@ -41,15 +44,30 @@ const MarketComponents = () => {
 
     switch (market) {
       case "Indexes":
-        return dispatch(changeMarketType(Indexes));
+        return [
+          dispatch(changeMarketType(Indexes)),
+          dispatch(changeMarketName("Indexes")),
+        ];
       case "Crypto":
-        return dispatch(changeMarketType(Crypto));
+        return [
+          dispatch(changeMarketType(Crypto)),
+          dispatch(changeMarketName("Crypto")),
+        ];
       case "Forex":
-        return dispatch(changeMarketType(Forex));
+        return [
+          dispatch(changeMarketType(Forex)),
+          dispatch(changeMarketName("Forex")),
+        ];
       case "Stocks":
-        return dispatch(changeMarketType(Stocks));
+        return [
+          dispatch(changeMarketType(Stocks)),
+          dispatch(changeMarketName("Stocks")),
+        ];
       case "Commodities":
-        return dispatch(changeMarketType(Commodities));
+        return [
+          dispatch(changeMarketType(Commodities)),
+          dispatch(changeMarketName("Commodities")),
+        ];
       default:
         return Indexes;
     }
@@ -58,7 +76,7 @@ const MarketComponents = () => {
   React.useEffect(() => {
     // dispatch(fetchHomeChart(marketType));
     dispatch(fetchForex(marketType));
-  }, [marketType]);
+  }, [dispatch, marketType]);
 
   return (
     <MarketComponentsContainer>
@@ -67,6 +85,7 @@ const MarketComponents = () => {
         {marketTypes.map((market, index) => (
           <MarketMenu
             key={index}
+            active={market === marketName}
             onClick={() => {
               fetchMarketTypes(market);
             }}

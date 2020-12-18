@@ -27,7 +27,7 @@ const LoginRegister = () => {
           />
           <LoginRegisterContainer>
             <Route path="/profile/login" component={Login} />
-            <Route path="/profile/register" component={Register} />{" "}
+            <Route path="/profile/register" component={Register} />
           </LoginRegisterContainer>
         </div>
       </Switch>

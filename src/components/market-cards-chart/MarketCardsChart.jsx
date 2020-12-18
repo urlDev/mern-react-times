@@ -58,7 +58,7 @@ const MarketCardsChart = ({ chart }) => {
       .attr("stroke-dashoffset", 0);
 
     path.interrupt("stroke-dashoffset");
-  }, []);
+  }, [chart]);
 
   return (
     <div style={{ marginLeft: "auto" }}>

@@ -5,6 +5,15 @@ export const MarketComponentsContainer = styled.div`
   /* border: 30px solid var(--gray); */
   padding-top: 10px;
   border-top: 1px solid lightgray;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 1340px;
+  min-height: 120px;
+
+  @media (max-width: 1400px) {
+    position: relative;
+  }
 `;
 
 export const MarketHeaderContainer = styled.div`

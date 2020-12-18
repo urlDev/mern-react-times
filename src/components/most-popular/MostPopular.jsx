@@ -37,11 +37,11 @@ const MostPopular = () => {
                   </StoryTitle>
                 </StoryContainer>
                 <ImageContainer
-                // background={
-                //   story
-                //     ? story.media[0]["media-metadata"][2].url
-                //     : null
-                // }
+                  background={
+                    story.media[0]
+                      ? story.media[0]["media-metadata"][2].url
+                      : null
+                  }
                 />
               </PopularStoriesContainer>
             );

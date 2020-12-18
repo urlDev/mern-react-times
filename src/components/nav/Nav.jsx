@@ -20,8 +20,6 @@ const Nav = ({
   const { user } = useSelector((user) => user.user);
   const path = window.location.pathname;
 
-  console.log(path);
-
   return (
     <NavContainer
       color={color}

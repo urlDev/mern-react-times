@@ -1,29 +1,38 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const TopStoriesContainer = styled.div `
+export const TopStoriesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   /* width will be changed to smaller number for smaller screens */
-  width: 70vw;
-  min-height: 53vh;
+  width: 100%;
+  /* min-height: 53vh; */
   margin-top: 20px;
   /* margin-bottom: 20px; */
+
+  @media (min-width: 1400px) {
+    width: 1000px;
+  }
+
+  @media (max-width: 1400px) {
+    grid-template-columns: 1fr;
+    min-height: 100%;
+  }
 `;
 
-export const SubTitle = styled.h3 `
+export const SubTitle = styled.h3`
   font-family: var(--font-text);
   font-size: var(--size-sub-menu);
   color: var(--gray);
   margin: 10px 0;
 `;
 
-export const TagContainer = styled.div `
+export const TagContainer = styled.div`
   display: flex;
   align-items: center;
   padding-top: 10px;
 `;
 
-export const Title = styled.h1 `
+export const Title = styled.h1`
   font-family: var(--font-header);
   /* 
   if header has more than 10 words, then I change the size of header.
@@ -31,11 +40,11 @@ export const Title = styled.h1 `
   */
   font-size: ${(props) =>
     props.header.length > 10
-      ? 'var(--size-header-long)'
-      : 'var(--size-header)'};
+      ? "var(--size-header-long)"
+      : "var(--size-header)"};
 `;
 
-export const StoryContainer = styled.div `
+export const StoryContainer = styled.div`
   border-right: 1.3px solid lightgray;
   :not(:first-child) {
     padding: 0 40px;
@@ -75,9 +84,20 @@ export const StoryContainer = styled.div `
     flex-direction: column;
     padding-bottom: 7px;
   }
+
+  @media (max-width: 1400px) {
+    :not(:first-child) {
+      padding: 0 40px 0 0;
+      margin-top: 30px;
+    }
+
+    :last-child {
+      margin-bottom: 70px;
+    }
+  }
 `;
 
-export const Tag = styled.span `
+export const Tag = styled.span`
   background: black;
   color: white;
   padding: 7px 15px;

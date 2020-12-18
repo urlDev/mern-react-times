@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const LoadingContainer = styled.div `
+export const LoadingContainer = styled.div`
   width: 100%;
-  height: ${(props) => props.height || '70px'};
+  height: ${(props) => props.height || "70px"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,5 +10,9 @@ export const LoadingContainer = styled.div `
   img {
     width: 40px;
     animation: loading 1s infinite ease-in-out;
+  }
+
+  @media (max-width: 1400px) {
+    min-height: 100%;
   }
 `;

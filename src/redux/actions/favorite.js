@@ -1,4 +1,7 @@
 import axios from "axios";
+import toaster from "toasted-notes";
+
+import NotificationComponent from "../../components/notification-component/NotificationComponent";
 
 const url = "https://urldev-mern-react-times-api.herokuapp.com";
 
@@ -56,9 +59,33 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
   try {
     const response = await axios.post(`${url}/`, favoriteStock, config);
     const data = await response.data;
-    return dispatch(addFavorite(data.symbol[0]));
+    return [
+      dispatch(addFavorite(data.symbol[0])),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={true}
+            text={`You added ${data.symbol[0].name
+              .split("^")
+              .join("")} to your favorites successfully.`}
+          />
+        ),
+        { duration: 1500 }
+      ),
+    ];
   } catch (error) {
-    return dispatch(fetchFavoriteError(error));
+    return [
+      dispatch(fetchFavoriteError(error)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={false}
+            text={`We just broke something, try again please or refresh.`}
+          />
+        ),
+        { duration: 1500 }
+      ),
+    ];
   }
 };
 
@@ -71,8 +98,32 @@ export const fetchDeleteFavorite = (id) => async (dispatch) => {
   try {
     const response = await axios.delete(`${url}/${id}`, config);
     const data = await response.data;
-    return dispatch(deleteFavorite(data));
+    return [
+      dispatch(deleteFavorite(data)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={true}
+            text={`You deleted ${data.symbol[0].name
+              .split("^")
+              .join("")} from your favorites.`}
+          />
+        ),
+        { duration: 1500 }
+      ),
+    ];
   } catch (error) {
-    return dispatch(fetchFavoriteError(error));
+    return [
+      dispatch(fetchFavoriteError(error)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            success={false}
+            text={`We just broke something, try again please or refresh.`}
+          />
+        ),
+        { duration: 1500 }
+      ),
+    ];
   }
 };

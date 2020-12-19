@@ -110,7 +110,7 @@ const chartReducer = (state = initialState, action) => {
     case SET_SEARCH_MARKET_DETAIL:
       return {
         ...state,
-        marketDetail: action.payload.data[0],
+        marketDetail: action.payload[0],
       };
     case CLEAR_SEARCH_RESULTS:
       return {

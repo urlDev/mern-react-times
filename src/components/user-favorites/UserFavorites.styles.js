@@ -10,6 +10,11 @@ export const UserFavoriteContainer = styled.div`
   img {
     height: 100%;
   }
+
+  h1 {
+    font-family: var(--font-links);
+    font-size: var(--size-sub-menu);
+  }
 `;
 
 export const FavoriteCards = styled(Link)`

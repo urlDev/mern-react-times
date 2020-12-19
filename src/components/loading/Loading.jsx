@@ -1,11 +1,14 @@
-import { LoadingContainer } from './Loading.styles';
+import DarkLoadingSrc from "../../assets/loadingLogo.svg";
 
-import LoadingLogoSrc from '../../assets/loadingLogo.svg';
+import { LoadingContainer } from "./Loading.styles";
 
-const Loading = ({ height }) => {
+const Loading = ({ height, logoSrc, show }) => {
   return (
     <LoadingContainer height={height}>
-      <img src={LoadingLogoSrc} alt="dark version of logo for loading" />
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <img src={logoSrc || DarkLoadingSrc} alt="loading logo" />
+        {show ? <h1>Almost there.</h1> : null}
+      </div>
     </LoadingContainer>
   );
 };

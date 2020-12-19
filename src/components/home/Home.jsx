@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
 
 import {
   fetchTopStories,
@@ -22,7 +23,6 @@ import { topics } from "../../components/story-topic-headers/StoryTopicHeaders";
 
 const Home = () => {
   const { header, loadingNews, popular } = useSelector((news) => news.news);
-  const { errorChart } = useSelector((chart) => chart.chart);
 
   const dispatch = useDispatch();
   const path = window.location.pathname;
@@ -64,9 +64,18 @@ const Home = () => {
             render={() => <StoryComponents />}
           />
         )}
-        <Route path="/details/:symbol" render={() => <MarketDetails />} />
+        <Route
+          path="/details/:symbol"
+          render={() => (
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <MarketDetails />
+            </ErrorBoundary>
+          )}
+        />
       </Switch>
-      {errorChart ? <ErrorFallback /> : <MarketComponents />}
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <MarketComponents />
+      </ErrorBoundary>
     </div>
   );
 };

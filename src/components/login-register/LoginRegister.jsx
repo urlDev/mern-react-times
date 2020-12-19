@@ -1,8 +1,11 @@
 import { Route, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import BgSrc from "../../assets/bg.jpg";
-import Nav from "../nav/Nav";
+import WhiteLogoSrc from "../../assets/loadingWhite.svg";
 
+import Nav from "../nav/Nav";
+import Loading from "../loading/Loading";
 import UserDetails from "../user-details/UserDetails";
 import UserFavorites from "../user-favorites/UserFavorites";
 import Register from "../register/Register";
@@ -11,6 +14,8 @@ import LogoWhiteSrc from "../../assets/logoWhite.svg";
 import { LoginRegisterContainer, Background } from "./LoginRegister.styles";
 
 const LoginRegister = () => {
+  const { loadingUser } = useSelector((user) => user.user);
+
   return (
     <div>
       <Switch>
@@ -25,10 +30,14 @@ const LoginRegister = () => {
             background="white"
             hoverColor="black"
           />
-          <LoginRegisterContainer>
-            <Route path="/profile/login" component={Login} />
-            <Route path="/profile/register" component={Register} />
-          </LoginRegisterContainer>
+          {loadingUser ? (
+            <Loading height="80vh" logoSrc={WhiteLogoSrc} />
+          ) : (
+            <LoginRegisterContainer>
+              <Route path="/profile/login" component={Login} />
+              <Route path="/profile/register" component={Register} />
+            </LoginRegisterContainer>
+          )}
         </div>
       </Switch>
     </div>

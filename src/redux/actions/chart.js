@@ -113,10 +113,7 @@ export const fetchForex = (market) => async (dispatch) => {
     // Thats why I am catching that error here and dispatching it.
     if (data.length) {
       return data.length === 1
-        ? [
-            dispatch(setSearchMarketDetail({ data })),
-            dispatch(fetchForexSuccess(data)),
-          ]
+        ? [dispatch(setSearchMarketDetail(data))]
         : dispatch(fetchForexSuccess(data));
     } else {
       return dispatch(fetchChartError(data));

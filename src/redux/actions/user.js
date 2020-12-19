@@ -142,6 +142,7 @@ export const fetchLogoutUser = () => async (dispatch) => {
 };
 
 export const fetchLoginUser = (user) => async (dispatch) => {
+  dispatch(userLoading());
   try {
     const response = await axios.post(`${url}/profile/login`, user);
     const data = await response.data;

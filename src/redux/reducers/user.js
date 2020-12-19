@@ -65,12 +65,12 @@ const userReducer = (state = initialState, action) => {
     case USER_LOADING:
       return {
         ...state,
-        loading: true,
+        loadingUser: true,
       };
     case USER_LOADING_END:
       return {
         ...state,
-        loading: false,
+        loadingUser: false,
       };
     case USER_MODAL_OPEN:
       return {

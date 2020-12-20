@@ -40,6 +40,10 @@ code {
   --size-text: 1rem;
 }
 
+/* 
+  These styles are for react-slick
+  margin and initial transform hacks
+*/
 .slick-slide {
   margin: 0 15px;
   /* transform: translateX(-45px) !important; */

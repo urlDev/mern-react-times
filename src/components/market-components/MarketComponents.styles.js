@@ -18,6 +18,10 @@ export const MarketComponentsContainer = styled.div`
 
 export const MarketHeaderContainer = styled.div`
   display: flex;
+
+  @media (max-width: 830px) {
+    display: block;
+  }
 `;
 
 export const MarketTitle = styled.h1`
@@ -40,5 +44,11 @@ font-weight: bold;
 
   :focus {
     outline: none;
+  }
+
+  @media (max-width: 830px) {
+    padding-left: 0;
+    padding-right: 15px;
+    margin-bottom: 10px;
   }
 `;

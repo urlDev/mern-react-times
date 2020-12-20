@@ -1,20 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export const SearchModalContainer = styled.div `
+export const SearchModalContainer = styled.div`
   height: 200px;
   width: calc(250px - 20px);
   position: absolute;
-  top: 40px;
+  top: 0;
+  left: 100px;
   background: black;
-  z-index: 99;
+  z-index: 1000;
   overflow-y: scroll;
   padding: 10px;
 `;
 
-export const ResultsContainer = styled(Link)
-`
+export const ResultsContainer = styled(Link)`
   display: flex;
   justify-content: space-between;
   font-family: var(--font-text);
@@ -23,14 +23,14 @@ export const ResultsContainer = styled(Link)
   color: white;
 `;
 
-export const SearchModalAllPage = styled.div `
+export const SearchModalAllPage = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 40px;
+  left: -100px;
   right: 0;
   bottom: 0;
-  width: 95vw;
-  height: 95vh;
+  width: 100vw;
+  height: 94vh;
   background: transparent;
-  z-index: 1000;
+  z-index: 999;
 `;

@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux";
 
 import {
@@ -8,21 +9,34 @@ import {
   StoryTitle,
   ImageContainer,
   SeeAll,
+  MostPopularWithHeader,
 } from "./MostPopular.styles";
 
 const MostPopular = () => {
+  const [width, setWidth] = React.useState(window.innerWidth);
   const { popular } = useSelector((news) => news.news);
-
   // Wanted to show random results on each refresh/load
   // but random makes the app loads more than once
   // const random = Math.floor(Math.random() * popular.length);
 
+  React.useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, []);
+
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
   return (
-    <MostPopularContainer>
+    <MostPopularWithHeader>
       <PopularTitle>Most Popular</PopularTitle>
-      {popular.length > 0
-        ? popular.slice(0, 3).map((story) => {
-            return (
+      <MostPopularContainer>
+        {popular.length > 0
+          ? popular.map((story) => (
               <PopularStoriesContainer
                 key={story.id}
                 href={story.url}
@@ -30,10 +44,16 @@ const MostPopular = () => {
               >
                 <StoryContainer>
                   <StoryTitle font="var(--font-header)">
-                    {story.title.split(" ").slice(0, 6).join(" ")}...
+                    {width > 830
+                      ? story.title.split(" ").slice(0, 6).join(" ")
+                      : story.title}
+                    ...
                   </StoryTitle>
                   <StoryTitle color="var(--gray)">
-                    {story.abstract.split(" ").slice(0, 10).join(" ")}...
+                    {width > 830
+                      ? story.abstract.split(" ").slice(0, 10).join(" ")
+                      : story.abstract}
+                    ...
                   </StoryTitle>
                 </StoryContainer>
                 <ImageContainer
@@ -44,17 +64,17 @@ const MostPopular = () => {
                   }
                 />
               </PopularStoriesContainer>
-            );
-          })
-        : null}
-      <SeeAll
-        popular="43px"
-        href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
-        target="_blank"
-      >
-        See All
-      </SeeAll>
-    </MostPopularContainer>
+            ))
+          : null}
+        <SeeAll
+          popular="43px"
+          href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
+          target="_blank"
+        >
+          See All
+        </SeeAll>
+      </MostPopularContainer>
+    </MostPopularWithHeader>
   );
 };
 

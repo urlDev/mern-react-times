@@ -15,7 +15,10 @@ export const TopStoriesContainer = styled.div`
 
   @media (max-width: 1400px) {
     grid-template-columns: 1fr;
-    min-height: 100%;
+  }
+
+  @media (max-width: 830px) {
+    margin-bottom: 50px;
   }
 `;
 
@@ -90,9 +93,36 @@ export const StoryContainer = styled.div`
       padding: 0 40px 0 0;
       margin-top: 30px;
     }
+  }
+
+  @media (max-width: 830px) {
+    border-right: none;
+
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.3px;
+      background: lightgray;
+      /* transform: rotate(90deg); */
+    }
+
+    :not(:first-child) {
+      padding: 20px 0;
+      margin-top: 0;
+    }
+
+    :first-child {
+      padding-bottom: 20px;
+      padding-right: 0;
+    }
 
     :last-child {
-      margin-bottom: 70px;
+      padding: 20px 0;
+      margin-top: 0;
     }
   }
 `;

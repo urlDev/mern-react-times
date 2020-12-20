@@ -1,11 +1,27 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const MostPopularContainer = styled.div `
-  margin-top: 55px;
-  padding: 0 0 0 40px;
+export const MostPopularContainer = styled.div`
+  @media (max-width: 830px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    /* grid-template-rows: repeat(2, 1fr); */
+  }
 `;
 
-export const PopularTitle = styled.h1 `
+export const MostPopularWithHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+  padding: 0 0 0 40px;
+  @media (max-width: 830px) {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+export const PopularTitle = styled.h1`
   font-family: var(--font-header);
   font-size: var(--size-category-selected);
   font-weight: 900;
@@ -13,45 +29,58 @@ export const PopularTitle = styled.h1 `
   margin-bottom: 20px;
 `;
 
-export const PopularStoriesContainer = styled.a `
+export const PopularStoriesContainer = styled.a`
   cursor: pointer;
   text-decoration: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 20px;
   grid-column-gap: 10px;
+
+  @media (max-width: 830px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 10px;
+    margin: 0;
+  }
 `;
 
-export const StoryContainer = styled.div `
+export const StoryContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 30px);
   grid-row-gap: 10px;
   :nth-child(1) {
     grid-column: span 2;
   }
+  @media (max-width: 830px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 0;
+  }
 `;
 
-export const StoryTitle = styled.h1 `
-  font-family: ${(props) => props.font || 'var(--font-text)'};
+export const StoryTitle = styled.h1`
+  font-family: ${(props) => props.font || "var(--font-text)"};
   font-size: 1.2rem;
-  color: ${(props) => props.color || 'black'};
+  color: ${(props) => props.color || "black"};
   margin: 0;
   width: 100%;
 `;
 
-export const ImageContainer = styled.div `
+export const ImageContainer = styled.div`
   background: url(${(props) => props.background}) no-repeat;
   background-size: cover;
-  background-position: center left;
+  background-position: top center;
 `;
 
-export const SeeAll = styled.a `
+export const SeeAll = styled.a`
   text-decoration: none;
   color: #707070;
   font-size: var(--size-sub-menu);
   font-family: var(--font-links);
   font-weight: bold;
+  margin-bottom: 20px;
   cursor: pointer;
+  display: inline-block;
   position: relative;
   transition: color 0.3s ease-in;
 
@@ -60,11 +89,11 @@ export const SeeAll = styled.a `
   }
 
   :after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -7px;
     left: 0;
-    width: ${(props) => props.popular || '110px'};
+    width: ${(props) => props.popular || "110px"};
     background: var(--gray);
     height: 2px;
   }

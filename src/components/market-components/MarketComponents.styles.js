@@ -7,7 +7,7 @@ export const MarketComponentsContainer = styled.div`
   border-top: 1px solid lightgray;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 60px);
   max-width: 1340px;
   min-height: 120px;
 

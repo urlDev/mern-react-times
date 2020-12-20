@@ -55,6 +55,7 @@ const UserFavorites = () => {
                     border: "1px solid black",
                     padding: "10px 15px",
                   }}
+                  key={symbol}
                 >
                   <FavoriteButton
                     style={{ margin: "auto 10px auto 0" }}

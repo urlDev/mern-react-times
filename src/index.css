@@ -31,6 +31,7 @@ code {
   --font-text: "Raleway", sans-serif;
   --font-links: "Montserrat", sans-serif;
   /* font-size */
+  --size-home-category: 3rem;
   --size-header: 2.5rem;
   --size-header-long: 2rem;
   --size-category-selected: 1.8rem;
@@ -39,18 +40,19 @@ code {
   --size-text: 1rem;
 }
 
-.swiper-container.swiper-container-initialized.swiper-container-horizontal {
-  display: flex;
-  overflow: visible;
+.slick-slide {
+  margin: 0 15px;
+  /* transform: translateX(-45px) !important; */
+  transform: translateX(-165px) !important;
+  /* transform: translateX(calc(150px * -1.1)); */
 }
 
-.swiper-wrapper {
-  display: flex;
-  width: 100%;
+.slick-list {
+  height: 85px;
 }
 
-.swiper-wrapper :last-child() {
-  margin-right: 0;
+.slick-arrow {
+  display: none !important;
 }
 
 @keyframes loading {

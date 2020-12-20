@@ -8,6 +8,7 @@ export const StoryTopicContainer = styled.div`
     font-size: var(--size-category-selected);
     font-weight: 900;
     margin: 0;
+    text-transform: capitalize;
   }
 
   img {

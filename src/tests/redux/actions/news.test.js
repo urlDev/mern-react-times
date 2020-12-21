@@ -18,6 +18,8 @@ import {
 } from "../../../redux/actions/news";
 
 import { story, popular, errorNews } from "../../fixtures/news";
+
+// eslint-disable-next-line jest/no-mocks-import
 import { store } from "../../__mocks__/store";
 
 test("Should get the top stories correctly", () => {

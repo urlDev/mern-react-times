@@ -8,10 +8,10 @@ export const CLEAN_STATE = "CLEAN_STATE";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 export const SET_WIDTH = "SET_WIDTH";
 
-export const setWidth = (width) => ({
-  type: SET_WIDTH,
-  payload: width,
-});
+// export const setWidth = (width) => ({
+//   type: SET_WIDTH,
+//   payload: width,
+// });
 
 export const cleanState = () => ({
   type: CLEAN_STATE,
@@ -65,6 +65,6 @@ export const fetchMostPopular = () => async (dispatch) => {
   }
 };
 
-export const updateWidth = (dispatch) => {
-  dispatch(setWidth(window.innerWidth));
-};
+// export const updateWidth = (dispatch) => {
+//   dispatch(setWidth(window.innerWidth));
+// };

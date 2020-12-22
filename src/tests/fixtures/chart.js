@@ -57,10 +57,6 @@ export const forexLengthOne = [
   ],
 ];
 
-export const forexNoLength = {
-  Error: "Limit React",
-};
-
 export const chartTimeFrame = "1hour";
 
 export const marketType = "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE";

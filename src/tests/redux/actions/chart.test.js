@@ -50,7 +50,6 @@ import { store } from "../../__mocks__/store";
 import {
   forexLengthTwo,
   forexLengthOne,
-  forexNoLength,
   chartTimeFrame,
   marketType,
   marketName,
@@ -275,13 +274,13 @@ describe("Testing async functions", () => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 200,
-          response: forexNoLength,
+          response: errorChart,
         });
       });
 
       const expectedActions = {
         type: FETCH_CHART_ERROR,
-        payload: forexNoLength,
+        payload: errorChart,
       };
 
       return store.dispatch(fetchForex("TSLA")).then(() => {
@@ -310,7 +309,197 @@ describe("Testing async functions", () => {
     });
   });
 
-  //   describe('Testing fetchChartData async function', () => {
-  //       test('Should get ')
-  //   })
+  describe("Testing fetchChartData async function", () => {
+    test("Should fetch chart data successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: chartData,
+        });
+      });
+
+      const expectedActions = [
+        { type: CLEAN_CHART_DATA },
+        { type: SET_CHART_DATA, payload: chartData },
+      ];
+
+      return store.dispatch(fetchChartData("TSLA", chartTimeFrame)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorChart);
+      });
+
+      const expectedActions = [
+        { type: CLEAN_CHART_DATA },
+        { type: FETCH_CHART_ERROR, payload: errorChart },
+      ];
+
+      return store.dispatch(fetchChartData("TSLA", chartTimeFrame)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchRating function", () => {
+    test("Should set the rating correctly", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: rating,
+        });
+      });
+
+      const expectedActions = {
+        type: SET_RATING,
+        payload: rating,
+      };
+
+      return store.dispatch(fetchRating("TSLA")).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorChart);
+      });
+
+      const expectedActions = {
+        type: FETCH_CHART_ERROR,
+        payload: errorChart,
+      };
+
+      return store.dispatch(fetchRating("TSLA")).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchHomeChart async function", () => {
+    test("Should fetch the charts successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: chartData,
+        });
+      });
+
+      const expectedActions = [
+        { type: CLEAN_STATE },
+        {
+          type: SET_HOME_CHART_DATA,
+          payload: [chartData],
+        },
+      ];
+
+      return store.dispatch(fetchHomeChart(marketType)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show an error if there is limit/API related problems", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: errorChart,
+        });
+      });
+
+      const expectedActions = [
+        { type: CLEAN_STATE },
+        {
+          type: FETCH_CHART_ERROR,
+          payload: errorChart,
+        },
+      ];
+
+      return store.dispatch(fetchHomeChart(marketType)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorChart);
+      });
+
+      const expectedActions = [
+        { type: CLEAN_STATE },
+        {
+          type: FETCH_CHART_ERROR,
+          payload: errorChart,
+        },
+      ];
+
+      return store.dispatch(fetchHomeChart(marketType)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchSearch async function", () => {
+    test("Should fetch the results successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: searchResult,
+        });
+      });
+
+      const expectedActions = {
+        type: GET_SEARCH_RESULTS,
+        payload: searchResult,
+      };
+
+      return store.dispatch(fetchSearch("TSLA")).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show an error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorChart);
+      });
+
+      const expectedActions = {
+        type: FETCH_CHART_ERROR,
+        payload: errorChart,
+      };
+
+      return store.dispatch(fetchSearch("TSLA")).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+  });
 });

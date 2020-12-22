@@ -166,7 +166,7 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
         `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`
       );
       const data = response.data;
-      data.length
+      return data.length
         ? dispatch(setHomeChartData(data))
         : dispatch(fetchChartError(data));
     }

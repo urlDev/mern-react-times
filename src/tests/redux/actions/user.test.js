@@ -37,7 +37,14 @@ import {
   fetchDeleteUser,
 } from "../../../redux/actions/user";
 
-import { user, token, errorUser } from "../../fixtures/user";
+import {
+  user,
+  token,
+  errorUser,
+  data,
+  userInputRegister,
+  userInputLogin,
+} from "../../fixtures/user";
 
 // eslint-disable-next-line jest/no-mocks-import
 import { store } from "../../__mocks__/store";
@@ -157,5 +164,291 @@ test("Should close delete modal", () => {
 
   expect(action).toEqual({
     type: DELETE_MODAL_CLOSE,
+  });
+});
+
+describe("Testing async functions", () => {
+  beforeEach(() => {
+    moxios.install();
+    store.clearActions();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
+  describe("Testing fetchRegisterUser async function", () => {
+    test("Should register user successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: data,
+        });
+      });
+
+      const expectedActions = [
+        {
+          type: USER_LOADING,
+        },
+        {
+          type: REGISTER_USER,
+          payload: data.user,
+        },
+        {
+          type: USER_LOADING_END,
+        },
+        {
+          type: SET_TOKEN,
+          payload: data.token,
+        },
+        // This action type comes from connected-react-router
+        {
+          type: "@@router/CALL_HISTORY_METHOD",
+          //   payload is history.push('/)
+          payload: { method: "push", args: ["/"] },
+        },
+      ];
+
+      return store.dispatch(fetchRegisterUser(userInputRegister)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show error if theres any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorUser);
+      });
+
+      const expectedActions = [
+        {
+          type: USER_LOADING,
+        },
+        {
+          type: USER_FETCH_ERROR,
+          payload: errorUser,
+        },
+        {
+          type: USER_LOADING_END,
+        },
+      ];
+
+      return store.dispatch(fetchRegisterUser(userInputRegister)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchLogoutUser async function", () => {
+    test("Should logout user successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+        });
+      });
+
+      const expectedActions = {
+        type: LOGOUT_USER,
+      };
+
+      return store.dispatch(fetchLogoutUser()).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorUser);
+      });
+
+      const expectedActions = {
+        type: USER_FETCH_ERROR,
+        payload: errorUser,
+      };
+
+      return store.dispatch(fetchLogoutUser()).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchLoginUser async function", () => {
+    test("Should log in user successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: data,
+        });
+      });
+
+      const expectedActions = [
+        { type: USER_LOADING },
+        { type: LOGIN_USER, payload: data.user },
+        { type: USER_LOADING_END },
+        { type: SET_TOKEN, payload: data.token },
+        {
+          type: "@@router/CALL_HISTORY_METHOD",
+          payload: { method: "push", args: ["/home"] },
+        },
+      ];
+
+      return store.dispatch(fetchLoginUser(userInputLogin)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorUser);
+      });
+
+      const expectedActions = [
+        { type: USER_LOADING },
+        { type: USER_FETCH_ERROR, payload: errorUser },
+        { type: USER_LOADING_END },
+      ];
+
+      return store.dispatch(fetchLoginUser(userInputLogin)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchUser async function", () => {
+    test("Should fetch the user successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: data,
+        });
+      });
+
+      const expectedActions = [
+        { type: USER_LOADING },
+        { type: REGISTER_USER, payload: data.user },
+        { type: USER_LOADING_END },
+        { type: SET_TOKEN, payload: data.token },
+      ];
+
+      return store.dispatch(fetchUser()).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorUser);
+      });
+
+      const expectedActions = [
+        { type: USER_LOADING },
+        { type: USER_FETCH_ERROR, payload: errorUser },
+        { type: USER_LOADING_END },
+      ];
+
+      return store.dispatch(fetchUser()).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+  });
+
+  describe("Testing fetchUpdateUser async function", () => {
+    test("Should update the user successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: user,
+        });
+      });
+
+      const expectedActions = [
+        { type: UPDATE_USER, payload: user },
+        {
+          type: "@@router/CALL_HISTORY_METHOD",
+          payload: { method: "push", args: ["/"] },
+        },
+      ];
+
+      return store.dispatch(fetchUpdateUser(userInputRegister)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorUser);
+      });
+
+      const expectedActions = { type: USER_FETCH_ERROR, payload: errorUser };
+
+      return store.dispatch(fetchUpdateUser(userInputRegister)).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
+  });
+  describe("Testing fetchDeleteUser async function", () => {
+    test("Should update the user successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+        });
+      });
+
+      const expectedActions = [
+        {
+          type: "@@router/CALL_HISTORY_METHOD",
+          payload: { method: "push", args: ["/"] },
+        },
+        { type: DELETE_USER },
+      ];
+
+      return store.dispatch(fetchDeleteUser()).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+    test("Should show error if there is any", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.reject(errorUser);
+      });
+
+      const expectedActions = { type: USER_FETCH_ERROR, payload: errorUser };
+
+      return store.dispatch(fetchDeleteUser()).then(() => {
+        const actionsGetCalled = store.getActions();
+
+        expect(actionsGetCalled[0]).toEqual(expectedActions);
+      });
+    });
   });
 });

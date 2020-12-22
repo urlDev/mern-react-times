@@ -109,6 +109,7 @@ export const fetchRegisterUser = (user) => async (dispatch) => {
   } catch (error) {
     return [
       dispatch(userFetchError(error)),
+      dispatch(userLoadingEnd()),
       toaster.notify(
         () => (
           <NotificationComponent
@@ -131,11 +132,13 @@ export const fetchLogoutUser = () => async (dispatch) => {
 
   try {
     await axios.post(`${url}/profile/logout`, null, config);
-    dispatch(logOutUser());
-    toaster.notify(
-      () => <NotificationComponent text={"Buh-Bye!"} success={true} />,
-      { duration: 1500 }
-    );
+    return [
+      dispatch(logOutUser()),
+      toaster.notify(
+        () => <NotificationComponent text={"Buh-Bye!"} success={true} />,
+        { duration: 1500 }
+      ),
+    ];
   } catch (error) {
     return dispatch(userFetchError(error));
   }
@@ -166,6 +169,7 @@ export const fetchLoginUser = (user) => async (dispatch) => {
   } catch (error) {
     return [
       dispatch(userFetchError(error)),
+      dispatch(userLoadingEnd()),
       toaster.notify(
         () => (
           <NotificationComponent
@@ -190,6 +194,7 @@ export const fetchUser = () => async (dispatch) => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
+  dispatch(userLoading());
   try {
     const response = await axios.get(`${url}/profile`, config);
     const data = await response.data;
@@ -201,7 +206,7 @@ export const fetchUser = () => async (dispatch) => {
       localStorage.setItem("user", JSON.stringify(data.user)),
     ];
   } catch (error) {
-    return dispatch(userFetchError(error));
+    return [dispatch(userFetchError(error)), dispatch(userLoadingEnd())];
   }
 };
 
@@ -216,7 +221,6 @@ export const fetchUpdateUser = (user) => async (dispatch) => {
     const data = await response.data;
     return [
       dispatch(updateUser(data)),
-      dispatch(userLoadingEnd()),
       localStorage.setItem("user", JSON.stringify(data)),
       dispatch(push("/")),
       toaster.notify(

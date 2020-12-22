@@ -10,3 +10,19 @@ export const token = "ey12345qwerty";
 export const errorUser = {
   Error: "Can not get user",
 };
+
+export const userInputRegister = {
+  name: "Can",
+  email: "can@example.com",
+  password: "cookies123",
+};
+
+export const userInputLogin = {
+  email: "can@example.com",
+  password: "cookies123",
+};
+
+export const data = {
+  user,
+  token,
+};

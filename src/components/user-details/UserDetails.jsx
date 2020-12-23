@@ -1,40 +1,23 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { ErrorBoundary } from "react-error-boundary";
-
-import { deleteModalOpen, fetchUpdateUser } from "../../redux/actions/user";
 
 import ErrorFallback from "../error-fallback/ErrorFallback";
 import MarketComponents from "../market-components/MarketComponents";
 import Nav from "../nav/Nav";
 import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
-import UserImage from "../user-image/UserImage";
 import DeleteModal from "../delete-modal/DeleteModal";
+import UserUpdate from "../user-update/UserUpdate";
+import UserAvatar from "../user-avatar/UserAvatar";
+
 import LogoDarkSrc from "../../assets/logo.svg";
 
 import { StoryTopicContainer } from "../story-topic/StoryTopic.styles.js";
-import {
-  UserDetailContainer,
-  ImageAndButton,
-  UserDetailsForm,
-  DeleteAccount,
-} from "./UserDetails.styles";
+import { UserDetailContainer } from "./UserDetails.styles";
+import UserAccountDelete from "../user-account-delete/UserAccountDelete";
 
 const UserDetails = () => {
-  const [{ name, email, password }, setInput] = React.useState({});
-  const { user, deleteModal } = useSelector((user) => user.user);
-  const dispatch = useDispatch();
-
-  const handleChange = (e) =>
-    setInput((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await dispatch(fetchUpdateUser({ name, email, password }));
-  };
+  const { deleteModal } = useSelector((user) => user.user);
 
   return (
     <>
@@ -46,60 +29,9 @@ const UserDetails = () => {
         </StoryTopicContainer>
 
         <UserDetailContainer>
-          <ImageAndButton>
-            <UserImage width="100%" />
-            <h2>
-              *Should be smaller than <span>2MB</span>
-            </h2>
-            <button>Change avatar</button>
-          </ImageAndButton>
-          <UserDetailsForm>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name">Name / Username</label>
-                <input
-                  type="text"
-                  name="name"
-                  defaultValue={user.name}
-                  value={name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  defaultValue={user.email}
-                  value={email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  autoComplete="off"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div>
-                <button aria-label="save user details" type="submit">
-                  Update
-                </button>
-              </div>
-            </form>
-          </UserDetailsForm>
-          <DeleteAccount>
-            <div>
-              <h1>I want to delete my account!</h1>
-              <button onClick={() => dispatch(deleteModalOpen())}>
-                Delete
-              </button>
-            </div>
-          </DeleteAccount>
+          <UserAvatar />
+          <UserUpdate />
+          <UserAccountDelete />
         </UserDetailContainer>
         {deleteModal ? <DeleteModal /> : null}
       </div>

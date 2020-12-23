@@ -9,6 +9,7 @@ export const GET_FAVORITE = "GET_FAVORITE";
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const DELETE_FAVORITE = "DELETE_FAVORITE";
 export const FETCH_FAVORITE_ERROR = "FETCH_FAVORITE_ERROR";
+export const CLEAN_FAVORITE_STATE = "CLEAN_FAVORITE_STATE";
 
 export const getFavorite = (stock) => ({
   type: GET_FAVORITE,
@@ -28,6 +29,10 @@ export const deleteFavorite = (stock) => ({
 export const fetchFavoriteError = (error) => ({
   type: FETCH_FAVORITE_ERROR,
   payload: error,
+});
+
+export const cleanFavoriteState = () => ({
+  type: CLEAN_FAVORITE_STATE,
 });
 
 export const fetchGetFavorites = () => async (dispatch) => {

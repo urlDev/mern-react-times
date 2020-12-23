@@ -12,6 +12,7 @@ export const SearchModalContainer = styled.div`
   z-index: 1000;
   overflow-y: scroll;
   padding: 10px;
+  animation: modal 2s ease-in-out forwards;
 `;
 
 export const ResultsContainer = styled(Link)`

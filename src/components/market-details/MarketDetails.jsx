@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { setChartTimeFrame, fetchChartData } from "../../redux/actions/chart";
 import {
@@ -61,11 +62,18 @@ const MarketDetails = () => {
   };
 
   return (
-    <>
-      <div style={{ margin: "0 30px" }}>
-        <StoryTopicContainer>
-          <div style={{ display: "flex" }}>
-            <h1 style={{ marginTop: "10px" }}>{marketDetail.name}</h1>
+    <div style={{ margin: "0 30px" }}>
+      <StoryTopicContainer>
+        <div style={{ display: "flex" }}>
+          <h1 style={{ marginTop: "10px" }}>{marketDetail.name}</h1>
+          {!user.name ? (
+            <Link
+              style={{ height: "20px", marginTop: "auto", marginLeft: "10px" }}
+              to="/profile/login"
+            >
+              {add}
+            </Link>
+          ) : (
             <FavoriteButton onClick={() => handleClick()}>
               {favorites.some(
                 (favorite) => favorite.symbol[0].symbol === marketDetail.symbol
@@ -73,26 +81,26 @@ const MarketDetails = () => {
                 ? added
                 : add}
             </FavoriteButton>
-          </div>
-          {timeFrames.map((time, i) => (
-            <TimeFrame
-              key={i}
-              active={chartTimeFrame === time}
-              onClick={() => {
-                dispatch(setChartTimeFrame(time));
-              }}
-              style={{ marginTop: "10px" }}
-            >
-              {time}
-            </TimeFrame>
-          ))}
-        </StoryTopicContainer>
-        <div style={{ display: "flex" }}>
-          <Chart />
-          <DetailsTable />
+          )}
         </div>
+        {timeFrames.map((time, i) => (
+          <TimeFrame
+            key={i}
+            active={chartTimeFrame === time}
+            onClick={() => {
+              dispatch(setChartTimeFrame(time));
+            }}
+            style={{ marginTop: "10px" }}
+          >
+            {time}
+          </TimeFrame>
+        ))}
+      </StoryTopicContainer>
+      <div style={{ display: "flex" }}>
+        <Chart />
+        <DetailsTable />
       </div>
-    </> //
+    </div>
   );
 };
 

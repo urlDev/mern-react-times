@@ -3,6 +3,7 @@ import {
   DELETE_FAVORITE,
   GET_FAVORITE,
   FETCH_FAVORITE_ERROR,
+  CLEAN_FAVORITE_STATE,
 } from "../actions/favorite";
 
 const initialState = {
@@ -33,6 +34,11 @@ const favoriteReducer = (state = initialState, action) => {
       return {
         ...state,
         errorFavorite: action.payload,
+      };
+    case CLEAN_FAVORITE_STATE:
+      return {
+        ...state,
+        favorites: [],
       };
     default:
       return state;

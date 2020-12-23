@@ -21,6 +21,7 @@ export const USER_MODAL_OPEN = "USER_MODAL_OPEN";
 export const USER_MODAL_CLOSE = "USER_MODAL_CLOSE";
 export const DELETE_MODAL_OPEN = "DELETE_MODAL_OPEN";
 export const DELETE_MODAL_CLOSE = "DELETE_MODAL_CLOSE";
+export const UPLOAD_AVATAR = "UPLOAD_AVATAR";
 
 export const registerUser = (user) => ({
   type: REGISTER_USER,
@@ -84,6 +85,11 @@ export const deleteModalClose = () => ({
   type: DELETE_MODAL_CLOSE,
 });
 
+export const uploadAvatar = (images) => ({
+  type: UPLOAD_AVATAR,
+  payload: images,
+});
+
 export const fetchRegisterUser = (user) => async (dispatch) => {
   dispatch(userLoading());
   try {
@@ -134,6 +140,7 @@ export const fetchLogoutUser = () => async (dispatch) => {
     await axios.post(`${url}/profile/logout`, null, config);
     return [
       dispatch(logOutUser()),
+      dispatch(push("/")),
       toaster.notify(
         () => <NotificationComponent text={"Buh-Bye!"} success={true} />,
         { duration: 1500 }
@@ -281,3 +288,46 @@ export const fetchDeleteUser = () => async (dispatch) => {
     ];
   }
 };
+
+export const fetchUploadAvatar = (data) => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  try {
+    await axios.post(`${url}/profile/avatar`, data, config);
+    return toaster.notify(
+      () => (
+        <NotificationComponent
+          text={"Avatar is changed! Wow, that looks amazing! ;)"}
+          success={true}
+        />
+      ),
+      { duration: 1500 }
+    );
+  } catch (error) {
+    return [
+      dispatch(userFetchError(error)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={"Oops! Something went wrong!"}
+            success={false}
+          />
+        ),
+        { duration: 1500 }
+      ),
+    ];
+  }
+};
+
+// export const getAvatar = (user) => async (dispatch) => {
+//   try {
+//     const response = await axios.get(`${url}/profile/${user._id}/avatar`);
+//     const
+//   } catch (error) {
+//     return userFetchError(error)
+//   }
+// }

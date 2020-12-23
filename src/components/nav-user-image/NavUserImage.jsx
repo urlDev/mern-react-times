@@ -1,15 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import {
   fetchLogoutUser,
   userModalOpen,
   userModalClose,
-} from '../../redux/actions/user';
+} from "../../redux/actions/user";
 
-import UserModal from '../user-modal/UserModal';
-import UserImage from '../user-image/UserImage';
-import { UserImageContainer } from './NavUserImage.styles.js';
+import { cleanFavoriteState } from "../../redux/actions/favorite";
+
+import UserModal from "../user-modal/UserModal";
+import UserImage from "../user-image/UserImage";
+import { UserImageContainer } from "./NavUserImage.styles.js";
 
 const NavUserImage = () => {
   const { userModal } = useSelector((user) => user.user);
@@ -17,6 +19,7 @@ const NavUserImage = () => {
 
   const handleClick = () => {
     dispatch(fetchLogoutUser());
+    dispatch(cleanFavoriteState());
     localStorage.clear();
   };
 
@@ -24,7 +27,7 @@ const NavUserImage = () => {
     // I am using srcSet and picture here because once user uploads new avatar,
     // it will be both in webp and png so I can show it in browsers that doesn't
     // support webp.
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       <UserImageContainer>
         <button onClick={() => handleClick()}>Logout</button>
         <Link

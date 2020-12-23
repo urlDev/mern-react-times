@@ -17,7 +17,7 @@ import { UserDetailContainer } from "./UserDetails.styles";
 import UserAccountDelete from "../user-account-delete/UserAccountDelete";
 
 const UserDetails = () => {
-  const { deleteModal } = useSelector((user) => user.user);
+  const { user, deleteModal } = useSelector((user) => user.user);
 
   return (
     <>
@@ -27,12 +27,13 @@ const UserDetails = () => {
         <StoryTopicContainer>
           <h1 style={{ marginTop: "25px" }}>Profile</h1>
         </StoryTopicContainer>
-
-        <UserDetailContainer>
-          <UserAvatar />
-          <UserUpdate />
-          <UserAccountDelete />
-        </UserDetailContainer>
+        {user.name ? (
+          <UserDetailContainer>
+            <UserAvatar />
+            <UserUpdate />
+            <UserAccountDelete />
+          </UserDetailContainer>
+        ) : null}
         {deleteModal ? <DeleteModal /> : null}
       </div>
       <ErrorBoundary FallbackComponent={ErrorFallback}>

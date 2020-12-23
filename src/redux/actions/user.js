@@ -139,8 +139,8 @@ export const fetchLogoutUser = () => async (dispatch) => {
   try {
     await axios.post(`${url}/profile/logout`, null, config);
     return [
-      dispatch(logOutUser()),
       dispatch(push("/")),
+      dispatch(logOutUser()),
       toaster.notify(
         () => <NotificationComponent text={"Buh-Bye!"} success={true} />,
         { duration: 1500 }
@@ -289,7 +289,7 @@ export const fetchDeleteUser = () => async (dispatch) => {
   }
 };
 
-export const fetchUploadAvatar = (data) => async (dispatch) => {
+export const fetchUploadAvatar = (input) => async (dispatch) => {
   const token = JSON.parse(localStorage.getItem("token"));
 
   const config = {
@@ -297,16 +297,21 @@ export const fetchUploadAvatar = (data) => async (dispatch) => {
   };
 
   try {
-    await axios.post(`${url}/profile/avatar`, data, config);
-    return toaster.notify(
-      () => (
-        <NotificationComponent
-          text={"Avatar is changed! Wow, that looks amazing! ;)"}
-          success={true}
-        />
+    const response = await axios.post(`${url}/profile/avatar`, input, config);
+    const data = await response.data;
+    return [
+      dispatch(uploadAvatar(data)),
+      localStorage.setItem("user", JSON.stringify(data)),
+      toaster.notify(
+        () => (
+          <NotificationComponent
+            text={"Avatar is changed! Wow, that looks amazing! ;)"}
+            success={true}
+          />
+        ),
+        { duration: 1500 }
       ),
-      { duration: 1500 }
-    );
+    ];
   } catch (error) {
     return [
       dispatch(userFetchError(error)),

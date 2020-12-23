@@ -83,9 +83,11 @@ const chartReducer = (state = initialState, action) => {
         rating: action.payload,
       };
     case SET_HOME_CHART_DATA:
+      console.log(action.payload[0]);
       return {
         ...state,
-        homeChartData: [...state.homeChartData, action.payload],
+        // homeChartData: [...state.homeChartData, action.payload],
+        homeChartData: action.payload[0],
       };
     case CLEAN_STATE:
       return {

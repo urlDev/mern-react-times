@@ -23,6 +23,7 @@ import { topics } from "../../components/story-topic-headers/StoryTopicHeaders";
 
 const Home = () => {
   const { header, loadingNews, popular } = useSelector((news) => news.news);
+  const { errorChart } = useSelector((chart) => chart.chart);
 
   const dispatch = useDispatch();
   const path = window.location.pathname;
@@ -73,9 +74,7 @@ const Home = () => {
           )}
         />
       </Switch>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <MarketComponents />
-      </ErrorBoundary>
+      {errorChart ? <ErrorFallback /> : <MarketComponents />}
     </div>
   );
 };

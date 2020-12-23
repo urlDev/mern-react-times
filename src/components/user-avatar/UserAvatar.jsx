@@ -8,7 +8,6 @@ import UserImage from "../user-image/UserImage";
 import { ImageAndButton } from "./UserAvatar.styles";
 
 const UserAvatar = () => {
-  const [input, setInput] = React.useState({});
   const dispatch = useDispatch();
 
   const handleChange = async (e) => {
@@ -16,20 +15,15 @@ const UserAvatar = () => {
 
     // Naming it avatar because API expects that name
     data.append("avatar", e.target.files[0]);
-    dispatch(fetchUploadAvatar(data));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(input);
+    await dispatch(fetchUploadAvatar(data));
   };
 
   return (
     <ImageAndButton>
-      <UserImage width="100%" />{" "}
+      <UserImage width="100%" />
       <form>
         <label htmlFor="single">Change Avatar*</label>
-        <input type="file" id="single" onClick={handleChange} />
+        <input type="file" id="single" onChange={handleChange} />
       </form>
       <h2>
         *Should be smaller than <span>2MB</span>

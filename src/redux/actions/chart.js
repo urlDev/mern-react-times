@@ -158,6 +158,7 @@ Yet another homerun for me! 😁😎
 */
 export const fetchHomeChart = (symbols) => async (dispatch) => {
   const symbolsArray = symbols.split(",").sort();
+  let charts = [];
   try {
     // dispatch(setLoadingTrue());
     dispatch(cleanState());
@@ -166,10 +167,13 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
         `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`
       );
       const data = response.data;
-      return data.length
-        ? dispatch(setHomeChartData(data))
-        : dispatch(fetchChartError(data));
+      charts.push(data);
+
+      // data.length
+      //   ? dispatch(setHomeChartData(data))
+      //   : dispatch(fetchChartError(data));
     }
+    return dispatch(setHomeChartData(charts));
     // dispatch(setLoading());
   } catch (error) {
     return dispatch(fetchChartError(error));

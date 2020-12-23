@@ -17,6 +17,7 @@ import {
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ErrorFallback from "../error-fallback/ErrorFallback";
 
 const HomeMarketCards = () => {
   const { forex, homeChartData } = useSelector((chart) => chart.chart);

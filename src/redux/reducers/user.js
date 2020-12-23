@@ -12,6 +12,7 @@ import {
   USER_MODAL_CLOSE,
   DELETE_MODAL_OPEN,
   DELETE_MODAL_CLOSE,
+  UPLOAD_AVATAR,
 } from "../actions/user";
 
 const initialState = {
@@ -91,6 +92,11 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         deleteModal: false,
+      };
+    case UPLOAD_AVATAR:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

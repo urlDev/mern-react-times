@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
 export const MostPopularContainer = styled.div`
+  @media (max-width: 1400px) {
+    width: 100%;
+    min-width: 300px;
+  }
+
   @media (max-width: 830px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 30px;
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
     /* grid-template-rows: repeat(2, 1fr); */
   }
 `;
@@ -29,6 +34,12 @@ export const PopularTitle = styled.h1`
   margin-bottom: 20px;
 `;
 
+export const ImageContainer = styled.div`
+  background: url(${(props) => props.background}) no-repeat;
+  background-size: cover;
+  background-position: top center;
+`;
+
 export const PopularStoriesContainer = styled.a`
   cursor: pointer;
   text-decoration: none;
@@ -39,9 +50,14 @@ export const PopularStoriesContainer = styled.a`
 
   @media (max-width: 830px) {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-row-gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 0;
     margin: 0;
+
+    :nth-child(n) ${ImageContainer} {
+      grid-row: 2 / 4;
+    }
   }
 `;
 
@@ -64,12 +80,6 @@ export const StoryTitle = styled.h1`
   color: ${(props) => props.color || "black"};
   margin: 0;
   width: 100%;
-`;
-
-export const ImageContainer = styled.div`
-  background: url(${(props) => props.background}) no-repeat;
-  background-size: cover;
-  background-position: top center;
 `;
 
 export const SeeAll = styled.a`

@@ -93,6 +93,13 @@ export const StoryContainer = styled.div`
       padding: 0 40px 0 0;
       margin-top: 30px;
     }
+
+    img {
+      width: 100%;
+      /* height: 200px; */
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   @media (max-width: 830px) {

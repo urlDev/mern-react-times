@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
-import { UserPicture } from './UserImage.styles';
+import { UserPicture } from "./UserImage.styles";
 
 const UserImage = ({ width, border, margin }) => {
   const { user } = useSelector((user) => user.user);

@@ -9,7 +9,7 @@ export const DeleteAccount = styled.div`
     align-content: center;
     justify-content: center;
     width: 100%;
-    height: 67%;
+    height: 100%;
     border: 1px solid var(--red);
   }
 

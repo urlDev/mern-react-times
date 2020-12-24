@@ -2,22 +2,13 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "react-slick";
 
-import {
-  setMarketDetail,
-  fetchRating,
-  cleanChartData,
-} from "../../redux/actions/chart";
+import { setMarketDetail, fetchRating } from "../../redux/actions/chart";
 
 import MarketCardsChart from "../market-cards-chart/MarketCardsChart";
-import {
-  MarketCardsContainer,
-  MarketCards,
-  Space,
-} from "./HomeMarketCards.styles";
+import { MarketCards } from "./HomeMarketCards.styles";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ErrorFallback from "../error-fallback/ErrorFallback";
 
 const HomeMarketCards = () => {
   const { forex, homeChartData } = useSelector((chart) => chart.chart);
@@ -85,8 +76,12 @@ const HomeMarketCards = () => {
               <h2> {data.changesPercentage}%</h2>
             </div>
 
-            {homeChartData.length > 5 && (
-              <MarketCardsChart chart={homeChartData[index]} />
+            {homeChartData.length ? (
+              <MarketCardsChart index={index} />
+            ) : (
+              // I added div here for first chart to wait for homeChartData
+              // Second, so that chart wouldnt glitch
+              <div style={{ width: "100px", height: "70px" }}></div>
             )}
           </MarketCards>
         </div>

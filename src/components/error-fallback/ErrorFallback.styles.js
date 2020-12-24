@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ErrorContainer = styled.div `
+export const ErrorContainer = styled.div`
   border-top: 1px solid lightgray;
   margin: 20px 30px;
-  height: ${(props) => props.height || '120px'};
+  height: ${(props) => props.height || "120px"};
   h1 {
     font-size: var(--size-header-long);
     font-family: var(--font-text);

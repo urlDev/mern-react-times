@@ -5,5 +5,6 @@ export const UserDetailContainer = styled.div`
   height: 53vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 250px);
   grid-gap: 70px;
 `;

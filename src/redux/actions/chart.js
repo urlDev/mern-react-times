@@ -168,12 +168,10 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
       );
       const data = response.data;
       charts.push(data);
-
-      // data.length
-      //   ? dispatch(setHomeChartData(data))
-      //   : dispatch(fetchChartError(data));
     }
-    return dispatch(setHomeChartData(charts));
+    return charts.length
+      ? dispatch(setHomeChartData(charts))
+      : dispatch(fetchChartError(charts));
     // dispatch(setLoading());
   } catch (error) {
     return dispatch(fetchChartError(error));

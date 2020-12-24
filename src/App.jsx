@@ -1,4 +1,8 @@
+import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { setWidth } from "./redux/actions/news";
 
 import Home from "./components/home/Home";
 import LoginRegister from "./components/login-register/LoginRegister";
@@ -6,6 +10,20 @@ import LoginRegister from "./components/login-register/LoginRegister";
 import "./App.css";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+      dispatch(setWidth(window.innerWidth));
+    });
+
+    return () => {
+      window.removeEventListener("resize", () => {
+        dispatch(setWidth(window.innerWidth));
+      });
+    };
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Switch>

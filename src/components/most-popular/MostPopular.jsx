@@ -13,23 +13,11 @@ import {
 } from "./MostPopular.styles";
 
 const MostPopular = () => {
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const { popular } = useSelector((news) => news.news);
+  const { popular, width } = useSelector((news) => news.news);
+
   // Wanted to show random results on each refresh/load
   // but random makes the app loads more than once
   // const random = Math.floor(Math.random() * popular.length);
-
-  React.useEffect(() => {
-    window.addEventListener("resize", updateWidth);
-
-    return () => {
-      window.removeEventListener("resize", updateWidth);
-    };
-  }, []);
-
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-  };
 
   return (
     <MostPopularWithHeader>

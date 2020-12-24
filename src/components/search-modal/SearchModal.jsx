@@ -5,7 +5,6 @@ import {
   fetchRating,
   fetchForex,
   clearSearchResults,
-  openSearchModal,
   closeSearchModal,
 } from "../../redux/actions/chart";
 

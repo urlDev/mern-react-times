@@ -4,6 +4,10 @@ export const UserDetailsForm = styled.div`
   grid-column: 2/4;
   width: 100%;
 
+  form {
+    height: 100%;
+  }
+
   div {
     display: flex;
     justify-content: space-between;
@@ -34,7 +38,7 @@ export const UserDetailsForm = styled.div`
   }
 
   button {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border: none;
     background: black;
     color: white;

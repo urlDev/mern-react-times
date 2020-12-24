@@ -327,12 +327,3 @@ export const fetchUploadAvatar = (input) => async (dispatch) => {
     ];
   }
 };
-
-// export const getAvatar = (user) => async (dispatch) => {
-//   try {
-//     const response = await axios.get(`${url}/profile/${user._id}/avatar`);
-//     const
-//   } catch (error) {
-//     return userFetchError(error)
-//   }
-// }

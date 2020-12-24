@@ -7,6 +7,8 @@ export const CHANGE_HEADER = "CHANGE_HEADER";
 export const CLEAN_STATE = "CLEAN_STATE";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 export const SET_WIDTH = "SET_WIDTH";
+export const OPEN_RESPONSIVE_MENU = "OPEN_RESPONSIVE_MENU";
+export const CLOSE_RESPONSIVE_MENU = "CLOSE_RESPONSIVE_MENU";
 
 export const setWidth = (width) => ({
   type: SET_WIDTH,
@@ -39,6 +41,14 @@ export const fetchNewsError = (error) => ({
 
 export const clearError = () => ({
   type: CLEAR_ERROR,
+});
+
+export const openResponsiveMenu = () => ({
+  type: OPEN_RESPONSIVE_MENU,
+});
+
+export const closeResponsiveMenu = () => ({
+  type: CLOSE_RESPONSIVE_MENU,
 });
 
 export const fetchTopStories = (topStories) => async (dispatch) => {

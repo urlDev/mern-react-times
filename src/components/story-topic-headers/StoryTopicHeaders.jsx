@@ -2,7 +2,9 @@ import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 
 import { changeHeader, clearError } from "../../redux/actions/news";
+
 import ResponsiveMenu from "../responsive-menu/ResponsiveMenu";
+import ResponsiveMenuModal from "../responsive-menu-modal/ResponsiveMenuModal";
 
 import {
   StoryTopicHeadersContainer,
@@ -25,7 +27,7 @@ export const topics = [
 ];
 
 const StoryTopics = () => {
-  const { width } = useSelector((news) => news.news);
+  const { width, responsiveMenu } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
   return (
@@ -36,7 +38,10 @@ const StoryTopics = () => {
       </Date>
       <TopicContainer>
         {width < 1024 ? (
-          <ResponsiveMenu />
+          <>
+            <ResponsiveMenu />
+            {responsiveMenu ? <ResponsiveMenuModal /> : null}
+          </> //
         ) : (
           <>
             {topics.map((topic) => {
@@ -53,7 +58,7 @@ const StoryTopics = () => {
                 </StyledLink>
               );
             })}
-          </>
+          </> //
         )}
       </TopicContainer>
     </StoryTopicHeadersContainer>

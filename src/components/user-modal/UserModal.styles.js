@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export const UserModalContainer = styled.div `
+export const UserModalContainer = styled.div`
   position: absolute;
   width: 100%;
   display: flex;
@@ -13,8 +13,7 @@ export const UserModalContainer = styled.div `
   animation: modal 0.5s ease-in-out forwards;
 `;
 
-export const UserModalMenu = styled(Link)
-`
+export const UserModalMenu = styled(Link)`
   border-bottom: 1px solid gray;
   padding: 20px 10px;
   text-decoration: none;

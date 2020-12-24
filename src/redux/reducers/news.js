@@ -6,6 +6,8 @@ import {
   CLEAN_STATE,
   CLEAR_ERROR,
   SET_WIDTH,
+  OPEN_RESPONSIVE_MENU,
+  CLOSE_RESPONSIVE_MENU,
 } from "../actions/news";
 
 const initialState = {
@@ -15,6 +17,7 @@ const initialState = {
   errorNews: null,
   header: "home",
   width: window.innerWidth,
+  responsiveMenu: false,
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -54,6 +57,16 @@ const newsReducer = (state = initialState, action) => {
       return {
         ...state,
         width: action.payload,
+      };
+    case OPEN_RESPONSIVE_MENU:
+      return {
+        ...state,
+        responsiveMenu: true,
+      };
+    case CLOSE_RESPONSIVE_MENU:
+      return {
+        ...state,
+        responsiveMenu: false,
       };
     default:
       return state;

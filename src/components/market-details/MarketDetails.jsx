@@ -14,11 +14,13 @@ import AddedSrc from "../../assets/bookmark.svg";
 
 import DetailsTable from "../details-table/DetailsTable";
 import Chart from "../chart/Chart";
+
 import {
   StoryTopicContainer,
   TimeFrame,
   FavoriteButton,
 } from "../story-topic/StoryTopic.styles";
+import { MarketDetailsContainer } from "./MarketDetails.styles";
 
 const MarketDetails = () => {
   const { marketDetail, chartTimeFrame } = useSelector((chart) => chart.chart);
@@ -62,7 +64,7 @@ const MarketDetails = () => {
   };
 
   return (
-    <div style={{ margin: "0 30px" }}>
+    <div style={{ margin: "0 15px" }}>
       <StoryTopicContainer>
         <div style={{ display: "flex" }}>
           <h1 style={{ marginTop: "10px" }}>{marketDetail.name}</h1>
@@ -96,10 +98,10 @@ const MarketDetails = () => {
           </TimeFrame>
         ))}
       </StoryTopicContainer>
-      <div style={{ display: "flex" }}>
+      <MarketDetailsContainer>
         <Chart />
         <DetailsTable />
-      </div>
+      </MarketDetailsContainer>
     </div>
   );
 };

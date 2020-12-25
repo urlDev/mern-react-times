@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const MarketComponentsContainer = styled.div`
-  margin: 15px 30px 0px 30px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding: 10px 0;
+  margin: 15px auto 0px auto;
+
+  padding: 10px 15px;
+
   border-top: 1px solid lightgray;
   position: absolute;
   bottom: 0;
-  width: calc(100% - 60px);
-  max-width: 1340px;
+  width: calc(100% - 30px);
+  max-width: 1370px;
   min-height: 120px;
   background: var(--background);
   @media (max-width: 1400px) {

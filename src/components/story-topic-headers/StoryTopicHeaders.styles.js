@@ -1,22 +1,22 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const StoryTopicHeadersContainer = styled.div `
-  margin: 10px 30px;
+export const StoryTopicHeadersContainer = styled.div`
+  margin: 10px 15px;
   display: flex;
   justify-content: space-between;
 `;
 
-export const TopicContainer = styled.div `
+export const TopicContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
 `;
 
-export const Date = styled.p `
+export const Date = styled.p`
   margin: 0;
   margin-left: ${(props) => props.margin || 0};
-  width: ${(props) => props.width || '20%'};
+  width: ${(props) => props.width || "20%"};
   font-family: var(--font-text);
   font-size: var(--size-sub-menu);
   /* font-weight: bold; */
@@ -27,8 +27,7 @@ export const Date = styled.p `
   }
 `;
 
-export const StyledLink = styled(Link)
-`
+export const StyledLink = styled(Link)`
   text-decoration: none;
   color: #707070;
   font-size: var(--size-sub-menu);

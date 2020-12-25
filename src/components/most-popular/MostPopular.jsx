@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import NewsPlaceholder from "../../assets/newsPlaceholder.png";
+
 import {
   MostPopularContainer,
   PopularTitle,
@@ -48,7 +50,7 @@ const MostPopular = () => {
                   background={
                     story.media[0]
                       ? story.media[0]["media-metadata"][2].url
-                      : null
+                      : NewsPlaceholder
                   }
                 />
               </PopularStoriesContainer>

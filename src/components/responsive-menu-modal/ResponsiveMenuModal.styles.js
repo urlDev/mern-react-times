@@ -15,7 +15,7 @@ export const MenuModalAllPage = styled.div`
 
 export const MenuModalContainer = styled.div`
   border: 1px solid lightgray;
-  margin: 90px 30px 0 auto;
+  margin: 90px 15px 0 auto;
   width: 200px;
   padding: 20px;
   background: var(--background);
@@ -29,7 +29,7 @@ export const MenuModalContainer = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
-    margin-left: 29px;
+    margin-left: 15px;
     border: none;
     padding: 20px 0;
 

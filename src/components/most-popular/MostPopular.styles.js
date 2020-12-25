@@ -13,6 +13,11 @@ export const MostPopularContainer = styled.div`
     grid-row-gap: 50px;
     /* grid-template-rows: repeat(2, 1fr); */
   }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    min-width: 100%;
+  }
 `;
 
 export const MostPopularWithHeader = styled.div`
@@ -57,6 +62,14 @@ export const PopularStoriesContainer = styled.a`
 
     :nth-child(n) ${ImageContainer} {
       grid-row: 2 / 4;
+    }
+  }
+
+  @media (max-width: 600px) {
+    /* width: calc(100% - 10px); */
+    grid-template-rows: repeat(4, 1fr);
+    :nth-child(n) ${ImageContainer} {
+      grid-row: 2 / 5;
     }
   }
 `;

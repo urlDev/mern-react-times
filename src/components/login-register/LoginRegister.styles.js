@@ -6,7 +6,7 @@ export const LoginRegisterContainer = styled.div`
   /* grid-template-rows: repeat(4, 1fr); */
   /* height: calc(100vh- 70px); */
   width: 100%;
-  max-width: 1370px;
+  max-width: 1390px;
   margin: 0 auto;
   position: absolute;
   bottom: 30px;

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const DetailsTableContainer = styled.div `
+export const DetailsTableContainer = styled.div`
   padding-left: 40px;
   width: 100%;
   display: flex;
@@ -14,7 +14,7 @@ export const DetailsTableContainer = styled.div `
       position: relative;
 
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 5%;
         left: 0;
@@ -33,6 +33,38 @@ export const DetailsTableContainer = styled.div `
     }
     :nth-child(2) {
       font-family: var(--font-text);
+    }
+  }
+
+  @media (max-width: 1150px) {
+    padding-left: 0;
+
+    td {
+      padding: 10px 0;
+      :nth-child(2n) {
+        width: 150px;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+
+    table {
+      :nth-child(2) {
+        padding-left: 0;
+        margin-top: 30px;
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    td {
+      :nth-child(2n) {
+        width: 70px;
+      }
     }
   }
 `;

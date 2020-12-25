@@ -27,9 +27,6 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(fetchRegisterUser({ name, email, password }));
-    // this is a no-op because app will already redirect to home page
-    // set state back to initial
-    setInput({ ...initialState });
   };
 
   return (

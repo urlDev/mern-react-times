@@ -29,7 +29,9 @@ const NavUserImage = () => {
     // support webp.
     <div style={{ position: "relative" }}>
       <UserImageContainer>
-        <button onClick={() => handleClick()}>Logout</button>
+        <button type="button" onClick={handleClick}>
+          Logout
+        </button>
         <Link
           to="/profile"
           onMouseEnter={() => dispatch(userModalOpen())}

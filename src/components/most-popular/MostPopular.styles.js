@@ -68,8 +68,33 @@ export const PopularStoriesContainer = styled.a`
   @media (max-width: 600px) {
     /* width: calc(100% - 10px); */
     grid-template-rows: repeat(4, 1fr);
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 1.5px;
+      position: absolute;
+      bottom: -25px;
+      background: lightgray;
+    }
+
+    :nth-child(4) {
+      :after {
+        display: none;
+      }
+    }
+
     :nth-child(n) ${ImageContainer} {
       grid-row: 2 / 5;
+    }
+  }
+
+  @media (max-width: 400px) {
+    grid-template-rows: repeat(3, 1fr);
+
+    :nth-child(n) ${ImageContainer} {
+      grid-row: 2 / 4;
     }
   }
 `;

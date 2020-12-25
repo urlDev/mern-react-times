@@ -27,7 +27,6 @@ const Login = ({ register }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(fetchLoginUser({ email, password }));
-    setInput({ ...initialState });
   };
 
   return (

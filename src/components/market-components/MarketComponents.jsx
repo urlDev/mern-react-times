@@ -86,6 +86,7 @@ const MarketComponents = () => {
           <MarketMenu
             key={index}
             active={market === marketName}
+            type="button"
             onClick={() => {
               fetchMarketTypes(market);
             }}

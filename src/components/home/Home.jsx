@@ -43,7 +43,7 @@ const Home = () => {
     if (popular.length === 0) {
       dispatch(fetchMostPopular());
     }
-  }, [dispatch, path, popular, header]);
+  }, [dispatch, path, popular.length, header]);
 
   return (
     <div>

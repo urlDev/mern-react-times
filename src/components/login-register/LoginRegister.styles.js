@@ -25,5 +25,6 @@ export const Background = styled.img`
   left: 0;
   z-index: -1;
   object-fit: cover;
-  /* filter: grayscale(40%); */
+  transform: scaleX(-1);
+  filter: grayscale(40%);
 `;

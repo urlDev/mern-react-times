@@ -7,6 +7,8 @@ import NotificationComponent from "../../components/notification-component/Notif
 const url = "https://urldev-mern-react-times-api.herokuapp.com";
 // const url = `http://localhost:3000`;
 
+const path = window.location.pathname;
+
 export const REGISTER_USER = "REGISTER_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const LOGIN_USER = "LOGIN_USER";
@@ -139,7 +141,7 @@ export const fetchLogoutUser = () => async (dispatch) => {
   try {
     await axios.post(`${url}/profile/logout`, null, config);
     return [
-      dispatch(push("/")),
+      path.includes("profile") && dispatch(push("/")),
       dispatch(logOutUser()),
       toaster.notify(
         () => <NotificationComponent text={"Buh-Bye!"} success={true} />,

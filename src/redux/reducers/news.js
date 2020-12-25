@@ -22,10 +22,6 @@ const initialState = {
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CLEAN_STATE:
-      return {
-        ...initialState,
-      };
     case CLEAR_ERROR:
       return {
         ...state,

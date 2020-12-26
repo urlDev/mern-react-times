@@ -17,14 +17,16 @@ export const Login = styled.div`
   background: white;
 `;
 
-export const Background = styled.img`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  object-fit: cover;
-  transform: scaleX(-1);
-  filter: grayscale(40%);
+export const Background = styled.picture`
+  img {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    transform: scaleX(-1);
+    filter: grayscale(40%);
+  }
 `;

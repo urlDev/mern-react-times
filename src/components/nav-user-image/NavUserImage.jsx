@@ -15,6 +15,7 @@ import { UserImageContainer } from "./NavUserImage.styles.js";
 
 const NavUserImage = () => {
   const { userModal } = useSelector((user) => user.user);
+  const { width } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -29,9 +30,11 @@ const NavUserImage = () => {
     // support webp.
     <div style={{ position: "relative" }}>
       <UserImageContainer>
-        <button type="button" onClick={handleClick}>
-          Logout
-        </button>
+        {width > 768 ? (
+          <button type="button" onClick={handleClick}>
+            Logout
+          </button>
+        ) : null}
         <Link
           to="/profile"
           onMouseEnter={() => dispatch(userModalOpen())}

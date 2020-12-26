@@ -11,6 +11,11 @@ export const UserModalContainer = styled.div`
   padding-top: 20px;
   top: 20px;
   animation: modal 0.5s ease-in-out forwards;
+  @media (max-width: 768px) {
+    width: 120px;
+    right: 0;
+    height: 170px;
+  }
 `;
 
 export const UserModalMenu = styled(Link)`

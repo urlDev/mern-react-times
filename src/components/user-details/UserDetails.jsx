@@ -15,15 +15,15 @@ import LogoDarkSrc from "../../assets/logo.svg";
 import { StoryTopicContainer } from "../story-topic/StoryTopic.styles.js";
 import { UserDetailContainer } from "./UserDetails.styles";
 import UserAccountDelete from "../user-account-delete/UserAccountDelete";
+import ResponsiveNav from "../responsive-nav/ResponsiveNav";
 
 const UserDetails = () => {
   const { user, deleteModal } = useSelector((user) => user.user);
 
   return (
     <>
-      <Nav logo={LogoDarkSrc} borderBottom="1px solid lightgray" icon="1" />
-      <StoryTopicHeaders />
-      <div style={{ margin: "0 30px" }}>
+      <ResponsiveNav />
+      <div style={{ margin: "0 15px" }}>
         <StoryTopicContainer>
           <h1 style={{ marginTop: "25px" }}>Profile</h1>
         </StoryTopicContainer>

@@ -5,6 +5,9 @@ export const StoryTopicHeadersContainer = styled.div`
   margin: 10px 15px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const TopicContainer = styled.div`
@@ -24,6 +27,10 @@ export const Date = styled.p`
   span {
     font-family: var(--font-header);
     font-weight: 900;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 

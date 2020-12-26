@@ -13,6 +13,11 @@ export const SearchModalContainer = styled.div`
   overflow-y: scroll;
   padding: 10px;
   animation: modal 2s ease-in-out forwards;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 50px);
+    left: 15px;
+  }
 `;
 
 export const ResultsContainer = styled(Link)`
@@ -34,4 +39,10 @@ export const SearchModalAllPage = styled.div`
   height: 94vh;
   background: transparent;
   z-index: 999;
+
+  @media (max-width: 768px) {
+    left: 0;
+    top: 86px;
+    width: 100%;
+  }
 `;

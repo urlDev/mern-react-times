@@ -39,7 +39,7 @@ const Chart = () => {
     //   create x Axes
     const xAxes = d3
       .axisBottom(xAxisScale)
-      .ticks(width < 700 ? d3.timeDay.every(10) : d3.timeDay.every(8))
+      .ticks(width < 700 ? d3.timeDay.every(10) : 5)
       .tickFormat((date) => d3.timeFormat("%b %d, %I:%M")(date));
 
     // draw x axes

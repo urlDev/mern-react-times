@@ -23,7 +23,14 @@ const LoginRegister = () => {
         <Route exact path="/profile" component={UserDetails} />
         <Route exact path="/profile/favorites" component={UserFavorites} />
         <div>
-          <Background src={BgSrc} alt="" />
+          <Background>
+            <source srcset={BgWebP} type="image/webp" />
+            <img
+              src={BgSrc}
+              type="image/jpg"
+              alt="background for login/register pages"
+            />
+          </Background>
 
           {loadingUser ? (
             <Loading height="99vh" logoSrc={WhiteLogoSrc} login={true} />

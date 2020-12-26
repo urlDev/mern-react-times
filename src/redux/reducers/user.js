@@ -20,7 +20,7 @@ const initialState = {
   errorUser: null,
   user: JSON.parse(localStorage.getItem("user")) || {},
   token: JSON.parse(localStorage.getItem("token")) || {},
-  userModal: false,
+  userModal: true,
   deleteModal: false,
 };
 

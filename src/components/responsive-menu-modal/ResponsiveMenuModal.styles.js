@@ -9,7 +9,7 @@ export const MenuModalAllPage = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 99vh;
   z-index: 100000;
 `;
 
@@ -27,9 +27,9 @@ export const MenuModalContainer = styled.div`
     margin: 10px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
-    margin-left: 15px;
+    margin: 50px 0 0 0;
     border: none;
     padding: 20px 0;
 

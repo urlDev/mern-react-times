@@ -20,6 +20,7 @@ import MarketComponents from "../market-components/MarketComponents";
 import MarketDetails from "../market-details/MarketDetails";
 
 import { topics } from "../../components/story-topic-headers/StoryTopicHeaders";
+import ResponsiveNav from "../responsive-nav/ResponsiveNav";
 
 const Home = () => {
   const { header, loadingNews, popular } = useSelector((news) => news.news);
@@ -47,8 +48,7 @@ const Home = () => {
 
   return (
     <div>
-      <Nav logo={LogoDarkSrc} borderBottom="1px solid lightgray" icon="1" />
-      <StoryTopicHeaders />
+      <ResponsiveNav />
       <Switch>
         {loadingNews ? (
           <Loading height="400px" />

@@ -1,21 +1,25 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { fetchSearch, openSearchModal } from '../../redux/actions/chart';
+import {
+  clearSearchResults,
+  fetchSearch,
+  openSearchModal,
+} from "../../redux/actions/chart";
 
-import SearchModal from '../search-modal/SearchModal';
-import SearchSrc from '../../assets/searchIcon.svg';
-import { NavSearchContainer, SearchIcon } from './Search.styles';
+import SearchModal from "../search-modal/SearchModal";
+import SearchSrc from "../../assets/searchIcon.svg";
+import { NavSearchContainer, SearchIcon } from "./Search.styles";
 
 const Search = ({ icon }) => {
   const { open } = useSelector((chart) => chart.chart);
-  const [input, setInput] = React.useState('');
+  const [input, setInput] = React.useState("");
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchSearch(input));
-    setInput('');
+    setInput("");
   };
 
   return (
@@ -26,7 +30,9 @@ const Search = ({ icon }) => {
           placeholder="Search for a company or symbol"
           onChange={(e) => {
             setInput(e.target.value);
-            dispatch(fetchSearch(e.target.value));
+            e.target.value.length
+              ? dispatch(fetchSearch(e.target.value))
+              : dispatch(clearSearchResults());
           }}
           open={open}
         />
@@ -38,7 +44,7 @@ const Search = ({ icon }) => {
           <img src={SearchSrc} alt="search icon" />
         </SearchIcon>
       </form>
-      {open ? <SearchModal /> : null}
+      <SearchModal />
     </NavSearchContainer>
   );
 };

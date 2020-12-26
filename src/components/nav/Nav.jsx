@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Search from "../search/Search";
 import LogoComponent from "../logo-component/LogoComponent";
 import NavUserImage from "../nav-user-image/NavUserImage";
+import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
 
 import { NavContainer } from "./Nav.styles";
 
@@ -18,6 +19,7 @@ const Nav = ({
   background,
 }) => {
   const { user } = useSelector((user) => user.user);
+  const { width } = useSelector((news) => news.news);
   const path = window.location.pathname;
 
   return (
@@ -28,7 +30,7 @@ const Nav = ({
       hoverColor={hoverColor}
       background={background}
     >
-      <Search icon={icon} />
+      {width < 768 ? <StoryTopicHeaders /> : <Search icon={icon} />}
       <LogoComponent logo={logo} />
       {user.name ? (
         <NavUserImage />

@@ -23,6 +23,7 @@ import {
   FavoriteCards,
   StockPercentage,
 } from "./UserFavorites.styles";
+import ResponsiveNav from "../responsive-nav/ResponsiveNav";
 
 const UserFavorites = () => {
   const { favorites } = useSelector((favorite) => favorite.favorite);
@@ -37,9 +38,8 @@ const UserFavorites = () => {
 
   return (
     <>
-      <Nav logo={LogoDarkSrc} borderBottom="1px solid lightgray" icon="1" />
-      <StoryTopicHeaders />
-      <div style={{ margin: "0 30px" }}>
+      <ResponsiveNav />
+      <div style={{ margin: "0 15px" }}>
         <StoryTopicContainer>
           <h1 style={{ marginTop: "25px" }}>Your Favorites</h1>
         </StoryTopicContainer>

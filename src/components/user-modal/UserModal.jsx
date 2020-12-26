@@ -21,13 +21,15 @@ const UserModal = () => {
 
   return (
     <UserModalContainer
-    // onMouseEnter={() => dispatch(userModalOpen())}
-    // onMouseLeave={() => dispatch(userModalClose())}
+      onMouseEnter={() => dispatch(userModalOpen())}
+      onMouseLeave={() => dispatch(userModalClose())}
     >
       <UserModalMenu to="/profile">Profile Details</UserModalMenu>
       <UserModalMenu to="/profile/favorites">Favorites</UserModalMenu>
       {width < 768 ? (
-        <UserModalMenu onClick={handleClick}>Logout</UserModalMenu>
+        <UserModalMenu to="">
+          <span onClick={handleClick}>Logout</span>
+        </UserModalMenu>
       ) : null}
     </UserModalContainer>
   );

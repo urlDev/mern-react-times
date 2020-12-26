@@ -17,6 +17,7 @@ export const SearchModalContainer = styled.div`
   @media (max-width: 768px) {
     width: calc(100% - 50px);
     left: 15px;
+    top: 86px;
   }
 `;
 
@@ -42,7 +43,7 @@ export const SearchModalAllPage = styled.div`
 
   @media (max-width: 768px) {
     left: 0;
-    top: 86px;
+    top: 0;
     width: 100%;
   }
 `;

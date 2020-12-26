@@ -20,13 +20,13 @@ const SearchModal = () => {
 
   return (
     <>
-      <SearchModalAllPage
-        onClick={() => {
-          dispatch(closeSearchModal());
-          dispatch(clearSearchResults());
-        }}
-      >
-        {searchResults.length ? (
+      {searchResults.length ? (
+        <SearchModalAllPage
+          onClick={() => {
+            dispatch(closeSearchModal());
+            dispatch(clearSearchResults());
+          }}
+        >
           <SearchModalContainer>
             {searchResults.map((stock) => (
               <ResultsContainer
@@ -43,9 +43,9 @@ const SearchModal = () => {
                 <h1>{stock.exchangeShortName}</h1>
               </ResultsContainer>
             ))}
-          </SearchModalContainer>
-        ) : null}
-      </SearchModalAllPage>
+          </SearchModalContainer>{" "}
+        </SearchModalAllPage>
+      ) : null}
     </> //
   );
 };

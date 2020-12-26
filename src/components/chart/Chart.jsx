@@ -13,8 +13,8 @@ const Chart = () => {
     const svg = d3.select(d3Ref.current);
 
     const chartWidth =
-      width < 1150 ? (width < 700 ? width - 30 : width - 200) : 550;
-    const height = width < 1150 ? chartWidth * 0.65 : 345;
+      width < 1400 ? (width < 700 ? width - 30 : width - 200) : 550;
+    const height = width < 1400 ? chartWidth * 0.65 : 345;
     const padding = 50;
 
     svg.attr("width", chartWidth).attr("height", height);

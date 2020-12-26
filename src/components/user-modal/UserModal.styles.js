@@ -5,16 +5,17 @@ import { Link } from "react-router-dom";
 export const UserModalContainer = styled.div`
   position: absolute;
   width: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: 99999999999;
   padding-top: 20px;
   top: 20px;
   animation: modal 0.5s ease-in-out forwards;
+
   @media (max-width: 768px) {
     width: 120px;
     right: 0;
-    height: 170px;
   }
 `;
 

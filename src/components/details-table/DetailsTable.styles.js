@@ -36,7 +36,7 @@ export const DetailsTableContainer = styled.div`
     }
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1400px) {
     padding-left: 0;
 
     td {

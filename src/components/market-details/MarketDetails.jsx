@@ -1,4 +1,5 @@
 import React from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -12,6 +13,7 @@ import {
 import AddSrc from "../../assets/bookmarkEmpty.svg";
 import AddedSrc from "../../assets/bookmark.svg";
 
+import ErrorFallback from "../error-fallback/ErrorFallback";
 import DetailsTable from "../details-table/DetailsTable";
 import Chart from "../chart/Chart";
 
@@ -99,8 +101,10 @@ const MarketDetails = () => {
         ))}
       </StoryTopicContainer>
       <MarketDetailsContainer>
-        <Chart />
-        <DetailsTable />
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Chart />
+          <DetailsTable />
+        </ErrorBoundary>
       </MarketDetailsContainer>
     </div>
   );

@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export const MarketComponentsContainer = styled.div`
+export const MarketComponentsContainer = styled.footer`
   margin: 0px auto 0px auto;
   padding: 0 15px 15px 15px;
-  /* border-top: 1px solid lightgray; */
   position: absolute;
   bottom: 0;
   width: calc(100% - 30px);

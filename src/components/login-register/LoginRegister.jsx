@@ -24,7 +24,7 @@ const LoginRegister = () => {
         <Route exact path="/profile/favorites" component={UserFavorites} />
         <div>
           <Background>
-            <source srcset={BgWebP} type="image/webp" />
+            <source srcSet={BgWebP} type="image/webp" />
             <img
               src={BgSrc}
               type="image/jpg"

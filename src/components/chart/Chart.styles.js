@@ -13,7 +13,7 @@ export const ChartContainer = styled.div`
     background: lightgray;
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: 1400px) {
     display: flex;
     justify-content: center;
     padding: 0;

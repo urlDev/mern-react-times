@@ -19,8 +19,6 @@ import { SeeAll } from "../most-popular/MostPopular.styles";
 const TopStories = React.memo(() => {
   const { story, width } = useSelector((news) => news.news);
 
-  // const random = Math.floor(Math.random() * story.length);
-
   return (
     <div>
       <StoryTopic />

@@ -18,13 +18,8 @@ const HomeMarketCards = () => {
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    // className: "center",
-    // centerMode: true,
-    // centerPadding: "-70px",
-    // centerPadding: '150px',
     autoplay: true,
     speed: 5000,
-    // autoplaySpeed: 5000,
     cssEase: "linear",
     responsive: [
       {

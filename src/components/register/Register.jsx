@@ -12,12 +12,10 @@ const Register = () => {
     email: "",
     password: "",
   };
-  // destructuring properties off of input
   const [{ name, email, password }, setInput] = React.useState(initialState);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    // spread prevState and add new values with name, dynamically
     setInput((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,

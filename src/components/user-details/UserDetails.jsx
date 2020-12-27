@@ -4,21 +4,21 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import ErrorFallback from "../error-fallback/ErrorFallback";
 import MarketComponents from "../market-components/MarketComponents";
-import Nav from "../nav/Nav";
-import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
 import DeleteModal from "../delete-modal/DeleteModal";
 import UserUpdate from "../user-update/UserUpdate";
 import UserAvatar from "../user-avatar/UserAvatar";
-
-import LogoDarkSrc from "../../assets/logo.svg";
-
-import { StoryTopicContainer } from "../story-topic/StoryTopic.styles.js";
-import { UserDetailContainer } from "./UserDetails.styles";
 import UserAccountDelete from "../user-account-delete/UserAccountDelete";
 import ResponsiveNav from "../responsive-nav/ResponsiveNav";
 
+import { StoryTopicContainer } from "../story-topic/StoryTopic.styles.js";
+import {
+  UpdateAndDeleteContainer,
+  UserDetailContainer,
+} from "./UserDetails.styles";
+
 const UserDetails = () => {
   const { user, deleteModal } = useSelector((user) => user.user);
+  const { width } = useSelector((news) => news.news);
 
   return (
     <>
@@ -30,8 +30,17 @@ const UserDetails = () => {
         {user.name ? (
           <UserDetailContainer>
             <UserAvatar />
-            <UserUpdate />
-            <UserAccountDelete />
+            {width < 1150 ? (
+              <UpdateAndDeleteContainer>
+                <UserUpdate />
+                <UserAccountDelete />
+              </UpdateAndDeleteContainer>
+            ) : (
+              <>
+                <UserUpdate />
+                <UserAccountDelete />
+              </> //
+            )}
           </UserDetailContainer>
         ) : null}
         {deleteModal ? <DeleteModal /> : null}

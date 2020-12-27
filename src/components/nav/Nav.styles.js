@@ -29,5 +29,9 @@ export const NavContainer = styled.nav`
     :focus {
       outline: none;
     }
+
+    @media (max-width: 400px) {
+      padding: 4px 11px;
+    }
   }
 `;

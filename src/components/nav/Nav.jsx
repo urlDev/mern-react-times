@@ -30,12 +30,17 @@ const Nav = ({
       hoverColor={hoverColor}
       background={background}
     >
-      {width < 768 ? <StoryTopicHeaders /> : <Search icon={icon} />}
+      {width < 768 ? <StoryTopicHeaders icon={icon} /> : <Search icon={icon} />}
       <LogoComponent logo={logo} />
       {user.name ? (
         <NavUserImage />
       ) : (
-        <Link style={{ textDecoration: "none" }} to="/profile/login">
+        <Link
+          style={{ textDecoration: "none" }}
+          to={
+            path === "/profile/login" ? "/profile/register" : "/profile/login"
+          }
+        >
           <button>{path === "/profile/login" ? "Register" : "Login"}</button>
         </Link>
       )}

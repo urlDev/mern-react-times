@@ -4,7 +4,6 @@ import Nav from "../nav/Nav";
 import Search from "../search/Search";
 import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
 
-import SearchSrc from "../../assets/searchIcon.svg";
 import LogoDarkSrc from "../../assets/logo.svg";
 
 const ResponsiveNav = () => {
@@ -18,7 +17,7 @@ const ResponsiveNav = () => {
             borderBottom="1px solid lightgray"
             icon="block"
           />
-          <Search icon={SearchSrc} />
+          <Search icon="block" />
         </> //
       ) : (
         <>
@@ -27,7 +26,7 @@ const ResponsiveNav = () => {
             borderBottom="1px solid lightgray"
             icon="block"
           />
-          <StoryTopicHeaders />
+          <StoryTopicHeaders icon="block" />
         </> //
       )}
     </> //

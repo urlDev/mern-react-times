@@ -30,8 +30,8 @@ export const ImageAndButton = styled.div`
     background: black;
     color: white;
     text-align: center;
-    font-family: var(--font-text);
-    font-size: var(--size-section-header);
+    font-family: var(--font-links);
+    font-size: var(--size-sub-menu);
     font-weight: bold;
     padding: 11px 0;
     cursor: pointer;

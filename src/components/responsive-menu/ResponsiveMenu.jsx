@@ -7,16 +7,21 @@ import HamburgerCloseSrc from "../../assets/hamburgerClose.svg";
 
 import { HamburgerMenu } from "./ResponsiveMenu.styles";
 
-const ResponsiveMenu = () => {
+const ResponsiveMenu = ({ icon }) => {
   const { responsiveMenu } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
   return (
     <HamburgerMenu
-      src={responsiveMenu ? HamburgerCloseSrc : HamburgerSrc}
+      icon={icon}
       alt="hamburger menu"
       onClick={() => dispatch(openResponsiveMenu())}
-    />
+    >
+      <img
+        src={responsiveMenu ? HamburgerCloseSrc : HamburgerSrc}
+        alt="hamburger icon"
+      />
+    </HamburgerMenu>
   );
 };
 

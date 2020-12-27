@@ -18,7 +18,9 @@ import { topics } from "../../components/story-topic-headers/StoryTopicHeaders";
 import ResponsiveNav from "../responsive-nav/ResponsiveNav";
 
 const Home = () => {
-  const { header, loadingNews, popular } = useSelector((news) => news.news);
+  const { header, loadingNews, popular, width } = useSelector(
+    (news) => news.news
+  );
   const { errorChart } = useSelector((chart) => chart.chart);
 
   const dispatch = useDispatch();
@@ -46,7 +48,7 @@ const Home = () => {
       <ResponsiveNav />
       <Switch>
         {loadingNews ? (
-          <Loading height="400px" />
+          <Loading height={width < 1024 ? "600px" : "400px"} />
         ) : (
           <Route
             path={`/${header.toLowerCase()}`}

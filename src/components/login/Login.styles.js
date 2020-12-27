@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const LoginContainer = styled.div `
+export const LoginContainer = styled.div`
   grid-column: 3 / 4;
-  /* grid-row: 2 / 5; */
   border: 1px solid white;
+  /* margin-left: auto; */
 
   form {
     display: flex;
@@ -39,5 +39,19 @@ export const LoginContainer = styled.div `
     width: 50%;
     cursor: pointer;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 1024px) {
+    grid-column: 3/5;
+  }
+
+  @media (max-width: 600px) {
+    grid-column: 1/5;
+  }
+
+  @media (max-width: 400px) {
+    form {
+      padding: 10px 20px;
+    }
   }
 `;

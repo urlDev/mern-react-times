@@ -3,13 +3,18 @@ import styled from "styled-components";
 export const LoginRegisterContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-rows: repeat(4, 1fr); */
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  /* grid-template-rows: repeat(2, 1fr); */
   /* height: calc(100vh- 70px); */
-  width: 100%;
-  max-width: 1390px;
-  margin: 0 auto;
+  width: calc(100% - 30px);
+  max-width: 1385px;
+  margin: 0 15px;
   position: absolute;
   bottom: 30px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export const Login = styled.div`

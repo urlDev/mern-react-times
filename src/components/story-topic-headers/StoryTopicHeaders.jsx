@@ -26,7 +26,7 @@ export const topics = [
   "Travel",
 ];
 
-const StoryTopics = () => {
+const StoryTopicHeaders = ({ icon }) => {
   const { width, responsiveMenu } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
@@ -39,7 +39,7 @@ const StoryTopics = () => {
       <TopicContainer>
         {width < 1024 ? (
           <>
-            <ResponsiveMenu />
+            <ResponsiveMenu icon={icon} />
             {responsiveMenu ? <ResponsiveMenuModal /> : null}
           </> //
         ) : (
@@ -65,4 +65,4 @@ const StoryTopics = () => {
   );
 };
 
-export default StoryTopics;
+export default StoryTopicHeaders;

@@ -4,14 +4,20 @@ export const UserDetailsForm = styled.div`
   grid-column: 2/4;
   width: 100%;
 
+  /* 
+  to be able to fit the form inside the grid,
+  I used flexbox
+  */
   form {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
   }
 
   label {
@@ -38,12 +44,11 @@ export const UserDetailsForm = styled.div`
   }
 
   button {
-    /* margin-top: 20px; */
     border: none;
     background: black;
     color: white;
-    font-family: var(--font-text);
-    font-size: var(--size-section-header);
+    font-family: var(--font-links);
+    font-size: var(--size-sub-menu);
     font-weight: bold;
     padding: 11px 0;
     width: calc((100% - 70px) / 2);

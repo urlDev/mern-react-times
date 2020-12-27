@@ -49,7 +49,10 @@ color: white;
 border: 1 px solid transparent;
 `}
   :focus {
-    border: none;
     outline: none;
+  }
+
+  @media (max-width: 350px) {
+    padding: 4px 11px;
   }
 `;

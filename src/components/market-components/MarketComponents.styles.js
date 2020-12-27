@@ -65,4 +65,8 @@ font-weight: bold;
       padding-right: 0;
     }
   }
+
+  @media (max-width: 350px) {
+    font-size: var(--size-sub-menu);
+  }
 `;

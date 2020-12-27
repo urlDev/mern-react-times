@@ -7,10 +7,6 @@ import {
 } from "../../redux/actions/favorite";
 import { setMarketDetail, fetchRating } from "../../redux/actions/chart";
 
-import Nav from "../nav/Nav";
-import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
-
-import LogoDarkSrc from "../../assets/logo.svg";
 import AddedSrc from "../../assets/bookmark.svg";
 
 import {

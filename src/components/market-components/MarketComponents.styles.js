@@ -10,12 +10,12 @@ export const MarketComponentsContainer = styled.footer`
   min-height: 120px;
   background: var(--background);
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1150px) {
     position: sticky;
   }
 
   /* for Ipad pro */
-  @media (min-height: 1100px) and (max-width: 1400px) {
+  @media (min-height: 1100px) and (max-width: 1150px) {
     position: absolute;
   }
 `;

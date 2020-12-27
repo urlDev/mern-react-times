@@ -41,4 +41,12 @@ export const ImageAndButton = styled.div`
       outline: none;
     }
   }
+
+  @media (max-width: 770px) {
+    grid-column: 2 / 4;
+  }
+
+  @media (max-width: 400px) {
+    grid-column: 1 / 5;
+  }
 `;

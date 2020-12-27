@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import {
   clearSearchResults,
+  closeSearchModal,
   fetchSearch,
   openSearchModal,
 } from "../../redux/actions/chart";
@@ -13,28 +15,35 @@ import { NavSearchContainer, SearchIcon } from "./Search.styles";
 
 const Search = ({ icon }) => {
   const { open } = useSelector((chart) => chart.chart);
+  const { width } = useSelector((news) => news.news);
   const [input, setInput] = React.useState("");
+
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchSearch(input));
+    history.push(`/search/${input}`);
     setInput("");
+    dispatch(closeSearchModal());
   };
 
   return (
     <NavSearchContainer open={open}>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        onClick={width < 768 ? () => dispatch(openSearchModal()) : null}
+      >
         <input
           type="text"
           placeholder="Search for a company or symbol"
           onChange={(e) => {
             setInput(e.target.value);
-            e.target.value.length
-              ? dispatch(fetchSearch(e.target.value))
-              : dispatch(clearSearchResults());
+            dispatch(fetchSearch(e.target.value));
           }}
           open={open}
+          value={input}
         />
         <SearchIcon
           icon={icon}

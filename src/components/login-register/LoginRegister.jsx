@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import BgSrc from "../../assets/bg.jpg";
 import BgWebP from "../../assets/bgWebP.webp";
 import WhiteLogoSrc from "../../assets/loadingWhite.svg";
+import LogoWhiteSrc from "../../assets/logoWhite.svg";
 
 import Nav from "../nav/Nav";
 import Loading from "../loading/Loading";
@@ -11,7 +12,7 @@ import UserDetails from "../user-details/UserDetails";
 import UserFavorites from "../user-favorites/UserFavorites";
 import Register from "../register/Register";
 import Login from "../login/Login";
-import LogoWhiteSrc from "../../assets/logoWhite.svg";
+
 import { LoginRegisterContainer, Background } from "./LoginRegister.styles";
 
 const LoginRegister = () => {

@@ -16,6 +16,7 @@ import MarketDetails from "../market-details/MarketDetails";
 
 import { topics } from "../../components/story-topic-headers/StoryTopicHeaders";
 import ResponsiveNav from "../responsive-nav/ResponsiveNav";
+import SearchResults from "../search-results/SearchResults";
 
 const Home = () => {
   const { header, loadingNews, popular, width } = useSelector(
@@ -56,6 +57,7 @@ const Home = () => {
           />
         )}
         <Route path="/details/:symbol" render={() => <MarketDetails />} />
+        <Route path="/search/:symbol" render={() => <SearchResults />} />
       </Switch>
       {errorChart ? <ErrorFallback /> : <MarketComponents />}
     </>

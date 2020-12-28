@@ -58,11 +58,10 @@ font-weight: bold;
   }
 
   @media (max-width: 830px) {
-    padding-left: 0;
-    padding-right: 15px;
-    margin: 10px 0;
+    padding: 0;
+    margin: 10px 15px 10px 0;
     :nth-child(6) {
-      padding-right: 0;
+      margin-right: 0;
     }
   }
 

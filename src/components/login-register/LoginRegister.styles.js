@@ -10,7 +10,8 @@ export const LoginRegisterContainer = styled.div`
   max-width: 1385px;
   margin: 0 15px;
   position: absolute;
-  bottom: 30px;
+  bottom: 0;
+  padding-bottom: 30px;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
@@ -33,5 +34,7 @@ export const Background = styled.picture`
     object-fit: cover;
     transform: scaleX(-1);
     filter: grayscale(40%);
+    opacity: 0.9;
+    animation: opacity 1s ease-in forwards;
   }
 `;

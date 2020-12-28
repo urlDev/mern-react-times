@@ -59,6 +59,12 @@ code {
   display: none !important;
 }
 
+@keyframes opacity {
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes loading {
   0%,
   100% {

@@ -3,7 +3,7 @@
 Finance / News app made with MERN stack, NYTimes API and FinancialModelingPrep
 API.
 
-![React-times-home-demo]('demo/reactTimes.gif')
+![React-times-home-demo](demo/reactTimes.gif)
 
 ## Libraries and frameworks;
 

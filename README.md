@@ -1,2 +1,2 @@
 # mern-react-times
-![gif](https://s8.gifyu.com/images/boilerplate.gif)
+![reactTimes](https://media.giphy.com/media/Qvcnp7iC7gnHGlejSX/giphy.gif)

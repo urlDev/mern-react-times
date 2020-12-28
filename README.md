@@ -7,7 +7,7 @@ API.
 
 ## Libraries and frameworks;
 
-React, Redux, Styled-Components, Node, Express, MongoDB, Jest, Enzyme, Multer,
+React, Redux, D3.js, Styled-Components, Node, Express, MongoDB, Jest, Enzyme, Multer,
 Adorable Avatars, Bcrypt, and JWT.
 
 API can be found [here](https://github.com/urlDev/mern-react-times-api)

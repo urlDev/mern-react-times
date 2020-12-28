@@ -15,6 +15,7 @@ export const LoginRegisterContainer = styled.div`
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 60px;
   }
 `;
 

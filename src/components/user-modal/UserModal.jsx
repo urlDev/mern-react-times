@@ -10,6 +10,7 @@ import { cleanFavoriteState } from "../../redux/actions/favorite";
 import {
   UserModalAllPage,
   UserModalContainer,
+  UserModalLogout,
   UserModalMenu,
 } from "./UserModal.styles";
 
@@ -17,8 +18,8 @@ const UserModal = () => {
   const { width } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    dispatch(fetchLogoutUser());
+  const handleClick = async () => {
+    await dispatch(fetchLogoutUser());
     dispatch(cleanFavoriteState());
     localStorage.clear();
   };
@@ -34,9 +35,9 @@ const UserModal = () => {
             <UserModalMenu to="/profile">Profile Details</UserModalMenu>
             <UserModalMenu to="/profile/favorites">Favorites</UserModalMenu>
             {width < 768 ? (
-              <UserModalMenu to="">
+              <UserModalLogout>
                 <span onClick={handleClick}>Logout</span>
-              </UserModalMenu>
+              </UserModalLogout>
             ) : null}
           </UserModalContainer>
         </UserModalAllPage>
@@ -47,11 +48,6 @@ const UserModal = () => {
         >
           <UserModalMenu to="/profile">Profile Details</UserModalMenu>
           <UserModalMenu to="/profile/favorites">Favorites</UserModalMenu>
-          {width < 768 ? (
-            <UserModalMenu to="">
-              <span onClick={handleClick}>Logout</span>
-            </UserModalMenu>
-          ) : null}
         </UserModalContainer>
       )}
     </> //

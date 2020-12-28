@@ -1,16 +1,26 @@
-# React-Times
+# React-Times :newspaper:
 
 Finance / News app made with MERN stack, NYTimes API and FinancialModelingPrep
 API.
 
 ![React-times-home-demo](demo/reactTimes.gif)
 
-## Libraries and frameworks;
+## :zap: Libraries and frameworks;
 
-React, Redux, D3.js, Styled-Components, Node, Express, MongoDB, Jest, Enzyme, Multer,
-Adorable Avatars, Bcrypt, and JWT.
+React, Redux, D3.js, Styled-Components, Node, Express, MongoDB, Jest, Enzyme,
+Multer, Adorable Avatars, Bcrypt, and JWT.
 
 API can be found [here](https://github.com/urlDev/mern-react-times-api)
+
+Design inspiration is from
+[dribbble](https://dribbble.com/shots/11523226-NY-Times)
+
+## :chart_with_upwards_trend: D3.js
+
+I added charts to various pages. First, with market cards that show different
+financial instrument data and their chart. Secondly, in market details page. The
+one in market details page is also responsive and can show different time
+frames.
 
 ## Profile Update
 

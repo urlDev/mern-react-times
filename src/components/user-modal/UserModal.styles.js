@@ -42,3 +42,20 @@ export const UserModalMenu = styled(Link)`
     font-weight: bold;
   }
 `;
+
+export const UserModalLogout = styled.button`
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid gray;
+  padding: 20px 10px;
+  text-decoration: none;
+  font-size: var(--size-sub-menu);
+  font-family: var(--font-text);
+  color: white;
+  background: black;
+  transition: font-weight 0.3s linear;
+  &:hover {
+    font-weight: bold;
+  }
+`;

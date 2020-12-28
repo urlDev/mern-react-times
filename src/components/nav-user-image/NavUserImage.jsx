@@ -18,8 +18,8 @@ const NavUserImage = () => {
   const { width } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    dispatch(fetchLogoutUser());
+  const handleClick = async () => {
+    await dispatch(fetchLogoutUser());
     dispatch(cleanFavoriteState());
     localStorage.clear();
   };

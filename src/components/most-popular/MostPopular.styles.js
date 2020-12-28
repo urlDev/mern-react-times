@@ -67,7 +67,7 @@ export const PopularStoriesContainer = styled.a`
 
   @media (max-width: 600px) {
     /* width: calc(100% - 10px); */
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 80px);
     position: relative;
 
     &:after {
@@ -91,7 +91,7 @@ export const PopularStoriesContainer = styled.a`
   }
 
   @media (max-width: 400px) {
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
 
     :nth-child(n) ${ImageContainer} {
       grid-row: 2 / 4;

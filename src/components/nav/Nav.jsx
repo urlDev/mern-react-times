@@ -7,7 +7,7 @@ import LogoComponent from "../logo-component/LogoComponent";
 import NavUserImage from "../nav-user-image/NavUserImage";
 import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
 
-import { NavContainer } from "./Nav.styles";
+import { Button, NavContainer } from "./Nav.styles";
 
 const Nav = ({
   logo,
@@ -23,13 +23,7 @@ const Nav = ({
   const path = window.location.pathname;
 
   return (
-    <NavContainer
-      color={color}
-      borderBottom={borderBottom}
-      border={border}
-      hoverColor={hoverColor}
-      background={background}
-    >
+    <NavContainer borderBottom={borderBottom}>
       {width < 768 ? <StoryTopicHeaders icon={icon} /> : <Search icon={icon} />}
       <LogoComponent logo={logo} />
       {user.name ? (
@@ -41,7 +35,14 @@ const Nav = ({
             path === "/profile/login" ? "/profile/register" : "/profile/login"
           }
         >
-          <button>{path === "/profile/login" ? "Register" : "Login"}</button>
+          <Button
+            border={border}
+            hoverColor={hoverColor}
+            background={background}
+            color={color}
+          >
+            {path === "/profile/login" ? "Register" : "Login"}
+          </Button>
         </Link>
       )}
     </NavContainer>

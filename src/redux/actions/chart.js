@@ -124,7 +124,6 @@ export const fetchForex = (market) => async (dispatch) => {
 };
 
 export const fetchChartData = (symbol, timeFrame) => async (dispatch) => {
-  dispatch(cleanChartData());
   try {
     const response = await axios.get(
       `https://financialmodelingprep.com/api/v3/historical-chart/${timeFrame}/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`
@@ -161,7 +160,7 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
   let charts = [];
   dispatch(cleanState());
   try {
-    // dispatch(setLoadingTrue());
+    dispatch(setLoadingTrue());
     for (let symbol of symbolsArray) {
       const response = await axios.get(
         `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`
@@ -170,19 +169,11 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
       charts.push(data);
     }
     return charts.length
-      ? dispatch(setHomeChartData(charts))
-      : dispatch(fetchChartError(charts));
-    // dispatch(setLoading());
+      ? [dispatch(setHomeChartData(charts)), dispatch(setLoading())]
+      : [dispatch(fetchChartError(charts)), dispatch(setLoading())];
   } catch (error) {
     return dispatch(fetchChartError(error));
   }
-
-  // try {
-  //   dispatch(cleanState());
-  //   console.log(symbolsArray);
-  // } catch (error) {
-  //   return dispatch(fetchChartError(error));
-  // }
 };
 
 export const fetchSearch = (input) => async (dispatch) => {

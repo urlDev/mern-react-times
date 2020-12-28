@@ -29,7 +29,7 @@ export const MenuModalContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    margin: 50px 0 0 0;
+    margin: 50px 0 0 15px;
     border: none;
     padding: 20px 0;
 

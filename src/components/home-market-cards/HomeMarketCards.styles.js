@@ -11,3 +11,12 @@ export const MarketCards = styled(Link)`
   width: 100%;
   font-family: var(--font-links);
 `;
+
+export const Placeholder = styled.div`
+  width: 70px;
+  height: 60px;
+
+  @media (max-width: 768px) {
+    width: 60px;
+  }
+`;

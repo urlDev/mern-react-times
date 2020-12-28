@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
-import { changeHeader } from '../../redux/actions/news';
+import { changeHeader } from "../../redux/actions/news";
 
-import { Logo } from './LogoComponent.styles';
+import { Logo } from "./LogoComponent.styles";
 
 const LogoComponent = ({ logo }) => {
   const dispatch = useDispatch();
@@ -10,10 +10,10 @@ const LogoComponent = ({ logo }) => {
   return (
     <Logo to="/home">
       <img
-        style={{ height: '25px' }}
+        style={{ height: "16px" }}
         src={logo}
         alt="react times logo"
-        onClick={() => dispatch(changeHeader('home'))}
+        onClick={() => dispatch(changeHeader("home"))}
       />
     </Logo>
   );

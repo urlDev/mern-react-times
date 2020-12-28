@@ -7,12 +7,12 @@ export const SearchModalContainer = styled.div`
   width: calc(250px - 20px);
   position: absolute;
   top: 0;
-  left: 100px;
+  left: 115px;
   background: black;
   z-index: 1000;
   overflow-y: scroll;
   padding: 10px;
-  animation: modal 2s ease-in-out forwards;
+  animation: modal 0.5s ease-in-out forwards;
 
   @media (max-width: 768px) {
     width: calc(100% - 50px);

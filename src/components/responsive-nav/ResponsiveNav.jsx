@@ -4,7 +4,7 @@ import Nav from "../nav/Nav";
 import Search from "../search/Search";
 import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
 
-import LogoDarkSrc from "../../assets/logo.svg";
+import LogoDarkSrc from "../../assets/logo.png";
 
 const ResponsiveNav = () => {
   const { width } = useSelector((news) => news.news);

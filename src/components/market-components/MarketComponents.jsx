@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ErrorBoundary } from "react-error-boundary";
 
 import {
   changeMarketType,
@@ -8,6 +9,7 @@ import {
   fetchForex,
 } from "../../redux/actions/chart";
 
+import ErrorFallback from "../error-fallback/ErrorFallback";
 import Loading from "../loading/Loading";
 import HomeMarketCards from "../home-market-cards/HomeMarketCards";
 
@@ -95,7 +97,13 @@ const MarketComponents = () => {
           </MarketMenu>
         ))}
       </MarketHeaderContainer>
-      {loadingChart ? <Loading /> : <HomeMarketCards />}
+      {loadingChart ? (
+        <Loading />
+      ) : (
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <HomeMarketCards />
+        </ErrorBoundary>
+      )}
     </MarketComponentsContainer>
   );
 };

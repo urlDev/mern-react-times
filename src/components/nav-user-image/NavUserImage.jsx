@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import {
   fetchLogoutUser,
@@ -11,7 +10,8 @@ import { cleanFavoriteState } from "../../redux/actions/favorite";
 
 import UserModal from "../user-modal/UserModal";
 import UserImage from "../user-image/UserImage";
-import { UserImageContainer } from "./NavUserImage.styles.js";
+import { UserImageButton, UserImageContainer } from "./NavUserImage.styles.js";
+import { Button } from "../nav/Nav.styles";
 
 const NavUserImage = () => {
   const { userModal } = useSelector((user) => user.user);
@@ -25,26 +25,32 @@ const NavUserImage = () => {
   };
 
   return (
-    // I am using srcSet and picture here because once user uploads new avatar,
-    // it will be both in webp and png so I can show it in browsers that doesn't
-    // support webp.
-    <div style={{ position: "relative" }}>
+    // In smaller screens (smaller than iPad),
+    // logout button will be shown in user modal
+    // For devices smaller than iPad Pro, I will use modal
+    // with onClick instead of mouseEnter
+    <>
       <UserImageContainer>
         {width > 768 ? (
-          <button type="button" onClick={handleClick}>
+          <Button type="button" onClick={handleClick}>
             Logout
-          </button>
+          </Button>
         ) : null}
-        <Link
-          to="/profile"
-          onMouseEnter={() => dispatch(userModalOpen())}
-          onMouseLeave={() => dispatch(userModalClose())}
-        >
-          <UserImage border="29px" margin="10px" />
-        </Link>
+        {width < 1024 ? (
+          <UserImageButton onClick={() => dispatch(userModalOpen())}>
+            <UserImage border="29px" margin="10px" />
+          </UserImageButton>
+        ) : (
+          <UserImageButton
+            onMouseEnter={() => dispatch(userModalOpen())}
+            onMouseLeave={() => dispatch(userModalClose())}
+          >
+            <UserImage border="29px" margin="10px" />
+          </UserImageButton>
+        )}
       </UserImageContainer>
       {userModal ? <UserModal /> : null}
-    </div>
+    </> //
   );
 };
 

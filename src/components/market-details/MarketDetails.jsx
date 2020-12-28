@@ -3,7 +3,12 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { setChartTimeFrame, fetchChartData } from "../../redux/actions/chart";
+import {
+  setChartTimeFrame,
+  fetchChartData,
+  cleanChartData,
+} from "../../redux/actions/chart";
+
 import {
   fetchAddFavorites,
   fetchDeleteFavorite,
@@ -33,6 +38,7 @@ const MarketDetails = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    dispatch(cleanChartData());
     dispatch(fetchChartData(marketDetail.symbol, chartTimeFrame));
   }, [dispatch, marketDetail.symbol, chartTimeFrame]);
 

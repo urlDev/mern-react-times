@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { setMarketDetail, fetchRating } from "../../redux/actions/chart";
 
 import MarketCardsChart from "../market-cards-chart/MarketCardsChart";
-import { MarketCards } from "./HomeMarketCards.styles";
+import { MarketCards, Placeholder } from "./HomeMarketCards.styles";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,7 +19,7 @@ const HomeMarketCards = () => {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
+    speed: 8000,
     cssEase: "linear",
     responsive: [
       {
@@ -76,7 +76,7 @@ const HomeMarketCards = () => {
             ) : (
               // I added div here for first chart to wait for homeChartData
               // Second, so that chart wouldnt glitch
-              <div style={{ width: "100px", height: "70px" }}></div>
+              <Placeholder />
             )}
           </MarketCards>
         </div>

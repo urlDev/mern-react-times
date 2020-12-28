@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import BgSrc from "../../assets/bg.jpg";
 import BgWebP from "../../assets/bgWebP.webp";
 import WhiteLogoSrc from "../../assets/loadingWhite.svg";
-import LogoWhiteSrc from "../../assets/logoWhite.svg";
+import LogoWhiteSrc from "../../assets/logoWhite.png";
 
 import Nav from "../nav/Nav";
 import Loading from "../loading/Loading";

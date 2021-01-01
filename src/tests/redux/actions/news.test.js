@@ -5,19 +5,23 @@ import {
   FETCH_STORY_SUCCESS,
   FETCH_NEWS_ERROR,
   CHANGE_HEADER,
-  CLEAN_STATE,
   CLEAR_ERROR,
-  cleanState,
+  SET_WIDTH,
+  OPEN_RESPONSIVE_MENU,
+  CLOSE_RESPONSIVE_MENU,
   fetchPopularSuccess,
   fetchStorySuccess,
   changeHeader,
   fetchNewsError,
   clearError,
+  setWidth,
+  openResponsiveMenu,
+  closeResponsiveMenu,
   fetchTopStories,
   fetchMostPopular,
 } from "../../../redux/actions/news";
 
-import { story, popular, errorNews } from "../../fixtures/news";
+import { story, popular, errorNews, width } from "../../fixtures/news";
 
 // eslint-disable-next-line jest/no-mocks-import
 import { store } from "../../__mocks__/store";
@@ -66,11 +70,28 @@ test("Should clear the error", () => {
   });
 });
 
-test("Should clean the state", () => {
-  const action = cleanState();
+test("Should set the width of the window", () => {
+  const action = setWidth(width);
 
   expect(action).toEqual({
-    type: CLEAN_STATE,
+    type: SET_WIDTH,
+    payload: width,
+  });
+});
+
+test("Should open the responsive menu", () => {
+  const action = openResponsiveMenu();
+
+  expect(action).toEqual({
+    type: OPEN_RESPONSIVE_MENU,
+  });
+});
+
+test("Should close the responsive menu", () => {
+  const action = closeResponsiveMenu();
+
+  expect(action).toEqual({
+    type: CLOSE_RESPONSIVE_MENU,
   });
 });
 

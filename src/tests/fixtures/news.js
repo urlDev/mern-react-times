@@ -102,3 +102,5 @@ export const errorNews = [
     },
   },
 ];
+
+export const width = 768;

@@ -86,7 +86,7 @@ const chartReducer = (state = initialState, action) => {
       return {
         ...state,
         // homeChartData: [...state.homeChartData, action.payload],
-        homeChartData: action.payload[0],
+        homeChartData: action.payload,
       };
     case CLEAN_STATE:
       return {

@@ -55,7 +55,7 @@ export const cleanState = () => ({
 
 export const setHomeChartData = (chart) => ({
   type: SET_HOME_CHART_DATA,
-  payload: [chart],
+  payload: chart,
 });
 
 export const setRating = (rating) => ({
@@ -158,16 +158,19 @@ Yet another homerun for me! 😁😎
 export const fetchHomeChart = (symbols) => async (dispatch) => {
   const symbolsArray = symbols.split(",").sort();
   let charts = [];
+
   dispatch(cleanState());
+
   try {
     dispatch(setLoadingTrue());
-    for (let symbol of symbolsArray) {
+    for await (let symbol of symbolsArray) {
       const response = await axios.get(
         `https://financialmodelingprep.com/api/v3/historical-chart/1hour/${symbol}?apikey=${process.env.REACT_APP_CHART_KEY}`
       );
-      const data = response.data;
+      const data = await response.data;
       charts.push(data);
     }
+
     return charts.length
       ? [dispatch(setHomeChartData(charts)), dispatch(setLoading())]
       : [dispatch(fetchChartError(charts)), dispatch(setLoading())];

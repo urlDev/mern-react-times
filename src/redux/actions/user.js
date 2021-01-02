@@ -142,7 +142,7 @@ export const fetchLogoutUser = () => async (dispatch) => {
     await axios.post(`${url}/profile/logout`, null, config);
 
     return [
-      path.includes("profile") && dispatch(push("/home")),
+      // path.includes("profile") ? dispatch(push("/home")) : null,
       dispatch(logOutUser()),
       toaster.notify(
         () => <NotificationComponent text={"Buh-Bye!"} success={true} />,

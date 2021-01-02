@@ -29,9 +29,16 @@ const initialState = {
 };
 
 test("Should set the initial state", () => {
-  const state = userReducer(initialState, { type: "@INIT" });
+  const state = userReducer(undefined, {});
 
-  expect(state).toEqual(initialState);
+  expect(state).toEqual({
+    loadingUser: false,
+    errorUser: null,
+    user: JSON.parse(localStorage.getItem("user")) || {},
+    token: JSON.parse(localStorage.getItem("token")) || {},
+    userModal: false,
+    deleteModal: false,
+  });
 });
 
 test("Should register user successfully", () => {

@@ -23,7 +23,7 @@ const initialState = {
   loadingChart: false,
   forex: [],
   errorChart: null,
-  // Indexes are first to load.
+  // Indexes (market type index's symbols) are first to load.
   marketType: "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE",
   marketName: "Indexes",
   marketDetail: {},
@@ -121,7 +121,7 @@ const chartReducer = (state = initialState, action) => {
     case OPEN_SEARCH_MODAL:
       return {
         ...state,
-        open: !state.open,
+        open: true,
       };
     case CLOSE_SEARCH_MODAL:
       return {

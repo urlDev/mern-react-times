@@ -30,8 +30,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watch --runInBand",
-    "cover": "npm test -- --coverage",
+    "test": "react-scripts test --watchAll --coverage --runInBand",
+    "cover": "npm test --watchAll --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

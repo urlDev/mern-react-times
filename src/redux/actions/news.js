@@ -51,7 +51,7 @@ export const fetchTopStories = (topStories) => async (dispatch) => {
     const response = await axios.get(
       `https://api.nytimes.com/svc/topstories/v2/${topStories}.json?api-key=${process.env.REACT_APP_NEWS_API_KEY}`
     );
-    const data = await response.data;
+    const data = await response.data.results.slice(0, 3);
     return dispatch(fetchStorySuccess(data));
   } catch (error) {
     return dispatch(fetchNewsError(error));
@@ -63,7 +63,7 @@ export const fetchMostPopular = () => async (dispatch) => {
     const response = await axios.get(
       `https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${process.env.REACT_APP_NEWS_API_KEY}`
     );
-    const data = await response.data;
+    const data = await response.data.results.slice(0, 4);
     return dispatch(fetchPopularSuccess(data));
   } catch (error) {
     return dispatch(fetchNewsError(error));

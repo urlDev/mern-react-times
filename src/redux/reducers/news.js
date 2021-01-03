@@ -30,13 +30,13 @@ const newsReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingNews: false,
-        popular: action.payload.results.slice(0, 4),
+        popular: action.payload,
       };
     case FETCH_STORY_SUCCESS:
       return {
         ...state,
         loadingNews: false,
-        story: action.payload.results.slice(0, 3),
+        story: action.payload,
       };
     case FETCH_NEWS_ERROR:
       return {

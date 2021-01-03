@@ -117,7 +117,7 @@ describe("Testing redux-thunk, fetching news", () => {
 
       const expectedActions = {
         type: FETCH_STORY_SUCCESS,
-        payload: story,
+        payload: story.results,
       };
 
       return store.dispatch(fetchTopStories("home")).then(() => {
@@ -158,7 +158,7 @@ describe("Testing redux-thunk, fetching news", () => {
 
       const expectedActions = {
         type: FETCH_POPULAR_SUCCESS,
-        payload: popular,
+        payload: popular.results,
       };
 
       return store.dispatch(fetchMostPopular()).then(() => {

@@ -278,8 +278,7 @@ describe("Testing async functions", () => {
       return store.dispatch(fetchLogoutUser()).then(() => {
         const actionsGetCalled = store.getActions();
 
-        // expect(actionsGetCalled).toEqual(expectedActions);
-        console.log(actionsGetCalled);
+        expect(actionsGetCalled).toEqual(expectedActions);
       });
     });
 

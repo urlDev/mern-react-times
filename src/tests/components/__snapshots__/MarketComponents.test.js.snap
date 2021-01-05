@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing MarketComponents component Testing component with loading component Should match snapshot 1`] = `
+<styled.footer>
+  <styled.div>
+    <styled.h1>
+      Market Snapshot
+    </styled.h1>
+    <styled.button
+      active={false}
+      key="0"
+      onClick={[Function]}
+      type="button"
+    >
+      Indexes
+    </styled.button>
+    <styled.button
+      active={false}
+      key="1"
+      onClick={[Function]}
+      type="button"
+    >
+      Crypto
+    </styled.button>
+    <styled.button
+      active={false}
+      key="2"
+      onClick={[Function]}
+      type="button"
+    >
+      Forex
+    </styled.button>
+    <styled.button
+      active={false}
+      key="3"
+      onClick={[Function]}
+      type="button"
+    >
+      Stocks
+    </styled.button>
+    <styled.button
+      active={false}
+      key="4"
+      onClick={[Function]}
+      type="button"
+    >
+      Commodities
+    </styled.button>
+  </styled.div>
+  <Loading />
+</styled.footer>
+`;
+
+exports[`Testing MarketComponents component Testing component without loading component Should match the snapshot 1`] = `
+<styled.footer>
+  <styled.div>
+    <styled.h1>
+      Market Snapshot
+    </styled.h1>
+    <styled.button
+      active={false}
+      key="0"
+      onClick={[Function]}
+      type="button"
+    >
+      Indexes
+    </styled.button>
+    <styled.button
+      active={false}
+      key="1"
+      onClick={[Function]}
+      type="button"
+    >
+      Crypto
+    </styled.button>
+    <styled.button
+      active={false}
+      key="2"
+      onClick={[Function]}
+      type="button"
+    >
+      Forex
+    </styled.button>
+    <styled.button
+      active={false}
+      key="3"
+      onClick={[Function]}
+      type="button"
+    >
+      Stocks
+    </styled.button>
+    <styled.button
+      active={false}
+      key="4"
+      onClick={[Function]}
+      type="button"
+    >
+      Commodities
+    </styled.button>
+  </styled.div>
+  <ErrorBoundary
+    FallbackComponent={[Function]}
+  >
+    <HomeMarketCards />
+  </ErrorBoundary>
+</styled.footer>
+`;

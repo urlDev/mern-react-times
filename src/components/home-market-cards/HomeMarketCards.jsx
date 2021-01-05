@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "../../utils/react-redux-hooks";
 import Slider from "react-slick";
 
 import { setMarketDetail, fetchRating } from "../../redux/actions/chart";

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing LoginRegister component Testing components with no extra state Should match the snapshot without loading component and state 1`] = `
+<div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/profile"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/profile/favorites"
+    />
+    <div>
+      <styled.picture>
+        <source
+          srcSet="bgWebP.webp"
+          type="image/webp"
+        />
+        <img
+          alt="background for login/register pages"
+          src="bg.jpg"
+          type="image/jpg"
+        />
+      </styled.picture>
+      <Nav
+        background="white"
+        border="1px solid white"
+        color="white"
+        hoverColor="black"
+        logo="logoWhite.png"
+      />
+      <styled.div>
+        <Route
+          component={[Function]}
+          path="/profile/login"
+        />
+        <Route
+          component={[Function]}
+          path="/profile/register"
+        />
+      </styled.div>
+    </div>
+  </Switch>
+</div>
+`;
+
+exports[`Testing LoginRegister component Testing the component with a given state to see the change Should render the component with loading component 1`] = `
+<div>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/profile"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/profile/favorites"
+    />
+    <div>
+      <styled.picture>
+        <source
+          srcSet="bgWebP.webp"
+          type="image/webp"
+        />
+        <img
+          alt="background for login/register pages"
+          src="bg.jpg"
+          type="image/jpg"
+        />
+      </styled.picture>
+      <Loading
+        height="99vh"
+        login={true}
+        logoSrc="loadingWhite.svg"
+      />
+    </div>
+  </Switch>
+</div>
+`;

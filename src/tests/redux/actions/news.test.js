@@ -23,8 +23,7 @@ import {
 
 import { story, popular, errorNews, width } from "../../fixtures/news";
 
-// eslint-disable-next-line jest/no-mocks-import
-import { store } from "../../__mocks__/store";
+import { store } from "../../store";
 
 test("Should get the top stories correctly", () => {
   const action = fetchStorySuccess(story);

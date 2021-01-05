@@ -16,8 +16,7 @@ import {
   fetchDeleteFavorite,
 } from "../../../redux/actions/favorite";
 
-// eslint-disable-next-line jest/no-mocks-import
-import { store } from "../../__mocks__/store";
+import { store } from "../../store";
 
 import {
   errorFavorite,

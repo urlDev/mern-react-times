@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ErrorFallback component Should match the snapshot with chart reducer error 1`] = `
+<styled.div>
+  <h1>
+    Something went wrong.
+  </h1>
+  <p>
+    Invalid API KEY. Please retry or visit our documentation to create one FREE https://financialmodelingprep.com/developer/docs
+  </p>
+  <p>
+    If it's limit reach, do come back some other time. Otherwise, please refresh!
+  </p>
+</styled.div>
+`;
+
+exports[`Testing ErrorFallback component Should match the snapshot with error-fallback error 1`] = `
+<styled.div>
+  <h1>
+    Something went wrong.
+  </h1>
+  <p>
+    Can not read messages of null
+  </p>
+  <p>
+    If it's limit reach, do come back some other time. Otherwise, please refresh!
+  </p>
+</styled.div>
+`;

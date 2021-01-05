@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch } from "../../utils/react-redux-hooks";
 
 import { changeHeader } from "../../redux/actions/news";
 

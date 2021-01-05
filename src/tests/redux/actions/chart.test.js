@@ -44,8 +44,7 @@ import {
   fetchSearch,
 } from "../../../redux/actions/chart";
 
-// eslint-disable-next-line jest/no-mocks-import
-import { store } from "../../__mocks__/store";
+import { store } from "../../store";
 
 import {
   forexLengthTwo,

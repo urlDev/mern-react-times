@@ -96,6 +96,10 @@ export const errorChart = {
     "Invalid API KEY. Please retry or visit our documentation to create one FREE https://financialmodelingprep.com/developer/docs",
 };
 
+export const error = {
+  message: "Can not read messages of null",
+};
+
 export const marketDetail = {
   avgVolume: 48315939,
   change: -29.69,

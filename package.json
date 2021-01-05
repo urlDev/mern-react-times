@@ -2,6 +2,11 @@
   "name": "mern-react-times",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -30,8 +35,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll --coverage --runInBand",
-    "cover": "npm test --watchAll --coverage",
+    "test": "react-scripts test --watch --runInBand",
+    "cover": "react-scripts test  --watchAll --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

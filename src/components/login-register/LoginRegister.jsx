@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector } from "../../utils/react-redux-hooks";
 
 import BgSrc from "../../assets/bg.jpg";
 import BgWebP from "../../assets/bgWebP.webp";

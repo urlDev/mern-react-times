@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Loading component Should match the snapshot 1`] = `
+<styled.div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+      }
+    }
+  >
+    <img
+      alt="loading logo"
+      src="loadingLogo.svg"
+    />
+  </div>
+</styled.div>
+`;

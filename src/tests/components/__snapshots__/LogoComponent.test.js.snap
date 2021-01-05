@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing LogoComponent Should match the snapshot 1`] = `
+<Styled(Link)
+  to="/home"
+>
+  <img
+    alt="react times logo"
+    onClick={[Function]}
+    style={
+      Object {
+        "height": "16px",
+      }
+    }
+  />
+</Styled(Link)>
+`;

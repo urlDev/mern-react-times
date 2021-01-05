@@ -50,8 +50,7 @@ import {
   userInputLogin,
 } from "../../fixtures/user";
 
-// eslint-disable-next-line jest/no-mocks-import
-import { store } from "../../__mocks__/store";
+import { store } from "../../store";
 
 test("Should register user", () => {
   const action = registerUser(user);

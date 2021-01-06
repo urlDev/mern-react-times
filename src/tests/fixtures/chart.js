@@ -144,3 +144,30 @@ export const homeChartData = {
   open: 658.02,
   volume: 35149130,
 };
+
+export const forex = [
+  {
+    avgVolume: 395735000,
+    change: -124.35,
+    changesPercentage: -0.41,
+    dayHigh: 30343.59,
+    dayLow: 30029.44,
+    earningsAnnouncement: null,
+    eps: null,
+    exchange: "INDEX",
+    marketCap: null,
+    name: "Dow Jones Industrial Average",
+    open: 30314.26,
+    pe: null,
+    previousClose: 30303.4,
+    price: 30179.05,
+    priceAvg50: 29512.71,
+    priceAvg200: 27777.393,
+    sharesOutstanding: null,
+    symbol: "^DJI",
+    timestamp: 1608495910,
+    volume: 798229304,
+    yearHigh: 30343.59,
+    yearLow: 18213.65,
+  },
+];

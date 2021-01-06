@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector } from "../../utils/react-redux-hooks";
 import { Link } from "react-router-dom";
 
 import Search from "../search/Search";

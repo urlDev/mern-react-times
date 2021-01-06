@@ -1,5 +1,483 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Testing MarketComponents component Testing component for when user clicks a menu and useEffect Should be change the market type and name on click 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <MarketComponents
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <styled.footer>
+        <footer
+          className="sc-eCssSg eJbHyr"
+        >
+          <styled.div>
+            <div
+              className="sc-jSgupP likXCJ"
+            >
+              <styled.h1>
+                <h1
+                  className="sc-gKsewC eRIdCz"
+                >
+                  Market Snapshot
+                </h1>
+              </styled.h1>
+              <styled.button
+                active={false}
+                key="0"
+                onClick={[Function]}
+                type="button"
+              >
+                <button
+                  className="sc-iBPRYJ kioNSb"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Indexes
+                </button>
+              </styled.button>
+              <styled.button
+                active={false}
+                key="1"
+                onClick={[Function]}
+                type="button"
+              >
+                <button
+                  className="sc-iBPRYJ kioNSb"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Crypto
+                </button>
+              </styled.button>
+              <styled.button
+                active={false}
+                key="2"
+                onClick={[Function]}
+                type="button"
+              >
+                <button
+                  className="sc-iBPRYJ kioNSb"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Forex
+                </button>
+              </styled.button>
+              <styled.button
+                active={false}
+                key="3"
+                onClick={[Function]}
+                type="button"
+              >
+                <button
+                  className="sc-iBPRYJ kioNSb"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Stocks
+                </button>
+              </styled.button>
+              <styled.button
+                active={true}
+                key="4"
+                onClick={[Function]}
+                type="button"
+              >
+                <button
+                  className="sc-iBPRYJ epa-DAJ"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Commodities
+                </button>
+              </styled.button>
+            </div>
+          </styled.div>
+          <ErrorBoundary
+            FallbackComponent={[Function]}
+          >
+            <HomeMarketCards>
+              <Slider
+                autoplay={true}
+                cssEase="linear"
+                infinite={true}
+                responsive={
+                  Array [
+                    Object {
+                      "breakpoint": 1024,
+                      "settings": Object {
+                        "slidesToScroll": 1,
+                        "slidesToShow": 3,
+                      },
+                    },
+                    Object {
+                      "breakpoint": 600,
+                      "settings": Object {
+                        "slidesToScroll": 1,
+                        "slidesToShow": 2.5,
+                      },
+                    },
+                    Object {
+                      "breakpoint": 480,
+                      "settings": Object {
+                        "slidesToScroll": 1,
+                        "slidesToShow": 1.5,
+                      },
+                    },
+                  ]
+                }
+                slidesToScroll={1}
+                slidesToShow={5}
+                speed={8000}
+              >
+                <InnerSlider
+                  accessibility={true}
+                  adaptiveHeight={false}
+                  afterChange={null}
+                  appendDots={[Function]}
+                  arrows={true}
+                  autoplay={true}
+                  autoplaySpeed={3000}
+                  beforeChange={null}
+                  centerMode={false}
+                  centerPadding="50px"
+                  className=""
+                  cssEase="linear"
+                  customPaging={[Function]}
+                  dots={false}
+                  dotsClass="slick-dots"
+                  draggable={true}
+                  easing="linear"
+                  edgeFriction={0.35}
+                  fade={false}
+                  focusOnSelect={false}
+                  infinite={true}
+                  initialSlide={0}
+                  lazyLoad={null}
+                  nextArrow={null}
+                  onEdge={null}
+                  onInit={null}
+                  onLazyLoadError={null}
+                  onReInit={null}
+                  pauseOnDotsHover={false}
+                  pauseOnFocus={false}
+                  pauseOnHover={true}
+                  prevArrow={null}
+                  responsive={
+                    Array [
+                      Object {
+                        "breakpoint": 1024,
+                        "settings": Object {
+                          "slidesToScroll": 1,
+                          "slidesToShow": 3,
+                        },
+                      },
+                      Object {
+                        "breakpoint": 600,
+                        "settings": Object {
+                          "slidesToScroll": 1,
+                          "slidesToShow": 2.5,
+                        },
+                      },
+                      Object {
+                        "breakpoint": 480,
+                        "settings": Object {
+                          "slidesToScroll": 1,
+                          "slidesToShow": 1.5,
+                        },
+                      },
+                    ]
+                  }
+                  rows={1}
+                  rtl={false}
+                  slide="div"
+                  slidesPerRow={1}
+                  slidesToScroll={1}
+                  slidesToShow={5}
+                  speed={8000}
+                  swipe={true}
+                  swipeEvent={null}
+                  swipeToSlide={false}
+                  touchMove={true}
+                  touchThreshold={5}
+                  unslick={true}
+                  useCSS={true}
+                  useTransform={true}
+                  variableWidth={false}
+                  vertical={false}
+                  waitForAnimate={true}
+                >
+                  <div
+                    className="slick-slider slick-initialized"
+                  >
+                    <div
+                      className="slick-list"
+                    >
+                      <Track
+                        centerMode={false}
+                        centerPadding="50px"
+                        cssEase="linear"
+                        currentSlide={0}
+                        fade={false}
+                        focusOnSelect={null}
+                        infinite={true}
+                        lazyLoad={null}
+                        lazyLoadedList={Array []}
+                        listHeight={0}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseOver={[Function]}
+                        rtl={false}
+                        slideCount={1}
+                        slideHeight={0}
+                        slideWidth={0}
+                        slidesToScroll={1}
+                        slidesToShow={5}
+                        speed={8000}
+                        targetSlide={0}
+                        trackStyle={
+                          Object {
+                            "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                            "WebkitTransition": "",
+                            "msTransform": "translateX(0px)",
+                            "opacity": 1,
+                            "transform": "translate3d(0px, 0px, 0px)",
+                            "transition": "",
+                          }
+                        }
+                        unslick={true}
+                        useCSS={true}
+                        variableWidth={false}
+                        vertical={false}
+                      >
+                        <div
+                          className="slick-track"
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseOver={[Function]}
+                          style={
+                            Object {
+                              "WebkitTransform": "translate3d(0px, 0px, 0px)",
+                              "WebkitTransition": "",
+                              "msTransform": "translateX(0px)",
+                              "opacity": 1,
+                              "transform": "translate3d(0px, 0px, 0px)",
+                              "transition": "",
+                            }
+                          }
+                        >
+                          <div
+                            aria-hidden={false}
+                            className="slick-slide slick-active slick-current"
+                            data-index={0}
+                            key="original0"
+                            onClick={[Function]}
+                            style={
+                              Object {
+                                "outline": "none",
+                                "width": 0,
+                              }
+                            }
+                            tabIndex="-1"
+                          >
+                            <div
+                              key="0"
+                            >
+                              <div
+                                key="0"
+                                style={
+                                  Object {
+                                    "display": "inline-block",
+                                    "width": "100%",
+                                  }
+                                }
+                                tabIndex={-1}
+                              >
+                                <Styled(Link)
+                                  onClick={[Function]}
+                                  percentage={-0.41}
+                                  to="/details/^dji"
+                                >
+                                  <Link
+                                    className="sc-dlfnbm rFUqZ"
+                                    onClick={[Function]}
+                                    percentage={-0.41}
+                                    to="/details/^dji"
+                                  >
+                                    <LinkAnchor
+                                      className="sc-dlfnbm rFUqZ"
+                                      href="/details/^dji"
+                                      navigate={[Function]}
+                                      onClick={[Function]}
+                                      percentage={-0.41}
+                                    >
+                                      <a
+                                        className="sc-dlfnbm rFUqZ"
+                                        href="/details/^dji"
+                                        onClick={[Function]}
+                                        percentage={-0.41}
+                                      >
+                                        <div>
+                                          <h1>
+                                            DJI
+                                          </h1>
+                                          <h1
+                                            style={
+                                              Object {
+                                                "fontSize": "var(--size-sub-menu)",
+                                                "fontWeight": "normal",
+                                              }
+                                            }
+                                          >
+                                            $ 
+                                            30179.05
+                                          </h1>
+                                          <h2>
+                                             
+                                            -0.41
+                                            %
+                                          </h2>
+                                        </div>
+                                        <styled.div>
+                                          <div
+                                            className="sc-hKgILt jGBKkF"
+                                          />
+                                        </styled.div>
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </Styled(Link)>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-hidden={false}
+                            className="slick-slide slick-active slick-cloned"
+                            data-index={1}
+                            key="postcloned0"
+                            onClick={[Function]}
+                            style={
+                              Object {
+                                "width": 0,
+                              }
+                            }
+                            tabIndex="-1"
+                          >
+                            <div
+                              key="0"
+                            >
+                              <div
+                                key="0"
+                                style={
+                                  Object {
+                                    "display": "inline-block",
+                                    "width": "100%",
+                                  }
+                                }
+                                tabIndex={-1}
+                              >
+                                <Styled(Link)
+                                  onClick={[Function]}
+                                  percentage={-0.41}
+                                  to="/details/^dji"
+                                >
+                                  <Link
+                                    className="sc-dlfnbm rFUqZ"
+                                    onClick={[Function]}
+                                    percentage={-0.41}
+                                    to="/details/^dji"
+                                  >
+                                    <LinkAnchor
+                                      className="sc-dlfnbm rFUqZ"
+                                      href="/details/^dji"
+                                      navigate={[Function]}
+                                      onClick={[Function]}
+                                      percentage={-0.41}
+                                    >
+                                      <a
+                                        className="sc-dlfnbm rFUqZ"
+                                        href="/details/^dji"
+                                        onClick={[Function]}
+                                        percentage={-0.41}
+                                      >
+                                        <div>
+                                          <h1>
+                                            DJI
+                                          </h1>
+                                          <h1
+                                            style={
+                                              Object {
+                                                "fontSize": "var(--size-sub-menu)",
+                                                "fontWeight": "normal",
+                                              }
+                                            }
+                                          >
+                                            $ 
+                                            30179.05
+                                          </h1>
+                                          <h2>
+                                             
+                                            -0.41
+                                            %
+                                          </h2>
+                                        </div>
+                                        <styled.div>
+                                          <div
+                                            className="sc-hKgILt jGBKkF"
+                                          />
+                                        </styled.div>
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </Styled(Link)>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </Track>
+                    </div>
+                  </div>
+                </InnerSlider>
+              </Slider>
+            </HomeMarketCards>
+          </ErrorBoundary>
+        </footer>
+      </styled.footer>
+    </MarketComponents>
+  </Router>
+</BrowserRouter>
+`;
+
 exports[`Testing MarketComponents component Testing component with loading component Should match snapshot 1`] = `
 <styled.footer>
   <styled.div>

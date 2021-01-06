@@ -1,5 +1,5 @@
 import moment from "moment";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
 
 import { changeHeader, clearError } from "../../redux/actions/news";
 

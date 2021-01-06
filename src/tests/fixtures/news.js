@@ -121,3 +121,41 @@ export const errorNews = [
 ];
 
 export const width = 768;
+
+export const popularWithoutMedia = {
+  results: [
+    [
+      {
+        abstract:
+          "Some House Republicans plan to try to use Congress’s tallying of electoral results on Jan. 6 to tip the election to President Trump. The attempt will put Republicans in a pinch.",
+        adx_keywords:
+          "Presidential Election of 2020;Biden, Joseph R Jr;Trump, Donald J;Pence, Mike;Democratic Party;Republican Party;House of Representatives",
+        asset_id: 100000007497420,
+        byline: "By Nicholas Fandos and Michael S. Schmidt",
+        column: null,
+        des_facet: ["Presidential Election of 2020"],
+        eta_id: 0,
+        geo_facet: [],
+        id: 100000007497420,
+        nytdsection: "u.s.",
+        org_facet: [
+          "Democratic Party",
+          "Republican Party",
+          "House of Representatives",
+        ],
+        per_facet: ["Biden, Joseph R Jr", "Trump, Donald J", "Pence, Mike"],
+        published_date: "2020-12-13",
+        section: "U.S.",
+        source: "New York Times",
+        subsection: "Politics",
+        title:
+          "Trump Allies Eye Long-Shot Election Reversal in Congress, Testing Pence",
+        type: "Article",
+        updated: "2020-12-14 19:29:53",
+        uri: "nyt://article/8e44673d-5d3d-5646-838d-8db7d1f8af13",
+        url:
+          "https://www.nytimes.com/2020/12/13/us/politics/trump-allies-election-overturn-congress-pence.html",
+      },
+    ],
+  ],
+};

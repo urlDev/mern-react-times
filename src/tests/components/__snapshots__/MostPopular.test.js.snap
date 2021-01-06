@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing MostPopular component Testing the component with popular news fetched Should match the snapshot 1`] = `
+<MostPopular
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <styled.div>
+    <div
+      className="sc-gsTCUz eHafBp"
+    >
+      <styled.h1>
+        <h1
+          className="sc-dlfnbm gSbXkV"
+        >
+          Most Popular
+        </h1>
+      </styled.h1>
+      <styled.div>
+        <div
+          className="sc-bdfBwQ fAYDxq"
+        >
+          <styled.a
+            href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
+            popular="43px"
+            target="_blank"
+          >
+            <a
+              className="sc-iBPRYJ kLbAWW"
+              href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
+              target="_blank"
+            >
+              See All
+            </a>
+          </styled.a>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</MostPopular>
+`;
+
+exports[`Testing MostPopular component Testing the component without any news state Should match the snapshot 1`] = `
+<styled.div>
+  <styled.h1>
+    Most Popular
+  </styled.h1>
+  <styled.div>
+    <styled.a
+      href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
+      popular="43px"
+      target="_blank"
+    >
+      See All
+    </styled.a>
+  </styled.div>
+</styled.div>
+`;

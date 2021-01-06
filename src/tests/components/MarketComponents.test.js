@@ -1,14 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { mount, shallow } from "enzyme";
 
 import * as ReactReduxHooks from "../../utils/react-redux-hooks";
 import { mockStore } from "../store";
-import { fetchHomeChart, fetchForex } from "../../redux/actions/chart";
 
 import MarketComponents from "../../components/market-components/MarketComponents";
 import { MarketMenu } from "../../components/market-components/MarketComponents.styles";
-import { forexLengthTwo, homeChartData } from "../fixtures/chart";
-import HomeMarketCards from "../../components/home-market-cards/HomeMarketCards";
+import { forex, homeChartData } from "../fixtures/chart";
 
 // Mocking the fetch functions
 // To be able to mock useEffect
@@ -16,17 +15,14 @@ import HomeMarketCards from "../../components/home-market-cards/HomeMarketCards"
 //   return {
 //     fetchHomeChart: () => jest.fn(),
 //     fetchForex: () => jest.fn(),
+//     changeMarketType: () => jest.fn(),
+//     changeMarketName: () => jest.fn(),
 //   };
 // });
 
 describe("Testing MarketComponents component", () => {
   let store;
   let wrapper;
-  let useEffect;
-
-  const mockUseEffect = () => {
-    useEffect.mockImplementationOnce((f) => f());
-  };
 
   beforeEach(() => {
     jest
@@ -81,18 +77,30 @@ describe("Testing MarketComponents component", () => {
   });
 
   describe("Testing component for when user clicks a menu and useEffect", () => {
+    // For MarketCards component to render normally,
+    // I had to add forex state
     beforeEach(() => {
       store = mockStore({
         marketName: "Commodities",
+        forex,
+        homeChartData,
       });
 
-      useEffect = jest.spyOn(React, "useEffect");
-      mockUseEffect();
-
+      /*  Market menu uses styled component props
+          Checking if name of the menu equals to marketName
+          So for that, I am adding marketName to store and active props to
+          component to be able to mock it.
+          ********
+          Also, because I need to click the market menu to fetch market types
+          and for that I need to use mount; and therefore I am wrapping the 
+          components with Router. Otherwise it gives me error
+      */
       wrapper = mount(
-        <MarketComponents store={store}>
-          <MarketMenu active="Commodities" />
-        </MarketComponents>
+        <Router>
+          <MarketComponents store={store}>
+            <MarketMenu active="Commodities" />
+          </MarketComponents>
+        </Router>
       );
 
       wrapper.find("button").last().simulate("click");
@@ -100,11 +108,11 @@ describe("Testing MarketComponents component", () => {
 
     afterEach(() => {
       jest.clearAllMocks();
+      store.clearActions();
     });
 
     test("Should be change the market type and name on click", () => {
       const actions = store.getActions();
-
       expect(actions).toEqual([
         {
           type: "CHANGE_MARKET_TYPE",
@@ -112,8 +120,8 @@ describe("Testing MarketComponents component", () => {
         },
         { type: "CHANGE_MARKET_NAME", payload: "Commodities" },
       ]);
+      //   taking a snapshot here because menu should have an active class
+      expect(wrapper).toMatchSnapshot();
     });
-
-    test("Should load the charts data after button is clicked", () => {});
   });
 });

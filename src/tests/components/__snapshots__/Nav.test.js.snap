@@ -50,9 +50,9 @@ exports[`Testing Nav component Should render the component with user components 
                     className="sc-fFubgz jJqmWy"
                   >
                     <span>
-                      Wednesday | 
+                      Thursday | 
                     </span>
-                    Jan 06, 2021
+                    Jan 07, 2021
                   </p>
                 </styled.p>
                 <styled.div>
@@ -159,158 +159,7 @@ exports[`Testing Nav component Should render the component with user components 
 </BrowserRouter>
 `;
 
-exports[`Testing Nav component Should render the component with user components and state Should render components based on width change 1`] = `
-<BrowserRouter>
-  <Router
-    history={
-      Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
-      }
-    }
-  >
-    <Nav
-      store={
-        Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        }
-      }
-    >
-      <styled.nav>
-        <nav
-          className="sc-dQppl bbPrWJ"
-        >
-          <Search>
-            <styled.div>
-              <div
-                className="sc-eCssSg ivKkzB"
-              >
-                <form
-                  onClick={null}
-                  onSubmit={[Function]}
-                >
-                  <input
-                    onChange={[Function]}
-                    placeholder="Search for a company or symbol"
-                    type="text"
-                    value=""
-                  />
-                  <styled.a
-                    onClick={[Function]}
-                  >
-                    <a
-                      className="sc-hKgILt bFBMgY"
-                      onClick={[Function]}
-                    >
-                      <img
-                        alt="search icon"
-                        src="searchIcon.svg"
-                      />
-                    </a>
-                  </styled.a>
-                </form>
-                <SearchModal />
-              </div>
-            </styled.div>
-          </Search>
-          <LogoComponent>
-            <Styled(Link)
-              to="/home"
-            >
-              <Link
-                className="sc-jSgupP iwtquC"
-                to="/home"
-              >
-                <LinkAnchor
-                  className="sc-jSgupP iwtquC"
-                  href="/home"
-                  navigate={[Function]}
-                >
-                  <a
-                    className="sc-jSgupP iwtquC"
-                    href="/home"
-                    onClick={[Function]}
-                  >
-                    <img
-                      alt="react times logo"
-                      onClick={[Function]}
-                      style={
-                        Object {
-                          "height": "16px",
-                        }
-                      }
-                    />
-                  </a>
-                </LinkAnchor>
-              </Link>
-            </Styled(Link)>
-          </LogoComponent>
-          <NavUserImage>
-            <styled.div>
-              <div
-                className="sc-iqHYGH cVfbsA"
-              >
-                <styled.button
-                  onClick={[Function]}
-                >
-                  <button
-                    className="sc-crrsfI cuXSaW"
-                    onClick={[Function]}
-                  >
-                    <UserImage
-                      border="29px"
-                      margin="10px"
-                    >
-                      <styled.picture
-                        border="29px"
-                        margin="10px"
-                      >
-                        <picture
-                          className="sc-kEjbxe fwsIeO"
-                        >
-                          <source
-                            srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
-                            type="image/png"
-                          />
-                          <img
-                            alt="avatar"
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
-                          />
-                        </picture>
-                      </styled.picture>
-                    </UserImage>
-                  </button>
-                </styled.button>
-              </div>
-            </styled.div>
-          </NavUserImage>
-        </nav>
-      </styled.nav>
-    </Nav>
-  </Router>
-</BrowserRouter>
-`;
-
-exports[`Testing Nav component Testing the component without user components Should match snapshot 1`] = `
+exports[`Testing Nav component Testing the component without user components Should match snapshot, width > 900 1`] = `
 <styled.nav>
   <Search />
   <LogoComponent />

@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing NavUserImage component Testing the component when the width is bigger than 1024 Should match the snapshot with Button component 1`] = `
+<NavUserImage
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <styled.div>
+    <div
+      className="sc-gKsewC dqlUrM"
+    >
+      <styled.button
+        onClick={[Function]}
+        type="button"
+      >
+        <button
+          className="sc-pFZIQ fDUQAq"
+          onClick={[Function]}
+          type="button"
+        >
+          Logout
+        </button>
+      </styled.button>
+      <styled.button
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <button
+          className="sc-iBPRYJ fjgdZP"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <UserImage
+            border="29px"
+            margin="10px"
+          >
+            <styled.picture
+              border="29px"
+              margin="10px"
+            >
+              <picture
+                className="sc-jSgupP hznORS"
+              >
+                <source
+                  srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                  type="image/png"
+                />
+                <img
+                  alt="avatar"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                />
+              </picture>
+            </styled.picture>
+          </UserImage>
+        </button>
+      </styled.button>
+    </div>
+  </styled.div>
+</NavUserImage>
+`;
+
+exports[`Testing NavUserImage component Testing the component when width is smaller than 768 Should match snapshot with UserImageButton component 1`] = `
+<NavUserImage
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <styled.div>
+    <div
+      className="sc-gKsewC dqlUrM"
+    >
+      <styled.button
+        onClick={[Function]}
+      >
+        <button
+          className="sc-iBPRYJ fjgdZP"
+          onClick={[Function]}
+        >
+          <UserImage
+            border="29px"
+            margin="10px"
+          >
+            <styled.picture
+              border="29px"
+              margin="10px"
+            >
+              <picture
+                className="sc-jSgupP hznORS"
+              >
+                <source
+                  srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                  type="image/png"
+                />
+                <img
+                  alt="avatar"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                />
+              </picture>
+            </styled.picture>
+          </UserImage>
+        </button>
+      </styled.button>
+    </div>
+  </styled.div>
+</NavUserImage>
+`;
+
+exports[`Testing NavUserImage component Testing the component when width is smaller than 768 Should open user modal when UserImageButton is clicked 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <NavUserImage
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <styled.div>
+        <div
+          className="sc-gKsewC dqlUrM"
+        >
+          <styled.button
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <button
+              className="sc-iBPRYJ fjgdZP"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <UserImage
+                border="29px"
+                margin="10px"
+              >
+                <styled.picture
+                  border="29px"
+                  margin="10px"
+                >
+                  <picture
+                    className="sc-jSgupP hznORS"
+                  >
+                    <source
+                      srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                      type="image/png"
+                    />
+                    <img
+                      alt="avatar"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                    />
+                  </picture>
+                </styled.picture>
+              </UserImage>
+            </button>
+          </styled.button>
+        </div>
+      </styled.div>
+      <UserModal>
+        <styled.div
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <div
+            className="sc-dlfnbm iIgZLl"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <Styled(Link)
+              to="/profile"
+            >
+              <Link
+                className="sc-hKgILt fiEPVh"
+                to="/profile"
+              >
+                <LinkAnchor
+                  className="sc-hKgILt fiEPVh"
+                  href="/profile"
+                  navigate={[Function]}
+                >
+                  <a
+                    className="sc-hKgILt fiEPVh"
+                    href="/profile"
+                    onClick={[Function]}
+                  >
+                    Profile Details
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </Styled(Link)>
+            <Styled(Link)
+              to="/profile/favorites"
+            >
+              <Link
+                className="sc-hKgILt fiEPVh"
+                to="/profile/favorites"
+              >
+                <LinkAnchor
+                  className="sc-hKgILt fiEPVh"
+                  href="/profile/favorites"
+                  navigate={[Function]}
+                >
+                  <a
+                    className="sc-hKgILt fiEPVh"
+                    href="/profile/favorites"
+                    onClick={[Function]}
+                  >
+                    Favorites
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </Styled(Link)>
+          </div>
+        </styled.div>
+      </UserModal>
+    </NavUserImage>
+  </Router>
+</BrowserRouter>
+`;

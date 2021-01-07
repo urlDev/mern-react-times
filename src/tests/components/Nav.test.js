@@ -7,8 +7,8 @@ import { mockStore } from "../store";
 import { user } from "../fixtures/user";
 
 import Nav from "../../components/nav/Nav";
-import { width } from "../fixtures/news";
 import Search from "../../components/search/Search";
+import StoryTopicHeaders from "../../components/story-topic-headers/StoryTopicHeaders";
 
 // Test it with width smaller than 768 and bigger than 768
 // Check if StoryTopicHeaders and Search has been rendered
@@ -31,6 +31,7 @@ describe("Testing Nav component", () => {
     beforeEach(() => {
       store = mockStore({
         user: {},
+        width: 900,
       });
 
       wrapper = shallow(<Nav store={store} />);
@@ -39,8 +40,13 @@ describe("Testing Nav component", () => {
     test("Should render the component without user components", () => {
       expect(wrapper).toHaveLength(1);
     });
-    test("Should match snapshot", () => {
+    test("Should match snapshot, width > 900", () => {
       expect(wrapper).toMatchSnapshot();
+    });
+
+    test("Should render Search component", () => {
+      // when width is more than 768, Search component renders
+      expect(wrapper.containsMatchingElement(<Search />)).toEqual(true);
     });
   });
 
@@ -68,16 +74,10 @@ describe("Testing Nav component", () => {
 
       expect(state).toEqual({ user, width: 700 });
     });
-    test("Should render components based on width change", () => {
-      store = mockStore({
-        width: 900,
-      });
-
-      wrapper.update();
-
-      console.log(wrapper.debug());
-
-      expect(wrapper).toMatchSnapshot();
+    test("Should render StoryTopicHeader component, width < 768", () => {
+      expect(wrapper.containsMatchingElement(<StoryTopicHeaders />)).toEqual(
+        true
+      );
     });
   });
 });

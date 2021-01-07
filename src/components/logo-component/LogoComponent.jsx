@@ -1,6 +1,6 @@
-import { useDispatch } from "../../utils/react-redux-hooks";
+import { useDispatch } from "utils/react-redux-hooks";
 
-import { changeHeader } from "../../redux/actions/news";
+import { changeHeader } from "redux/actions/news";
 
 import { Logo } from "./LogoComponent.styles";
 

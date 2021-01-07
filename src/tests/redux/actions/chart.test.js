@@ -1,48 +1,6 @@
 import moxios from "moxios";
 
-import {
-  FETCH_FOREX_SUCCESS,
-  FETCH_CHART_ERROR,
-  SET_LOADING,
-  SET_LOADING_TRUE,
-  CHANGE_MARKET_NAME,
-  CHANGE_MARKET_TYPE,
-  SET_MARKET_DETAIL,
-  SET_CHART_DATA,
-  CLEAN_CHART_DATA,
-  SET_CHART_TIME_FRAME,
-  SET_RATING,
-  SET_HOME_CHART_DATA,
-  CLEAN_STATE,
-  GET_SEARCH_RESULTS,
-  SET_SEARCH_MARKET_DETAIL,
-  CLEAR_SEARCH_RESULTS,
-  OPEN_SEARCH_MODAL,
-  CLOSE_SEARCH_MODAL,
-  closeSearchModal,
-  openSearchModal,
-  clearSearchResults,
-  setSearchMarketDetail,
-  getSearchResults,
-  setLoading,
-  setLoadingTrue,
-  cleanState,
-  setHomeChartData,
-  setRating,
-  setChartTimeFrame,
-  setChartData,
-  cleanChartData,
-  setMarketDetail,
-  changeMarketType,
-  changeMarketName,
-  fetchForexSuccess,
-  fetchChartError,
-  fetchForex,
-  fetchChartData,
-  fetchRating,
-  fetchHomeChart,
-  fetchSearch,
-} from "../../../redux/actions/chart";
+import * as ChartActions from "redux/actions/chart";
 
 import { store } from "../../store";
 
@@ -58,160 +16,160 @@ import {
   marketDetail,
   chartData,
   homeChartData,
-} from "../../fixtures/chart";
+} from "tests/fixtures/chart";
 
 test("Should fetch forex successfully", () => {
-  const action = fetchForexSuccess(forexLengthTwo);
+  const action = ChartActions.fetchForexSuccess(forexLengthTwo);
 
   expect(action).toEqual({
-    type: FETCH_FOREX_SUCCESS,
+    type: ChartActions.FETCH_FOREX_SUCCESS,
     payload: forexLengthTwo,
   });
 });
 
 test("Should show error if it cant be fetched", () => {
-  const action = fetchChartError(errorChart);
+  const action = ChartActions.fetchChartError(errorChart);
 
   expect(action).toEqual({
-    type: FETCH_CHART_ERROR,
+    type: ChartActions.FETCH_CHART_ERROR,
     payload: errorChart,
   });
 });
 
 test("Should set the loading state to false", () => {
-  const action = setLoading();
+  const action = ChartActions.setLoading();
 
   expect(action).toEqual({
-    type: SET_LOADING,
+    type: ChartActions.SET_LOADING,
   });
 });
 
 test("Should set the loading state to true", () => {
-  const action = setLoadingTrue();
+  const action = ChartActions.setLoadingTrue();
 
   expect(action).toEqual({
-    type: SET_LOADING_TRUE,
+    type: ChartActions.SET_LOADING_TRUE,
   });
 });
 
 test("Should change the market name", () => {
-  const action = changeMarketName(marketName);
+  const action = ChartActions.changeMarketName(marketName);
 
   expect(action).toEqual({
-    type: CHANGE_MARKET_NAME,
+    type: ChartActions.CHANGE_MARKET_NAME,
     payload: marketName,
   });
 });
 
 test("Should change the market type", () => {
-  const action = changeMarketType(marketType);
+  const action = ChartActions.changeMarketType(marketType);
 
   expect(action).toEqual({
-    type: CHANGE_MARKET_TYPE,
+    type: ChartActions.CHANGE_MARKET_TYPE,
     payload: marketType,
   });
 });
 
 test("Should set the market detail", () => {
-  const action = setMarketDetail(marketDetail);
+  const action = ChartActions.setMarketDetail(marketDetail);
 
   expect(action).toEqual({
-    type: SET_MARKET_DETAIL,
+    type: ChartActions.SET_MARKET_DETAIL,
     payload: marketDetail,
   });
 });
 
 test("Should clean chart data state", () => {
-  const action = cleanChartData();
+  const action = ChartActions.cleanChartData();
 
   expect(action).toEqual({
-    type: CLEAN_CHART_DATA,
+    type: ChartActions.CLEAN_CHART_DATA,
   });
 });
 
 test("Should set the chart data", () => {
-  const action = setChartData(chartData);
+  const action = ChartActions.setChartData(chartData);
 
   expect(action).toEqual({
-    type: SET_CHART_DATA,
+    type: ChartActions.SET_CHART_DATA,
     payload: chartData,
   });
 });
 
 test("Should change time frame", () => {
-  const action = setChartTimeFrame(chartTimeFrame);
+  const action = ChartActions.setChartTimeFrame(chartTimeFrame);
 
   expect(action).toEqual({
-    type: SET_CHART_TIME_FRAME,
+    type: ChartActions.SET_CHART_TIME_FRAME,
     payload: chartTimeFrame,
   });
 });
 
 test("Should set rating", () => {
-  const action = setRating(rating);
+  const action = ChartActions.setRating(rating);
 
   expect(action).toEqual({
-    type: SET_RATING,
+    type: ChartActions.SET_RATING,
     payload: rating,
   });
 });
 
 test("Should set chart data for home cards", () => {
-  const action = setHomeChartData(homeChartData);
+  const action = ChartActions.setHomeChartData(homeChartData);
 
   expect(action).toEqual({
-    type: SET_HOME_CHART_DATA,
+    type: ChartActions.SET_HOME_CHART_DATA,
     payload: homeChartData,
   });
 });
 
 test("Should clean chart data for home page cards", () => {
-  const action = cleanState();
+  const action = ChartActions.cleanState();
 
   expect(action).toEqual({
-    type: CLEAN_STATE,
+    type: ChartActions.CLEAN_STATE,
   });
 });
 
 test("Should get search results", () => {
-  const action = getSearchResults(searchResult);
+  const action = ChartActions.getSearchResults(searchResult);
 
   expect(action).toEqual({
-    type: GET_SEARCH_RESULTS,
+    type: ChartActions.GET_SEARCH_RESULTS,
     payload: searchResult,
   });
 });
 
 test("Should set the market detail for search result", () => {
-  const action = setSearchMarketDetail(marketDetail);
+  const action = ChartActions.setSearchMarketDetail(marketDetail);
 
   expect(action).toEqual({
-    type: SET_SEARCH_MARKET_DETAIL,
+    type: ChartActions.SET_SEARCH_MARKET_DETAIL,
     payload: marketDetail,
   });
 });
 
 test("Should clear search results", () => {
-  const action = clearSearchResults();
+  const action = ChartActions.clearSearchResults();
 
   expect(action).toEqual({
-    type: CLEAR_SEARCH_RESULTS,
+    type: ChartActions.CLEAR_SEARCH_RESULTS,
   });
 });
 
 test("Should open the search modal", () => {
-  const action = openSearchModal();
+  const action = ChartActions.openSearchModal();
 
   expect(action).toEqual({
-    type: OPEN_SEARCH_MODAL,
+    type: ChartActions.OPEN_SEARCH_MODAL,
   });
 });
 
 test("Should close the search modal", () => {
-  const action = closeSearchModal();
+  const action = ChartActions.closeSearchModal();
 
   expect(action).toEqual({
-    type: CLOSE_SEARCH_MODAL,
+    type: ChartActions.CLOSE_SEARCH_MODAL,
   });
 });
 
@@ -236,11 +194,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_FOREX_SUCCESS,
+        type: ChartActions.FETCH_FOREX_SUCCESS,
         payload: forexLengthTwo,
       };
 
-      return store.dispatch(fetchForex("^DJI")).then(() => {
+      return store.dispatch(ChartActions.fetchForex("^DJI")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -257,11 +215,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: SET_SEARCH_MARKET_DETAIL,
+        type: ChartActions.SET_SEARCH_MARKET_DETAIL,
         payload: forexLengthOne,
       };
 
-      return store.dispatch(fetchForex("DJI")).then(() => {
+      return store.dispatch(ChartActions.fetchForex("DJI")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -278,11 +236,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_CHART_ERROR,
+        type: ChartActions.FETCH_CHART_ERROR,
         payload: errorChart,
       };
 
-      return store.dispatch(fetchForex("TSLA")).then(() => {
+      return store.dispatch(ChartActions.fetchForex("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -296,11 +254,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_CHART_ERROR,
+        type: ChartActions.FETCH_CHART_ERROR,
         payload: errorChart,
       };
 
-      return store.dispatch(fetchForex("TSLA")).then(() => {
+      return store.dispatch(ChartActions.fetchForex("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -318,13 +276,17 @@ describe("Testing async functions", () => {
         });
       });
 
-      const expectedActions = [{ type: SET_CHART_DATA, payload: chartData }];
+      const expectedActions = [
+        { type: ChartActions.SET_CHART_DATA, payload: chartData },
+      ];
 
-      return store.dispatch(fetchChartData("TSLA", chartTimeFrame)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(ChartActions.fetchChartData("TSLA", chartTimeFrame))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled).toEqual(expectedActions);
+        });
     });
 
     test("Should show error if there is any", () => {
@@ -334,14 +296,16 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = [
-        { type: FETCH_CHART_ERROR, payload: errorChart },
+        { type: ChartActions.FETCH_CHART_ERROR, payload: errorChart },
       ];
 
-      return store.dispatch(fetchChartData("TSLA", chartTimeFrame)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(ChartActions.fetchChartData("TSLA", chartTimeFrame))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled).toEqual(expectedActions);
+        });
     });
   });
 
@@ -356,11 +320,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: SET_RATING,
+        type: ChartActions.SET_RATING,
         payload: rating,
       };
 
-      return store.dispatch(fetchRating("TSLA")).then(() => {
+      return store.dispatch(ChartActions.fetchRating("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -374,11 +338,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_CHART_ERROR,
+        type: ChartActions.FETCH_CHART_ERROR,
         payload: errorChart,
       };
 
-      return store.dispatch(fetchRating("TSLA")).then(() => {
+      return store.dispatch(ChartActions.fetchRating("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -446,19 +410,21 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = [
-        { type: CLEAN_STATE },
-        { type: SET_LOADING_TRUE },
+        { type: ChartActions.CLEAN_STATE },
+        { type: ChartActions.SET_LOADING_TRUE },
         {
-          type: FETCH_CHART_ERROR,
+          type: ChartActions.FETCH_CHART_ERROR,
           payload: errorChart,
         },
       ];
 
-      return store.dispatch(fetchHomeChart(marketType)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(ChartActions.fetchHomeChart(marketType))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled).toEqual(expectedActions);
+        });
     });
   });
 
@@ -473,11 +439,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: GET_SEARCH_RESULTS,
+        type: ChartActions.GET_SEARCH_RESULTS,
         payload: searchResult,
       };
 
-      return store.dispatch(fetchSearch("TSLA")).then(() => {
+      return store.dispatch(ChartActions.fetchSearch("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -491,11 +457,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_CHART_ERROR,
+        type: ChartActions.FETCH_CHART_ERROR,
         payload: errorChart,
       };
 
-      return store.dispatch(fetchSearch("TSLA")).then(() => {
+      return store.dispatch(ChartActions.fetchSearch("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);

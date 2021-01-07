@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "utils/react-redux-hooks";
 
 import { StoryTopicContainer } from "./StoryTopic.styles";
 

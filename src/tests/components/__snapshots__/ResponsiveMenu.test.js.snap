@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ResponsiveMenu component Should change img src when responsive menu is open 1`] = `
+<ResponsiveMenu
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <styled.div
+    alt="hamburger menu"
+    onClick={[Function]}
+  >
+    <div
+      alt="hamburger menu"
+      className="sc-bdfBwQ bUEalG"
+      onClick={[Function]}
+    >
+      <img
+        alt="hamburger icon"
+        src="hamburgerClose.svg"
+      />
+    </div>
+  </styled.div>
+</ResponsiveMenu>
+`;
+
+exports[`Testing ResponsiveMenu component Should match snapshot 1`] = `
+<ResponsiveMenu
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <styled.div
+    alt="hamburger menu"
+    onClick={[Function]}
+  >
+    <div
+      alt="hamburger menu"
+      className="sc-bdfBwQ bUEalG"
+      onClick={[Function]}
+    >
+      <img
+        alt="hamburger icon"
+        src="hamburger.svg"
+      />
+    </div>
+  </styled.div>
+</ResponsiveMenu>
+`;

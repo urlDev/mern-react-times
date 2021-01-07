@@ -1,10 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "../../utils/react-redux-hooks";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 import Slider from "react-slick";
 
-import { setMarketDetail, fetchRating } from "../../redux/actions/chart";
+import { setMarketDetail, fetchRating } from "redux/actions/chart";
 
-import MarketCardsChart from "../market-cards-chart/MarketCardsChart";
+import MarketCardsChart from "components/market-cards-chart/MarketCardsChart";
 import { MarketCards, Placeholder } from "./HomeMarketCards.styles";
 
 import "slick-carousel/slick/slick.css";

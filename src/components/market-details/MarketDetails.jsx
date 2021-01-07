@@ -1,32 +1,32 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 import { Link } from "react-router-dom";
 
 import {
   setChartTimeFrame,
   fetchChartData,
   cleanChartData,
-} from "../../redux/actions/chart";
+} from "redux/actions/chart";
 
 import {
   fetchAddFavorites,
   fetchDeleteFavorite,
   fetchGetFavorites,
-} from "../../redux/actions/favorite";
+} from "redux/actions/favorite";
 
-import AddSrc from "../../assets/bookmarkEmpty.svg";
-import AddedSrc from "../../assets/bookmark.svg";
+import AddSrc from "assets/bookmarkEmpty.svg";
+import AddedSrc from "assets/bookmark.svg";
 
-import ErrorFallback from "../error-fallback/ErrorFallback";
-import DetailsTable from "../details-table/DetailsTable";
-import Chart from "../chart/Chart";
+import ErrorFallback from "components/error-fallback/ErrorFallback";
+import DetailsTable from "components/details-table/DetailsTable";
+import Chart from "components/chart/Chart";
 
 import {
   StoryTopicContainer,
   TimeFrame,
   FavoriteButton,
-} from "../story-topic/StoryTopic.styles";
+} from "components/story-topic/StoryTopic.styles";
 import { MarketDetailsContainer } from "./MarketDetails.styles";
 
 const MarketDetails = () => {

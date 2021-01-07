@@ -1,9 +1,9 @@
 import { shallow } from "enzyme";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
 
-import LoginRegister from "../../components/login-register/LoginRegister";
+import LoginRegister from "components/login-register/LoginRegister";
 
 describe("Testing LoginRegister component", () => {
   let wrapper;

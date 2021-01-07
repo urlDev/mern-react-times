@@ -15,14 +15,14 @@ exports[`Testing NavUserImage component Testing the component when the width is 
 >
   <styled.div>
     <div
-      className="sc-gKsewC dqlUrM"
+      className="sc-fubCfw crUCKN"
     >
       <styled.button
         onClick={[Function]}
         type="button"
       >
         <button
-          className="sc-pFZIQ fDUQAq"
+          className="sc-iBPRYJ fukLAE"
           onClick={[Function]}
           type="button"
         >
@@ -34,7 +34,7 @@ exports[`Testing NavUserImage component Testing the component when the width is 
         onMouseLeave={[Function]}
       >
         <button
-          className="sc-iBPRYJ fjgdZP"
+          className="sc-pFZIQ bCXMFp"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
         >
@@ -82,13 +82,13 @@ exports[`Testing NavUserImage component Testing the component when width is smal
 >
   <styled.div>
     <div
-      className="sc-gKsewC dqlUrM"
+      className="sc-fubCfw crUCKN"
     >
       <styled.button
         onClick={[Function]}
       >
         <button
-          className="sc-iBPRYJ fjgdZP"
+          className="sc-pFZIQ bCXMFp"
           onClick={[Function]}
         >
           <UserImage
@@ -158,14 +158,14 @@ exports[`Testing NavUserImage component Testing the component when width is smal
     >
       <styled.div>
         <div
-          className="sc-gKsewC dqlUrM"
+          className="sc-fubCfw crUCKN"
         >
           <styled.button
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
           >
             <button
-              className="sc-iBPRYJ fjgdZP"
+              className="sc-pFZIQ bCXMFp"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >

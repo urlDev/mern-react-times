@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "utils/react-redux-hooks";
 
-import { DetailsTableContainer } from './DetailsTable.styles';
+import { DetailsTableContainer } from "./DetailsTable.styles";
 
 const DetailsTable = () => {
   const { marketDetail, rating } = useSelector((chart) => chart.chart);
@@ -20,13 +20,13 @@ const DetailsTable = () => {
   const convertNumber = (labelValue) => {
     // Nine Zeroes for Billions
     return Math.abs(Number(labelValue)) >= 1.0e9
-      ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + 'B'
+      ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
       : // Six Zeroes for Millions
       Math.abs(Number(labelValue)) >= 1.0e6
-      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + 'M'
+      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
       : // Three Zeroes for Thousands
       Math.abs(Number(labelValue)) >= 1.0e3
-      ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + 'K'
+      ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
       : Math.abs(Number(labelValue));
   };
 
@@ -37,7 +37,7 @@ const DetailsTable = () => {
           <tbody>
             <tr>
               <td>Symbol</td>
-              <td>{symbol.split('^').join('')}</td>
+              <td>{symbol.split("^").join("")}</td>
             </tr>
             <tr>
               <td>Price</td>

@@ -1,9 +1,11 @@
 import React from "react";
 import moment from "moment";
-import { useSelector } from "react-redux";
+import { useSelector } from "utils/react-redux-hooks";
 
-import StoryTopic from "../story-topic/StoryTopic";
+import StoryTopic from "components/story-topic/StoryTopic";
 
+import { Date } from "components/story-topic-headers/StoryTopicHeaders.styles";
+import { SeeAll } from "components/most-popular/MostPopular.styles";
 import {
   TopStoriesContainer,
   StoryContainer,
@@ -12,9 +14,6 @@ import {
   SubTitle,
   TagContainer,
 } from "./TopStories.styles";
-
-import { Date } from "../story-topic-headers/StoryTopicHeaders.styles";
-import { SeeAll } from "../most-popular/MostPopular.styles";
 
 const TopStories = React.memo(() => {
   const { story, width } = useSelector((news) => news.news);

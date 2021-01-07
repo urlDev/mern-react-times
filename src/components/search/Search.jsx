@@ -1,15 +1,17 @@
 import React from "react";
-import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 import { useHistory } from "react-router-dom";
 
 import {
   closeSearchModal,
   fetchSearch,
   openSearchModal,
-} from "../../redux/actions/chart";
+} from "redux/actions/chart";
 
-import SearchModal from "../search-modal/SearchModal";
-import SearchSrc from "../../assets/searchIcon.svg";
+import SearchSrc from "assets/searchIcon.svg";
+
+import SearchModal from "components/search-modal/SearchModal";
+
 import { NavSearchContainer, SearchIcon } from "./Search.styles";
 
 const Search = ({ icon }) => {

@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 
-import { fetchUpdateUser } from "../../redux/actions/user";
+import { fetchUpdateUser } from "redux/actions/user";
 
 import { UserDetailsForm } from "./UserUpdate.styles";
 

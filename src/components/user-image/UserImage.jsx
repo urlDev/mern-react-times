@@ -1,4 +1,4 @@
-import { useSelector } from "../../utils/react-redux-hooks";
+import { useSelector } from "utils/react-redux-hooks";
 
 import { UserPicture } from "./UserImage.styles";
 

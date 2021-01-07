@@ -3,22 +3,20 @@ import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 import moxios from "moxios";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
-import { user } from "../fixtures/user";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
+import { user } from "tests/fixtures/user";
 
 import {
   LOGOUT_USER,
   USER_MODAL_CLOSE,
   USER_MODAL_OPEN,
-} from "../../redux/actions/user";
-import {
-  CLEAN_FAVORITE_STATE,
   fetchLogoutUser,
-} from "../../redux/actions/favorite";
+} from "redux/actions/user";
+import { CLEAN_FAVORITE_STATE } from "redux/actions/favorite";
 
-import UserModal from "../../components/user-modal/UserModal";
-import NavUserImage from "../../components/nav-user-image/NavUserImage";
+import UserModal from "components/user-modal/UserModal";
+import NavUserImage from "components/nav-user-image/NavUserImage";
 
 describe("Testing NavUserImage component", () => {
   let store;

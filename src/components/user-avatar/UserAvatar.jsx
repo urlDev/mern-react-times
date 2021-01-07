@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "utils/react-redux-hooks";
 
-import { fetchUploadAvatar } from "../../redux/actions/user";
+import { fetchUploadAvatar } from "redux/actions/user";
 
-import UserImage from "../user-image/UserImage";
+import UserImage from "components/user-image/UserImage";
 
 import { ImageAndButton } from "./UserAvatar.styles";
 

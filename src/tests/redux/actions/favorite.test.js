@@ -1,22 +1,8 @@
 import moxios from "moxios";
 
-import {
-  ADD_FAVORITE,
-  DELETE_FAVORITE,
-  GET_FAVORITE,
-  FETCH_FAVORITE_ERROR,
-  CLEAN_FAVORITE_STATE,
-  getFavorite,
-  addFavorite,
-  deleteFavorite,
-  fetchFavoriteError,
-  cleanFavoriteState,
-  fetchGetFavorites,
-  fetchAddFavorites,
-  fetchDeleteFavorite,
-} from "../../../redux/actions/favorite";
+import * as FavoriteActions from "redux/actions/favorite";
 
-import { store } from "../../store";
+import { store } from "tests/store";
 
 import {
   errorFavorite,
@@ -24,49 +10,49 @@ import {
   favorites,
   stock,
   id,
-} from "../../fixtures/favorite";
+} from "tests/fixtures/favorite";
 
 test("Should add stock to favorite", () => {
-  const action = addFavorite(stock);
+  const action = FavoriteActions.addFavorite(stock);
 
   expect(action).toEqual({
-    type: ADD_FAVORITE,
+    type: FavoriteActions.ADD_FAVORITE,
     payload: stock,
   });
 });
 
 test("Should get favorite", () => {
-  const action = getFavorite(favorite);
+  const action = FavoriteActions.getFavorite(favorite);
 
   expect(action).toEqual({
-    type: GET_FAVORITE,
+    type: FavoriteActions.GET_FAVORITE,
     payload: favorite,
   });
 });
 
 test("Should delete stock from favorites", () => {
-  const action = deleteFavorite(stock);
+  const action = FavoriteActions.deleteFavorite(stock);
 
   expect(action).toEqual({
-    type: DELETE_FAVORITE,
+    type: FavoriteActions.DELETE_FAVORITE,
     payload: stock,
   });
 });
 
 test("Should show an error if there is any", () => {
-  const action = fetchFavoriteError(errorFavorite);
+  const action = FavoriteActions.fetchFavoriteError(errorFavorite);
 
   expect(action).toEqual({
-    type: FETCH_FAVORITE_ERROR,
+    type: FavoriteActions.FETCH_FAVORITE_ERROR,
     payload: errorFavorite,
   });
 });
 
 test("Should clean the favorites state", () => {
-  const action = cleanFavoriteState();
+  const action = FavoriteActions.cleanFavoriteState();
 
   expect(action).toEqual({
-    type: CLEAN_FAVORITE_STATE,
+    type: FavoriteActions.CLEAN_FAVORITE_STATE,
   });
 });
 
@@ -91,11 +77,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: GET_FAVORITE,
+        type: FavoriteActions.GET_FAVORITE,
         payload: favorites,
       };
 
-      return store.dispatch(fetchGetFavorites()).then(() => {
+      return store.dispatch(FavoriteActions.fetchGetFavorites()).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -109,11 +95,11 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_FAVORITE_ERROR,
+        type: FavoriteActions.FETCH_FAVORITE_ERROR,
         payload: errorFavorite,
       };
 
-      return store.dispatch(fetchGetFavorites()).then(() => {
+      return store.dispatch(FavoriteActions.fetchGetFavorites()).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -132,15 +118,17 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: ADD_FAVORITE,
+        type: FavoriteActions.ADD_FAVORITE,
         payload: favorite.symbol[0],
       };
 
-      return store.dispatch(fetchAddFavorites(stock)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(FavoriteActions.fetchAddFavorites(stock))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled[0]).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled[0]).toEqual(expectedActions);
+        });
     });
 
     test("Should show error if theres any", () => {
@@ -150,15 +138,17 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_FAVORITE_ERROR,
+        type: FavoriteActions.FETCH_FAVORITE_ERROR,
         payload: errorFavorite,
       };
 
-      return store.dispatch(fetchAddFavorites(favorite)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(FavoriteActions.fetchAddFavorites(favorite))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled[0]).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled[0]).toEqual(expectedActions);
+        });
     });
   });
 
@@ -173,15 +163,17 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: DELETE_FAVORITE,
+        type: FavoriteActions.DELETE_FAVORITE,
         payload: favorite,
       };
 
-      return store.dispatch(fetchDeleteFavorite(id)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(FavoriteActions.fetchDeleteFavorite(id))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled[0]).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled[0]).toEqual(expectedActions);
+        });
     });
     test("Should show error if there is any", () => {
       moxios.wait(() => {
@@ -190,15 +182,17 @@ describe("Testing async functions", () => {
       });
 
       const expectedActions = {
-        type: FETCH_FAVORITE_ERROR,
+        type: FavoriteActions.FETCH_FAVORITE_ERROR,
         payload: errorFavorite,
       };
 
-      return store.dispatch(fetchDeleteFavorite(id)).then(() => {
-        const actionsGetCalled = store.getActions();
+      return store
+        .dispatch(FavoriteActions.fetchDeleteFavorite(id))
+        .then(() => {
+          const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled[0]).toEqual(expectedActions);
-      });
+          expect(actionsGetCalled[0]).toEqual(expectedActions);
+        });
     });
   });
 });

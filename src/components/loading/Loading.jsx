@@ -1,4 +1,4 @@
-import DarkLoadingSrc from "../../assets/loadingLogo.svg";
+import DarkLoadingSrc from "assets/loadingLogo.svg";
 
 import { LoadingContainer } from "./Loading.styles";
 

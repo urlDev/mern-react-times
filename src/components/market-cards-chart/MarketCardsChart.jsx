@@ -1,6 +1,6 @@
 import React from "react";
 import * as d3 from "d3";
-import { useSelector } from "react-redux";
+import { useSelector } from "utils/react-redux-hooks";
 
 const MarketCardsChart = ({ index }) => {
   const { homeChartData } = useSelector((chart) => chart.chart);

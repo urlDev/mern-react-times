@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "utils/react-redux-hooks";
 
-import Nav from "../nav/Nav";
-import Search from "../search/Search";
-import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
+import Nav from "components/nav/Nav";
+import Search from "components/search/Search";
+import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders";
 
-import LogoDarkSrc from "../../assets/logo.png";
+import LogoDarkSrc from "assets/logo.png";
 
 const ResponsiveNav = () => {
   const { width } = useSelector((news) => news.news);

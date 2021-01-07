@@ -1,12 +1,12 @@
 import React from "react";
-import { useSelector, useDispatch } from "../../utils/react-redux-hooks";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 
 import {
   fetchRating,
   fetchForex,
   clearSearchResults,
   closeSearchModal,
-} from "../../redux/actions/chart";
+} from "redux/actions/chart";
 
 import {
   SearchModalContainer,

@@ -1,17 +1,17 @@
 import { Route, Switch } from "react-router-dom";
-import { useSelector } from "../../utils/react-redux-hooks";
+import { useSelector } from "utils/react-redux-hooks";
 
-import BgSrc from "../../assets/bg.jpg";
-import BgWebP from "../../assets/bgWebP.webp";
-import WhiteLogoSrc from "../../assets/loadingWhite.svg";
-import LogoWhiteSrc from "../../assets/logoWhite.png";
+import BgSrc from "assets/bg.jpg";
+import BgWebP from "assets/bgWebP.webp";
+import WhiteLogoSrc from "assets/loadingWhite.svg";
+import LogoWhiteSrc from "assets/logoWhite.png";
 
-import Nav from "../nav/Nav";
-import Loading from "../loading/Loading";
-import UserDetails from "../user-details/UserDetails";
-import UserFavorites from "../user-favorites/UserFavorites";
-import Register from "../register/Register";
-import Login from "../login/Login";
+import Nav from "components/nav/Nav";
+import Loading from "components/loading/Loading";
+import UserDetails from "components/user-details/UserDetails";
+import UserFavorites from "components/user-favorites/UserFavorites";
+import Register from "components/register/Register";
+import Login from "components/login/Login";
 
 import { LoginRegisterContainer, Background } from "./LoginRegister.styles";
 

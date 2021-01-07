@@ -1,16 +1,11 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
 
-import MostPopular from "../../components/most-popular/MostPopular";
-import { popularWithoutMedia, width } from "../fixtures/news";
-import {
-  PopularStoriesContainer,
-  StoryContainer,
-  StoryTitle,
-} from "../../components/most-popular/MostPopular.styles";
+import MostPopular from "components/most-popular/MostPopular";
+import { popularWithoutMedia, width } from "tests/fixtures/news";
 
 describe("Testing MostPopular component", () => {
   let store;

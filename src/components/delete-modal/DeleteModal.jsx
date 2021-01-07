@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "utils/react-redux-hooks";
 
-import { deleteModalClose, fetchDeleteUser } from "../../redux/actions/user";
+import { deleteModalClose, fetchDeleteUser } from "redux/actions/user";
 import {
   DeleteButtonContainer,
   DeleteModalContainer,

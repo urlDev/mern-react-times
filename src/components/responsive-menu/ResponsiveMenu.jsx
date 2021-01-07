@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 
-import { openResponsiveMenu } from "../../redux/actions/news";
+import { openResponsiveMenu } from "redux/actions/news";
 
-import HamburgerSrc from "../../assets/hamburger.svg";
-import HamburgerCloseSrc from "../../assets/hamburgerClose.svg";
+import HamburgerSrc from "assets/hamburger.svg";
+import HamburgerCloseSrc from "assets/hamburgerClose.svg";
 
 import { HamburgerMenu } from "./ResponsiveMenu.styles";
 

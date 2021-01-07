@@ -1,22 +1,22 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 import { Route, Switch } from "react-router-dom";
 
 import {
   fetchTopStories,
   fetchMostPopular,
   changeHeader,
-} from "../../redux/actions/news";
+} from "redux/actions/news";
 
-import Loading from "../loading/Loading";
-import ErrorFallback from "../error-fallback/ErrorFallback";
-import StoryComponents from "../story-components/StoryComponents";
-import MarketComponents from "../market-components/MarketComponents";
-import MarketDetails from "../market-details/MarketDetails";
+import Loading from "components/loading/Loading";
+import ErrorFallback from "components/error-fallback/ErrorFallback";
+import StoryComponents from "components/story-components/StoryComponents";
+import MarketComponents from "components/market-components/MarketComponents";
+import MarketDetails from "components/market-details/MarketDetails";
+import ResponsiveNav from "components/responsive-nav/ResponsiveNav";
+import SearchResults from "components/search-results/SearchResults";
 
-import { topics } from "../../components/story-topic-headers/StoryTopicHeaders";
-import ResponsiveNav from "../responsive-nav/ResponsiveNav";
-import SearchResults from "../search-results/SearchResults";
+import { topics } from "components/story-topic-headers/StoryTopicHeaders";
 
 const Home = () => {
   const { header, loadingNews, popular, width } = useSelector(

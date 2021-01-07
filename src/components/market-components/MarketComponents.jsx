@@ -1,13 +1,13 @@
 import React from "react";
-import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 import { ErrorBoundary } from "react-error-boundary";
 
-import { fetchHomeChart, fetchForex } from "../../redux/actions/chart";
-import fetchMarketTypes from "../../utils/fetch-market-types";
+import { fetchHomeChart, fetchForex } from "redux/actions/chart";
+import fetchMarketTypes from "utils/fetch-market-types";
 
-import ErrorFallback from "../error-fallback/ErrorFallback";
-import Loading from "../loading/Loading";
-import HomeMarketCards from "../home-market-cards/HomeMarketCards";
+import ErrorFallback from "components/error-fallback/ErrorFallback";
+import Loading from "components/loading/Loading";
+import HomeMarketCards from "components/home-market-cards/HomeMarketCards";
 
 import {
   MarketComponentsContainer,

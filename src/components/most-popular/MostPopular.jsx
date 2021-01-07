@@ -1,7 +1,7 @@
 import React from "react";
-import { useSelector } from "../../utils/react-redux-hooks";
+import { useSelector } from "utils/react-redux-hooks";
 
-import NewsPlaceholder from "../../assets/newsPlaceholder.png";
+import NewsPlaceholder from "assets/newsPlaceholder.png";
 
 import {
   MostPopularContainer,

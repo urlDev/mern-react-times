@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector } from "../../utils/react-redux-hooks";
+import { useSelector } from "utils/react-redux-hooks";
 import { Link } from "react-router-dom";
 
-import Search from "../search/Search";
-import LogoComponent from "../logo-component/LogoComponent";
-import NavUserImage from "../nav-user-image/NavUserImage";
-import StoryTopicHeaders from "../story-topic-headers/StoryTopicHeaders";
+import Search from "components/search/Search";
+import LogoComponent from "components/logo-component/LogoComponent";
+import NavUserImage from "components/nav-user-image/NavUserImage";
+import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders";
 
 import { Button, NavContainer } from "./Nav.styles";
 

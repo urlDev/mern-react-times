@@ -1,17 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 
 import {
   fetchRating,
   fetchForex,
   clearSearchResults,
   closeSearchModal,
-} from "../../redux/actions/chart";
+} from "redux/actions/chart";
 
-import { StoryTopicContainer } from "../story-topic/StoryTopic.styles.js";
+import { StoryTopicContainer } from "components/story-topic/StoryTopic.styles.js";
 import {
   UserFavoriteContainer,
   FavoriteCards,
-} from "../user-favorites/UserFavorites.styles";
+} from "components/user-favorites/UserFavorites.styles";
 
 const SearchResults = () => {
   const { searchResults } = useSelector((chart) => chart.chart);

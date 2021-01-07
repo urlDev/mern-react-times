@@ -38,7 +38,7 @@ exports[`Testing Nav component Should render the component with user components 
     >
       <styled.nav>
         <nav
-          className="sc-dQppl bbPrWJ"
+          className="sc-iqHYGH dtgdtG"
         >
           <StoryTopicHeaders>
             <styled.div>
@@ -116,13 +116,13 @@ exports[`Testing Nav component Should render the component with user components 
           <NavUserImage>
             <styled.div>
               <div
-                className="sc-iqHYGH cVfbsA"
+                className="sc-dQppl cYcFwf"
               >
                 <styled.button
                   onClick={[Function]}
                 >
                   <button
-                    className="sc-crrsfI cuXSaW"
+                    className="sc-bqyKva hGnPvf"
                     onClick={[Function]}
                   >
                     <UserImage

@@ -1,10 +1,10 @@
 import { shallow } from "enzyme";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
-import { CHANGE_HEADER } from "../../redux/actions/news";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
+import { CHANGE_HEADER } from "redux/actions/news";
 
-import LogoComponent from "../../components/logo-component/LogoComponent";
+import LogoComponent from "components/logo-component/LogoComponent";
 
 describe("Testing LogoComponent", () => {
   let store;

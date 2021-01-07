@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 
 import {
   userModalOpen,
   userModalClose,
   fetchLogoutUser,
-} from "../../redux/actions/user";
-import { cleanFavoriteState } from "../../redux/actions/favorite";
+} from "redux/actions/user";
+import { cleanFavoriteState } from "redux/actions/favorite";
 
 import {
   UserModalAllPage,

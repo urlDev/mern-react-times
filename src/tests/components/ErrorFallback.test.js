@@ -1,11 +1,11 @@
 import { shallow } from "enzyme";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
 
-import { error, errorChart } from "../fixtures/chart";
+import { error, errorChart } from "tests/fixtures/chart";
 
-import ErrorFallback from "../../components/error-fallback/ErrorFallback";
+import ErrorFallback from "components/error-fallback/ErrorFallback";
 
 // This component show two types of error
 // 1. Errors coming from error boundary; errors regarding app

@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 
-import Loading from "../../components/loading/Loading";
+import Loading from "components/loading/Loading";
 
 describe("Testing Loading component", () => {
   let wrapper;

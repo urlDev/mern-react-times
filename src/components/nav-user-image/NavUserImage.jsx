@@ -1,17 +1,18 @@
-import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 
 import {
   fetchLogoutUser,
   userModalOpen,
   userModalClose,
-} from "../../redux/actions/user";
+} from "redux/actions/user";
 
-import { cleanFavoriteState } from "../../redux/actions/favorite";
+import { cleanFavoriteState } from "redux/actions/favorite";
 
-import UserModal from "../user-modal/UserModal";
-import UserImage from "../user-image/UserImage";
+import UserModal from "components/user-modal/UserModal";
+import UserImage from "components/user-image/UserImage";
+
+import { Button } from "components/nav/Nav.styles";
 import { UserImageButton, UserImageContainer } from "./NavUserImage.styles.js";
-import { Button } from "../nav/Nav.styles";
 
 const NavUserImage = () => {
   const { userModal } = useSelector((user) => user.user);

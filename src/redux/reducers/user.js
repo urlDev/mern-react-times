@@ -1,19 +1,4 @@
-import {
-  REGISTER_USER,
-  LOGOUT_USER,
-  LOGIN_USER,
-  UPDATE_USER,
-  DELETE_USER,
-  SET_TOKEN,
-  USER_FETCH_ERROR,
-  USER_LOADING,
-  USER_LOADING_END,
-  USER_MODAL_OPEN,
-  USER_MODAL_CLOSE,
-  DELETE_MODAL_OPEN,
-  DELETE_MODAL_CLOSE,
-  UPLOAD_AVATAR,
-} from "../actions/user";
+import * as UserActions from "redux/actions/user";
 
 const initialState = {
   loadingUser: false,
@@ -26,74 +11,74 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER:
+    case UserActions.REGISTER_USER:
       return {
         ...state,
         user: action.payload,
       };
-    case LOGIN_USER:
+    case UserActions.LOGIN_USER:
       return {
         ...state,
         user: action.payload,
       };
-    case LOGOUT_USER:
+    case UserActions.LOGOUT_USER:
       return {
         ...state,
         user: {},
         token: {},
       };
-    case UPDATE_USER:
+    case UserActions.UPDATE_USER:
       return {
         ...state,
         user: action.payload,
       };
-    case DELETE_USER:
+    case UserActions.DELETE_USER:
       return {
         ...state,
         user: {},
         token: {},
       };
-    case SET_TOKEN:
+    case UserActions.SET_TOKEN:
       return {
         ...state,
         token: action.payload,
       };
-    case USER_FETCH_ERROR:
+    case UserActions.USER_FETCH_ERROR:
       return {
         ...state,
         error: action.payload,
       };
-    case USER_LOADING:
+    case UserActions.USER_LOADING:
       return {
         ...state,
         loadingUser: true,
       };
-    case USER_LOADING_END:
+    case UserActions.USER_LOADING_END:
       return {
         ...state,
         loadingUser: false,
       };
-    case USER_MODAL_OPEN:
+    case UserActions.USER_MODAL_OPEN:
       return {
         ...state,
         userModal: true,
       };
-    case USER_MODAL_CLOSE:
+    case UserActions.USER_MODAL_CLOSE:
       return {
         ...state,
         userModal: false,
       };
-    case DELETE_MODAL_OPEN:
+    case UserActions.DELETE_MODAL_OPEN:
       return {
         ...state,
         deleteModal: true,
       };
-    case DELETE_MODAL_CLOSE:
+    case UserActions.DELETE_MODAL_CLOSE:
       return {
         ...state,
         deleteModal: false,
       };
-    case UPLOAD_AVATAR:
+    case UserActions.UPLOAD_AVATAR:
       return {
         ...state,
         user: action.payload,

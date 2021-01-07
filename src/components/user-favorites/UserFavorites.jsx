@@ -1,25 +1,22 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 
-import {
-  fetchGetFavorites,
-  fetchDeleteFavorite,
-} from "../../redux/actions/favorite";
-import { setMarketDetail, fetchRating } from "../../redux/actions/chart";
+import { fetchGetFavorites, fetchDeleteFavorite } from "redux/actions/favorite";
+import { setMarketDetail, fetchRating } from "redux/actions/chart";
 
-import AddedSrc from "../../assets/bookmark.svg";
+import AddedSrc from "assets/bookmark.svg";
 
 import {
   StoryTopicContainer,
   FavoriteButton,
-} from "../story-topic/StoryTopic.styles.js";
+} from "components/story-topic/StoryTopic.styles.js";
 
+import ResponsiveNav from "components/responsive-nav/ResponsiveNav";
 import {
   UserFavoriteContainer,
   FavoriteCards,
   StockPercentage,
 } from "./UserFavorites.styles";
-import ResponsiveNav from "../responsive-nav/ResponsiveNav";
 
 const UserFavorites = () => {
   const { favorites } = useSelector((favorite) => favorite.favorite);

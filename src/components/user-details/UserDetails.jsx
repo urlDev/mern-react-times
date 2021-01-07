@@ -1,16 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector } from "utils/react-redux-hooks";
 import { ErrorBoundary } from "react-error-boundary";
 
-import ErrorFallback from "../error-fallback/ErrorFallback";
-import MarketComponents from "../market-components/MarketComponents";
-import DeleteModal from "../delete-modal/DeleteModal";
-import UserUpdate from "../user-update/UserUpdate";
-import UserAvatar from "../user-avatar/UserAvatar";
-import UserAccountDelete from "../user-account-delete/UserAccountDelete";
-import ResponsiveNav from "../responsive-nav/ResponsiveNav";
+import ErrorFallback from "components/error-fallback/ErrorFallback";
+import MarketComponents from "components/market-components/MarketComponents";
+import DeleteModal from "components/delete-modal/DeleteModal";
+import UserUpdate from "components/user-update/UserUpdate";
+import UserAvatar from "components/user-avatar/UserAvatar";
+import UserAccountDelete from "components/user-account-delete/UserAccountDelete";
+import ResponsiveNav from "components/responsive-nav/ResponsiveNav";
 
-import { StoryTopicContainer } from "../story-topic/StoryTopic.styles.js";
+import { StoryTopicContainer } from "components/story-topic/StoryTopic.styles.js";
 import {
   UpdateAndDeleteContainer,
   UserDetailContainer,

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "utils/react-redux-hooks";
 
-import { fetchRegisterUser } from "../../redux/actions/user";
+import { fetchRegisterUser } from "redux/actions/user";
 
-import { LoginContainer } from "../login/Login.styles";
+import { LoginContainer } from "components/login/Login.styles";
 
 const Register = () => {
   const initialState = {

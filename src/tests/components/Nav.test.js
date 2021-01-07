@@ -2,13 +2,13 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
-import { user } from "../fixtures/user";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
+import { user } from "tests/fixtures/user";
 
-import Nav from "../../components/nav/Nav";
-import Search from "../../components/search/Search";
-import StoryTopicHeaders from "../../components/story-topic-headers/StoryTopicHeaders";
+import Nav from "components/nav/Nav";
+import Search from "components/search/Search";
+import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders";
 
 // Test it with width smaller than 768 and bigger than 768
 // Check if StoryTopicHeaders and Search has been rendered

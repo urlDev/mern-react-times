@@ -1,6 +1,6 @@
-import { useDispatch } from "react-redux";
+import { useDispatch } from "utils/react-redux-hooks";
 
-import { deleteModalOpen } from "../../redux/actions/user";
+import { deleteModalOpen } from "redux/actions/user";
 
 import { DeleteAccount } from "./UserAccountDelete.styles";
 

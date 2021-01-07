@@ -1,10 +1,10 @@
 import moment from "moment";
-import { useDispatch, useSelector } from "../../utils/react-redux-hooks";
+import { useDispatch, useSelector } from "utils/react-redux-hooks";
 
-import { changeHeader, clearError } from "../../redux/actions/news";
+import { changeHeader, clearError } from "redux/actions/news";
 
-import ResponsiveMenu from "../responsive-menu/ResponsiveMenu";
-import ResponsiveMenuModal from "../responsive-menu-modal/ResponsiveMenuModal";
+import ResponsiveMenu from "components/responsive-menu/ResponsiveMenu";
+import ResponsiveMenuModal from "components/responsive-menu-modal/ResponsiveMenuModal";
 
 import {
   StoryTopicHeadersContainer,

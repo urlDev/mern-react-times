@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { mount, shallow } from "enzyme";
 
-import * as ReactReduxHooks from "../../utils/react-redux-hooks";
-import { mockStore } from "../store";
+import * as ReactReduxHooks from "utils/react-redux-hooks";
+import { mockStore } from "tests/store";
 
-import MarketComponents from "../../components/market-components/MarketComponents";
-import { MarketMenu } from "../../components/market-components/MarketComponents.styles";
-import { forex, homeChartData } from "../fixtures/chart";
+import MarketComponents from "components/market-components/MarketComponents";
+import { MarketMenu } from "components/market-components/MarketComponents.styles";
+import { forex, homeChartData } from "tests/fixtures/chart";
 
 // Mocking the fetch functions
 // To be able to mock useEffect
-// jest.mock("../../redux/actions/chart.js", () => {
+// jest.mock("redux/actions/chart.js", () => {
 //   return {
 //     fetchHomeChart: () => jest.fn(),
 //     fetchForex: () => jest.fn(),

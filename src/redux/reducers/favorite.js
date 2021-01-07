@@ -1,10 +1,4 @@
-import {
-  ADD_FAVORITE,
-  DELETE_FAVORITE,
-  GET_FAVORITE,
-  FETCH_FAVORITE_ERROR,
-  CLEAN_FAVORITE_STATE,
-} from "../actions/favorite";
+import * as FavoriteActions from "redux/actions/favorite";
 
 const initialState = {
   errorFavorite: null,
@@ -13,29 +7,29 @@ const initialState = {
 
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_FAVORITE:
+    case FavoriteActions.ADD_FAVORITE:
       return {
         ...state,
         favorites: [...state.favorites, action.payload],
       };
-    case DELETE_FAVORITE:
+    case FavoriteActions.DELETE_FAVORITE:
       return {
         ...state,
         favorites: state.favorites.filter(
           (favorite) => favorite._id !== action.payload._id
         ),
       };
-    case GET_FAVORITE:
+    case FavoriteActions.GET_FAVORITE:
       return {
         ...state,
         favorites: action.payload,
       };
-    case FETCH_FAVORITE_ERROR:
+    case FavoriteActions.FETCH_FAVORITE_ERROR:
       return {
         ...state,
         errorFavorite: action.payload,
       };
-    case CLEAN_FAVORITE_STATE:
+    case FavoriteActions.CLEAN_FAVORITE_STATE:
       return {
         ...state,
         favorites: [],

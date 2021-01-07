@@ -1,13 +1,4 @@
-import {
-  FETCH_NEWS_ERROR,
-  FETCH_POPULAR_SUCCESS,
-  FETCH_STORY_SUCCESS,
-  CHANGE_HEADER,
-  CLEAR_ERROR,
-  SET_WIDTH,
-  OPEN_RESPONSIVE_MENU,
-  CLOSE_RESPONSIVE_MENU,
-} from "../actions/news";
+import * as NewsActions from "redux/actions/news";
 
 const initialState = {
   loadingNews: true,
@@ -21,44 +12,44 @@ const initialState = {
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CLEAR_ERROR:
+    case NewsActions.CLEAR_ERROR:
       return {
         ...state,
         errorNews: null,
       };
-    case FETCH_POPULAR_SUCCESS:
+    case NewsActions.FETCH_POPULAR_SUCCESS:
       return {
         ...state,
         loadingNews: false,
         popular: action.payload,
       };
-    case FETCH_STORY_SUCCESS:
+    case NewsActions.FETCH_STORY_SUCCESS:
       return {
         ...state,
         loadingNews: false,
         story: action.payload,
       };
-    case FETCH_NEWS_ERROR:
+    case NewsActions.FETCH_NEWS_ERROR:
       return {
         ...state,
         errorNews: action.payload,
       };
-    case CHANGE_HEADER:
+    case NewsActions.CHANGE_HEADER:
       return {
         ...state,
         header: action.payload,
       };
-    case SET_WIDTH:
+    case NewsActions.SET_WIDTH:
       return {
         ...state,
         width: action.payload,
       };
-    case OPEN_RESPONSIVE_MENU:
+    case NewsActions.OPEN_RESPONSIVE_MENU:
       return {
         ...state,
         responsiveMenu: true,
       };
-    case CLOSE_RESPONSIVE_MENU:
+    case NewsActions.CLOSE_RESPONSIVE_MENU:
       return {
         ...state,
         responsiveMenu: false,

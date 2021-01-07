@@ -1,18 +1,17 @@
-import { useDispatch } from "../../utils/react-redux-hooks";
+import { useDispatch } from "utils/react-redux-hooks";
 
 import {
   changeHeader,
   clearError,
   closeResponsiveMenu,
-} from "../../redux/actions/news";
-import { topics } from "../story-topic-headers/StoryTopicHeaders";
+} from "redux/actions/news";
+import { topics } from "components/story-topic-headers/StoryTopicHeaders";
 
 import {
   MenuModalAllPage,
   MenuModalContainer,
 } from "./ResponsiveMenuModal.styles";
-
-import { StyledLink } from "../story-topic-headers/StoryTopicHeaders.styles";
+import { StyledLink } from "components/story-topic-headers/StoryTopicHeaders.styles";
 
 const ResponsiveMenuModal = () => {
   const dispatch = useDispatch();

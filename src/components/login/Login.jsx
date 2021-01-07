@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "utils/react-redux-hooks";
 
-import { fetchLoginUser } from "../../redux/actions/user";
+import { fetchLoginUser } from "redux/actions/user";
 
 import { LoginContainer } from "./Login.styles";
 

@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ResponsiveMenuModal component Should match the snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ResponsiveMenuModal
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <styled.div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-jSgupP gylrLH"
+          onClick={[Function]}
+        >
+          <styled.div>
+            <div
+              className="sc-gKsewC cPEtrP"
+            >
+              <Styled(Link)
+                key="Home"
+                to="/home"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/home"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/home"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/home"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Home
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Arts"
+                to="/arts"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/arts"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/arts"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/arts"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Arts
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Business"
+                to="/business"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/business"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/business"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/business"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Business
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Health"
+                to="/health"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/health"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/health"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/health"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Health
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Opinion"
+                to="/opinion"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/opinion"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/opinion"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/opinion"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Opinion
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Politics"
+                to="/politics"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/politics"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/politics"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/politics"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Politics
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Science"
+                to="/science"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/science"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/science"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/science"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Science
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Sports"
+                to="/sports"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/sports"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/sports"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/sports"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Sports
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Technology"
+                to="/technology"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/technology"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/technology"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/technology"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Technology
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+              <Styled(Link)
+                key="Travel"
+                to="/travel"
+              >
+                <Link
+                  className="sc-eCssSg eJegWd"
+                  to="/travel"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg eJegWd"
+                    href="/travel"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg eJegWd"
+                      href="/travel"
+                      onClick={[Function]}
+                    >
+                      <span
+                        onClick={[Function]}
+                      >
+                        Travel
+                      </span>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+    </ResponsiveMenuModal>
+  </Router>
+</BrowserRouter>
+`;

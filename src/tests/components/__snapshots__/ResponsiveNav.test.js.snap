@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing ResponsiveNav component Testing for when the width is smaller than 768 Should match the snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ResponsiveNav
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Nav
+        borderBottom="1px solid lightgray"
+        icon="block"
+        logo="logo.png"
+      >
+        <styled.nav
+          borderBottom="1px solid lightgray"
+        >
+          <nav
+            className="sc-iqHYGH infLxv"
+          >
+            <StoryTopicHeaders
+              icon="block"
+            >
+              <styled.div>
+                <div
+                  className="sc-hBEYos bytodC"
+                >
+                  <styled.p>
+                    <p
+                      className="sc-fFubgz jJqmWy"
+                    >
+                      <span>
+                        Friday | 
+                      </span>
+                      Jan 08, 2021
+                    </p>
+                  </styled.p>
+                  <styled.div>
+                    <div
+                      className="sc-fodVxV bDQCfy"
+                    >
+                      <ResponsiveMenu
+                        icon="block"
+                      >
+                        <styled.div
+                          alt="hamburger menu"
+                          icon="block"
+                          onClick={[Function]}
+                        >
+                          <div
+                            alt="hamburger menu"
+                            className="sc-kstrdz zfgvx"
+                            onClick={[Function]}
+                          >
+                            <img
+                              alt="hamburger icon"
+                              src="hamburger.svg"
+                            />
+                          </div>
+                        </styled.div>
+                      </ResponsiveMenu>
+                    </div>
+                  </styled.div>
+                </div>
+              </styled.div>
+            </StoryTopicHeaders>
+            <LogoComponent
+              logo="logo.png"
+            >
+              <Styled(Link)
+                to="/home"
+              >
+                <Link
+                  className="sc-jSgupP iwtquC"
+                  to="/home"
+                >
+                  <LinkAnchor
+                    className="sc-jSgupP iwtquC"
+                    href="/home"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-jSgupP iwtquC"
+                      href="/home"
+                      onClick={[Function]}
+                    >
+                      <img
+                        alt="react times logo"
+                        onClick={[Function]}
+                        src="logo.png"
+                        style={
+                          Object {
+                            "height": "16px",
+                          }
+                        }
+                      />
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </LogoComponent>
+            <NavUserImage>
+              <styled.div>
+                <div
+                  className="sc-dQppl cYcFwf"
+                >
+                  <styled.button
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="sc-bqyKva hGnPvf"
+                      onClick={[Function]}
+                    >
+                      <UserImage
+                        border="29px"
+                        margin="10px"
+                      >
+                        <styled.picture
+                          border="29px"
+                          margin="10px"
+                        >
+                          <picture
+                            className="sc-kEjbxe fwsIeO"
+                          >
+                            <source
+                              srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                              type="image/png"
+                            />
+                            <img
+                              alt="avatar"
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                            />
+                          </picture>
+                        </styled.picture>
+                      </UserImage>
+                    </button>
+                  </styled.button>
+                </div>
+              </styled.div>
+            </NavUserImage>
+          </nav>
+        </styled.nav>
+      </Nav>
+      <Search
+        icon="block"
+      >
+        <styled.div>
+          <div
+            className="sc-eCssSg ivKkzB"
+          >
+            <form
+              onClick={[Function]}
+              onSubmit={[Function]}
+            >
+              <input
+                onChange={[Function]}
+                placeholder="Search for a company or symbol"
+                type="text"
+                value=""
+              />
+              <styled.a
+                icon="block"
+                onClick={[Function]}
+              >
+                <a
+                  className="sc-hKgILt itWKZn"
+                  onClick={[Function]}
+                >
+                  <img
+                    alt="search icon"
+                    src="searchIcon.svg"
+                  />
+                </a>
+              </styled.a>
+            </form>
+            <SearchModal />
+          </div>
+        </styled.div>
+      </Search>
+    </ResponsiveNav>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`Testing ResponsiveNav component Testing the component for when the width is bigger than 768 Should match the snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ResponsiveNav
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <Nav
+        borderBottom="1px solid lightgray"
+        icon="block"
+        logo="logo.png"
+      >
+        <styled.nav
+          borderBottom="1px solid lightgray"
+        >
+          <nav
+            className="sc-iqHYGH infLxv"
+          >
+            <Search
+              icon="block"
+            >
+              <styled.div>
+                <div
+                  className="sc-eCssSg ivKkzB"
+                >
+                  <form
+                    onClick={null}
+                    onSubmit={[Function]}
+                  >
+                    <input
+                      onChange={[Function]}
+                      placeholder="Search for a company or symbol"
+                      type="text"
+                      value=""
+                    />
+                    <styled.a
+                      icon="block"
+                      onClick={[Function]}
+                    >
+                      <a
+                        className="sc-hKgILt itWKZn"
+                        onClick={[Function]}
+                      >
+                        <img
+                          alt="search icon"
+                          src="searchIcon.svg"
+                        />
+                      </a>
+                    </styled.a>
+                  </form>
+                  <SearchModal />
+                </div>
+              </styled.div>
+            </Search>
+            <LogoComponent
+              logo="logo.png"
+            >
+              <Styled(Link)
+                to="/home"
+              >
+                <Link
+                  className="sc-jSgupP iwtquC"
+                  to="/home"
+                >
+                  <LinkAnchor
+                    className="sc-jSgupP iwtquC"
+                    href="/home"
+                    navigate={[Function]}
+                  >
+                    <a
+                      className="sc-jSgupP iwtquC"
+                      href="/home"
+                      onClick={[Function]}
+                    >
+                      <img
+                        alt="react times logo"
+                        onClick={[Function]}
+                        src="logo.png"
+                        style={
+                          Object {
+                            "height": "16px",
+                          }
+                        }
+                      />
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </LogoComponent>
+            <NavUserImage>
+              <styled.div>
+                <div
+                  className="sc-dQppl cYcFwf"
+                >
+                  <styled.button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <button
+                      className="sc-crrsfI dyqbjp"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Logout
+                    </button>
+                  </styled.button>
+                  <styled.button
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="sc-bqyKva hGnPvf"
+                      onClick={[Function]}
+                    >
+                      <UserImage
+                        border="29px"
+                        margin="10px"
+                      >
+                        <styled.picture
+                          border="29px"
+                          margin="10px"
+                        >
+                          <picture
+                            className="sc-kEjbxe fwsIeO"
+                          >
+                            <source
+                              srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                              type="image/png"
+                            />
+                            <img
+                              alt="avatar"
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+                            />
+                          </picture>
+                        </styled.picture>
+                      </UserImage>
+                    </button>
+                  </styled.button>
+                </div>
+              </styled.div>
+            </NavUserImage>
+          </nav>
+        </styled.nav>
+      </Nav>
+      <StoryTopicHeaders
+        icon="block"
+      >
+        <styled.div>
+          <div
+            className="sc-hBEYos bytodC"
+          >
+            <styled.p>
+              <p
+                className="sc-fFubgz jJqmWy"
+              >
+                <span>
+                  Friday | 
+                </span>
+                Jan 08, 2021
+              </p>
+            </styled.p>
+            <styled.div>
+              <div
+                className="sc-fodVxV bDQCfy"
+              >
+                <ResponsiveMenu
+                  icon="block"
+                >
+                  <styled.div
+                    alt="hamburger menu"
+                    icon="block"
+                    onClick={[Function]}
+                  >
+                    <div
+                      alt="hamburger menu"
+                      className="sc-kstrdz zfgvx"
+                      onClick={[Function]}
+                    >
+                      <img
+                        alt="hamburger icon"
+                        src="hamburger.svg"
+                      />
+                    </div>
+                  </styled.div>
+                </ResponsiveMenu>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </StoryTopicHeaders>
+    </ResponsiveNav>
+  </Router>
+</BrowserRouter>
+`;

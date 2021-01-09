@@ -1,13 +1,13 @@
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
-
-import ResponsiveNav from "components/responsive-nav/ResponsiveNav";
 import { user } from "tests/fixtures/user";
+
 import Search from "components/search/Search";
 import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders";
+import ResponsiveNav from "components/responsive-nav/ResponsiveNav";
 
 describe("Testing ResponsiveNav component", () => {
   let wrapper;

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Search component Should match snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Search
+      history={
+        Object {
+          "push": [MockFunction],
+        }
+      }
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <styled.div
+        open={false}
+      >
+        <div
+          className="sc-eCssSg ivKkzB"
+          open={false}
+        >
+          <form
+            onClick={null}
+            onSubmit={[Function]}
+          >
+            <input
+              onChange={[Function]}
+              open={false}
+              placeholder="Search for a company or symbol"
+              type="text"
+              value=""
+            />
+            <styled.a
+              onClick={[Function]}
+              open={false}
+            >
+              <a
+                className="sc-hKgILt bFBMgY"
+                onClick={[Function]}
+                open={false}
+              >
+                <img
+                  alt="search icon"
+                  src="searchIcon.svg"
+                />
+              </a>
+            </styled.a>
+          </form>
+          <SearchModal />
+        </div>
+      </styled.div>
+    </Search>
+  </Router>
+</BrowserRouter>
+`;

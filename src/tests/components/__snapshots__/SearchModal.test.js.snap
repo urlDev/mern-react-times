@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SearchModal component Should match snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SearchModal
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <styled.div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-dlfnbm iVzSdZ"
+          onClick={[Function]}
+        >
+          <styled.div>
+            <div
+              className="sc-bdfBwQ kanTOC"
+            >
+              <Styled(Link)
+                key="TSLA"
+                onClick={[Function]}
+                to="/details/tsla"
+              >
+                <Link
+                  className="sc-gsTCUz gKMLZQ"
+                  onClick={[Function]}
+                  to="/details/tsla"
+                >
+                  <LinkAnchor
+                    className="sc-gsTCUz gKMLZQ"
+                    href="/details/tsla"
+                    navigate={[Function]}
+                    onClick={[Function]}
+                  >
+                    <a
+                      className="sc-gsTCUz gKMLZQ"
+                      href="/details/tsla"
+                      onClick={[Function]}
+                    >
+                      <h1>
+                        TSLA
+                      </h1>
+                      <h1>
+                        NASDAQ
+                      </h1>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+    </SearchModal>
+  </Router>
+</BrowserRouter>
+`;

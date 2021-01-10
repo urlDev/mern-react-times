@@ -1,5 +1,5 @@
-export const forexLengthTwo = [
-  [
+export const forexLengthTwo = {
+  data: [
     {
       avgVolume: 395735000,
       change: -124.35,
@@ -24,9 +24,9 @@ export const forexLengthTwo = [
       yearHigh: 30343.59,
       yearLow: 18213.65,
     },
+    {},
   ],
-  [],
-];
+};
 
 export const forexLengthOne = [
   [
@@ -88,6 +88,16 @@ export const searchResult = {
   stockExchange: "NasdaqGS",
   symbol: "TSLA",
 };
+
+export const searchResults = [
+  {
+    currency: "USD",
+    exchangeShortName: "NASDAQ",
+    name: "Tesla, Inc.",
+    stockExchange: "NasdaqGS",
+    symbol: "TSLA",
+  },
+];
 
 export const marketName = "Indexes";
 

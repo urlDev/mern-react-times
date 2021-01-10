@@ -189,13 +189,13 @@ describe("Testing async functions", () => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 200,
-          response: forexLengthTwo,
+          response: forexLengthTwo.data,
         });
       });
 
       const expectedActions = {
         type: ChartActions.FETCH_FOREX_SUCCESS,
-        payload: forexLengthTwo,
+        payload: forexLengthTwo.data,
       };
 
       return store.dispatch(ChartActions.fetchForex("^DJI")).then(() => {

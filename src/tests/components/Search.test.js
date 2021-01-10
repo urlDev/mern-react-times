@@ -1,4 +1,4 @@
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 import moxios from "moxios";
 
@@ -8,9 +8,9 @@ import { searchResult } from "tests/fixtures/chart";
 
 import {
   CLOSE_SEARCH_MODAL,
-  fetchSearch,
   GET_SEARCH_RESULTS,
   OPEN_SEARCH_MODAL,
+  fetchSearch,
 } from "redux/actions/chart";
 
 import Search from "components/search/Search";

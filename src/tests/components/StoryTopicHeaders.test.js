@@ -1,6 +1,5 @@
 import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
-import moxios from "moxios";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
@@ -73,13 +72,8 @@ describe("Testing StoryTopicHeaders component", () => {
           <StoryTopicHeaders store={store} />
         </Router>
       );
-
-      //   moxios.install();
     });
 
-    afterEach(() => {
-      //   moxios.uninstall();
-    });
     test("Should render the component with topics", () => {
       expect(wrapper).toHaveLength(1);
       // Having home in wrapper means topics are rendered successfully

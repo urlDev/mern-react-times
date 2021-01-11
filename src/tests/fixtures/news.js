@@ -28,6 +28,21 @@ export const story = {
               "https://static01.nyt.com/images/2020/12/19/us/covid-thanksgiving-effect-promo-1608423451574/covid-thanksgiving-effect-promo-1608423451574-thumbLarge.jpg",
             width: 150,
           },
+
+          {
+            url:
+              "https://static01.nyt.com/images/2020/12/19/us/covid-thanksgiving-effect-promo-1608423451574/covid-thanksgiving-effect-promo-1608423451574-thumbLarge.jpg",
+          },
+
+          {
+            url:
+              "https://static01.nyt.com/images/2020/12/19/us/covid-thanksgiving-effect-promo-1608423451574/covid-thanksgiving-effect-promo-1608423451574-thumbLarge.jpg",
+          },
+
+          {
+            url:
+              "https://static01.nyt.com/images/2020/12/19/us/covid-thanksgiving-effect-promo-1608423451574/covid-thanksgiving-effect-promo-1608423451574-thumbLarge.jpg",
+          },
         ],
         org_facet: [],
         per_facet: [],
@@ -36,15 +51,24 @@ export const story = {
         short_url: "https://nyti.ms/3mw70mp",
         subsection: "",
         title:
-          "As Christmas Nears, Virus Experts Look for Lessons From Thanksgiving",
+          "As Christmas Nears, Virus Experts Look for Lessons From Thanksgiving and more",
         updated_date: "2020-12-20T14:36:37-05:00",
         uri: "nyt://interactive/fdf92354-35b1-5ffc-b5a1-61a0ed307ef8",
         url:
           "https://www.nytimes.com/interactive/2020/12/20/us/covid-thanksgiving-effect.html",
       },
     ],
-    [],
-    [],
+    [
+      {
+        title:
+          "As Christmas Nears, Virus Experts Look for Lessons From Thanksgiving And More",
+      },
+    ],
+    [
+      {
+        title: "As Christmas Nears, Virus Experts Look for Lessons",
+      },
+    ],
   ],
 };
 

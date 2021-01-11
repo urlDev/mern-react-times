@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing UserAccountDelete component Should match snapshot 1`] = `
+<styled.div>
+  <div>
+    <h1>
+      I want to delete my account!
+    </h1>
+    <button
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+  </div>
+</styled.div>
+`;

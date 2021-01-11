@@ -13,10 +13,9 @@ import {
 } from "tests/fixtures/chart";
 import {
   CLEAR_SEARCH_RESULTS,
-  CLOSE_SEARCH_MODAL,
-  fetchForex,
   FETCH_FOREX_SUCCESS,
   SET_RATING,
+  fetchForex,
 } from "redux/actions/chart";
 
 describe("Testing SearchResults component", () => {

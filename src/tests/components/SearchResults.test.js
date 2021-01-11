@@ -4,24 +4,22 @@ import moxios from "moxios";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
+import SearchResults from "components/search-results/SearchResults";
 import {
   forexLengthTwo,
   rating,
   searchResult,
   searchResults,
 } from "tests/fixtures/chart";
-
 import {
   CLEAR_SEARCH_RESULTS,
   CLOSE_SEARCH_MODAL,
+  fetchForex,
   FETCH_FOREX_SUCCESS,
   SET_RATING,
-  fetchForex,
 } from "redux/actions/chart";
 
-import SearchModal from "components/search-modal/SearchModal";
-
-describe("Testing SearchModal component", () => {
+describe("Testing SearchResults component", () => {
   let wrapper;
   let store;
 
@@ -39,12 +37,11 @@ describe("Testing SearchModal component", () => {
     beforeEach(() => {
       store = mockStore({
         searchResults,
-        open: true,
       });
 
       wrapper = mount(
         <Router>
-          <SearchModal store={store} />
+          <SearchResults store={store} />
         </Router>
       );
 
@@ -61,14 +58,6 @@ describe("Testing SearchModal component", () => {
 
     test("Should match snapshot", () => {
       expect(wrapper).toMatchSnapshot();
-    });
-
-    test("Should close SearchModal on click", () => {
-      wrapper.find("div").first().simulate("click");
-
-      const actions = store.getActions();
-
-      expect(actions).toEqual([{ type: CLOSE_SEARCH_MODAL }]);
     });
 
     test("Should dispatch actions when clicked on search result", async () => {
@@ -95,11 +84,6 @@ describe("Testing SearchModal component", () => {
 
       const expectedResults = [
         { type: CLEAR_SEARCH_RESULTS },
-        // there are two close modal action types
-        // because in modal, I am using an individual div to cover all page
-        // and also clicking on an individual result closes the modal too
-        { type: CLOSE_SEARCH_MODAL },
-        { type: CLOSE_SEARCH_MODAL },
         { type: FETCH_FOREX_SUCCESS, payload: forexLengthTwo.data },
         {
           type: SET_RATING,
@@ -114,14 +98,12 @@ describe("Testing SearchModal component", () => {
       expect(actions).toEqual(expectedResults);
     });
   });
-
   test("Should render no results found if there are no results", () => {
     store = mockStore({
       searchResults: searchResult,
-      open: true,
     });
 
-    wrapper = mount(<SearchModal store={store} />);
+    wrapper = mount(<SearchResults store={store} />);
 
     expect(wrapper).toHaveLength(1);
     expect(wrapper).toMatchSnapshot();

@@ -44,20 +44,18 @@ const StoryTopicHeaders = ({ icon }) => {
           </> //
         ) : (
           <>
-            {topics.map((topic) => {
-              return (
-                <StyledLink key={topic} to={`/${topic.toLowerCase()}`}>
-                  <span
-                    onClick={() => {
-                      dispatch(changeHeader(topic.toLowerCase()));
-                      dispatch(clearError());
-                    }}
-                  >
-                    {topic}
-                  </span>
-                </StyledLink>
-              );
-            })}
+            {topics.map((topic) => (
+              <StyledLink key={topic} to={`/${topic.toLowerCase()}`}>
+                <span
+                  onClick={() => {
+                    dispatch(changeHeader(topic.toLowerCase()));
+                    dispatch(clearError());
+                  }}
+                >
+                  {topic}
+                </span>
+              </StyledLink>
+            ))}
           </> //
         )}
       </TopicContainer>

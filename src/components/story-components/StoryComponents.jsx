@@ -7,7 +7,7 @@ import MostPopular from "components/most-popular/MostPopular";
 
 import { StoryComponentsContainer } from "./StoryComponents.styles";
 
-const Home = () => {
+const StoryComponents = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <StoryComponentsContainer>
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default StoryComponents;

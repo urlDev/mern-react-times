@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SearchResults component Should render no results found if there are no results 1`] = `
+<SearchResults
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <section
+    style={
+      Object {
+        "margin": "0 15px",
+        "minHeight": "calc(100vh - 153px - 87px)",
+        "position": "relative",
+      }
+    }
+  >
+    <styled.div>
+      <div
+        className="sc-bdfBwQ irdkqr"
+      >
+        <h1
+          style={
+            Object {
+              "marginTop": "25px",
+            }
+          }
+        >
+          Search Results
+        </h1>
+      </div>
+    </styled.div>
+    <styled.div>
+      <div
+        className="sc-hKgILt enTcbd"
+      >
+        <h1>
+          No results found
+        </h1>
+      </div>
+    </styled.div>
+  </section>
+</SearchResults>
+`;
+
+exports[`Testing SearchResults component Testing component with search results Should match snapshot 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SearchResults
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <section
+        style={
+          Object {
+            "margin": "0 15px",
+            "minHeight": "calc(100vh - 153px - 87px)",
+            "position": "relative",
+          }
+        }
+      >
+        <styled.div>
+          <div
+            className="sc-bdfBwQ irdkqr"
+          >
+            <h1
+              style={
+                Object {
+                  "marginTop": "25px",
+                }
+              }
+            >
+              Search Results
+            </h1>
+          </div>
+        </styled.div>
+        <styled.div>
+          <div
+            className="sc-hKgILt enTcbd"
+          >
+            <div
+              key="TSLA"
+              style={
+                Object {
+                  "border": "1px solid black",
+                  "display": "flex",
+                  "padding": "10px 15px",
+                }
+              }
+            >
+              <Styled(Link)
+                onClick={[Function]}
+                to="/details/tsla"
+              >
+                <Link
+                  className="sc-eCssSg ljcOPF"
+                  onClick={[Function]}
+                  to="/details/tsla"
+                >
+                  <LinkAnchor
+                    className="sc-eCssSg ljcOPF"
+                    href="/details/tsla"
+                    navigate={[Function]}
+                    onClick={[Function]}
+                  >
+                    <a
+                      className="sc-eCssSg ljcOPF"
+                      href="/details/tsla"
+                      onClick={[Function]}
+                    >
+                      <h1>
+                        TSLA
+                      </h1>
+                      <h1
+                        style={
+                          Object {
+                            "fontSize": "var(--size-sub-menu)",
+                            "fontWeight": "normal",
+                          }
+                        }
+                      >
+                        NASDAQ
+                      </h1>
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </Styled(Link)>
+            </div>
+          </div>
+        </styled.div>
+      </section>
+    </SearchResults>
+  </Router>
+</BrowserRouter>
+`;

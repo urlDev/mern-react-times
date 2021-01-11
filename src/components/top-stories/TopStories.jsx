@@ -15,7 +15,7 @@ import {
   TagContainer,
 } from "./TopStories.styles";
 
-const TopStories = React.memo(() => {
+const TopStories = () => {
   const { story, width } = useSelector((news) => news.news);
 
   return (
@@ -43,7 +43,7 @@ const TopStories = React.memo(() => {
             <SubTitle>
               {data.abstract.split(" ").slice(0, 20).join(" ")}...
             </SubTitle>
-            <SeeAll href={data.url} target="_blank">
+            <SeeAll href={data.url} target="_blank" rel="noopener">
               Continue Reading
             </SeeAll>
           </StoryContainer>
@@ -51,6 +51,6 @@ const TopStories = React.memo(() => {
       </TopStoriesContainer>
     </div>
   );
-});
+};
 
 export default TopStories;

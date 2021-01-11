@@ -1,6 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing SearchModal component Should match snapshot 1`] = `
+exports[`Testing SearchModal component Should render no results found if there are no results 1`] = `
+<SearchModal
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <styled.div
+    onClick={[Function]}
+  >
+    <div
+      className="sc-dlfnbm iVzSdZ"
+      onClick={[Function]}
+    >
+      <styled.div>
+        <div
+          className="sc-bdfBwQ kanTOC"
+        >
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "color": "white",
+                "display": "flex",
+                "height": "100%",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <h1
+              style={
+                Object {
+                  "margin": "0",
+                }
+              }
+            >
+              No results found
+            </h1>
+          </div>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</SearchModal>
+`;
+
+exports[`Testing SearchModal component Testing component with search results Should match snapshot 1`] = `
 <BrowserRouter>
   <Router
     history={

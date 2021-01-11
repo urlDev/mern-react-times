@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing UserDetails component Testing component without user Should match snapshot 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <div
+    style={
+      Object {
+        "margin": "0 15px",
+      }
+    }
+  >
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginTop": "25px",
+          }
+        }
+      >
+        Profile
+      </h1>
+    </styled.div>
+  </div>
+  <ErrorBoundary
+    FallbackComponent={[Function]}
+  >
+    <MarketComponents />
+  </ErrorBoundary>
+</Fragment>
+`;
+
+exports[`Testing UserDetails component Testing component without user Should show delete modal 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <div
+    style={
+      Object {
+        "margin": "0 15px",
+      }
+    }
+  >
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginTop": "25px",
+          }
+        }
+      >
+        Profile
+      </h1>
+    </styled.div>
+    <styled.div>
+      <UserAvatar />
+      <styled.div>
+        <UserUpdate />
+        <UserAccountDelete />
+      </styled.div>
+    </styled.div>
+    <DeleteModal />
+  </div>
+  <ErrorBoundary
+    FallbackComponent={[Function]}
+  >
+    <MarketComponents />
+  </ErrorBoundary>
+</Fragment>
+`;
+
+exports[`Testing UserDetails component Testing the component with user Should match snapshot 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <div
+    style={
+      Object {
+        "margin": "0 15px",
+      }
+    }
+  >
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginTop": "25px",
+          }
+        }
+      >
+        Profile
+      </h1>
+    </styled.div>
+    <styled.div>
+      <UserAvatar />
+      <styled.div>
+        <UserUpdate />
+        <UserAccountDelete />
+      </styled.div>
+    </styled.div>
+  </div>
+  <ErrorBoundary
+    FallbackComponent={[Function]}
+  >
+    <MarketComponents />
+  </ErrorBoundary>
+</Fragment>
+`;
+
+exports[`Testing UserDetails component Testing the component with user Should render the component when width is bigger than 1150 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <div
+    style={
+      Object {
+        "margin": "0 15px",
+      }
+    }
+  >
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginTop": "25px",
+          }
+        }
+      >
+        Profile
+      </h1>
+    </styled.div>
+    <styled.div>
+      <UserAvatar />
+      <UserUpdate />
+      <UserAccountDelete />
+    </styled.div>
+  </div>
+  <ErrorBoundary
+    FallbackComponent={[Function]}
+  >
+    <MarketComponents />
+  </ErrorBoundary>
+</Fragment>
+`;

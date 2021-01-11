@@ -50,9 +50,9 @@ exports[`Testing Nav component Should render the component with user components 
                     className="sc-fFubgz jJqmWy"
                   >
                     <span>
-                      Monday | 
+                      Tuesday | 
                     </span>
-                    Jan 11, 2021
+                    Jan 12, 2021
                   </p>
                 </styled.p>
                 <styled.div>

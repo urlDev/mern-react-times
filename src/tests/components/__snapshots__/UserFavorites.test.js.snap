@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing UserFavorites component Testing component with favorites Should match the snapshot 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <div
+    style={
+      Object {
+        "margin": "0 15px",
+      }
+    }
+  >
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginTop": "25px",
+          }
+        }
+      >
+        Your Favorites
+      </h1>
+    </styled.div>
+    <styled.div>
+      <div
+        key="AMZN"
+        style={
+          Object {
+            "border": "1px solid black",
+            "display": "flex",
+            "padding": "10px 15px",
+          }
+        }
+      >
+        <styled.button
+          onClick={[Function]}
+          style={
+            Object {
+              "margin": "auto 10px auto 0",
+            }
+          }
+        >
+          <img
+            alt="favorite added, bookmark svg"
+            src="bookmark.svg"
+          />
+        </styled.button>
+        <Styled(Link)
+          onClick={[Function]}
+          to="/details/amzn"
+        >
+          <h1>
+            AMZN
+          </h1>
+          <h1
+            style={
+              Object {
+                "fontSize": "var(--size-sub-menu)",
+                "fontWeight": "normal",
+              }
+            }
+          >
+            $ 
+            3292.22
+          </h1>
+          <styled.div
+            percentage={3.77}
+          >
+            <h1>
+              3.77
+               %
+            </h1>
+          </styled.div>
+        </Styled(Link)>
+      </div>
+      <div
+        key="AMZN"
+        style={
+          Object {
+            "border": "1px solid black",
+            "display": "flex",
+            "padding": "10px 15px",
+          }
+        }
+      >
+        <styled.button
+          onClick={[Function]}
+          style={
+            Object {
+              "margin": "auto 10px auto 0",
+            }
+          }
+        >
+          <img
+            alt="favorite added, bookmark svg"
+            src="bookmark.svg"
+          />
+        </styled.button>
+        <Styled(Link)
+          onClick={[Function]}
+          to="/details/amzn"
+        >
+          <h1>
+            AMZN
+          </h1>
+          <h1
+            style={
+              Object {
+                "fontSize": "var(--size-sub-menu)",
+                "fontWeight": "normal",
+              }
+            }
+          >
+            $ 
+            3292.22
+          </h1>
+          <styled.div
+            percentage={3.77}
+          >
+            <h1>
+              3.77
+               %
+            </h1>
+          </styled.div>
+        </Styled(Link)>
+      </div>
+    </styled.div>
+  </div>
+</Fragment>
+`;
+
+exports[`Testing UserFavorites component Testing component without favorites Should render component without favorite stocks 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <div
+    style={
+      Object {
+        "margin": "0 15px",
+      }
+    }
+  >
+    <styled.div>
+      <h1
+        style={
+          Object {
+            "marginTop": "25px",
+          }
+        }
+      >
+        Your Favorites
+      </h1>
+    </styled.div>
+    <styled.div>
+      <h1>
+        No favorites added.
+      </h1>
+    </styled.div>
+  </div>
+</Fragment>
+`;

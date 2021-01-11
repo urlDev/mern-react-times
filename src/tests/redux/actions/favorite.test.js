@@ -152,7 +152,7 @@ describe("Testing async functions", () => {
     });
   });
 
-  describe("Testing fetchDeleteError async function", () => {
+  describe("Testing fetchDeleteFavorite async function", () => {
     test("Should delete stock from favorites successfully", () => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();

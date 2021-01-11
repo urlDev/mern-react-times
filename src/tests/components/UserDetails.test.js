@@ -2,7 +2,9 @@ import { shallow } from "enzyme";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
+
 import { user } from "tests/fixtures/user";
+
 import UserDetails from "components/user-details/UserDetails";
 import UserAvatar from "components/user-avatar/UserAvatar";
 import UserUpdate from "components/user-update/UserUpdate";

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing UserModal component Testing component when width is bigger than 1024 Should match snapshot 1`] = `
+<Fragment>
+  <styled.div
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <Styled(Link)
+      to="/profile"
+    >
+      Profile Details
+    </Styled(Link)>
+    <Styled(Link)
+      to="/profile/favorites"
+    >
+      Favorites
+    </Styled(Link)>
+  </styled.div>
+</Fragment>
+`;
+
+exports[`Testing UserModal component Testing the component when width is smaller than 1024 Should match snapshot 1`] = `
+<Fragment>
+  <styled.div
+    onClick={[Function]}
+  >
+    <styled.div>
+      <Styled(Link)
+        to="/profile"
+      >
+        Profile Details
+      </Styled(Link)>
+      <Styled(Link)
+        to="/profile/favorites"
+      >
+        Favorites
+      </Styled(Link)>
+      <styled.button>
+        <span
+          onClick={[Function]}
+        >
+          Logout
+        </span>
+      </styled.button>
+    </styled.div>
+  </styled.div>
+</Fragment>
+`;

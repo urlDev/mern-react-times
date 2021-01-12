@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing UserUpdate component Should match snapshot 1`] = `
+<styled.div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label
+        htmlFor="name"
+      >
+        Name / Username
+      </label>
+      <input
+        name="name"
+        onChange={[Function]}
+        type="text"
+        value="Can"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        name="email"
+        onChange={[Function]}
+        type="email"
+        value="can@example.com"
+      />
+    </div>
+    <div>
+      <label
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        autoComplete="off"
+        name="password"
+        onChange={[Function]}
+        required={true}
+        type="password"
+      />
+    </div>
+    <div>
+      <button
+        aria-label="save user details"
+        type="submit"
+      >
+        Update
+      </button>
+    </div>
+  </form>
+</styled.div>
+`;

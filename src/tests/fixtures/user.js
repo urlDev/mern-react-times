@@ -5,6 +5,15 @@ export const user = {
   _id: "5589123",
 };
 
+export const userWebP = {
+  avatar: {
+    webp: "iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAA",
+  },
+  email: "can@example.com",
+  name: "Can",
+  _id: "5589123",
+};
+
 export const token = "ey12345qwerty";
 
 export const errorUser = {

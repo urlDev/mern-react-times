@@ -18,8 +18,8 @@ const UserModal = () => {
   const { width } = useSelector((news) => news.news);
   const dispatch = useDispatch();
 
-  const handleClick = async () => {
-    await dispatch(fetchLogoutUser());
+  const handleClick = () => {
+    dispatch(fetchLogoutUser());
     dispatch(cleanFavoriteState());
     localStorage.clear();
   };

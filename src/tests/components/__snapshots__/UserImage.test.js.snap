@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing UserImage component Testing component with user Should match snapshot 1`] = `
+<Fragment>
+  <styled.picture>
+    <source
+      srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+      type="image/png"
+    />
+    <img
+      alt="avatar"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
+    />
+  </styled.picture>
+</Fragment>
+`;
+
+exports[`Testing UserImage component Testing component with user Should render component with webp 1`] = `
+<Fragment>
+  <styled.picture>
+    <source
+      srcSet="data:image/webp;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAA"
+      type="image/webp"
+    />
+  </styled.picture>
+</Fragment>
+`;

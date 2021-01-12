@@ -59,9 +59,9 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
                       className="sc-fubCfw xmgMz"
                     >
                       <span>
-                        Tuesday | 
+                        Wednesday | 
                       </span>
-                      Jan 12, 2021
+                      Jan 13, 2021
                     </p>
                   </styled.p>
                   <styled.div>
@@ -395,9 +395,9 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
                 className="sc-fubCfw xmgMz"
               >
                 <span>
-                  Tuesday | 
+                  Wednesday | 
                 </span>
-                Jan 12, 2021
+                Jan 13, 2021
               </p>
             </styled.p>
             <styled.div>

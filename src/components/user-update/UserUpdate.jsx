@@ -6,8 +6,13 @@ import { fetchUpdateUser } from "redux/actions/user";
 import { UserDetailsForm } from "./UserUpdate.styles";
 
 const UserUpdate = () => {
-  const [{ name, email, password }, setInput] = React.useState({});
   const { user } = useSelector((user) => user.user);
+  // To be able to use user data as default, I need to pass them in first
+  // This way I can use them as default values in form before updating
+  const [{ name, email, password }, setInput] = React.useState({
+    name: user.name,
+    email: user.email,
+  });
 
   const dispatch = useDispatch();
 
@@ -27,20 +32,13 @@ const UserUpdate = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name / Username</label>
-          <input
-            type="text"
-            name="name"
-            defaultValue={user.name}
-            value={name}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" value={name} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
-            defaultValue={user.email}
             value={email}
             onChange={handleChange}
           />

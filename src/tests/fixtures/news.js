@@ -146,6 +146,8 @@ export const errorNews = [
 
 export const width = 768;
 
+export const header = "Home";
+
 export const popularWithoutMedia = {
   results: [
     [

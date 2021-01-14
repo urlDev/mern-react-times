@@ -61,25 +61,27 @@ export const chartTimeFrame = "1hour";
 
 export const marketType = "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE";
 
-export const rating = {
-  date: "2020-12-18",
-  rating: "A+",
-  ratingDetailsDCFRecommendation: "Strong Buy",
-  ratingDetailsDCFScore: 5,
-  ratingDetailsDERecommendation: "Buy",
-  ratingDetailsDEScore: 4,
-  ratingDetailsPBRecommendation: "Strong Buy",
-  ratingDetailsPBScore: 5,
-  ratingDetailsPERecommendation: "Strong Buy",
-  ratingDetailsPEScore: 5,
-  ratingDetailsROARecommendation: "Neutral",
-  ratingDetailsROAScore: 3,
-  ratingDetailsROERecommendation: "Neutral",
-  ratingDetailsROEScore: 3,
-  ratingRecommendation: "Strong Buy",
-  ratingScore: 5,
-  symbol: "TSLA",
-};
+export const rating = [
+  {
+    date: "2020-12-18",
+    rating: "A+",
+    ratingDetailsDCFRecommendation: "Strong Buy",
+    ratingDetailsDCFScore: 5,
+    ratingDetailsDERecommendation: "Buy",
+    ratingDetailsDEScore: 4,
+    ratingDetailsPBRecommendation: "Strong Buy",
+    ratingDetailsPBScore: 5,
+    ratingDetailsPERecommendation: "Strong Buy",
+    ratingDetailsPEScore: 5,
+    ratingDetailsROARecommendation: "Neutral",
+    ratingDetailsROAScore: 3,
+    ratingDetailsROERecommendation: "Neutral",
+    ratingDetailsROEScore: 3,
+    ratingRecommendation: "Strong Buy",
+    ratingScore: 5,
+    symbol: "TSLA",
+  },
+];
 
 export const searchResult = {
   currency: "USD",

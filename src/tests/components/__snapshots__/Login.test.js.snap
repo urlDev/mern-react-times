@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Login component Should match snapshot 1`] = `
+<styled.div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      aria-label="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      type="email"
+      value=""
+    />
+    <input
+      aria-label="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <button
+      aria-label="login"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+  <h1
+    style={
+      Object {
+        "color": "white",
+        "marginBottom": "40px",
+        "textAlign": "center",
+      }
+    }
+  >
+    Don't have an account?
+     
+    <Link
+      style={
+        Object {
+          "color": "lightgray",
+        }
+      }
+      to="/profile/register"
+    >
+      Register
+    </Link>
+  </h1>
+</styled.div>
+`;

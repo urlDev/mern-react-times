@@ -1,0 +1,302 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing DetailsTable component Should match the snapshot 1`] = `
+<styled.div>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Symbol
+        </td>
+        <td>
+          TSLA
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price
+        </td>
+        <td>
+          $ 
+          665.31
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Percentage Change
+        </td>
+        <td>
+          %
+          -4.27
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price Average 50
+        </td>
+        <td>
+          $ 
+          530.535
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price Average 200
+        </td>
+        <td>
+          $ 
+          387.145
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Market Cap
+        </td>
+        <td>
+          $ 
+          630.65B
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Year High
+        </td>
+        <td>
+          $ 
+          695
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Year Low
+        </td>
+        <td>
+          $ 
+          70.102
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Volume
+        </td>
+        <td>
+          38.94M
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Rating
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          DCF Recommendation
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          DE Recommendation
+        </td>
+        <td>
+          Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          PB Recommendation
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          PE Recommendation
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ROA Recommendation
+        </td>
+        <td>
+          Neutral
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ROE Recommendation
+        </td>
+        <td>
+          Neutral
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</styled.div>
+`;
+
+exports[`Testing DetailsTable component Should not show marketDetails if it doesnt exist 1`] = `
+<styled.div>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Rating
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          DCF Recommendation
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          DE Recommendation
+        </td>
+        <td>
+          Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          PB Recommendation
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          PE Recommendation
+        </td>
+        <td>
+          Strong Buy
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ROA Recommendation
+        </td>
+        <td>
+          Neutral
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ROE Recommendation
+        </td>
+        <td>
+          Neutral
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</styled.div>
+`;
+
+exports[`Testing DetailsTable component Should not show rating if it doesnt exist 1`] = `
+<styled.div>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          Symbol
+        </td>
+        <td>
+          TSLA
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price
+        </td>
+        <td>
+          $ 
+          665.31
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Percentage Change
+        </td>
+        <td>
+          %
+          -4.27
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price Average 50
+        </td>
+        <td>
+          $ 
+          530.535
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price Average 200
+        </td>
+        <td>
+          $ 
+          387.145
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Market Cap
+        </td>
+        <td>
+          $ 
+          630.65B
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Year High
+        </td>
+        <td>
+          $ 
+          695
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Year Low
+        </td>
+        <td>
+          $ 
+          70.102
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Volume
+        </td>
+        <td>
+          38.94M
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</styled.div>
+`;

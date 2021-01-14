@@ -2,7 +2,9 @@ import { shallow } from "enzyme";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
+
 import StoryTopic from "components/story-topic/StoryTopic";
+import { header } from "tests/fixtures/news";
 
 describe("Testing StoryTopic component", () => {
   let wrapper;
@@ -10,7 +12,7 @@ describe("Testing StoryTopic component", () => {
 
   beforeEach(() => {
     store = mockStore({
-      header: "Home",
+      header,
     });
 
     jest

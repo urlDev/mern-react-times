@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Home component Testing component with MarketComponents Should match the snapshot 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <Switch>
+    <Route
+      component={[Function]}
+      path="/home"
+    />
+    <Route
+      component={[Function]}
+      path="/details/:symbol"
+    />
+    <Route
+      component={[Function]}
+      path="/search/:symbol"
+    />
+  </Switch>
+  <MarketComponents />
+</Fragment>
+`;
+
+exports[`Testing Home component Testing the component Error and Loading Should match snapshot 1`] = `
+<Fragment>
+  <ResponsiveNav />
+  <Switch>
+    <Loading
+      height="400px"
+    />
+    <Route
+      component={[Function]}
+      path="/details/:symbol"
+    />
+    <Route
+      component={[Function]}
+      path="/search/:symbol"
+    />
+  </Switch>
+  <ErrorFallback />
+</Fragment>
+`;

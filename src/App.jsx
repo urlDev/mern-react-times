@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "utils/react-redux-hooks";
 
 import { setWidth } from "./redux/actions/news";
 
@@ -18,6 +18,7 @@ const App = () => {
     });
 
     return () => {
+      console.log("return");
       window.removeEventListener("resize", () => {
         dispatch(setWidth(window.innerWidth));
       });

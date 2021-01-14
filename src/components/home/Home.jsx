@@ -53,11 +53,11 @@ const Home = () => {
         ) : (
           <Route
             path={`/${header.toLowerCase()}`}
-            render={() => <StoryComponents />}
+            component={StoryComponents}
           />
         )}
-        <Route path="/details/:symbol" render={() => <MarketDetails />} />
-        <Route path="/search/:symbol" render={() => <SearchResults />} />
+        <Route path="/details/:symbol" component={MarketDetails} />
+        <Route path="/search/:symbol" component={SearchResults} />
       </Switch>
       {errorChart ? <ErrorFallback /> : <MarketComponents />}
     </>

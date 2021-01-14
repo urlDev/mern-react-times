@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing DeleteModal Should match snapshot 1`] = `
+<styled.div
+  onClick={[Function]}
+  top={0}
+>
+  <styled.div>
+    <styled.div>
+      <h1>
+        Sure about this?
+      </h1>
+      <styled.div>
+        <button
+          onClick={[Function]}
+        >
+          Cancel
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

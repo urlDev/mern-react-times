@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing MarketDetails component Testing the component with user Should match snapshot 1`] = `
+<div
+  style={
+    Object {
+      "margin": "0 15px",
+    }
+  }
+>
+  <styled.div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <h1
+        style={
+          Object {
+            "marginTop": "10px",
+          }
+        }
+      >
+        Tesla, Inc.
+      </h1>
+      <styled.button
+        onClick={[Function]}
+      >
+        <img
+          alt="empty bookmark"
+          src="bookmarkEmpty.svg"
+        />
+      </styled.button>
+    </div>
+    <styled.button
+      active={false}
+      key="0"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginTop": "10px",
+        }
+      }
+    >
+      5min
+    </styled.button>
+    <styled.button
+      active={false}
+      key="1"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginTop": "10px",
+        }
+      }
+    >
+      15min
+    </styled.button>
+    <styled.button
+      active={false}
+      key="2"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginTop": "10px",
+        }
+      }
+    >
+      30min
+    </styled.button>
+    <styled.button
+      active={true}
+      key="3"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginTop": "10px",
+        }
+      }
+    >
+      1hour
+    </styled.button>
+  </styled.div>
+  <styled.div>
+    <ErrorBoundary
+      FallbackComponent={[Function]}
+    >
+      <Chart />
+      <DetailsTable />
+    </ErrorBoundary>
+  </styled.div>
+</div>
+`;

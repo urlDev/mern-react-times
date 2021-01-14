@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Register component Should match snapshot 1`] = `
+<styled.div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      aria-label="name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      type="text"
+      value=""
+    />
+    <input
+      aria-label="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      type="email"
+      value=""
+    />
+    <input
+      aria-label="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <button
+      aria-label="login"
+      type="submit"
+    >
+      Register
+    </button>
+  </form>
+  <h1
+    style={
+      Object {
+        "color": "white",
+        "marginBottom": "40px",
+        "textAlign": "center",
+      }
+    }
+  >
+    Do you have an account?
+     
+    <Link
+      style={
+        Object {
+          "color": "lightgray",
+        }
+      }
+      to="/profile/login"
+    >
+      Login
+    </Link>
+  </h1>
+</styled.div>
+`;

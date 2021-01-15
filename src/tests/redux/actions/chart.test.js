@@ -173,6 +173,14 @@ test("Should close the search modal", () => {
   });
 });
 
+test("Should toggle the search modal", () => {
+  const action = ChartActions.toggleSearchModal();
+
+  expect(action).toEqual({
+    type: ChartActions.TOGGLE_SEARCH_MODAL,
+  });
+});
+
 describe("Testing async functions", () => {
   beforeEach(() => {
     moxios.install();

@@ -13,6 +13,7 @@ import {
   UserModalLogout,
   UserModalMenu,
 } from "./UserModal.styles";
+import { closeSearchModal } from "redux/actions/chart";
 
 const UserModal = () => {
   const { width } = useSelector((news) => news.news);
@@ -46,8 +47,24 @@ const UserModal = () => {
           onMouseEnter={() => dispatch(userModalOpen())}
           onMouseLeave={() => dispatch(userModalClose())}
         >
-          <UserModalMenu to="/profile">Profile Details</UserModalMenu>
-          <UserModalMenu to="/profile/favorites">Favorites</UserModalMenu>
+          <UserModalMenu
+            to="/profile"
+            onClick={() => {
+              dispatch(closeSearchModal());
+              dispatch(userModalClose());
+            }}
+          >
+            Profile Details
+          </UserModalMenu>
+          <UserModalMenu
+            to="/profile/favorites"
+            onClick={() => {
+              dispatch(closeSearchModal());
+              dispatch(userModalClose());
+            }}
+          >
+            Favorites
+          </UserModalMenu>
         </UserModalContainer>
       )}
     </> //

@@ -13,6 +13,7 @@ import UserImage from "components/user-image/UserImage";
 
 import { Button } from "components/nav/Nav.styles";
 import { UserImageButton, UserImageContainer } from "./NavUserImage.styles.js";
+import { closeSearchModal } from "redux/actions/chart.js";
 
 const NavUserImage = () => {
   const { userModal } = useSelector((user) => user.user);
@@ -20,11 +21,10 @@ const NavUserImage = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    return [
-      dispatch(fetchLogoutUser()),
-      dispatch(cleanFavoriteState()),
-      localStorage.clear(),
-    ];
+    dispatch(fetchLogoutUser());
+    dispatch(closeSearchModal());
+    dispatch(cleanFavoriteState());
+    localStorage.clear();
   };
 
   return (

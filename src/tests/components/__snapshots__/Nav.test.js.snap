@@ -171,7 +171,9 @@ exports[`Testing Nav component Testing the component without user components Sho
     }
     to="/profile/login"
   >
-    <styled.button>
+    <styled.button
+      onClick={[Function]}
+    >
       Login
     </styled.button>
   </Link>

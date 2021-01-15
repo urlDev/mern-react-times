@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import moxios from "moxios";
 import { mount, shallow } from "enzyme";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
@@ -7,24 +8,28 @@ import { mockStore } from "tests/store";
 
 import MarketComponents from "components/market-components/MarketComponents";
 import { MarketMenu } from "components/market-components/MarketComponents.styles";
-import { forex, homeChartData } from "tests/fixtures/chart";
-
-// Mocking the fetch functions
-// To be able to mock useEffect
-// jest.mock("redux/actions/chart.js", () => {
-//   return {
-//     fetchHomeChart: () => jest.fn(),
-//     fetchForex: () => jest.fn(),
-//     changeMarketType: () => jest.fn(),
-//     changeMarketName: () => jest.fn(),
-//   };
-// });
+import {
+  chartData,
+  forex,
+  forexLengthTwo,
+  homeChartData,
+  marketType,
+} from "tests/fixtures/chart";
+import {
+  CLEAN_STATE,
+  fetchForex,
+  fetchHomeChart,
+  FETCH_FOREX_SUCCESS,
+  SET_LOADING_TRUE,
+} from "redux/actions/chart";
 
 describe("Testing MarketComponents component", () => {
   let store;
   let wrapper;
 
   beforeEach(() => {
+    jest.spyOn(React, "useEffect").mockImplementation((f) => f());
+
     jest
       .spyOn(ReactReduxHooks, "useSelector")
       .mockImplementation((state) => store.getState());
@@ -32,6 +37,12 @@ describe("Testing MarketComponents component", () => {
     jest
       .spyOn(ReactReduxHooks, "useDispatch")
       .mockImplementation(() => store.dispatch);
+
+    moxios.install();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
   });
 
   describe("Testing component without loading component", () => {
@@ -84,6 +95,7 @@ describe("Testing MarketComponents component", () => {
         marketName: "Commodities",
         forex,
         homeChartData,
+        marketType,
       });
 
       /*  Market menu uses styled component props
@@ -102,8 +114,6 @@ describe("Testing MarketComponents component", () => {
           </MarketComponents>
         </Router>
       );
-
-      wrapper.find("button").last().simulate("click");
     });
 
     afterEach(() => {
@@ -112,8 +122,11 @@ describe("Testing MarketComponents component", () => {
     });
 
     test("Should be change the market type and name on click", () => {
+      wrapper.find("button").last().simulate("click");
       const actions = store.getActions();
       expect(actions).toEqual([
+        { type: CLEAN_STATE },
+        { type: SET_LOADING_TRUE },
         {
           type: "CHANGE_MARKET_TYPE",
           payload: "ZGUSD,CLUSD,HGUSD,SIUSD,PLUSD,BZUSD",
@@ -122,6 +135,26 @@ describe("Testing MarketComponents component", () => {
       ]);
       //   taking a snapshot here because menu should have an active class
       expect(wrapper).toMatchSnapshot();
+    });
+    test("Should fetch the forex data", async () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: forexLengthTwo.data,
+        });
+      });
+
+      const expectedActions = [
+        { type: CLEAN_STATE },
+        { type: SET_LOADING_TRUE },
+        { type: FETCH_FOREX_SUCCESS, payload: forexLengthTwo.data },
+      ];
+
+      await store.dispatch(fetchForex(marketType));
+
+      const actions = store.getActions();
+      expect(actions).toEqual(expectedActions);
     });
   });
 });

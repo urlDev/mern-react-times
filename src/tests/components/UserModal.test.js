@@ -13,6 +13,7 @@ import {
 import { CLEAN_FAVORITE_STATE } from "redux/actions/favorite";
 
 import UserModal from "components/user-modal/UserModal";
+import { CLOSE_SEARCH_MODAL } from "redux/actions/chart";
 
 describe("Testing UserModal component", () => {
   let wrapper;
@@ -101,6 +102,24 @@ describe("Testing UserModal component", () => {
 
       const actions = store.getActions();
       expect(actions).toEqual([{ type: USER_MODAL_CLOSE }]);
+    });
+    test("Should close user and search modal on menu click", () => {
+      wrapper.childAt(0).childAt(0).simulate("click");
+
+      const actions = store.getActions();
+      expect(actions).toEqual([
+        { type: CLOSE_SEARCH_MODAL },
+        { type: USER_MODAL_CLOSE },
+      ]);
+    });
+    test("Should close user and search modal on second menu click", () => {
+      wrapper.childAt(0).childAt(1).simulate("click");
+
+      const actions = store.getActions();
+      expect(actions).toEqual([
+        { type: CLOSE_SEARCH_MODAL },
+        { type: USER_MODAL_CLOSE },
+      ]);
     });
   });
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LoadingContainer = styled.div`
   width: 100%;
-  height: ${(props) => props.height || "90px"};
+  height: ${(props) => props.height || "85px"};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -6,6 +6,7 @@ import {
   closeSearchModal,
   fetchSearch,
   openSearchModal,
+  toggleSearchModal,
 } from "redux/actions/chart";
 
 import SearchSrc from "assets/searchIcon.svg";
@@ -49,7 +50,7 @@ const Search = ({ icon }) => {
         <SearchIcon
           icon={icon}
           open={open}
-          onClick={() => dispatch(openSearchModal())}
+          onClick={() => dispatch(toggleSearchModal())}
         >
           <img src={SearchSrc} alt="search icon" />
         </SearchIcon>

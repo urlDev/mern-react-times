@@ -9,6 +9,7 @@ import { user } from "tests/fixtures/user";
 import Nav from "components/nav/Nav";
 import Search from "components/search/Search";
 import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders";
+import { CLOSE_SEARCH_MODAL } from "redux/actions/chart";
 
 // Test it with width smaller than 768 and bigger than 768
 // Check if StoryTopicHeaders and Search has been rendered
@@ -47,6 +48,12 @@ describe("Testing Nav component", () => {
     test("Should render Search component", () => {
       // when width is more than 768, Search component renders
       expect(wrapper.containsMatchingElement(<Search />)).toEqual(true);
+    });
+    test("Should close search modal on button click", () => {
+      wrapper.find("Link").childAt(0).simulate("click");
+
+      const actions = store.getActions();
+      expect(actions).toEqual([{ type: CLOSE_SEARCH_MODAL }]);
     });
   });
 

@@ -17,6 +17,7 @@ import { CLEAN_FAVORITE_STATE } from "redux/actions/favorite";
 
 import UserModal from "components/user-modal/UserModal";
 import NavUserImage from "components/nav-user-image/NavUserImage";
+import { CLOSE_SEARCH_MODAL } from "redux/actions/chart";
 
 describe("Testing NavUserImage component", () => {
   let store;
@@ -123,6 +124,7 @@ describe("Testing NavUserImage component", () => {
         const actions = store.getActions();
 
         expect(actions).toEqual([
+          { type: CLOSE_SEARCH_MODAL },
           { type: CLEAN_FAVORITE_STATE },
           { type: LOGOUT_USER },
         ]);

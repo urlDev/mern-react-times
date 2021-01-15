@@ -18,6 +18,11 @@ export const SET_SEARCH_MARKET_DETAIL = "SET_SEARCH_MARKET_DETAIL";
 export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS";
 export const OPEN_SEARCH_MODAL = "OPEN_SEARCH_MODAL";
 export const CLOSE_SEARCH_MODAL = "CLOSE_SEARCH_MODAL";
+export const TOGGLE_SEARCH_MODAL = "TOGGLE_SEARCH_MODAL";
+
+export const toggleSearchModal = () => ({
+  type: TOGGLE_SEARCH_MODAL,
+});
 
 export const closeSearchModal = () => ({
   type: CLOSE_SEARCH_MODAL,
@@ -156,7 +161,7 @@ Plus, its so clean!
 Yet another homerun for me! 😁😎
 */
 export const fetchHomeChart = (symbols) => async (dispatch) => {
-  const symbolsArray = symbols.split(",").sort();
+  const symbolsArray = symbols && symbols.split(",").sort();
   let charts = [];
 
   dispatch(cleanState());

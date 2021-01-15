@@ -19,6 +19,7 @@ import {
   CLEAR_SEARCH_RESULTS,
   OPEN_SEARCH_MODAL,
   CLOSE_SEARCH_MODAL,
+  TOGGLE_SEARCH_MODAL,
 } from "../../../redux/actions/chart";
 
 import {
@@ -261,5 +262,14 @@ test("Should set the search modals state to false", () => {
   expect(state).toEqual({
     ...initialState,
     open: false,
+  });
+});
+
+test("Should toggle the search modals state", () => {
+  const state = chartReducer(initialState, { type: TOGGLE_SEARCH_MODAL });
+
+  expect(state).toEqual({
+    ...initialState,
+    open: !initialState.open,
   });
 });

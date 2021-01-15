@@ -5,6 +5,7 @@ import { mockStore } from "tests/store";
 import { CHANGE_HEADER } from "redux/actions/news";
 
 import LogoComponent from "components/logo-component/LogoComponent";
+import { CLOSE_SEARCH_MODAL } from "redux/actions/chart";
 
 describe("Testing LogoComponent", () => {
   let store;
@@ -32,6 +33,9 @@ describe("Testing LogoComponent", () => {
     wrapper.find("img").simulate("click");
     const actions = store.getActions();
 
-    expect(actions).toEqual([{ type: CHANGE_HEADER, payload: "home" }]);
+    expect(actions).toEqual([
+      { type: CLOSE_SEARCH_MODAL },
+      { type: CHANGE_HEADER, payload: "home" },
+    ]);
   });
 });

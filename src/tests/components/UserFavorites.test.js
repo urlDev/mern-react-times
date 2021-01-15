@@ -1,3 +1,4 @@
+import React from "react";
 import { shallow } from "enzyme";
 import moxios from "moxios";
 
@@ -21,6 +22,8 @@ describe("Testing UserFavorites component", () => {
   let store;
 
   beforeEach(() => {
+    jest.spyOn(React, "useEffect").mockImplementation((f) => f());
+
     jest
       .spyOn(ReactReduxHooks, "useSelector")
       .mockImplementation((state) => store.getState());

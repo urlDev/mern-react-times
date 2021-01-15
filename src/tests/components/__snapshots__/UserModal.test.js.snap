@@ -7,11 +7,13 @@ exports[`Testing UserModal component Testing component when width is bigger than
     onMouseLeave={[Function]}
   >
     <Styled(Link)
+      onClick={[Function]}
       to="/profile"
     >
       Profile Details
     </Styled(Link)>
     <Styled(Link)
+      onClick={[Function]}
       to="/profile/favorites"
     >
       Favorites

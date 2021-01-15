@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
-import { SET_WIDTH } from "redux/actions/news";
+import { setWidth, SET_WIDTH } from "redux/actions/news";
 
 import App from "App";
 
@@ -55,14 +55,15 @@ describe("Testing App component", () => {
   });
   //   Will try to add cleanup testing here
 
-  //   test("Should clean the resize event", () => {
-  //     // global.removeEventListener(
-  //     //   new Event("resize"),
-  //     //   store.dispatch(setWidth(global.innerWidth)),
-  //     //   false
-  //     // );
-  //     wrapper.unmount();
-  //     const actions = store.getActions();
-  //     // expect(actions).toEqual([{ type: SET_WIDTH, payload: 500 }]);
-  //   });
+  // test("Should clean the resize event", () => {
+  //   global.removeEventListener(
+  //     new Event("resize"),
+  //     store.dispatch(setWidth(global.innerWidth)),
+  //     false
+  //   );
+  //   wrapper.unmount();
+  //   const actions = store.getActions();
+  //   // expect(actions).toEqual([{ type: SET_WIDTH, payload: 500 }]);
+  //   console.log(actions);
+  // });
 });

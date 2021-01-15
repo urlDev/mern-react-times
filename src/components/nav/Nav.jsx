@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "utils/react-redux-hooks";
+import { useSelector, useDispatch } from "utils/react-redux-hooks";
 import { Link } from "react-router-dom";
 
 import Search from "components/search/Search";
@@ -8,6 +8,7 @@ import NavUserImage from "components/nav-user-image/NavUserImage";
 import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders";
 
 import { Button, NavContainer } from "./Nav.styles";
+import { closeSearchModal } from "redux/actions/chart";
 
 const Nav = ({
   logo,
@@ -20,6 +21,8 @@ const Nav = ({
 }) => {
   const { user } = useSelector((user) => user.user);
   const { width } = useSelector((news) => news.news);
+  const dispatch = useDispatch();
+
   const path = window.location.pathname;
 
   return (
@@ -40,6 +43,9 @@ const Nav = ({
             hoverColor={hoverColor}
             background={background}
             color={color}
+            onClick={() => {
+              dispatch(closeSearchModal());
+            }}
           >
             {path === "/profile/login" ? "Register" : "Login"}
           </Button>

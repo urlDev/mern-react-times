@@ -11,6 +11,7 @@ import {
   GET_SEARCH_RESULTS,
   OPEN_SEARCH_MODAL,
   fetchSearch,
+  TOGGLE_SEARCH_MODAL,
 } from "redux/actions/chart";
 
 import Search from "components/search/Search";
@@ -87,12 +88,12 @@ describe("Testing Search component", () => {
     });
   });
 
-  test("Should open search modal on SearchIcon click", () => {
+  test("Should toggle search modal on SearchIcon click", () => {
     wrapper.find("a").simulate("click");
 
     const actions = store.getActions();
 
-    expect(actions).toEqual([{ type: OPEN_SEARCH_MODAL }]);
+    expect(actions).toEqual([{ type: TOGGLE_SEARCH_MODAL }]);
   });
 
   test("Should open search modal on form click, width < 768", () => {

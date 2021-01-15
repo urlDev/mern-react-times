@@ -206,16 +206,19 @@ exports[`Testing NavUserImage component Testing the component when width is smal
             onMouseLeave={[Function]}
           >
             <Styled(Link)
+              onClick={[Function]}
               to="/profile"
             >
               <Link
                 className="sc-hKgILt fiEPVh"
+                onClick={[Function]}
                 to="/profile"
               >
                 <LinkAnchor
                   className="sc-hKgILt fiEPVh"
                   href="/profile"
                   navigate={[Function]}
+                  onClick={[Function]}
                 >
                   <a
                     className="sc-hKgILt fiEPVh"
@@ -228,16 +231,19 @@ exports[`Testing NavUserImage component Testing the component when width is smal
               </Link>
             </Styled(Link)>
             <Styled(Link)
+              onClick={[Function]}
               to="/profile/favorites"
             >
               <Link
                 className="sc-hKgILt fiEPVh"
+                onClick={[Function]}
                 to="/profile/favorites"
               >
                 <LinkAnchor
                   className="sc-hKgILt fiEPVh"
                   href="/profile/favorites"
                   navigate={[Function]}
+                  onClick={[Function]}
                 >
                   <a
                     className="sc-hKgILt fiEPVh"

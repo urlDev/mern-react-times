@@ -109,6 +109,11 @@ const chartReducer = (state = initialState, action) => {
         ...state,
         open: false,
       };
+    case ChartActions.TOGGLE_SEARCH_MODAL:
+      return {
+        ...state,
+        open: !state.open,
+      };
     default:
       return state;
   }

@@ -54,17 +54,4 @@ describe("Testing App component", () => {
 
     expect(actions).toEqual([{ type: SET_WIDTH, payload: 500 }]);
   });
-  //   Will try to add cleanup testing here
-
-  // test("Should clean the resize event", () => {
-  //   global.removeEventListener(
-  //     new Event("resize"),
-  //     store.dispatch(setWidth(global.innerWidth)),
-  //     false
-  //   );
-  //   wrapper.unmount();
-  //   const actions = store.getActions();
-  //   // expect(actions).toEqual([{ type: SET_WIDTH, payload: 500 }]);
-  //   console.log(actions);
-  // });
 });

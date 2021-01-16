@@ -161,7 +161,7 @@ Plus, its so clean!
 Yet another homerun for me! 😁😎
 */
 export const fetchHomeChart = (symbols) => async (dispatch) => {
-  let symbolsArray = symbols.split(",").sort();
+  const symbolsArray = symbols.split(",").sort();
 
   let charts = [];
 
@@ -176,9 +176,7 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
       charts.push(data);
     }
 
-    return charts.length
-      ? [dispatch(setHomeChartData(charts)), dispatch(setLoading())]
-      : [dispatch(fetchChartError(charts)), dispatch(setLoading())];
+    return [dispatch(setHomeChartData(charts)), dispatch(setLoading())];
   } catch (error) {
     return dispatch(fetchChartError(error));
   }

@@ -149,12 +149,16 @@ export const chartData = [
 ];
 
 export const homeChartData = {
-  close: 660.2901,
-  date: "2020-12-21 13:00:00",
-  high: 661,
-  low: 657.82,
-  open: 658.02,
-  volume: 35149130,
+  data: [
+    {
+      close: 660.2901,
+      date: "2020-12-21 13:00:00",
+      high: 661,
+      low: 657.82,
+      open: 658.02,
+      volume: 35149130,
+    },
+  ],
 };
 
 export const forex = [

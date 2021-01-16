@@ -20,6 +20,10 @@ describe("Testing LogoComponent", () => {
 
     wrapper = shallow(<LogoComponent store={store} />);
   });
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
 
   test("Should render the component successfully", () => {
     expect(wrapper).toHaveLength(1);

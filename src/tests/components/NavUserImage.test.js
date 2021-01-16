@@ -33,6 +33,11 @@ describe("Testing NavUserImage component", () => {
       .mockImplementation(() => store.dispatch);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing the component when width is smaller than 768", () => {
     beforeEach(() => {
       // adding user because when UserImageButton renders,

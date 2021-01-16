@@ -31,6 +31,7 @@ describe("Testing App component", () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   test("Should render the component", () => {

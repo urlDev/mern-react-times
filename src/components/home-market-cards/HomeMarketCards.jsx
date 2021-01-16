@@ -71,7 +71,7 @@ const HomeMarketCards = () => {
               <h2> {data.changesPercentage}%</h2>
             </div>
 
-            {homeChartData.length ? (
+            {homeChartData.length > 5 ? (
               <MarketCardsChart index={index} />
             ) : (
               // I added div here for first chart to wait for homeChartData

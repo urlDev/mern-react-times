@@ -22,6 +22,11 @@ describe("Testing StoryTopic component", () => {
     wrapper = shallow(<StoryTopic store={store} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   test("Should render the component with header", () => {
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find("h1").text()).toEqual("Home");

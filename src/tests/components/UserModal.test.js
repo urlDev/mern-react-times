@@ -32,6 +32,8 @@ describe("Testing UserModal component", () => {
   });
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
   describe("Testing the component when width is smaller than 1024", () => {
     beforeEach(() => {

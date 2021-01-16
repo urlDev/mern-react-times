@@ -26,6 +26,11 @@ describe("Testing ResponsiveMenu component", () => {
     wrapper = mount(<ResponsiveMenu store={store} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   test("Should render the component", () => {
     expect(wrapper).toHaveLength(1);
   });

@@ -24,6 +24,11 @@ describe("Testing TopStories component", () => {
     wrapper = mount(<TopStories store={store} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   test("Should render component", () => {
     expect(wrapper).toHaveLength(1);
     // checking for if h1 has text of story section ('us' in here)

@@ -33,6 +33,8 @@ describe("Testing DeleteModal", () => {
 
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   test("Should render the component", () => {

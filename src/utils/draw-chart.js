@@ -29,6 +29,7 @@ const drawChart = ({ width, reDraw, chartData, svg, d3, index }) => {
   } else {
     // In market components, there are more than one chart
     // So I get their indexes from the component
+
     dates = chartData[index].map((value) => new Date(value.date));
   }
 

@@ -28,6 +28,11 @@ describe("Testing Nav component", () => {
       .mockImplementation(() => store.dispatch);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing the component without user components", () => {
     beforeEach(() => {
       store = mockStore({

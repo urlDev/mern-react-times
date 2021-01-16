@@ -35,7 +35,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watch --runInBand",
+    "test": "react-scripts test --watch",
     "cover": "react-scripts test  --watchAll --coverage",
     "eject": "react-scripts eject"
   },

@@ -20,6 +20,11 @@ describe("Testing UserDetails component", () => {
       .mockImplementation((state) => store.getState());
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing the component with user", () => {
     beforeEach(() => {
       store = mockStore({

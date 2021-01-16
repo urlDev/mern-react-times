@@ -14,6 +14,10 @@ describe("Testing LoginRegister component", () => {
       .spyOn(ReactReduxHooks, "useSelector")
       .mockImplementation((state) => store.getState());
   });
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
 
   describe("Testing components with no extra state", () => {
     beforeEach(() => {

@@ -50,6 +50,7 @@ describe("Testing Search component", () => {
   afterEach(() => {
     moxios.uninstall();
     jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   test("Should render the component", () => {

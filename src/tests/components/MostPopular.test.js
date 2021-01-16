@@ -17,6 +17,11 @@ describe("Testing MostPopular component", () => {
       .mockImplementation((state) => store.getState());
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing the component with popular news fetched", () => {
     beforeEach(() => {
       store = mockStore({

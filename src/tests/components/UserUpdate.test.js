@@ -30,6 +30,8 @@ describe("Testing UserUpdate component", () => {
   });
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
   test("Should render the component", () => {
     expect(wrapper).toHaveLength(1);

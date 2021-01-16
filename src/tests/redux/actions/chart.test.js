@@ -2,7 +2,7 @@ import moxios from "moxios";
 
 import * as ChartActions from "redux/actions/chart";
 
-import { store } from "../../store";
+import { mockStore, resetStore } from "../../store";
 
 import {
   forexLengthTwo,
@@ -16,6 +16,7 @@ import {
   marketDetail,
   chartData,
   homeChartData,
+  searchResults,
 } from "tests/fixtures/chart";
 
 test("Should fetch forex successfully", () => {
@@ -182,13 +183,18 @@ test("Should toggle the search modal", () => {
 });
 
 describe("Testing async functions", () => {
+  let store;
+
   beforeEach(() => {
+    store = mockStore({});
     moxios.install();
-    store.clearActions();
   });
 
   afterEach(() => {
     moxios.uninstall();
+    resetStore();
+    jest.clearAllMocks();
+    jest.restoreAllMocks();
   });
 
   describe("Testing fetchForex async function", () => {
@@ -359,58 +365,52 @@ describe("Testing async functions", () => {
   });
 
   describe("Testing fetchHomeChart async function", () => {
-    //   test("Should fetch the charts successfully", () => {
-    //     moxios.wait(() => {
-    //       const request = moxios.requests.mostRecent();
-    //       request.respondWith({
-    //         status: 200,
-    //         response: chartData,
-    //       });
-    //     });
+    test("Should fetch the charts successfully", () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200,
+          response: chartData,
+        });
+      });
 
-    //     const expectedActions = [
-    //       { type: CLEAN_STATE },
-    //       { type: SET_LOADING_TRUE },
-    //       {
-    //         type: SET_HOME_CHART_DATA,
-    //         payload: [chartData],
-    //       },
-    //       { type: SET_LOADING },
-    //     ];
+      const expectedActions = [
+        { type: ChartActions.CLEAN_STATE },
+        { type: ChartActions.SET_LOADING_TRUE },
+        {
+          type: ChartActions.SET_HOME_CHART_DATA,
+          payload: [chartData],
+        },
+        { type: ChartActions.SET_LOADING },
+      ];
 
-    //     return store.dispatch(fetchHomeChart(marketType)).then(() => {
-    //       const actionsGetCalled = store.getActions();
-
-    //       expect(actionsGetCalled).toEqual(expectedActions);
-    //     });
-    //   });
-
-    // test("Should show an error if there is limit/API related problems", () => {
-    //   moxios.wait(() => {
-    //     const request = moxios.requests.mostRecent();
-    //     request.respondWith({
-    //       status: 200,
-    //       response: errorChart,
-    //     });
-    //   });
-
-    //   const expectedActions = [
-    //     { type: CLEAN_STATE },
-    //     { type: SET_LOADING_TRUE },
-    //     {
-    //       type: FETCH_CHART_ERROR,
-    //       payload: errorChart,
-    //     },
-    //     { type: SET_LOADING },
-    //   ];
-
-    //   return store.dispatch(fetchHomeChart(marketType)).then(() => {
-    //     const actionsGetCalled = store.getActions();
-
-    //     expect(actionsGetCalled).toEqual(expectedActions);
+      return store.dispatch(ChartActions.fetchHomeChart()).then(() => {
+        const actionsGetCalled = store.getActions();
+        expect(actionsGetCalled).toEqual(expectedActions);
+      });
+    });
+    // test("Should show an error if there is limit/API related problems", async (done) => {
+    // moxios.wait(() => {
+    //   const request = moxios.requests.mostRecent();
+    //   request.respondWith({
+    //     status: 200,
+    //     response: errorChart,
     //   });
     // });
-
+    // const expectedActions = [
+    //   { type: ChartActions.CLEAN_STATE },
+    //   { type: ChartActions.SET_LOADING_TRUE },
+    //   {
+    //     type: ChartActions.FETCH_CHART_ERROR,
+    //     payload: errorChart,
+    //   },
+    //   { type: ChartActions.SET_LOADING },
+    // ];
+    // const actionsGetCalled = store.getActions();
+    // await store.dispatch(ChartActions.fetchHomeChart(marketType));
+    //  expect(actionsGetCalled).toEqual(expectedActions);
+    // console.log(actionsGetCalled);
+    // });
     test("Should show error if there is any", () => {
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
@@ -430,7 +430,6 @@ describe("Testing async functions", () => {
         .dispatch(ChartActions.fetchHomeChart(marketType))
         .then(() => {
           const actionsGetCalled = store.getActions();
-
           expect(actionsGetCalled).toEqual(expectedActions);
         });
     });
@@ -442,19 +441,21 @@ describe("Testing async functions", () => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 200,
-          response: searchResult,
+          response: searchResults,
         });
       });
 
-      const expectedActions = {
-        type: ChartActions.GET_SEARCH_RESULTS,
-        payload: searchResult,
-      };
+      const expectedActions = [
+        {
+          type: ChartActions.GET_SEARCH_RESULTS,
+          payload: searchResults,
+        },
+      ];
 
       return store.dispatch(ChartActions.fetchSearch("TSLA")).then(() => {
         const actionsGetCalled = store.getActions();
 
-        expect(actionsGetCalled[0]).toEqual(expectedActions);
+        expect(actionsGetCalled).toEqual(expectedActions);
       });
     });
 

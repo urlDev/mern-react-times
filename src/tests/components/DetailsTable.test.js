@@ -24,6 +24,11 @@ describe("Testing DetailsTable component", () => {
     wrapper = shallow(<DetailsTable store={store} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   test("Should render the component with marketDetail and rating", () => {
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find("td").first().text()).toEqual("Symbol");

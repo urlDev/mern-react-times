@@ -38,6 +38,8 @@ describe("Testing Home component", () => {
   });
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   describe("Testing component with MarketComponents", () => {

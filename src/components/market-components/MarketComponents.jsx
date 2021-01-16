@@ -32,8 +32,10 @@ const MarketComponents = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchForex(marketType));
-    dispatch(fetchHomeChart(marketType));
+    if (marketType) {
+      dispatch(fetchForex(marketType));
+      dispatch(fetchHomeChart(marketType));
+    }
   }, [dispatch, marketType]);
 
   return (

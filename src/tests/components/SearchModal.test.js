@@ -35,6 +35,11 @@ describe("Testing SearchModal component", () => {
       .mockImplementation(() => store.dispatch);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing component with search results", () => {
     beforeEach(() => {
       store = mockStore({

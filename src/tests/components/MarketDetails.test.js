@@ -45,6 +45,8 @@ describe("Testing MarketDetails component", () => {
 
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   describe("Testing the component with user", () => {

@@ -27,6 +27,8 @@ describe("Testing UserAvatar component", () => {
 
   afterEach(() => {
     moxios.uninstall();
+    jest.resetAllMocks();
+    jest.clearAllMocks();
   });
 
   test("Should render the component", () => {

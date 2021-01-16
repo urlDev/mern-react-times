@@ -28,6 +28,11 @@ describe("Testing ErrorFallback component", () => {
     wrapper = shallow(<ErrorFallback store={store} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   test("Should render the component successfully", () => {
     expect(wrapper).toHaveLength(1);
   });

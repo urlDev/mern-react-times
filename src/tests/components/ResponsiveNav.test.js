@@ -23,6 +23,11 @@ describe("Testing ResponsiveNav component", () => {
       .mockImplementation(() => store.dispatch);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing for when the width is smaller than 768", () => {
     beforeEach(() => {
       store = mockStore({

@@ -17,6 +17,11 @@ describe("Testing UserImage component", () => {
       .mockImplementation((state) => store.getState());
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing component with user", () => {
     beforeEach(() => {
       store = mockStore({

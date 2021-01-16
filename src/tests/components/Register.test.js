@@ -36,6 +36,8 @@ describe("Testing Register component", () => {
 
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
   test("Should render component", () => {
     expect(wrapper).toHaveLength(1);

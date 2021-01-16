@@ -21,6 +21,11 @@ describe("Testing UserAccountDelete component", () => {
     wrapper = shallow(<UserAccountDelete store={store} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   test("Should render the component", () => {
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find("h1").text()).toEqual("I want to delete my account!");

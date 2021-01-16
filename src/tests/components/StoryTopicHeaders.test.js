@@ -23,6 +23,11 @@ describe("Testing StoryTopicHeaders component", () => {
       .mockImplementation(() => store.dispatch);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   describe("Testing the component for when width is smaller than 1024", () => {
     beforeEach(() => {
       store = mockStore({

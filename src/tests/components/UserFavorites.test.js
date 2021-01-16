@@ -37,6 +37,8 @@ describe("Testing UserFavorites component", () => {
 
   afterEach(() => {
     moxios.uninstall();
+    jest.clearAllMocks();
+    jest.resetAllMocks();
   });
 
   describe("Testing component with favorites", () => {

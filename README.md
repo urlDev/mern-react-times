@@ -22,6 +22,14 @@ financial instrument data and their chart. Secondly, in market details page. The
 one in market details page is also responsive and can show different time
 frames.
 
+![React-times-chart-demo](demo/reactTimesChart.gif)
+
+## Testing
+
+I tested the app with Jest, Enzyme, Moxios and Redux Mock Store. After 284
+tests, app has 90% line coverage. I will be working on testing styled components
+as I learn.
+
 ## Profile Update
 
 ![Jiffy Profile update](https://i.paste.pics/37365506fbd4cf4472495e6895ac92d9.png)

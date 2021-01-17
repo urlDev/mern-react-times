@@ -367,6 +367,8 @@ describe("Testing async functions", () => {
   describe("Testing fetchHomeChart async function", () => {
     // These test fails, because of no return value in fetchHomeChart function
     // Works in components
+    // This example worked at first try, array reduce
+    // https://stackoverflow.com/a/49499491/12910601
     // test("Should fetch the charts successfully", async () => {
     //   moxios.wait(() => {
     //     const request = moxios.requests.mostRecent();

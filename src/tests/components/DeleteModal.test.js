@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState as useStateMock } from "react";
 import { shallow } from "enzyme";
 import moxios from "moxios";
 
@@ -16,11 +16,24 @@ import DeleteModal from "components/delete-modal/DeleteModal";
 describe("Testing DeleteModal", () => {
   let wrapper;
   let store;
+  let setState;
+  let useStateMock;
+  let reactMock;
+
+  jest.mock("react", () => ({
+    ...jest.requireActual("react"),
+    useState: jest.fn(),
+  }));
 
   beforeEach(() => {
     store = mockStore({});
 
-    jest.spyOn(React, "useEffect").mockImplementationOnce((f) => f());
+    setState = jest.fn();
+    useStateMock = (initState = global.scrollY) => [initState, setState];
+
+    jest.spyOn(React, "useState").mockImplementation(useStateMock);
+
+    jest.spyOn(React, "useEffect").mockImplementation((f) => f());
 
     jest
       .spyOn(ReactReduxHooks, "useDispatch")
@@ -77,5 +90,19 @@ describe("Testing DeleteModal", () => {
       },
       { type: DELETE_USER },
     ]);
+  });
+  test("Should set scroll value", () => {
+    global.scrollY = 1000;
+
+    global.dispatchEvent(new Event("scroll"));
+
+    // First one gets called in useEffect
+    expect(setState).toHaveBeenCalledTimes(1);
+
+    // Second one is for useEffect return
+    global.removeEventListener(new Event("scroll"), setState(global.scrollY));
+
+    expect(setState).toHaveBeenCalledTimes(2);
+    expect(setState).toHaveBeenCalledWith(global.scrollY);
   });
 });

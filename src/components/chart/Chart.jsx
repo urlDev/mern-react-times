@@ -14,13 +14,15 @@ const Chart = () => {
   React.useEffect(() => {
     const svg = d3.select(d3Ref.current);
 
-    drawChart({
-      reDraw: true,
-      chartData,
-      width,
-      svg,
-      d3,
-    });
+    if (chartData.length) {
+      drawChart({
+        reDraw: true,
+        chartData,
+        width,
+        svg,
+        d3,
+      });
+    }
 
     return () => {
       // clean the canvas for the next chart

@@ -11,13 +11,15 @@ const MarketCardsChart = ({ index }) => {
   React.useEffect(() => {
     const svg = d3.select(d3HomeRef.current);
 
-    drawChart({
-      reDraw: false,
-      chartData: homeChartData,
-      svg,
-      d3,
-      index,
-    });
+    if (homeChartData.length) {
+      drawChart({
+        reDraw: false,
+        chartData: homeChartData,
+        svg,
+        d3,
+        index,
+      });
+    }
 
     return () => {
       // clean the canvas for the next chart

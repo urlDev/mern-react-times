@@ -1,5 +1,6 @@
 import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
+import moment from "moment";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
@@ -21,6 +22,9 @@ describe("Testing StoryTopicHeaders component", () => {
     jest
       .spyOn(ReactReduxHooks, "useDispatch")
       .mockImplementation(() => store.dispatch);
+
+    // Mocking moment().format()
+    Date.now = jest.fn(() => new Date("2021-01-16T00:00:00.000Z"));
   });
 
   afterEach(() => {

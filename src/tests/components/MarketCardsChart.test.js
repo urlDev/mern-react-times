@@ -4,19 +4,15 @@ import { shallow } from "enzyme";
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
 
-import Chart from "components/chart/Chart";
+import MarketCardsChart from "components/market-cards-chart/MarketCardsChart";
 
 describe("Testing Chart component", () => {
   let wrapper;
   let store;
 
   beforeEach(() => {
-    // given empty array,
-    // component renders svg
-    // but when given chartData, d3 gives error
     store = mockStore({
-      chartData: [],
-      width: 700,
+      homeChartData: [],
     });
 
     jest.spyOn(React, "useEffect").mockImplementation((f) => f());
@@ -25,7 +21,7 @@ describe("Testing Chart component", () => {
       .spyOn(ReactReduxHooks, "useSelector")
       .mockImplementation((state) => store.getState());
 
-    wrapper = shallow(<Chart store={store} />);
+    wrapper = shallow(<MarketCardsChart store={store} />);
   });
 
   test("Should render the component", () => {

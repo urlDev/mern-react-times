@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+/* Top value is needed for scroll if JS solutions would be chosen */
+/* top: ${(props) => props.top}px; */
+
 export const ModalContainerAllPage = styled.div`
   position: fixed;
-  /* top: ${(props) => props.top}px; */
   top: 0;
   left: 0;
   bottom: 0;

@@ -3,7 +3,6 @@
 exports[`Testing DeleteModal Should match snapshot 1`] = `
 <styled.div
   onClick={[Function]}
-  top={0}
 >
   <styled.div>
     <styled.div>

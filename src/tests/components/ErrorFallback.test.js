@@ -1,4 +1,6 @@
 import { shallow } from "enzyme";
+import renderer from "react-test-renderer";
+import "jest-styled-components";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
@@ -6,6 +8,7 @@ import { mockStore } from "tests/store";
 import { error, errorChart } from "tests/fixtures/chart";
 
 import ErrorFallback from "components/error-fallback/ErrorFallback";
+import { ErrorContainer } from "components/error-fallback/ErrorFallback.styles";
 
 // This component show two types of error
 // 1. Errors coming from error boundary; errors regarding app
@@ -51,5 +54,14 @@ describe("Testing ErrorFallback component", () => {
     const state = store.getState();
 
     expect(state).toEqual({ errorChart });
+  });
+
+  test("it applies styles according to default props", () => {
+    const wrapper = renderer.create(<ErrorContainer />).toJSON();
+    expect(wrapper).toHaveStyleRule("height", "120px");
+  });
+  test("it applies styles according to passed props", () => {
+    const wrapper = renderer.create(<ErrorContainer height="420px" />).toJSON();
+    expect(wrapper).toHaveStyleRule("height", "420px");
   });
 });

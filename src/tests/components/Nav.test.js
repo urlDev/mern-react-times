@@ -26,6 +26,8 @@ describe("Testing Nav component", () => {
     jest
       .spyOn(ReactReduxHooks, "useDispatch")
       .mockImplementation(() => store.dispatch);
+
+    Date.now = jest.fn(() => new Date("2021-01-16T00:00:00.000Z"));
   });
 
   afterEach(() => {

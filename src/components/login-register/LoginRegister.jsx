@@ -34,7 +34,7 @@ const LoginRegister = () => {
           </Background>
 
           {loadingUser ? (
-            <Loading height="99vh" logoSrc={WhiteLogoSrc} login={true} />
+            <Loading height="100vh" logoSrc={WhiteLogoSrc} login={true} />
           ) : (
             <>
               <Nav

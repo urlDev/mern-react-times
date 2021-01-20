@@ -1,6 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing MostPopular component Testing the component with popular news fetched Should match the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 55px;
+  padding: 0 0 0 40px;
+}
+
+.c1 {
+  font-family: var(--font-header);
+  font-size: var(--size-category-selected);
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.c3 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #707070;
+  font-size: var(--size-sub-menu);
+  font-family: var(--font-links);
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+}
+
+.c3:hover {
+  color: black;
+}
+
+.c3:after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 43px;
+  background: var(--gray);
+  height: 2px;
+}
+
+@media (max-width:1400px) {
+  .c2 {
+    width: 100%;
+    min-width: 300px;
+  }
+}
+
+@media (max-width:830px) {
+  .c2 {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+  }
+}
+
+@media (max-width:600px) {
+  .c2 {
+    grid-template-columns: 1fr;
+    min-width: 100%;
+  }
+}
+
+@media (max-width:830px) {
+  .c0 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 <MostPopular
   store={
     Object {
@@ -15,18 +94,18 @@ exports[`Testing MostPopular component Testing the component with popular news f
 >
   <styled.div>
     <div
-      className="sc-gsTCUz eHafBp"
+      className="c0"
     >
       <styled.h1>
         <h1
-          className="sc-dlfnbm gSbXkV"
+          className="c1"
         >
           Most Popular
         </h1>
       </styled.h1>
       <styled.div>
         <div
-          className="sc-bdfBwQ fAYDxq"
+          className="c2"
         >
           <styled.a
             href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
@@ -34,7 +113,7 @@ exports[`Testing MostPopular component Testing the component with popular news f
             target="_blank"
           >
             <a
-              className="sc-iBPRYJ kLbAWW"
+              className="c3"
               href="https://www.nytimes.com/trending/?action=click&contentCollection=Africa&module=MostEmailed&pgtype=article&region=Marginalia&src=me&version=Full"
               target="_blank"
             >

@@ -9,8 +9,8 @@ export const LoadingContainer = styled.div`
   ${({ login }) =>
     login &&
     `
-      background: #0000008e
-      height: 100%;
+      background: #0000008e;
+      
       
       div {
     border: 1px solid white;

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing HomeMarketCards component Should match snapshot 1`] = `
+<Slider
+  autoplay={true}
+  cssEase="linear"
+  infinite={true}
+  responsive={
+    Array [
+      Object {
+        "breakpoint": 1024,
+        "settings": Object {
+          "slidesToScroll": 1,
+          "slidesToShow": 3,
+        },
+      },
+      Object {
+        "breakpoint": 600,
+        "settings": Object {
+          "slidesToScroll": 1,
+          "slidesToShow": 2.5,
+        },
+      },
+      Object {
+        "breakpoint": 480,
+        "settings": Object {
+          "slidesToScroll": 1,
+          "slidesToShow": 1.5,
+        },
+      },
+    ]
+  }
+  slidesToScroll={1}
+  slidesToShow={5}
+  speed={8000}
+>
+  <div
+    key="0"
+  >
+    <Styled(Link)
+      onClick={[Function]}
+      percentage={-0.41}
+      to="/details/^dji"
+    >
+      <div>
+        <h1>
+          DJI
+        </h1>
+        <h1
+          style={
+            Object {
+              "fontSize": "var(--size-sub-menu)",
+              "fontWeight": "normal",
+            }
+          }
+        >
+          $ 
+          30179.05
+        </h1>
+        <h2>
+           
+          -0.41
+          %
+        </h2>
+      </div>
+      <styled.div />
+    </Styled(Link)>
+  </div>
+</Slider>
+`;

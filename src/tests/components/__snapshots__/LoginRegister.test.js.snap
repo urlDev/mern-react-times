@@ -73,7 +73,7 @@ exports[`Testing LoginRegister component Testing the component with a given stat
         />
       </styled.picture>
       <Loading
-        height="99vh"
+        height="100vh"
         login={true}
         logoSrc="loadingWhite.svg"
       />

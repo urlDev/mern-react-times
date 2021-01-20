@@ -18,7 +18,6 @@ const App = () => {
     });
 
     return () => {
-      console.log("return");
       window.removeEventListener("resize", () => {
         dispatch(setWidth(window.innerWidth));
       });

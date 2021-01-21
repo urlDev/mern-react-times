@@ -1,6 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import moxios from "moxios";
+import renderer from "react-test-renderer";
+import "jest-styled-components";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
@@ -16,6 +18,7 @@ import { user } from "tests/fixtures/user";
 import { favorite, favorites } from "tests/fixtures/favorite";
 
 import UserFavorites from "components/user-favorites/UserFavorites";
+import { StockPercentage } from "components/user-favorites/UserFavorites.styles";
 
 describe("Testing UserFavorites component", () => {
   let wrapper;
@@ -123,5 +126,15 @@ describe("Testing UserFavorites component", () => {
       expect(wrapper.find("h1").contains("No favorites added.")).toBeTruthy();
       expect(wrapper).toMatchSnapshot();
     });
+  });
+  test("Should apply styles to StockPercentage according to default", () => {
+    wrapper = renderer.create(<StockPercentage percentage="-1" />).toJSON();
+    // Default values in styles
+    expect(wrapper).toHaveStyleRule("color", "var(--red)");
+  });
+  test("Should apply styles to StockPercentage according to passed props", () => {
+    wrapper = renderer.create(<StockPercentage percentage="2" />).toJSON();
+    // Passed props to component
+    expect(wrapper).toHaveStyleRule("color", "var(--green)");
   });
 });

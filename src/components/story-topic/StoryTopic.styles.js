@@ -46,7 +46,7 @@ export const TimeFrame = styled.button`
     `
 background: black;
 color: white;
-border: 1 px solid transparent;
+border: 1px solid transparent;
 `}
   :focus {
     outline: none;

@@ -45,18 +45,18 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
           borderBottom="1px solid lightgray"
         >
           <nav
-            className="sc-fFubgz oXncf"
+            className="sc-bkzZxe gEOCrV"
           >
             <StoryTopicHeaders
               icon="block"
             >
               <styled.div>
                 <div
-                  className="sc-gKsewC eaXThG"
+                  className="sc-iBPRYJ kSTahC"
                 >
                   <styled.p>
                     <p
-                      className="sc-fubCfw xmgMz"
+                      className="sc-pFZIQ cGvNpk"
                     >
                       <span>
                         Saturday | 
@@ -66,7 +66,7 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
                   </styled.p>
                   <styled.div>
                     <div
-                      className="sc-iBPRYJ bIHeZx"
+                      className="sc-fubCfw tAnSQ"
                     >
                       <ResponsiveMenu
                         icon="block"
@@ -78,7 +78,7 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
                         >
                           <div
                             alt="hamburger menu"
-                            className="sc-jSgupP hrGWQi"
+                            className="sc-gKsewC gMUjqL"
                             onClick={[Function]}
                           >
                             <img
@@ -100,16 +100,16 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
                 to="/home"
               >
                 <Link
-                  className="sc-iqHYGH ispwsz"
+                  className="sc-crrsfI GrSVm"
                   to="/home"
                 >
                   <LinkAnchor
-                    className="sc-iqHYGH ispwsz"
+                    className="sc-crrsfI GrSVm"
                     href="/home"
                     navigate={[Function]}
                   >
                     <a
-                      className="sc-iqHYGH ispwsz"
+                      className="sc-crrsfI GrSVm"
                       href="/home"
                       onClick={[Function]}
                     >
@@ -131,13 +131,13 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
             <NavUserImage>
               <styled.div>
                 <div
-                  className="sc-idOhPF kfwykG"
+                  className="sc-dIUggk khhrJB"
                 >
                   <styled.button
                     onClick={[Function]}
                   >
                     <button
-                      className="sc-dIUggk ErPaS"
+                      className="sc-hHftDr bKLrHh"
                       onClick={[Function]}
                     >
                       <UserImage
@@ -149,7 +149,7 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
                           margin="10px"
                         >
                           <picture
-                            className="sc-fodVxV gdNcZA"
+                            className="sc-fFubgz cqeoaP"
                           >
                             <source
                               srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
@@ -175,18 +175,26 @@ exports[`Testing ResponsiveNav component Testing for when the width is smaller t
       >
         <styled.div>
           <div
-            className="sc-eCssSg ivKkzB"
+            className="sc-eCssSg bIrBTP"
           >
             <form
               onClick={[Function]}
               onSubmit={[Function]}
             >
-              <input
+              <styled.input
                 onChange={[Function]}
                 placeholder="Search for a company or symbol"
                 type="text"
                 value=""
-              />
+              >
+                <input
+                  className="sc-jSgupP ibTSId"
+                  onChange={[Function]}
+                  placeholder="Search for a company or symbol"
+                  type="text"
+                  value=""
+                />
+              </styled.input>
               <styled.a
                 icon="block"
                 onClick={[Function]}
@@ -256,25 +264,33 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
           borderBottom="1px solid lightgray"
         >
           <nav
-            className="sc-fFubgz oXncf"
+            className="sc-bkzZxe gEOCrV"
           >
             <Search
               icon="block"
             >
               <styled.div>
                 <div
-                  className="sc-eCssSg ivKkzB"
+                  className="sc-eCssSg bIrBTP"
                 >
                   <form
                     onClick={null}
                     onSubmit={[Function]}
                   >
-                    <input
+                    <styled.input
                       onChange={[Function]}
                       placeholder="Search for a company or symbol"
                       type="text"
                       value=""
-                    />
+                    >
+                      <input
+                        className="sc-jSgupP ibTSId"
+                        onChange={[Function]}
+                        placeholder="Search for a company or symbol"
+                        type="text"
+                        value=""
+                      />
+                    </styled.input>
                     <styled.a
                       icon="block"
                       onClick={[Function]}
@@ -301,16 +317,16 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
                 to="/home"
               >
                 <Link
-                  className="sc-iqHYGH ispwsz"
+                  className="sc-crrsfI GrSVm"
                   to="/home"
                 >
                   <LinkAnchor
-                    className="sc-iqHYGH ispwsz"
+                    className="sc-crrsfI GrSVm"
                     href="/home"
                     navigate={[Function]}
                   >
                     <a
-                      className="sc-iqHYGH ispwsz"
+                      className="sc-crrsfI GrSVm"
                       href="/home"
                       onClick={[Function]}
                     >
@@ -332,14 +348,14 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
             <NavUserImage>
               <styled.div>
                 <div
-                  className="sc-idOhPF kfwykG"
+                  className="sc-dIUggk khhrJB"
                 >
                   <styled.button
                     onClick={[Function]}
                     type="button"
                   >
                     <button
-                      className="sc-bkzZxe dsHWOy"
+                      className="sc-idOhPF cedOKG"
                       onClick={[Function]}
                       type="button"
                     >
@@ -350,7 +366,7 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
                     onClick={[Function]}
                   >
                     <button
-                      className="sc-dIUggk ErPaS"
+                      className="sc-hHftDr bKLrHh"
                       onClick={[Function]}
                     >
                       <UserImage
@@ -362,7 +378,7 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
                           margin="10px"
                         >
                           <picture
-                            className="sc-fodVxV gdNcZA"
+                            className="sc-fFubgz cqeoaP"
                           >
                             <source
                               srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"
@@ -388,11 +404,11 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
       >
         <styled.div>
           <div
-            className="sc-gKsewC eaXThG"
+            className="sc-iBPRYJ kSTahC"
           >
             <styled.p>
               <p
-                className="sc-fubCfw xmgMz"
+                className="sc-pFZIQ cGvNpk"
               >
                 <span>
                   Saturday | 
@@ -402,7 +418,7 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
             </styled.p>
             <styled.div>
               <div
-                className="sc-iBPRYJ bIHeZx"
+                className="sc-fubCfw tAnSQ"
               >
                 <ResponsiveMenu
                   icon="block"
@@ -414,7 +430,7 @@ exports[`Testing ResponsiveNav component Testing the component for when the widt
                   >
                     <div
                       alt="hamburger menu"
-                      className="sc-jSgupP hrGWQi"
+                      className="sc-gKsewC gMUjqL"
                       onClick={[Function]}
                     >
                       <img

@@ -19,26 +19,24 @@ Design inspiration is from
 
 I added charts to various pages:
 
-:white_check_mark: First, with market cards that show different
-financial instrument data and their chart. 
+:white_check_mark: First, with market cards that show different financial
+instrument data and their chart.
 
-:white_check_mark: Secondly, in market details page. The
-one in market details page is also responsive and can show different time
-frames.
+:white_check_mark: Secondly, in market details page. The one in market details
+page is also responsive and can show different time frames.
 
 ![React-times-chart-demo](demo/reactTimesChart.gif)
 
 ## :microscope: Testing
 
-I tested the app with Jest, Enzyme, Moxios and Redux Mock Store. After 284
-tests, app has 90% line coverage. I will be working on testing styled components
-as I learn.
-
+I tested the app with **Jest, Enzyme, Moxios and Redux Mock Store**. For testing
+styled components, I used **React-Test-Renderer and Jest-Styled-Components**.
+After 309 tests, app has 92% line coverage.
 
 ## Pages
 
 <p float="left">
-  <img src="https://i.paste.pics/37365506fbd4cf4472495e6895ac92d9.png" width="32%" alt='profile update page' />
-  <img src="https://i.paste.pics/b12e46504282e9d9b4926e0973310563.png" width="32%" alt='user favorites page' /> 
-  <img src="https://i.paste.pics/ee9714ddf3d385495e45321f15351189.png" width="32%" alt='login register page' />
+  <img src="https://i.paste.pics/37365506fbd4cf4472495e6895ac92d9.png" width="33%" alt='profile update page' />
+  <img src="https://i.paste.pics/b12e46504282e9d9b4926e0973310563.png" width="33%" alt='user favorites page' /> 
+  <img src="https://i.paste.pics/ee9714ddf3d385495e45321f15351189.png" width="33%" alt='login register page' />
 </p>

@@ -24,29 +24,29 @@ export const NavSearchContainer = styled.div`
     width: 100%;
   }
 
-  input {
-    transition: all 1.5s ease-in-out;
-    width: ${({ open }) => (open ? "100%" : "0px")};
-    margin-right: ${({ open }) => (open ? "5px" : "0")};
-    visibility: ${({ open }) => (open ? "visible" : "hidden")};
-    border: none;
-    outline: none;
-    font-family: var(--font-links);
-    font-size: var(--size-sub-menu);
-    color: black;
-    background: none;
-    padding: ${({ open }) => (open ? "5px" : "0")};
-  }
-
   @media (max-width: 768px) {
     margin-left: 15px;
     width: calc(100% - 30px);
+  }
+`;
 
-    input {
-      width: 100%;
-      margin-right: 5px;
-      visibility: visible;
-      padding: 5px 5px 5px 0;
-    }
+export const NavInput = styled.input`
+  transition: all 1.5s ease-in-out;
+  width: ${({ open }) => (open ? "100%" : "0px")};
+  margin-right: ${({ open }) => (open ? "5px" : "0")};
+  visibility: ${({ open }) => (open ? "visible" : "hidden")};
+  border: none;
+  outline: none;
+  font-family: var(--font-links);
+  font-size: var(--size-sub-menu);
+  color: black;
+  background: none;
+  padding: ${({ open }) => (open ? "5px" : "0")};
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-right: 5px;
+    visibility: visible;
+    padding: 5px 5px 5px 0;
   }
 `;

@@ -13,7 +13,7 @@ import SearchSrc from "assets/searchIcon.svg";
 
 import SearchModal from "components/search-modal/SearchModal";
 
-import { NavSearchContainer, SearchIcon } from "./Search.styles";
+import { NavInput, NavSearchContainer, SearchIcon } from "./Search.styles";
 
 const Search = ({ icon }) => {
   const { open } = useSelector((chart) => chart.chart);
@@ -37,7 +37,7 @@ const Search = ({ icon }) => {
         onSubmit={handleSubmit}
         onClick={width < 768 ? () => dispatch(openSearchModal()) : null}
       >
-        <input
+        <NavInput
           type="text"
           placeholder="Search for a company or symbol"
           onChange={(e) => {

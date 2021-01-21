@@ -1,4 +1,6 @@
 import { shallow } from "enzyme";
+import renderer from "react-test-renderer";
+import "jest-styled-components";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
@@ -6,6 +8,7 @@ import { mockStore } from "tests/store";
 import { user, userWebP } from "tests/fixtures/user";
 
 import UserImage from "components/user-image/UserImage";
+import { UserPicture } from "components/user-image/UserImage.styles";
 
 describe("Testing UserImage component", () => {
   let wrapper;
@@ -57,5 +60,21 @@ describe("Testing UserImage component", () => {
     // If there is no user, component wont show, empty object
     wrapper = shallow(<UserImage store={store} />);
     expect(wrapper).toEqual({});
+  });
+  test("Should apply styles to UserPicture according to default", () => {
+    wrapper = renderer.create(<UserPicture />).toJSON();
+    // Default values in styles
+    expect(wrapper).toHaveStyleRule("margin-left", "0");
+    // expect(wrapper).toHaveStyleRule("width", "29px");
+    // expect(wrapper).toHaveStyleRule("border-radius", "0");
+  });
+  test("Should apply styles to UserPicture according to passed props", () => {
+    wrapper = renderer
+      .create(<UserPicture margin="10px" width="100%" border="29px" />)
+      .toJSON();
+    // Passed props to component
+    expect(wrapper).toHaveStyleRule("margin-left", "10px");
+    // expect(wrapper).toHaveStyleRule("width", "100%");
+    // expect(wrapper).toHaveStyleRule("border-radius", "29px");
   });
 });

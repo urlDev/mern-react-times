@@ -38,16 +38,16 @@ exports[`Testing Nav component Should render the component with user components 
     >
       <styled.nav>
         <nav
-          className="sc-iqHYGH dtgdtG"
+          className="sc-crrsfI ippFEn"
         >
           <StoryTopicHeaders>
             <styled.div>
               <div
-                className="sc-hBEYos bytodC"
+                className="sc-fodVxV dPBAFB"
               >
                 <styled.p>
                   <p
-                    className="sc-fFubgz jJqmWy"
+                    className="sc-bkzZxe XlSxA"
                   >
                     <span>
                       Saturday | 
@@ -57,7 +57,7 @@ exports[`Testing Nav component Should render the component with user components 
                 </styled.p>
                 <styled.div>
                   <div
-                    className="sc-fodVxV bDQCfy"
+                    className="sc-fFubgz jgXYtN"
                   >
                     <ResponsiveMenu>
                       <styled.div
@@ -66,7 +66,7 @@ exports[`Testing Nav component Should render the component with user components 
                       >
                         <div
                           alt="hamburger menu"
-                          className="sc-kstrdz cEwGfu"
+                          className="sc-hBEYos fQhIVM"
                           onClick={[Function]}
                         >
                           <img
@@ -86,16 +86,16 @@ exports[`Testing Nav component Should render the component with user components 
               to="/home"
             >
               <Link
-                className="sc-jSgupP iwtquC"
+                className="sc-gKsewC iDWhlD"
                 to="/home"
               >
                 <LinkAnchor
-                  className="sc-jSgupP iwtquC"
+                  className="sc-gKsewC iDWhlD"
                   href="/home"
                   navigate={[Function]}
                 >
                   <a
-                    className="sc-jSgupP iwtquC"
+                    className="sc-gKsewC iDWhlD"
                     href="/home"
                     onClick={[Function]}
                   >
@@ -116,13 +116,13 @@ exports[`Testing Nav component Should render the component with user components 
           <NavUserImage>
             <styled.div>
               <div
-                className="sc-dQppl cYcFwf"
+                className="sc-bqyKva bUxFiY"
               >
                 <styled.button
                   onClick={[Function]}
                 >
                   <button
-                    className="sc-bqyKva hGnPvf"
+                    className="sc-kstrdz hbdjwN"
                     onClick={[Function]}
                   >
                     <UserImage
@@ -134,7 +134,7 @@ exports[`Testing Nav component Should render the component with user components 
                         margin="10px"
                       >
                         <picture
-                          className="sc-kEjbxe fwsIeO"
+                          className="sc-iqHYGH iWQVDr"
                         >
                           <source
                             srcSet="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACX"

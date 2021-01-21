@@ -1,6 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Search component Should match snapshot 1`] = `
+.c2 {
+  height: 15px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.c2 img {
+  display: none;
+  height: 100%;
+}
+
+.c0 {
+  -webkit-transition: all 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+  width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.c1 {
+  -webkit-transition: all 1.5s ease-in-out;
+  transition: all 1.5s ease-in-out;
+  width: 0px;
+  margin-right: 0;
+  visibility: hidden;
+  border: none;
+  outline: none;
+  font-family: var(--font-links);
+  font-size: var(--size-sub-menu);
+  color: black;
+  background: none;
+  padding: 0;
+}
+
+@media (max-width:768px) {
+  .c2 {
+    margin: 10px auto;
+  }
+}
+
+@media (max-width:768px) {
+  .c0 {
+    margin-left: 15px;
+    width: calc(100% - 30px);
+  }
+}
+
+@media (max-width:768px) {
+  .c1 {
+    width: 100%;
+    margin-right: 5px;
+    visibility: visible;
+    padding: 5px 5px 5px 0;
+  }
+}
+
 <BrowserRouter>
   <Router
     history={
@@ -45,26 +111,35 @@ exports[`Testing Search component Should match snapshot 1`] = `
         open={false}
       >
         <div
-          className="sc-eCssSg ivKkzB"
+          className="c0"
           open={false}
         >
           <form
             onClick={null}
             onSubmit={[Function]}
           >
-            <input
+            <styled.input
               onChange={[Function]}
               open={false}
               placeholder="Search for a company or symbol"
               type="text"
               value=""
-            />
+            >
+              <input
+                className="c1"
+                onChange={[Function]}
+                open={false}
+                placeholder="Search for a company or symbol"
+                type="text"
+                value=""
+              />
+            </styled.input>
             <styled.a
               onClick={[Function]}
               open={false}
             >
               <a
-                className="sc-hKgILt bFBMgY"
+                className="c2"
                 onClick={[Function]}
                 open={false}
               >

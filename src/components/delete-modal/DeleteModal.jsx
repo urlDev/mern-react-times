@@ -39,7 +39,11 @@ const DeleteModal = () => {
   }, []);
 
   return (
-    <ModalContainerAllPage onClick={() => dispatch(deleteModalClose())}>
+    <ModalContainerAllPage
+      onClick={() => dispatch(deleteModalClose())}
+      // For Js solution
+      top={scroll}
+    >
       <DeleteModalContainer>
         <DeleteTextAndButtons>
           <h1>Sure about this?</h1>

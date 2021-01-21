@@ -1,6 +1,8 @@
 import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 import moxios from "moxios";
+import renderer from "react-test-renderer";
+import "jest-styled-components";
 
 import * as ReactReduxHooks from "utils/react-redux-hooks";
 import { mockStore } from "tests/store";
@@ -15,6 +17,7 @@ import {
 } from "redux/actions/chart";
 
 import Search from "components/search/Search";
+import { NavInput, NavSearchContainer } from "components/search/Search.styles";
 
 describe("Testing Search component", () => {
   let wrapper;
@@ -140,5 +143,31 @@ describe("Testing Search component", () => {
       expect(actions).toEqual(expectedActions);
       expect(history.push).toBeCalledWith("/search/TSLA");
     });
+  });
+  test("Should apply styles to NavSearchContainer according to default", () => {
+    wrapper = renderer.create(<NavSearchContainer />).toJSON();
+    // Default values in styles
+    expect(wrapper).toHaveStyleRule("width", "0");
+  });
+  test("Should apply styles to NavSearchContainer according to passed props", () => {
+    wrapper = renderer.create(<NavSearchContainer open={true} />).toJSON();
+    // Passed props to component
+    expect(wrapper).toHaveStyleRule("width", "250px");
+  });
+  test("Should apply styles to NavInput according to default", () => {
+    wrapper = renderer.create(<NavInput />).toJSON();
+    // Default values in styles
+    expect(wrapper).toHaveStyleRule("width", "0px");
+    expect(wrapper).toHaveStyleRule("margin-right", "0");
+    expect(wrapper).toHaveStyleRule("visibility", "hidden");
+    expect(wrapper).toHaveStyleRule("padding", "0");
+  });
+  test("Should apply styles to NavInput according to passed props", () => {
+    wrapper = renderer.create(<NavInput open={true} />).toJSON();
+    // Passed props to component
+    expect(wrapper).toHaveStyleRule("width", "100%");
+    expect(wrapper).toHaveStyleRule("margin-right", "5px");
+    expect(wrapper).toHaveStyleRule("visibility", "visible");
+    expect(wrapper).toHaveStyleRule("padding", "5px");
   });
 });

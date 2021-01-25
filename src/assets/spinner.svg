@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="174" height="175" viewBox="0 0 174 175">
+  <g id="spinner" transform="translate(-873 -365)">
+    <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="87" cy="87.5" rx="87" ry="87.5" transform="translate(873 365)" fill="none"/>
+    <path id="spinner-2" data-name="spinner" d="M140.171,10.993c14.126,13.039,22.819,32.6,22.819,53.243A75.594,75.594,0,0,1,86.928,140.3,75.594,75.594,0,0,1,10.866,64.236c0-20.645,8.693-40.2,22.819-53.243L24.992,2.3C9.779,18.6,0,40.331,0,64.236a86.928,86.928,0,0,0,173.855,0c0-23.905-9.779-45.637-24.992-61.936Z" transform="translate(873 388.7)"/>
+  </g>
+</svg>

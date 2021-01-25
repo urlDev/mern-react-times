@@ -19,8 +19,8 @@ const Nav = ({
   hoverColor,
   background,
 }) => {
-  const { user } = useSelector((user) => user.user);
-  const { width } = useSelector((news) => news.news);
+  const { user } = useSelector((state) => state.user);
+  const { width } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   const path = window.location.pathname;

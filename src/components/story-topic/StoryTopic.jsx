@@ -3,7 +3,7 @@ import { useSelector } from "utils/react-redux-hooks";
 import { StoryTopicContainer } from "./StoryTopic.styles";
 
 const StoryTopic = () => {
-  const { header } = useSelector((news) => news.news);
+  const { header } = useSelector((state) => state.news);
 
   return (
     <StoryTopicContainer>

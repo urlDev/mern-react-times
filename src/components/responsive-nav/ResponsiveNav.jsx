@@ -7,7 +7,7 @@ import StoryTopicHeaders from "components/story-topic-headers/StoryTopicHeaders"
 import LogoDarkSrc from "assets/logo.png";
 
 const ResponsiveNav = () => {
-  const { width } = useSelector((news) => news.news);
+  const { width } = useSelector((state) => state.news);
   return (
     <>
       {width < 768 ? (

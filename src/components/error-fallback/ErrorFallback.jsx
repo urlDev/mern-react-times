@@ -3,7 +3,7 @@ import { useSelector } from "utils/react-redux-hooks";
 import { ErrorContainer } from "./ErrorFallback.styles";
 
 const ErrorFallback = ({ height, error }) => {
-  const { errorChart } = useSelector((chart) => chart.chart);
+  const { errorChart } = useSelector((state) => state.chart);
   return (
     <ErrorContainer height={height}>
       <h1>Something went wrong.</h1>

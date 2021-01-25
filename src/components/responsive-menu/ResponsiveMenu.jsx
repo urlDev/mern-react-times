@@ -8,7 +8,7 @@ import HamburgerCloseSrc from "assets/hamburgerClose.svg";
 import { HamburgerMenu } from "./ResponsiveMenu.styles";
 
 const ResponsiveMenu = ({ icon }) => {
-  const { responsiveMenu } = useSelector((news) => news.news);
+  const { responsiveMenu } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   return (

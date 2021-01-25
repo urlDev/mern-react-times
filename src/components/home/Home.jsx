@@ -20,9 +20,9 @@ import { topics } from "components/story-topic-headers/StoryTopicHeaders";
 
 const Home = () => {
   const { header, loadingNews, popular, width } = useSelector(
-    (news) => news.news
+    (state) => state.news
   );
-  const { errorChart } = useSelector((chart) => chart.chart);
+  const { errorChart } = useSelector((state) => state.chart);
 
   const dispatch = useDispatch();
   const path = window.location.pathname;

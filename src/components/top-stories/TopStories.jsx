@@ -16,7 +16,7 @@ import {
 } from "./TopStories.styles";
 
 const TopStories = () => {
-  const { story, width } = useSelector((news) => news.news);
+  const { story, width } = useSelector((state) => state.news);
 
   return (
     <div>

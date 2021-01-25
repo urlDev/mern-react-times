@@ -4,7 +4,7 @@ import { useSelector } from "utils/react-redux-hooks";
 import { DetailsTableContainer } from "./DetailsTable.styles";
 
 const DetailsTable = () => {
-  const { marketDetail, rating } = useSelector((chart) => chart.chart);
+  const { marketDetail, rating } = useSelector((state) => state.chart);
 
   const {
     symbol,

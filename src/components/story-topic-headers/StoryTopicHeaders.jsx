@@ -27,7 +27,7 @@ export const topics = [
 ];
 
 const StoryTopicHeaders = ({ icon }) => {
-  const { width, responsiveMenu } = useSelector((news) => news.news);
+  const { width, responsiveMenu } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   return (

@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const HomeMarketCards = () => {
-  const { forex, homeChartData } = useSelector((chart) => chart.chart);
+  const { forex, homeChartData } = useSelector((state) => state.chart);
   const dispatch = useDispatch();
 
   const settings = {

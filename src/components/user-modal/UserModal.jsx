@@ -16,7 +16,7 @@ import {
 import { closeSearchModal } from "redux/actions/chart";
 
 const UserModal = () => {
-  const { width } = useSelector((news) => news.news);
+  const { width } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   const handleClick = () => {

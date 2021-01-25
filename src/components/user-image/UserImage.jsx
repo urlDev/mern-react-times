@@ -3,7 +3,7 @@ import { useSelector } from "utils/react-redux-hooks";
 import { UserPicture } from "./UserImage.styles";
 
 const UserImage = ({ width, border, margin }) => {
-  const { user } = useSelector((user) => user.user);
+  const { user } = useSelector((state) => state.user);
   return (
     // I am using srcSet and picture here because once user uploads new avatar,
     // it will be both in webp and png so I can show it in browsers that doesn't

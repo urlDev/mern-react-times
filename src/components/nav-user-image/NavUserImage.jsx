@@ -16,8 +16,8 @@ import { UserImageButton, UserImageContainer } from "./NavUserImage.styles.js";
 import { closeSearchModal } from "redux/actions/chart.js";
 
 const NavUserImage = () => {
-  const { userModal } = useSelector((user) => user.user);
-  const { width } = useSelector((news) => news.news);
+  const { userModal } = useSelector((state) => state.user);
+  const { width } = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   const handleClick = () => {

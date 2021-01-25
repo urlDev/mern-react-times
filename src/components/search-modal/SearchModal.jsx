@@ -15,7 +15,7 @@ import {
 } from "./SearchModal.styles";
 
 const SearchModal = () => {
-  const { searchResults, open } = useSelector((chart) => chart.chart);
+  const { searchResults, open } = useSelector((state) => state.chart);
   const dispatch = useDispatch();
 
   return (

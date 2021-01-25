@@ -13,7 +13,7 @@ import {
 } from "components/user-favorites/UserFavorites.styles";
 
 const SearchResults = () => {
-  const { searchResults } = useSelector((chart) => chart.chart);
+  const { searchResults } = useSelector((state) => state.chart);
   const dispatch = useDispatch();
 
   return (

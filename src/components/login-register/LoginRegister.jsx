@@ -16,7 +16,7 @@ import Login from "components/login/Login";
 import { LoginRegisterContainer, Background } from "./LoginRegister.styles";
 
 const LoginRegister = () => {
-  const { loadingUser } = useSelector((user) => user.user);
+  const { loadingUser } = useSelector((state) => state.user);
 
   return (
     <div>

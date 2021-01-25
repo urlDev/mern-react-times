@@ -27,7 +27,7 @@ export const marketTypes = [
 
 const MarketComponents = () => {
   const { loadingChart, marketType, marketName } = useSelector(
-    (chart) => chart.chart
+    (state) => state.chart
   );
   const dispatch = useDispatch();
 

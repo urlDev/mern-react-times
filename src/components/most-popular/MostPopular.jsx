@@ -15,7 +15,7 @@ import {
 } from "./MostPopular.styles";
 
 const MostPopular = () => {
-  const { popular, width } = useSelector((news) => news.news);
+  const { popular, width } = useSelector((state) => state.news);
 
   // Wanted to show random results on each refresh/load
   // but random makes the app loads more than once

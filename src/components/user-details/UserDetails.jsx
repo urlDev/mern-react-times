@@ -17,8 +17,8 @@ import {
 } from "./UserDetails.styles";
 
 const UserDetails = () => {
-  const { user, deleteModal } = useSelector((user) => user.user);
-  const { width } = useSelector((news) => news.news);
+  const { user, deleteModal } = useSelector((state) => state.user);
+  const { width } = useSelector((state) => state.news);
 
   return (
     <>

@@ -19,8 +19,8 @@ import {
 } from "./UserFavorites.styles";
 
 const UserFavorites = () => {
-  const { favorites } = useSelector((favorite) => favorite.favorite);
-  const { user } = useSelector((user) => user.user);
+  const { favorites } = useSelector((state) => state.favorite);
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   React.useEffect(() => {

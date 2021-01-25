@@ -17,6 +17,7 @@ import {
 
 import AddSrc from "assets/bookmarkEmpty.svg";
 import AddedSrc from "assets/bookmark.svg";
+import SpinnerSrc from "assets/spinner.svg";
 
 import ErrorFallback from "components/error-fallback/ErrorFallback";
 import DetailsTable from "components/details-table/DetailsTable";
@@ -30,9 +31,9 @@ import {
 import { MarketDetailsContainer } from "./MarketDetails.styles";
 
 const MarketDetails = () => {
-  const { marketDetail, chartTimeFrame } = useSelector((chart) => chart.chart);
-  const { favorites } = useSelector((favorite) => favorite.favorite);
-  const { user } = useSelector((user) => user.user);
+  const { marketDetail, chartTimeFrame } = useSelector((state) => state.chart);
+  const { favorites, loadingFavorite } = useSelector((state) => state.favorite);
+  const { user } = useSelector((state) => state.user);
 
   const timeFrames = ["5min", "15min", "30min", "1hour"];
   const dispatch = useDispatch();
@@ -49,7 +50,13 @@ const MarketDetails = () => {
   }, [user.name, dispatch, favorites.length]);
 
   const add = <img src={AddSrc} alt="empty bookmark" />;
-  const added = <img src={AddedSrc} alt="added favorite, filled bookmark" />;
+  const added = (
+    <img
+      src={loadingFavorite ? SpinnerSrc : AddedSrc}
+      alt="added favorite, filled bookmark"
+    />
+  );
+  // const spinner = <img src={SpinnerSrc} alt="spinner for loading favorite" />;
 
   const handleClick = () => {
     // First, checking the length
@@ -84,7 +91,10 @@ const MarketDetails = () => {
               {add}
             </Link>
           ) : (
-            <FavoriteButton onClick={() => handleClick()}>
+            <FavoriteButton
+              onClick={() => handleClick()}
+              favorite={loadingFavorite}
+            >
               {favorites.some(
                 (favorite) => favorite.symbol[0].symbol === marketDetail.symbol
               )

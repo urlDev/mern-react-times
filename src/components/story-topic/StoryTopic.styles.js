@@ -24,6 +24,7 @@ export const FavoriteButton = styled.button`
   background: transparent;
   cursor: pointer;
   height: 20px;
+  animation: ${(props) => (props.favorite ? "spin 5s linear infinite" : null)};
 
   :focus {
     outline: none;

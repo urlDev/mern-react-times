@@ -65,6 +65,13 @@ code {
   }
 }
 
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+    transform-origin: center;
+  }
+}
+
 @keyframes loading {
   0%,
   100% {

@@ -16,8 +16,8 @@ import SearchModal from "components/search-modal/SearchModal";
 import { NavInput, NavSearchContainer, SearchIcon } from "./Search.styles";
 
 const Search = ({ icon }) => {
-  const { open } = useSelector((chart) => chart.chart);
-  const { width } = useSelector((news) => news.news);
+  const { open } = useSelector((state) => state.chart);
+  const { width } = useSelector((state) => state.news);
   const [input, setInput] = React.useState("");
 
   const dispatch = useDispatch();

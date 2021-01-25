@@ -36,7 +36,7 @@ After 309 tests, app has 92% line coverage.
 ## Pages
 
 <p float="left">
-  <img src="https://i.paste.pics/37365506fbd4cf4472495e6895ac92d9.png" width="33%" alt='profile update page' />
-  <img src="https://i.paste.pics/b12e46504282e9d9b4926e0973310563.png" width="33%" alt='user favorites page' /> 
-  <img src="https://i.paste.pics/ee9714ddf3d385495e45321f15351189.png" width="33%" alt='login register page' />
+  <img src="https://i.paste.pics/37365506fbd4cf4472495e6895ac92d9.png" width="32.5%" alt='profile update page' />
+  <img src="https://i.paste.pics/b12e46504282e9d9b4926e0973310563.png" width="32.5%" alt='user favorites page' /> 
+  <img src="https://i.paste.pics/ee9714ddf3d385495e45321f15351189.png" width="32.5%" alt='login register page' />
 </p>

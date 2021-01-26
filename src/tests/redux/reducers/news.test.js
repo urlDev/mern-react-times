@@ -1,15 +1,6 @@
 import newsReducer from "../../../redux/reducers/news";
 
-import {
-  FETCH_POPULAR_SUCCESS,
-  FETCH_STORY_SUCCESS,
-  FETCH_NEWS_ERROR,
-  CHANGE_HEADER,
-  CLEAR_ERROR,
-  SET_WIDTH,
-  OPEN_RESPONSIVE_MENU,
-  CLOSE_RESPONSIVE_MENU,
-} from "../../../redux/actions/news";
+import * as NewsActions from "redux/actions/news";
 
 import { story, popular, errorNews, width } from "../../fixtures/news";
 
@@ -38,7 +29,7 @@ test("Should set the initial state successfully", () => {
 });
 
 test("Should clear the error", () => {
-  const state = newsReducer(initialState, { type: CLEAR_ERROR });
+  const state = newsReducer(initialState, { type: NewsActions.CLEAR_ERROR });
 
   expect(state).toEqual({
     ...initialState,
@@ -48,7 +39,7 @@ test("Should clear the error", () => {
 
 test("Should fetch popular news successfully", () => {
   const state = newsReducer(initialState, {
-    type: FETCH_POPULAR_SUCCESS,
+    type: NewsActions.FETCH_POPULAR_SUCCESS,
     payload: popular,
   });
 
@@ -61,7 +52,7 @@ test("Should fetch popular news successfully", () => {
 
 test("Should fetch top stories successfully", () => {
   const state = newsReducer(initialState, {
-    type: FETCH_STORY_SUCCESS,
+    type: NewsActions.FETCH_STORY_SUCCESS,
     payload: story,
   });
 
@@ -74,7 +65,7 @@ test("Should fetch top stories successfully", () => {
 
 test("Should show error if there is any", () => {
   const state = newsReducer(initialState, {
-    type: FETCH_NEWS_ERROR,
+    type: NewsActions.FETCH_NEWS_ERROR,
     payload: errorNews,
   });
 
@@ -86,7 +77,7 @@ test("Should show error if there is any", () => {
 
 test("Should change header successfully", () => {
   const state = newsReducer(initialState, {
-    type: CHANGE_HEADER,
+    type: NewsActions.CHANGE_HEADER,
     payload: "home",
   });
 
@@ -97,7 +88,10 @@ test("Should change header successfully", () => {
 });
 
 test("Should set width of the window", () => {
-  const state = newsReducer(initialState, { type: SET_WIDTH, payload: width });
+  const state = newsReducer(initialState, {
+    type: NewsActions.SET_WIDTH,
+    payload: width,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -106,7 +100,9 @@ test("Should set width of the window", () => {
 });
 
 test("Should open the responsive menu", () => {
-  const state = newsReducer(initialState, { type: OPEN_RESPONSIVE_MENU });
+  const state = newsReducer(initialState, {
+    type: NewsActions.OPEN_RESPONSIVE_MENU,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -115,7 +111,9 @@ test("Should open the responsive menu", () => {
 });
 
 test("Should close the responsive menu", () => {
-  const state = newsReducer(initialState, { type: CLOSE_RESPONSIVE_MENU });
+  const state = newsReducer(initialState, {
+    type: NewsActions.CLOSE_RESPONSIVE_MENU,
+  });
 
   expect(state).toEqual({
     ...initialState,

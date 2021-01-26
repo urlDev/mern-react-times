@@ -11,8 +11,6 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const DELETE_FAVORITE = "DELETE_FAVORITE";
 export const FETCH_FAVORITE_ERROR = "FETCH_FAVORITE_ERROR";
 export const CLEAN_FAVORITE_STATE = "CLEAN_FAVORITE_STATE";
-export const LOADING_FAVORITE = "LOADING_FAVORITE";
-export const LOADING_FAVORITE_END = "LOADING_FAVORITE_END";
 
 export const getFavorite = (stock) => ({
   type: GET_FAVORITE,
@@ -36,14 +34,6 @@ export const fetchFavoriteError = (error) => ({
 
 export const cleanFavoriteState = () => ({
   type: CLEAN_FAVORITE_STATE,
-});
-
-export const setLoadingFavorite = () => ({
-  type: LOADING_FAVORITE,
-});
-
-export const setLoadingFavoriteEnd = () => ({
-  type: LOADING_FAVORITE_END,
 });
 
 export const fetchGetFavorites = () => async (dispatch) => {
@@ -72,14 +62,11 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  dispatch(setLoadingFavorite());
-
   try {
     const response = await axios.post(`${url}/`, favoriteStock, config);
     const data = await response.data;
     return [
       dispatch(addFavorite(data.symbol[0])),
-      // dispatch(setLoadingFavoriteEnd()),
       toaster.notify(
         () => (
           <NotificationComponent

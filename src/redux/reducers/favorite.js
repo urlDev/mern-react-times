@@ -3,7 +3,6 @@ import * as FavoriteActions from "redux/actions/favorite";
 const initialState = {
   errorFavorite: null,
   favorites: [],
-  loadingFavorite: false,
 };
 
 const favoriteReducer = (state = initialState, action) => {
@@ -34,16 +33,6 @@ const favoriteReducer = (state = initialState, action) => {
       return {
         ...state,
         favorites: [],
-      };
-    case FavoriteActions.LOADING_FAVORITE:
-      return {
-        ...state,
-        loadingFavorite: true,
-      };
-    case FavoriteActions.LOADING_FAVORITE_END:
-      return {
-        ...state,
-        loadingFavorite: false,
       };
     default:
       return state;

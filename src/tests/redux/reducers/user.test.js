@@ -1,21 +1,6 @@
 import userReducer from "../../../redux/reducers/user";
 
-import {
-  REGISTER_USER,
-  LOGOUT_USER,
-  LOGIN_USER,
-  UPDATE_USER,
-  DELETE_USER,
-  SET_TOKEN,
-  USER_FETCH_ERROR,
-  USER_LOADING,
-  USER_LOADING_END,
-  USER_MODAL_OPEN,
-  USER_MODAL_CLOSE,
-  DELETE_MODAL_OPEN,
-  DELETE_MODAL_CLOSE,
-  UPLOAD_AVATAR,
-} from "../../../redux/actions/user";
+import * as UserActions from "redux/actions/user";
 
 import { user, token, errorUser } from "../../fixtures/user";
 
@@ -43,7 +28,7 @@ test("Should set the initial state", () => {
 
 test("Should register user successfully", () => {
   const state = userReducer(initialState, {
-    type: REGISTER_USER,
+    type: UserActions.REGISTER_USER,
     payload: user,
   });
 
@@ -54,7 +39,10 @@ test("Should register user successfully", () => {
 });
 
 test("Should login user successfully", () => {
-  const state = userReducer(initialState, { type: LOGIN_USER, payload: user });
+  const state = userReducer(initialState, {
+    type: UserActions.LOGIN_USER,
+    payload: user,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -63,7 +51,7 @@ test("Should login user successfully", () => {
 });
 
 test("Should logout user successfully", () => {
-  const state = userReducer(initialState, { type: LOGOUT_USER });
+  const state = userReducer(initialState, { type: UserActions.LOGOUT_USER });
 
   expect(state).toEqual({
     ...initialState,
@@ -73,7 +61,10 @@ test("Should logout user successfully", () => {
 });
 
 test("Should update user successfully", () => {
-  const state = userReducer(initialState, { type: UPDATE_USER, payload: user });
+  const state = userReducer(initialState, {
+    type: UserActions.UPDATE_USER,
+    payload: user,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -82,7 +73,7 @@ test("Should update user successfully", () => {
 });
 
 test("Should delete user and token successfully", () => {
-  const state = userReducer(initialState, { type: DELETE_USER });
+  const state = userReducer(initialState, { type: UserActions.DELETE_USER });
 
   expect(state).toEqual({
     ...initialState,
@@ -92,7 +83,10 @@ test("Should delete user and token successfully", () => {
 });
 
 test("Should set the token", () => {
-  const state = userReducer(initialState, { type: SET_TOKEN, payload: token });
+  const state = userReducer(initialState, {
+    type: UserActions.SET_TOKEN,
+    payload: token,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -102,7 +96,7 @@ test("Should set the token", () => {
 
 test("Should save error to state if there is any", () => {
   const state = userReducer(initialState, {
-    type: USER_FETCH_ERROR,
+    type: UserActions.USER_FETCH_ERROR,
     payload: errorUser,
   });
 
@@ -113,7 +107,7 @@ test("Should save error to state if there is any", () => {
 });
 
 test("Should set the user loading state to true", () => {
-  const state = userReducer(initialState, { type: USER_LOADING });
+  const state = userReducer(initialState, { type: UserActions.USER_LOADING });
 
   expect(state).toEqual({
     ...initialState,
@@ -122,7 +116,9 @@ test("Should set the user loading state to true", () => {
 });
 
 test("Should set the user loading state to false", () => {
-  const state = userReducer(initialState, { type: USER_LOADING_END });
+  const state = userReducer(initialState, {
+    type: UserActions.USER_LOADING_END,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -131,7 +127,9 @@ test("Should set the user loading state to false", () => {
 });
 
 test("Should open the user modal", () => {
-  const state = userReducer(initialState, { type: USER_MODAL_OPEN });
+  const state = userReducer(initialState, {
+    type: UserActions.USER_MODAL_OPEN,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -140,7 +138,9 @@ test("Should open the user modal", () => {
 });
 
 test("Should close the user modal", () => {
-  const state = userReducer(initialState, { type: USER_MODAL_CLOSE });
+  const state = userReducer(initialState, {
+    type: UserActions.USER_MODAL_CLOSE,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -149,7 +149,9 @@ test("Should close the user modal", () => {
 });
 
 test("Should open delete modal", () => {
-  const state = userReducer(initialState, { type: DELETE_MODAL_OPEN });
+  const state = userReducer(initialState, {
+    type: UserActions.DELETE_MODAL_OPEN,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -158,7 +160,9 @@ test("Should open delete modal", () => {
 });
 
 test("Should close delete modal", () => {
-  const state = userReducer(initialState, { type: DELETE_MODAL_CLOSE });
+  const state = userReducer(initialState, {
+    type: UserActions.DELETE_MODAL_CLOSE,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -168,7 +172,7 @@ test("Should close delete modal", () => {
 
 test("Should upload user", () => {
   const state = userReducer(initialState, {
-    type: UPLOAD_AVATAR,
+    type: UserActions.UPLOAD_AVATAR,
     payload: user,
   });
 

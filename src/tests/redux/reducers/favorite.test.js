@@ -1,12 +1,6 @@
 import favoriteReducer from "../../../redux/reducers/favorite";
 
-import {
-  ADD_FAVORITE,
-  DELETE_FAVORITE,
-  GET_FAVORITE,
-  FETCH_FAVORITE_ERROR,
-  CLEAN_FAVORITE_STATE,
-} from "../../../redux/actions/favorite";
+import * as FavoriteActions from "redux/actions/favorite";
 
 import { errorFavorite, favorite, stock } from "../../fixtures/favorite";
 
@@ -26,7 +20,7 @@ test("Should return default state", () => {
 
 test("Should add stock to favorites", () => {
   const state = favoriteReducer(initialState, {
-    type: ADD_FAVORITE,
+    type: FavoriteActions.ADD_FAVORITE,
     payload: stock,
   });
 
@@ -38,7 +32,7 @@ test("Should add stock to favorites", () => {
 
 test("Should delete stock from favorites", () => {
   const state = favoriteReducer(initialState, {
-    type: DELETE_FAVORITE,
+    type: FavoriteActions.DELETE_FAVORITE,
     payload: favorite,
   });
 
@@ -52,7 +46,7 @@ test("Should delete stock from favorites", () => {
 
 test("Should get favorites", () => {
   const state = favoriteReducer(initialState, {
-    type: GET_FAVORITE,
+    type: FavoriteActions.GET_FAVORITE,
     payload: favorite,
   });
 
@@ -64,7 +58,7 @@ test("Should get favorites", () => {
 
 test("Should show error if there is any", () => {
   const state = favoriteReducer(initialState, {
-    type: FETCH_FAVORITE_ERROR,
+    type: FavoriteActions.FETCH_FAVORITE_ERROR,
     payload: errorFavorite,
   });
 
@@ -75,7 +69,9 @@ test("Should show error if there is any", () => {
 });
 
 test("Should clean the favorite state", () => {
-  const state = favoriteReducer(initialState, { type: CLEAN_FAVORITE_STATE });
+  const state = favoriteReducer(initialState, {
+    type: FavoriteActions.CLEAN_FAVORITE_STATE,
+  });
 
   expect(state).toEqual({
     ...initialState,

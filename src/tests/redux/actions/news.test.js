@@ -1,96 +1,77 @@
 import moxios from "moxios";
 
-import {
-  FETCH_POPULAR_SUCCESS,
-  FETCH_STORY_SUCCESS,
-  FETCH_NEWS_ERROR,
-  CHANGE_HEADER,
-  CLEAR_ERROR,
-  SET_WIDTH,
-  OPEN_RESPONSIVE_MENU,
-  CLOSE_RESPONSIVE_MENU,
-  fetchPopularSuccess,
-  fetchStorySuccess,
-  changeHeader,
-  fetchNewsError,
-  clearError,
-  setWidth,
-  openResponsiveMenu,
-  closeResponsiveMenu,
-  fetchTopStories,
-  fetchMostPopular,
-} from "../../../redux/actions/news";
+import * as NewsActions from "redux/actions/news";
 
 import { story, popular, errorNews, width } from "../../fixtures/news";
 
 import { store } from "../../store";
 
 test("Should get the top stories correctly", () => {
-  const action = fetchStorySuccess(story);
+  const action = NewsActions.fetchStorySuccess(story);
 
   expect(action).toEqual({
-    type: FETCH_STORY_SUCCESS,
+    type: NewsActions.FETCH_STORY_SUCCESS,
     payload: story,
   });
 });
 
 test("Should get the most popular stories correctly", () => {
-  const action = fetchPopularSuccess(popular);
+  const action = NewsActions.fetchPopularSuccess(popular);
 
   expect(action).toEqual({
-    type: FETCH_POPULAR_SUCCESS,
+    type: NewsActions.FETCH_POPULAR_SUCCESS,
     payload: popular,
   });
 });
 
 test("Should show error if there is any", () => {
-  const action = fetchNewsError(errorNews);
+  const action = NewsActions.fetchNewsError(errorNews);
 
   expect(action).toEqual({
-    type: FETCH_NEWS_ERROR,
+    type: NewsActions.FETCH_NEWS_ERROR,
     payload: errorNews,
   });
 });
 
 test("Should change the header", () => {
-  const action = changeHeader("arts");
+  const action = NewsActions.changeHeader("arts");
 
   expect(action).toEqual({
-    type: CHANGE_HEADER,
+    type: NewsActions.CHANGE_HEADER,
     payload: "arts",
   });
 });
 
 test("Should clear the error", () => {
-  const action = clearError();
+  const action = NewsActions.clearError();
 
   expect(action).toEqual({
-    type: CLEAR_ERROR,
+    type: NewsActions.CLEAR_ERROR,
   });
 });
 
 test("Should set the width of the window", () => {
-  const action = setWidth(width);
+  const action = NewsActions.setWidth(width);
 
   expect(action).toEqual({
-    type: SET_WIDTH,
+    type: NewsActions.SET_WIDTH,
     payload: width,
   });
 });
 
 test("Should open the responsive menu", () => {
-  const action = openResponsiveMenu();
+  const action = NewsActions.openResponsiveMenu();
 
   expect(action).toEqual({
-    type: OPEN_RESPONSIVE_MENU,
+    type: NewsActions.OPEN_RESPONSIVE_MENU,
   });
 });
 
 test("Should close the responsive menu", () => {
-  const action = closeResponsiveMenu();
+  const action = NewsActions.closeResponsiveMenu();
 
   expect(action).toEqual({
-    type: CLOSE_RESPONSIVE_MENU,
+    type: NewsActions.CLOSE_RESPONSIVE_MENU,
   });
 });
 
@@ -115,11 +96,11 @@ describe("Testing redux-thunk, fetching news", () => {
       });
 
       const expectedActions = {
-        type: FETCH_STORY_SUCCESS,
+        type: NewsActions.FETCH_STORY_SUCCESS,
         payload: story.results,
       };
 
-      return store.dispatch(fetchTopStories("home")).then(() => {
+      return store.dispatch(NewsActions.fetchTopStories("home")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -133,11 +114,11 @@ describe("Testing redux-thunk, fetching news", () => {
       });
 
       const expectedActions = {
-        type: FETCH_NEWS_ERROR,
+        type: NewsActions.FETCH_NEWS_ERROR,
         payload: errorNews,
       };
 
-      return store.dispatch(fetchTopStories("home")).then(() => {
+      return store.dispatch(NewsActions.fetchTopStories("home")).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -156,11 +137,11 @@ describe("Testing redux-thunk, fetching news", () => {
       });
 
       const expectedActions = {
-        type: FETCH_POPULAR_SUCCESS,
+        type: NewsActions.FETCH_POPULAR_SUCCESS,
         payload: popular.results,
       };
 
-      return store.dispatch(fetchMostPopular()).then(() => {
+      return store.dispatch(NewsActions.fetchMostPopular()).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);
@@ -174,11 +155,11 @@ describe("Testing redux-thunk, fetching news", () => {
       });
 
       const expectedActions = {
-        type: FETCH_NEWS_ERROR,
+        type: NewsActions.FETCH_NEWS_ERROR,
         payload: errorNews,
       };
 
-      return store.dispatch(fetchMostPopular()).then(() => {
+      return store.dispatch(NewsActions.fetchMostPopular()).then(() => {
         const actionsGetCalled = store.getActions();
 
         expect(actionsGetCalled[0]).toEqual(expectedActions);

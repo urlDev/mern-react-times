@@ -1,26 +1,6 @@
 import chartReducer from "../../../redux/reducers/chart";
 
-import {
-  FETCH_FOREX_SUCCESS,
-  FETCH_CHART_ERROR,
-  SET_LOADING,
-  SET_LOADING_TRUE,
-  CHANGE_MARKET_NAME,
-  CHANGE_MARKET_TYPE,
-  SET_MARKET_DETAIL,
-  SET_CHART_DATA,
-  CLEAN_CHART_DATA,
-  SET_CHART_TIME_FRAME,
-  SET_RATING,
-  SET_HOME_CHART_DATA,
-  CLEAN_STATE,
-  GET_SEARCH_RESULTS,
-  SET_SEARCH_MARKET_DETAIL,
-  CLEAR_SEARCH_RESULTS,
-  OPEN_SEARCH_MODAL,
-  CLOSE_SEARCH_MODAL,
-  TOGGLE_SEARCH_MODAL,
-} from "../../../redux/actions/chart";
+import * as ChartActions from "redux/actions/chart";
 
 import {
   forexLengthTwo,
@@ -72,7 +52,7 @@ test("Should load the initial state successfully", () => {
 
 test("Should fetch and set the forex data successfully", () => {
   const state = chartReducer(initialState, {
-    type: FETCH_FOREX_SUCCESS,
+    type: ChartActions.FETCH_FOREX_SUCCESS,
     payload: forexLengthTwo,
   });
 
@@ -84,7 +64,7 @@ test("Should fetch and set the forex data successfully", () => {
 
 test("Should show and set the fetch error", () => {
   const state = chartReducer(initialState, {
-    type: FETCH_CHART_ERROR,
+    type: ChartActions.FETCH_CHART_ERROR,
     payload: errorChart,
   });
 
@@ -96,7 +76,7 @@ test("Should show and set the fetch error", () => {
 
 test("Should change and set the market type", () => {
   const state = chartReducer(initialState, {
-    type: CHANGE_MARKET_TYPE,
+    type: ChartActions.CHANGE_MARKET_TYPE,
     payload: marketType,
   });
 
@@ -108,7 +88,7 @@ test("Should change and set the market type", () => {
 
 test("Should change and set the market name", () => {
   const state = chartReducer(initialState, {
-    type: CHANGE_MARKET_NAME,
+    type: ChartActions.CHANGE_MARKET_NAME,
     payload: marketName,
   });
 
@@ -120,7 +100,7 @@ test("Should change and set the market name", () => {
 
 test("Should set market detail", () => {
   const state = chartReducer(initialState, {
-    type: SET_MARKET_DETAIL,
+    type: ChartActions.SET_MARKET_DETAIL,
     payload: marketDetail,
   });
 
@@ -132,7 +112,7 @@ test("Should set market detail", () => {
 
 test("Should set chart data", () => {
   const state = chartReducer(initialState, {
-    type: SET_CHART_DATA,
+    type: ChartActions.SET_CHART_DATA,
     payload: chartData,
   });
 
@@ -143,7 +123,9 @@ test("Should set chart data", () => {
 });
 
 test("Should clean chart data and set it to empty array", () => {
-  const state = chartReducer(initialState, { type: CLEAN_CHART_DATA });
+  const state = chartReducer(initialState, {
+    type: ChartActions.CLEAN_CHART_DATA,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -153,7 +135,7 @@ test("Should clean chart data and set it to empty array", () => {
 
 test("Should set chart time frame", () => {
   const state = chartReducer(initialState, {
-    type: SET_CHART_TIME_FRAME,
+    type: ChartActions.SET_CHART_TIME_FRAME,
     payload: chartTimeFrame,
   });
 
@@ -165,7 +147,7 @@ test("Should set chart time frame", () => {
 
 test("Should set rating", () => {
   const state = chartReducer(initialState, {
-    type: SET_RATING,
+    type: ChartActions.SET_RATING,
     payload: rating,
   });
 
@@ -177,7 +159,7 @@ test("Should set rating", () => {
 
 test("Should set chart data for cards in home page", () => {
   const state = chartReducer(initialState, {
-    type: SET_HOME_CHART_DATA,
+    type: ChartActions.SET_HOME_CHART_DATA,
     payload: homeChartData,
   });
 
@@ -188,7 +170,7 @@ test("Should set chart data for cards in home page", () => {
 });
 
 test("Should clean cards chart data", () => {
-  const state = chartReducer(initialState, { type: CLEAN_STATE });
+  const state = chartReducer(initialState, { type: ChartActions.CLEAN_STATE });
 
   expect(state).toEqual({
     ...initialState,
@@ -197,7 +179,7 @@ test("Should clean cards chart data", () => {
 });
 
 test("Should set the loading state to false", () => {
-  const state = chartReducer(initialState, { type: SET_LOADING });
+  const state = chartReducer(initialState, { type: ChartActions.SET_LOADING });
 
   expect(state).toEqual({
     ...initialState,
@@ -206,7 +188,9 @@ test("Should set the loading state to false", () => {
 });
 
 test("Should set the loading state to true", () => {
-  const state = chartReducer(initialState, { type: SET_LOADING_TRUE });
+  const state = chartReducer(initialState, {
+    type: ChartActions.SET_LOADING_TRUE,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -216,7 +200,7 @@ test("Should set the loading state to true", () => {
 
 test("Should get search results and set them", () => {
   const state = chartReducer(initialState, {
-    type: GET_SEARCH_RESULTS,
+    type: ChartActions.GET_SEARCH_RESULTS,
     payload: searchResult,
   });
 
@@ -228,7 +212,7 @@ test("Should get search results and set them", () => {
 
 test("Should set selected search results` market detail", () => {
   const state = chartReducer(initialState, {
-    type: SET_SEARCH_MARKET_DETAIL,
+    type: ChartActions.SET_SEARCH_MARKET_DETAIL,
     payload: marketDetail,
   });
 
@@ -239,7 +223,9 @@ test("Should set selected search results` market detail", () => {
 });
 
 test("Should clear search results array", () => {
-  const state = chartReducer(initialState, { type: CLEAR_SEARCH_RESULTS });
+  const state = chartReducer(initialState, {
+    type: ChartActions.CLEAR_SEARCH_RESULTS,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -248,7 +234,9 @@ test("Should clear search results array", () => {
 });
 
 test("Should set the search modals state to true", () => {
-  const state = chartReducer(initialState, { type: OPEN_SEARCH_MODAL });
+  const state = chartReducer(initialState, {
+    type: ChartActions.OPEN_SEARCH_MODAL,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -257,7 +245,9 @@ test("Should set the search modals state to true", () => {
 });
 
 test("Should set the search modals state to false", () => {
-  const state = chartReducer(initialState, { type: CLOSE_SEARCH_MODAL });
+  const state = chartReducer(initialState, {
+    type: ChartActions.CLOSE_SEARCH_MODAL,
+  });
 
   expect(state).toEqual({
     ...initialState,
@@ -266,7 +256,9 @@ test("Should set the search modals state to false", () => {
 });
 
 test("Should toggle the search modals state", () => {
-  const state = chartReducer(initialState, { type: TOGGLE_SEARCH_MODAL });
+  const state = chartReducer(initialState, {
+    type: ChartActions.TOGGLE_SEARCH_MODAL,
+  });
 
   expect(state).toEqual({
     ...initialState,

@@ -1,28 +1,28 @@
-import React from "react";
-import { useDispatch, useSelector } from "utils/react-redux-hooks";
-import { ErrorBoundary } from "react-error-boundary";
+import React from 'react';
+import { useDispatch, useSelector } from 'utils/react-redux-hooks';
+import { ErrorBoundary } from 'react-error-boundary';
 
-import { fetchHomeChart, fetchForex } from "redux/actions/chart";
-import fetchMarketTypes from "utils/fetch-market-types";
+import { fetchHomeChart, fetchForex } from 'redux/actions/chart';
+import fetchMarketTypes from 'utils/fetch-market-types';
 
-import ErrorFallback from "components/error-fallback/ErrorFallback";
-import Loading from "components/loading/Loading";
-import HomeMarketCards from "components/home-market-cards/HomeMarketCards";
+import ErrorFallback from 'components/error-fallback/ErrorFallback';
+import Loading from 'components/loading/Loading';
+import HomeMarketCards from 'components/home-market-cards/HomeMarketCards';
 
 import {
   MarketComponentsContainer,
   MarketHeaderContainer,
   MarketTitle,
   MarketMenu,
-} from "./MarketComponents.styles";
+} from './MarketComponents.styles';
 
 // First, I made market types array, the ones that I want to show in home page
 export const marketTypes = [
-  "Indexes",
-  "Crypto",
-  "Forex",
-  "Stocks",
-  "Commodities",
+  'Indexes',
+  'Crypto',
+  'Forex',
+  'Stocks',
+  'Commodities',
 ];
 
 const MarketComponents = () => {

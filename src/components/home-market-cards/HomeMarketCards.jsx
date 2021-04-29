@@ -1,14 +1,14 @@
-import React from "react";
-import { useSelector, useDispatch } from "utils/react-redux-hooks";
-import Slider from "react-slick";
+import React from 'react';
+import { useSelector, useDispatch } from 'utils/react-redux-hooks';
+import Slider from 'react-slick';
 
-import { setMarketDetail, fetchRating } from "redux/actions/chart";
+import { setMarketDetail, fetchRating } from 'redux/actions/chart';
 
-import MarketCardsChart from "components/market-cards-chart/MarketCardsChart";
-import { MarketCards, Placeholder } from "./HomeMarketCards.styles";
+import MarketCardsChart from 'components/market-cards-chart/MarketCardsChart';
+import { MarketCards, Placeholder } from './HomeMarketCards.styles';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const HomeMarketCards = () => {
   const { forex, homeChartData } = useSelector((state) => state.chart);
@@ -20,7 +20,7 @@ const HomeMarketCards = () => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 8000,
-    cssEase: "linear",
+    cssEase: 'linear',
     responsive: [
       {
         breakpoint: 1024,
@@ -48,39 +48,41 @@ const HomeMarketCards = () => {
 
   return (
     <Slider {...settings}>
-      {forex.map((data, index) => (
-        <div key={index}>
-          <MarketCards
-            to={`/details/${data.symbol.toLowerCase()}`}
-            percentage={data.changesPercentage}
-            onClick={() => {
-              dispatch(setMarketDetail(data));
-              dispatch(fetchRating(data.symbol));
-            }}
-          >
-            <div>
-              <h1>{data.symbol.split("^").join("")}</h1>
-              <h1
-                style={{
-                  fontWeight: "normal",
-                  fontSize: "var(--size-sub-menu)",
+      {forex.length > 5
+        ? forex.map((data, index) => (
+            <div key={index}>
+              <MarketCards
+                to={`/details/${data.symbol.toLowerCase()}`}
+                percentage={data.changesPercentage}
+                onClick={() => {
+                  dispatch(setMarketDetail(data));
+                  dispatch(fetchRating(data.symbol));
                 }}
               >
-                $ {data.price.toFixed(2)}
-              </h1>
-              <h2> {data.changesPercentage}%</h2>
-            </div>
+                <div>
+                  <h1>{data.symbol.split('^').join('')}</h1>
+                  <h1
+                    style={{
+                      fontWeight: 'normal',
+                      fontSize: 'var(--size-sub-menu)',
+                    }}
+                  >
+                    $ {data.price.toFixed(2)}
+                  </h1>
+                  <h2> {data.changesPercentage}%</h2>
+                </div>
 
-            {homeChartData.length > 5 ? (
-              <MarketCardsChart index={index} />
-            ) : (
-              // I added div here for first chart to wait for homeChartData
-              // Second, so that chart wouldnt glitch
-              <Placeholder />
-            )}
-          </MarketCards>
-        </div>
-      ))}
+                {homeChartData.length > 5 ? (
+                  <MarketCardsChart index={index} />
+                ) : (
+                  // I added div here for first chart to wait for homeChartData
+                  // Second, so that chart wouldn't glitch
+                  <Placeholder />
+                )}
+              </MarketCards>
+            </div>
+          ))
+        : null}
     </Slider>
   );
 };

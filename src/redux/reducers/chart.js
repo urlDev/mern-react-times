@@ -1,15 +1,15 @@
-import * as ChartActions from "redux/actions/chart";
+import * as ChartActions from 'redux/actions/chart';
 
 const initialState = {
   loadingChart: false,
   forex: [],
   errorChart: null,
   // Indexes (market type index's symbols) are first to load.
-  marketType: "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE",
-  marketName: "Indexes",
+  marketType: '%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE',
+  marketName: 'Indexes',
   marketDetail: {},
   chartData: [],
-  chartTimeFrame: "1hour",
+  chartTimeFrame: '1hour',
   rating: [],
   homeChartData: [],
   searchResults: [],
@@ -21,7 +21,7 @@ const chartReducer = (state = initialState, action) => {
     case ChartActions.FETCH_FOREX_SUCCESS:
       return {
         ...state,
-        forex: action.payload,
+        forex: action.payload.flat(),
       };
     case ChartActions.FETCH_CHART_ERROR:
       return {

@@ -1,24 +1,24 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const FETCH_FOREX_SUCCESS = "FETCH_FOREX_SUCCESS";
-export const FETCH_CHART_ERROR = "FETCH_CHART_ERROR";
-export const SET_LOADING = "SET_LOADING";
-export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
-export const CHANGE_MARKET_TYPE = "CHANGE_MARKET_TYPE";
-export const CHANGE_MARKET_NAME = "CHANGE_MARKET_NAME";
-export const SET_MARKET_DETAIL = "SET_MARKET_DETAIL";
-export const SET_CHART_DATA = "SET_CHART_DATA";
-export const CLEAN_CHART_DATA = "CLEAN_CHART_DATA";
-export const SET_CHART_TIME_FRAME = "SET_CHART_TIME_FRAME";
-export const SET_RATING = "SET_RATING";
-export const SET_HOME_CHART_DATA = "SET_HOME_CHART_DATA";
-export const CLEAN_STATE = "CLEAN_STATE";
-export const GET_SEARCH_RESULTS = "GET_SEARCH_RESULTS";
-export const SET_SEARCH_MARKET_DETAIL = "SET_SEARCH_MARKET_DETAIL";
-export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS";
-export const OPEN_SEARCH_MODAL = "OPEN_SEARCH_MODAL";
-export const CLOSE_SEARCH_MODAL = "CLOSE_SEARCH_MODAL";
-export const TOGGLE_SEARCH_MODAL = "TOGGLE_SEARCH_MODAL";
+export const FETCH_FOREX_SUCCESS = 'FETCH_FOREX_SUCCESS';
+export const FETCH_CHART_ERROR = 'FETCH_CHART_ERROR';
+export const SET_LOADING = 'SET_LOADING';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
+export const CHANGE_MARKET_TYPE = 'CHANGE_MARKET_TYPE';
+export const CHANGE_MARKET_NAME = 'CHANGE_MARKET_NAME';
+export const SET_MARKET_DETAIL = 'SET_MARKET_DETAIL';
+export const SET_CHART_DATA = 'SET_CHART_DATA';
+export const CLEAN_CHART_DATA = 'CLEAN_CHART_DATA';
+export const SET_CHART_TIME_FRAME = 'SET_CHART_TIME_FRAME';
+export const SET_RATING = 'SET_RATING';
+export const SET_HOME_CHART_DATA = 'SET_HOME_CHART_DATA';
+export const CLEAN_STATE = 'CLEAN_STATE';
+export const GET_SEARCH_RESULTS = 'GET_SEARCH_RESULTS';
+export const SET_SEARCH_MARKET_DETAIL = 'SET_SEARCH_MARKET_DETAIL';
+export const CLEAR_SEARCH_RESULTS = 'CLEAR_SEARCH_RESULTS';
+export const OPEN_SEARCH_MODAL = 'OPEN_SEARCH_MODAL';
+export const CLOSE_SEARCH_MODAL = 'CLOSE_SEARCH_MODAL';
+export const TOGGLE_SEARCH_MODAL = 'TOGGLE_SEARCH_MODAL';
 
 export const toggleSearchModal = () => ({
   type: TOGGLE_SEARCH_MODAL,
@@ -107,22 +107,22 @@ export const fetchChartError = (error) => ({
   payload: error,
 });
 
-export const fetchForex = (market) => async (dispatch) => {
+export const fetchForex = (markets) => async (dispatch) => {
+  const marketArray = markets.split(',').sort();
+  let forexList = [];
+
+  // FMP API changed its services. Before I could make a batch request
+  // for getting quites. Now they dont let free account do it.
+  // So I had to find a workaround for that with looping the free endpoint.
   try {
-    const response = await axios.get(
-      `https://financialmodelingprep.com/api/v3/quote/${market}?apikey=${process.env.REACT_APP_CHART_KEY}`
-    );
-    const data = await response.data;
-    // FinancialModel API doesn't send error if it's about limit reach.
-    // In that sense, they send an error message with 200 status. Weird.
-    // Thats why I am catching that error here and dispatching it.
-    if (data.length) {
-      return data.length === 1
-        ? [dispatch(setSearchMarketDetail(data))]
-        : [dispatch(fetchForexSuccess(data))];
-    } else {
-      return dispatch(fetchChartError(data));
+    for (let market of marketArray) {
+      const response = await axios.get(
+        `https://financialmodelingprep.com/api/v3/quote/${market}?apikey=${process.env.REACT_APP_CHART_KEY}`
+      );
+      const data = await response.data;
+      forexList.push(data);
     }
+    return dispatch(fetchForexSuccess(forexList));
   } catch (error) {
     return dispatch(fetchChartError(error));
   }
@@ -161,12 +161,13 @@ Plus, its so clean!
 Yet another homerun for me! 😁😎
 */
 export const fetchHomeChart = (symbols) => async (dispatch) => {
-  const symbolsArray = symbols.split(",").sort();
+  const symbolsArray = symbols.split(',').sort();
 
   let charts = [];
 
   dispatch(cleanState());
   dispatch(setLoadingTrue());
+
   try {
     for (let symbol of symbolsArray) {
       const response = await axios.get(
@@ -175,7 +176,6 @@ export const fetchHomeChart = (symbols) => async (dispatch) => {
       const data = await response.data;
       charts.push(data);
     }
-
     return [dispatch(setHomeChartData(charts)), dispatch(setLoading())];
   } catch (error) {
     return dispatch(fetchChartError(error));

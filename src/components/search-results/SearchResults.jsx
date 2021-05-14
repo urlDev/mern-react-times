@@ -1,16 +1,16 @@
-import { useSelector, useDispatch } from "utils/react-redux-hooks";
+import { useSelector, useDispatch } from 'utils/react-redux-hooks';
 
 import {
   fetchRating,
   fetchForex,
   clearSearchResults,
-} from "redux/actions/chart";
+} from 'redux/actions/chart';
 
-import { StoryTopicContainer } from "components/story-topic/StoryTopic.styles.js";
+import { StoryTopicContainer } from 'components/story-topic/StoryTopic.styles.js';
 import {
   UserFavoriteContainer,
   FavoriteCards,
-} from "components/user-favorites/UserFavorites.styles";
+} from 'components/user-favorites/UserFavorites.styles';
 
 const SearchResults = () => {
   const { searchResults } = useSelector((state) => state.chart);
@@ -19,13 +19,13 @@ const SearchResults = () => {
   return (
     <section
       style={{
-        margin: "0 15px",
-        position: "relative",
-        minHeight: "calc(100vh - 153px - 87px)",
+        margin: '0 15px',
+        position: 'relative',
+        minHeight: 'calc(100vh - 153px - 87px)',
       }}
     >
       <StoryTopicContainer>
-        <h1 style={{ marginTop: "25px" }}>Search Results</h1>
+        <h1 style={{ marginTop: '25px' }}>Search Results</h1>
       </StoryTopicContainer>
       <UserFavoriteContainer>
         {searchResults.length ? (
@@ -33,9 +33,9 @@ const SearchResults = () => {
             return (
               <div
                 style={{
-                  display: "flex",
-                  border: "1px solid black",
-                  padding: "10px 15px",
+                  display: 'flex',
+                  border: '1px solid black',
+                  padding: '10px 15px',
                 }}
                 key={stock.symbol}
               >
@@ -47,12 +47,12 @@ const SearchResults = () => {
                     dispatch(clearSearchResults());
                   }}
                 >
-                  <h1>{stock.symbol.split("^").join("")}</h1>
+                  <h1>{stock.symbol.split('^').join('')}</h1>
 
                   <h1
                     style={{
-                      fontWeight: "normal",
-                      fontSize: "var(--size-sub-menu)",
+                      fontWeight: 'normal',
+                      fontSize: 'var(--size-sub-menu)',
                     }}
                   >
                     {stock.exchangeShortName}

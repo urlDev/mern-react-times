@@ -110,9 +110,8 @@ export const fetchChartError = (error) => ({
 export const fetchForex = (markets) => async (dispatch) => {
   const marketArray = markets.split(',').sort();
   let forexList = [];
-
   // FMP API changed its services. Before I could make a batch request
-  // for getting quites. Now they dont let free account do it.
+  // for getting quotes. Now they don't let free account do it.
   // So I had to find a workaround for that with looping the free endpoint.
   try {
     for (let market of marketArray) {
@@ -122,7 +121,12 @@ export const fetchForex = (markets) => async (dispatch) => {
       const data = await response.data;
       forexList.push(data);
     }
-    return dispatch(fetchForexSuccess(forexList));
+
+    return [
+      forexList.length === 1
+        ? dispatch(setMarketDetail(forexList.flat()[0]))
+        : dispatch(fetchForexSuccess(forexList)),
+    ];
   } catch (error) {
     return dispatch(fetchChartError(error));
   }

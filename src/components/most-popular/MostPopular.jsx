@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector } from 'utils/react-redux-hooks';
+import React from "react";
+import { useSelector } from "utils/react-redux-hooks";
 
-import NewsPlaceholder from 'assets/newsPlaceholder.png';
+import NewsPlaceholder from "assets/newsPlaceholder.png";
 
 import {
   MostPopularContainer,
@@ -12,7 +12,7 @@ import {
   ImageContainer,
   SeeAll,
   MostPopularWithHeader,
-} from './MostPopular.styles';
+} from "./MostPopular.styles";
 
 const MostPopular = () => {
   const { popular, width } = useSelector((state) => state.news);
@@ -35,23 +35,22 @@ const MostPopular = () => {
                 <StoryContainer>
                   <StoryTitle font="var(--font-header)">
                     {width > 830
-                      ? story.title.split(' ').slice(0, 6).join(' ')
+                      ? story.title.split(" ").slice(0, 6).join(" ")
                       : story.title}
                     ...
                   </StoryTitle>
                   <StoryTitle color="var(--gray)">
                     {width > 830
-                      ? story.abstract.split(' ').slice(0, 10).join(' ')
+                      ? story.abstract.split(" ").slice(0, 10).join(" ")
                       : story.abstract}
                     ...
                   </StoryTitle>
                 </StoryContainer>
                 <ImageContainer
                   background={
-                    (console.log(story.media[0]),
                     story.media[0]
-                      ? story.media[0]['media-metadata'][2].url
-                      : NewsPlaceholder)
+                      ? story.media[0]["media-metadata"][2].url
+                      : NewsPlaceholder
                   }
                 />
               </PopularStoriesContainer>

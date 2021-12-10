@@ -264,6 +264,11 @@ exports[`Testing TopStories component Should match snapshot 1`] = `
             <img
               alt="story"
               src="https://static01.nyt.com/images/2020/12/19/us/covid-thanksgiving-effect-promo-1608423451574/covid-thanksgiving-effect-promo-1608423451574-thumbLarge.jpg"
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
             />
             <styled.div>
               <div

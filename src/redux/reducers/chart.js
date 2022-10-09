@@ -5,8 +5,8 @@ const initialState = {
   forex: [],
   errorChart: null,
   // Indexes (market type index's symbols) are first to load.
-  marketType: '%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE',
-  marketName: 'Indexes',
+  marketType: 'AAPL,FB,GOOG,TSLA,NFLX,AMZN',
+  marketName: 'Stocks',
   marketDetail: {},
   chartData: [],
   chartTimeFrame: '1hour',

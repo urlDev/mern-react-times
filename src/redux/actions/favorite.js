@@ -1,16 +1,15 @@
-import axios from "axios";
-import toaster from "toasted-notes";
+import axios from 'axios';
+import toaster from 'toasted-notes';
 
-import NotificationComponent from "../../components/notification-component/NotificationComponent";
+import NotificationComponent from '../../components/notification-component/NotificationComponent';
 
-const url = "https://urldev-mern-react-times-api.herokuapp.com";
-// const url = `http://localhost:3000`;
+const url = process.env.REACT_APP_API_URL;
 
-export const GET_FAVORITE = "GET_FAVORITE";
-export const ADD_FAVORITE = "ADD_FAVORITE";
-export const DELETE_FAVORITE = "DELETE_FAVORITE";
-export const FETCH_FAVORITE_ERROR = "FETCH_FAVORITE_ERROR";
-export const CLEAN_FAVORITE_STATE = "CLEAN_FAVORITE_STATE";
+export const GET_FAVORITE = 'GET_FAVORITE';
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const DELETE_FAVORITE = 'DELETE_FAVORITE';
+export const FETCH_FAVORITE_ERROR = 'FETCH_FAVORITE_ERROR';
+export const CLEAN_FAVORITE_STATE = 'CLEAN_FAVORITE_STATE';
 
 export const getFavorite = (stock) => ({
   type: GET_FAVORITE,
@@ -37,7 +36,7 @@ export const cleanFavoriteState = () => ({
 });
 
 export const fetchGetFavorites = () => async (dispatch) => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem('token'));
 
   const config = {
     headers: { Authorization: `Bearer ${token}` },
@@ -56,7 +55,7 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
     symbol: stock,
   };
 
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem('token'));
 
   const config = {
     headers: { Authorization: `Bearer ${token}` },
@@ -72,8 +71,8 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
           <NotificationComponent
             success={true}
             text={`You added ${data.symbol[0].name
-              .split("^")
-              .join("")} to your favorites successfully.`}
+              .split('^')
+              .join('')} to your favorites successfully.`}
           />
         ),
         { duration: 1500 }
@@ -96,7 +95,7 @@ export const fetchAddFavorites = (stock) => async (dispatch) => {
 };
 
 export const fetchDeleteFavorite = (id) => async (dispatch) => {
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem('token'));
 
   const config = {
     headers: { Authorization: `Bearer ${token}` },
@@ -111,8 +110,8 @@ export const fetchDeleteFavorite = (id) => async (dispatch) => {
           <NotificationComponent
             success={true}
             text={`You deleted ${data.symbol[0].name
-              .split("^")
-              .join("")} from your favorites.`}
+              .split('^')
+              .join('')} from your favorites.`}
           />
         ),
         { duration: 1500 }

@@ -62,7 +62,7 @@ exports[`Testing MarketComponents component Testing component for when user clic
                   onClick={[Function]}
                   type="button"
                 >
-                  Indexes
+                  Stocks
                 </button>
               </styled.button>
               <styled.button
@@ -94,22 +94,8 @@ exports[`Testing MarketComponents component Testing component for when user clic
                 </button>
               </styled.button>
               <styled.button
-                active={false}
-                key="3"
-                onClick={[Function]}
-                type="button"
-              >
-                <button
-                  className="sc-iBPRYJ kioNSb"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Stocks
-                </button>
-              </styled.button>
-              <styled.button
                 active={true}
-                key="4"
+                key="3"
                 onClick={[Function]}
                 type="button"
               >
@@ -258,7 +244,7 @@ exports[`Testing MarketComponents component Testing component for when user clic
                         onMouseLeave={[Function]}
                         onMouseOver={[Function]}
                         rtl={false}
-                        slideCount={1}
+                        slideCount={0}
                         slideHeight={0}
                         slideWidth={0}
                         slidesToScroll={1}
@@ -295,175 +281,7 @@ exports[`Testing MarketComponents component Testing component for when user clic
                               "transition": "",
                             }
                           }
-                        >
-                          <div
-                            aria-hidden={false}
-                            className="slick-slide slick-active slick-current"
-                            data-index={0}
-                            key="original0"
-                            onClick={[Function]}
-                            style={
-                              Object {
-                                "outline": "none",
-                                "width": 0,
-                              }
-                            }
-                            tabIndex="-1"
-                          >
-                            <div
-                              key="0"
-                            >
-                              <div
-                                key="0"
-                                style={
-                                  Object {
-                                    "display": "inline-block",
-                                    "width": "100%",
-                                  }
-                                }
-                                tabIndex={-1}
-                              >
-                                <Styled(Link)
-                                  onClick={[Function]}
-                                  percentage={-0.41}
-                                  to="/details/^dji"
-                                >
-                                  <Link
-                                    className="sc-dlfnbm rFUqZ"
-                                    onClick={[Function]}
-                                    percentage={-0.41}
-                                    to="/details/^dji"
-                                  >
-                                    <LinkAnchor
-                                      className="sc-dlfnbm rFUqZ"
-                                      href="/details/^dji"
-                                      navigate={[Function]}
-                                      onClick={[Function]}
-                                      percentage={-0.41}
-                                    >
-                                      <a
-                                        className="sc-dlfnbm rFUqZ"
-                                        href="/details/^dji"
-                                        onClick={[Function]}
-                                        percentage={-0.41}
-                                      >
-                                        <div>
-                                          <h1>
-                                            DJI
-                                          </h1>
-                                          <h1
-                                            style={
-                                              Object {
-                                                "fontSize": "var(--size-sub-menu)",
-                                                "fontWeight": "normal",
-                                              }
-                                            }
-                                          >
-                                            $ 
-                                            30179.05
-                                          </h1>
-                                          <h2>
-                                             
-                                            -0.41
-                                            %
-                                          </h2>
-                                        </div>
-                                        <styled.div>
-                                          <div
-                                            className="sc-hKgILt jGBKkF"
-                                          />
-                                        </styled.div>
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </Styled(Link)>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            aria-hidden={false}
-                            className="slick-slide slick-active slick-cloned"
-                            data-index={1}
-                            key="postcloned0"
-                            onClick={[Function]}
-                            style={
-                              Object {
-                                "width": 0,
-                              }
-                            }
-                            tabIndex="-1"
-                          >
-                            <div
-                              key="0"
-                            >
-                              <div
-                                key="0"
-                                style={
-                                  Object {
-                                    "display": "inline-block",
-                                    "width": "100%",
-                                  }
-                                }
-                                tabIndex={-1}
-                              >
-                                <Styled(Link)
-                                  onClick={[Function]}
-                                  percentage={-0.41}
-                                  to="/details/^dji"
-                                >
-                                  <Link
-                                    className="sc-dlfnbm rFUqZ"
-                                    onClick={[Function]}
-                                    percentage={-0.41}
-                                    to="/details/^dji"
-                                  >
-                                    <LinkAnchor
-                                      className="sc-dlfnbm rFUqZ"
-                                      href="/details/^dji"
-                                      navigate={[Function]}
-                                      onClick={[Function]}
-                                      percentage={-0.41}
-                                    >
-                                      <a
-                                        className="sc-dlfnbm rFUqZ"
-                                        href="/details/^dji"
-                                        onClick={[Function]}
-                                        percentage={-0.41}
-                                      >
-                                        <div>
-                                          <h1>
-                                            DJI
-                                          </h1>
-                                          <h1
-                                            style={
-                                              Object {
-                                                "fontSize": "var(--size-sub-menu)",
-                                                "fontWeight": "normal",
-                                              }
-                                            }
-                                          >
-                                            $ 
-                                            30179.05
-                                          </h1>
-                                          <h2>
-                                             
-                                            -0.41
-                                            %
-                                          </h2>
-                                        </div>
-                                        <styled.div>
-                                          <div
-                                            className="sc-hKgILt jGBKkF"
-                                          />
-                                        </styled.div>
-                                      </a>
-                                    </LinkAnchor>
-                                  </Link>
-                                </Styled(Link)>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        />
                       </Track>
                     </div>
                   </div>
@@ -490,7 +308,7 @@ exports[`Testing MarketComponents component Testing component with loading compo
       onClick={[Function]}
       type="button"
     >
-      Indexes
+      Stocks
     </styled.button>
     <styled.button
       active={false}
@@ -511,14 +329,6 @@ exports[`Testing MarketComponents component Testing component with loading compo
     <styled.button
       active={false}
       key="3"
-      onClick={[Function]}
-      type="button"
-    >
-      Stocks
-    </styled.button>
-    <styled.button
-      active={false}
-      key="4"
       onClick={[Function]}
       type="button"
     >
@@ -541,7 +351,7 @@ exports[`Testing MarketComponents component Testing component without loading co
       onClick={[Function]}
       type="button"
     >
-      Indexes
+      Stocks
     </styled.button>
     <styled.button
       active={false}
@@ -562,14 +372,6 @@ exports[`Testing MarketComponents component Testing component without loading co
     <styled.button
       active={false}
       key="3"
-      onClick={[Function]}
-      type="button"
-    >
-      Stocks
-    </styled.button>
-    <styled.button
-      active={false}
-      key="4"
       onClick={[Function]}
       type="button"
     >

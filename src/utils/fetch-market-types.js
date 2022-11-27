@@ -1,4 +1,4 @@
-import { changeMarketType, changeMarketName } from "../redux/actions/chart";
+import { changeMarketType, changeMarketName } from '../redux/actions/chart';
 
 const fetchMarketTypes = (dispatch, market) => {
   //  One api endpoint can be used for all market quotes
@@ -10,40 +10,34 @@ const fetchMarketTypes = (dispatch, market) => {
   //  So with all this, I can use one fetch function for all market kinds,
   //  Therefore, less fetch calls, less code.
   //  More comments as it seems😁
-  const Indexes = "%5EGSPC,%5ERUA,%5EDJI,%5ENDX,%5EN225,%5EFTSE";
-  const Crypto = "BTCUSD,LTCUSD,XLMUSD,BCNUSD,ETHUSD,ETCUSD";
-  const Forex = "EURUSD,USDJPY,GBPUSD,EURGBP,EURJPY,GBPJPY";
-  const Stocks = "AAPL,FB,GOOG,TSLA,NFLX,AMZN";
-  const Commodities = "ZGUSD,CLUSD,HGUSD,SIUSD,PLUSD,BZUSD";
+  const Crypto = 'BTCUSD,LTCUSD,XLMUSD,BCNUSD,ETHUSD,ETCUSD';
+  const Forex = 'EURUSD,USDJPY,GBPUSD,EURGBP,EURJPY,GBPJPY';
+  const Stocks = 'AAPL,FB,GOOG,TSLA,NFLX,AMZN';
+  const Commodities = 'ZGUSD,CLUSD,HGUSD,SIUSD,PLUSD,BZUSD';
 
   switch (market) {
-    case "Indexes":
-      return [
-        dispatch(changeMarketType(Indexes)),
-        dispatch(changeMarketName("Indexes")),
-      ];
-    case "Crypto":
+    case 'Crypto':
       return [
         dispatch(changeMarketType(Crypto)),
-        dispatch(changeMarketName("Crypto")),
+        dispatch(changeMarketName('Crypto')),
       ];
-    case "Forex":
+    case 'Forex':
       return [
         dispatch(changeMarketType(Forex)),
-        dispatch(changeMarketName("Forex")),
+        dispatch(changeMarketName('Forex')),
       ];
-    case "Stocks":
+    case 'Stocks':
       return [
         dispatch(changeMarketType(Stocks)),
-        dispatch(changeMarketName("Stocks")),
+        dispatch(changeMarketName('Stocks')),
       ];
-    case "Commodities":
+    case 'Commodities':
       return [
         dispatch(changeMarketType(Commodities)),
-        dispatch(changeMarketName("Commodities")),
+        dispatch(changeMarketName('Commodities')),
       ];
     default:
-      return Indexes;
+      return Stocks;
   }
 };
 

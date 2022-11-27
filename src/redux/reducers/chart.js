@@ -5,8 +5,8 @@ const initialState = {
   forex: [],
   errorChart: null,
   // Indexes (market type index's symbols) are first to load.
-  marketType: 'AAPL,FB,GOOG,TSLA,NFLX,AMZN',
-  marketName: 'Stocks',
+  marketType: 'BTCUSD,LTCUSD,XLMUSD,BCNUSD,ETHUSD,ETCUSD',
+  marketName: 'Crypto',
   marketDetail: {},
   chartData: [],
   chartTimeFrame: '1hour',

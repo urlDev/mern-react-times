@@ -40,3 +40,20 @@ After 309 tests, app has 92% line coverage.
   <img src="https://i.paste.pics/b12e46504282e9d9b4926e0973310563.png" width="32.5%" alt='user favorites page' /> 
   <img src="https://i.paste.pics/ee9714ddf3d385495e45321f15351189.png" width="32.5%" alt='login register page' />
 </p>
+
+## Environment Variables
+
+**NEWS_API_KEY**: News API key is from NewYorkTimes API, more information about how to get started with their API can be found in their [documentation](https://developer.nytimes.com/get-started).
+
+**CHART_KEY**: Chart key is from [financialModelingPrep API](https://site.financialmodelingprep.com/developer/docs/).
+
+**API_URL**: URL for the API I created for the [project](https://github.com/urlDev/mern-react-times-api) (e.g. to help users login, save symbols). Because of the hosting issues with Heroku, I decided to host my APIs in `fly.io` and make the URL as a variable for future inconveniences.
+
+## Scripts
+
+- `npm run start` to start the app,
+- `npm run test` or `npm t` to run tests in watch mode,
+- `npm run build` to build the app,
+- `npm run cover` to run test coverage,
+- `npm run eject` to eject the app.
+

@@ -17,7 +17,7 @@ import {
 } from './MarketComponents.styles';
 
 // First, I made market types array, the ones that I want to show in home page
-export const marketTypes = ['Stocks', 'Crypto', 'Forex', 'Commodities'];
+export const marketTypes = ['Crypto', 'Forex', 'Commodities', 'Stocks'];
 
 const MarketComponents = () => {
   const { loadingChart, marketType, marketName } = useSelector(

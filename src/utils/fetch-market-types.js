@@ -37,7 +37,7 @@ const fetchMarketTypes = (dispatch, market) => {
         dispatch(changeMarketName('Commodities')),
       ];
     default:
-      return Stocks;
+      return Crypto;
   }
 };
 

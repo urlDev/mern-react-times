@@ -48,7 +48,7 @@ const HomeMarketCards = () => {
 
   return (
     <Slider {...settings}>
-      {forex.length > 5
+      {forex.length > 4
         ? forex.map((data, index) => (
             <div key={index}>
               <MarketCards

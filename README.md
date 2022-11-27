@@ -51,9 +51,9 @@ After 309 tests, app has 92% line coverage.
 
 ## Scripts
 
-`npm run start` to start the app,
-`npm run test` or `npm t` to run tests in watch mode,
-`npm run build` to build the app,
-`npm run cover` to run test coverage,
-`npm run eject` to eject the app.
+- `npm run start` to start the app,
+- `npm run test` or `npm t` to run tests in watch mode,
+- `npm run build` to build the app,
+- `npm run cover` to run test coverage,
+- `npm run eject` to eject the app.
 
